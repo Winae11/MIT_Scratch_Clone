@@ -1,7 +1,7 @@
 # Scratch CLone 
 This project is a clone of MIT Scratch built using React and Tailwind CSS. It features motion animations, sprite management, drag-and-drop block functionality, and a dynamic Hero Feature that swaps animations when characters collide, enhancing interactivity.
 
-git repo- https://github.com/Winae11/Scratch-Clone-Juspay
+git repo- [https://github.com/Winae11/Scratch-Clone-Juspay](https://github.com/Winae11/MIT_Scratch_Clone)
 
 - Run `npm i` to install dependencies
 - Run `npm start` and open http://localhost:3000 to see the app
