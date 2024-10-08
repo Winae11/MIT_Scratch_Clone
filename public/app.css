@@ -203,6 +203,7 @@ Correct the inability to style clickable types in iOS and Safari.
 button,
 [type='button'] {
   -webkit-appearance: button;
+  appearance: button;
 }
 
 /**
@@ -254,9 +255,11 @@ Correct the cursor style of increment and decrement buttons in Safari.
 */
 
 [type='search'] {
-  -webkit-appearance: textfield; /* 1 */
-  outline-offset: -2px; /* 2 */
+  -webkit-appearance: textfield;
+  appearance: textfield; /* Add the standard property for cross-browser compatibility */
+  outline-offset: -2px;
 }
+
 
 /**
 Remove the inner padding in Chrome and Safari on macOS.
@@ -518,8 +521,8 @@ audio,
 iframe,
 embed,
 object {
-  display: block; /* 1 */
-  vertical-align: middle; /* 2 */
+  display: inline-block;
+  vertical-align: middle;
 }
 
 /**
