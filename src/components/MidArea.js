@@ -1,12 +1,63 @@
-import { Button, Paper } from '@material-ui/core';
-import { AddCircleOutline, PlayArrowOutlined } from '@material-ui/icons';
-import React, {useState} from 'react';
+import { Button, Paper, Dialog, DialogContent, DialogActions, TextField, Checkbox, FormControlLabel, IconButton } from '@material-ui/core';
+import { AddCircleOutline, PlayArrowOutlined, Close, Delete } from '@material-ui/icons';
+import React, {useState, useEffect} from 'react';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { renderSideBarComponentBasedOnType } from '../helpers/index.helper';
 import { addANewBlock } from '../redux/sprites.slice';
 import { CollisionHandler } from '../helpers/collision-handler';
+import { makeStyles } from '@material-ui/core/styles';
+import MakeABlock from './MakeABlock';
+
+const useStyles = makeStyles({
+  dialog: {
+    '& .MuiDialog-paper': {
+      width: '400px',
+      maxWidth: '400px',
+    },
+  },
+  dialogContent: {
+    padding: '20px',
+  },
+  dialogActions: {
+    padding: '8px 24px 16px',
+  },
+  button: {
+    textTransform: 'none',
+  },
+  pinkButton: {
+    backgroundColor: '#ff69b4',
+    color: 'white',
+    '&:hover': {
+      backgroundColor: '#ff69b4',
+    },
+  },
+  greenButton: {
+    backgroundColor: '#4CAF50',
+    color: 'white',
+    '&:hover': {
+      backgroundColor: '#4CAF50',
+    },
+  },
+  blueButton: {
+    backgroundColor: '#2196F3',
+    color: 'white',
+    '&:hover': {
+      backgroundColor: '#2196F3',
+    },
+  },
+  yellowButton: {
+    backgroundColor: '#FFC107',
+    color: 'white',
+    '&:hover': {
+      backgroundColor: '#FFC107',
+    },
+  },
+});
+
 export default function MidArea() {
+  const classes = useStyles();
+
   const dispatch = useDispatch();
 
   const blocksList = useSelector((state) => state.spriteUseCase.midAreaBlocks);
@@ -129,27 +180,66 @@ export default function MidArea() {
       handleMoveClick("sprite1",100);
     }, 3000)
   }
+
+  const [openDialog, setOpenDialog] = useState(false);
+  const [newBlockName, setNewBlockName] = useState('');
+  const [runWithoutRefresh, setRunWithoutRefresh] = useState(false);
+
+  const handleOpenDialog = () => {
+    setOpenDialog(true);
+    setNewBlockName('');
+  };
+
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+    setNewBlockName('');
+    setRunWithoutRefresh(false);
+  };
+
+  const handleNewBlockNameChange = (e) => {
+    setNewBlockName(e.target.value);
+  };
+
+  const handleAddNewBlock = () => {
+    const nextSpriteNumber = blocksList.length;
+    dispatch(addANewBlock({
+      spriteName: newBlockName || `Sprite${nextSpriteNumber}`,
+      spriteId: `sprite${nextSpriteNumber}`,
+      runWithoutRefresh,
+      isCustomBlock: true
+    }));
+    handleCloseDialog();
+  };
+
+  useEffect(() => {
+    // Load custom blocks from localStorage
+    const customBlocks = JSON.parse(localStorage.getItem('customBlocks') || '[]');
+    customBlocks.forEach(block => dispatch(addANewBlock(block)));
+  }, [dispatch]);
+
   return (
     <div className='flex-1 h-full overflow-auto p-5'>
       <CollisionHandler running={running} setRunning={setRunning}/>
       <div className='flex justify-between'>
         <div className='font-bold text-center'>Mid Area</div>
-
-        
-
-        
         <div>
-        <Button
-        variant='outlined'
-          color='primary'
-              onClick={simulateCollision}
-              className='bg-red-600 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-500 transition duration-300 ease-in-out'>
-          Collide
-        </Button>
-
-          
+          <Button
+            variant='outlined'
+            color='primary'
+            onClick={simulateCollision}
+            className='mr-2'
+          >
+            COLLIDE
+          </Button>
+          <Button
+            variant='outlined'
+            color='secondary'
+            startIcon={<AddCircleOutline />}
+            onClick={handleOpenDialog}
+          >
+            MAKE A BLOCK
+          </Button>
         </div>
-        
       </div>
 
       {/* Mid area blocks */}
@@ -159,8 +249,8 @@ export default function MidArea() {
             <div className='w-60' key={block.id}>
               <Paper elevation={3} className='p-4'>
                 <div className='w-52 border border-2 border-gray-300 p-2'>
-                  <h2 className='text-center'>{index === 0 ? 'Sprite 0' : block.spriteName}</h2>
-                  <Droppable droppableId={block.id} type ='COMPONENTS'>
+                  <h2 className='text-center'>{block.isCustomBlock ? block.spriteName : `Sprite ${index}`}</h2>
+                  <Droppable droppableId={block.id} type='COMPONENTS'>
                     {(provided) => {
                       return (
                         <ul
@@ -221,6 +311,16 @@ export default function MidArea() {
           );
         })}
       </div>
+
+      <MakeABlock 
+        open={openDialog}
+        onClose={handleCloseDialog}
+        newBlockName={newBlockName}
+        onNewBlockNameChange={handleNewBlockNameChange}
+        runWithoutRefresh={runWithoutRefresh}
+        onRunWithoutRefreshChange={(e) => setRunWithoutRefresh(e.target.checked)}
+        onAddNewBlock={handleAddNewBlock}
+      />
     </div>
   );
 }

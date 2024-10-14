@@ -1,4 +1,3 @@
-
 import { createSlice } from '@reduxjs/toolkit';
 
 const initialState = {
@@ -21,22 +20,22 @@ export const spriteSlice = createSlice({
   initialState,
   reducers: {
     // Add a new runnable block
-    addANewBlock: (state, payload) => {
-      
-      let oldBlockList = state.midAreaBlocks;
-      let newList = {
+    addANewBlock: (state, action) => {
+      let newBlock = {
         id: `midAreaBlock-${state.midAreaBlocks.length}`,
-        elements: ['MOVE_X'],
-        ...(
-          payload ? {
-            top: payload.top,
-            left: payload.left
-          } : {}
-        )
+        elements: [],
+        spriteId: action.payload.spriteId,
+        spriteName: action.payload.spriteName,
+        isCustomBlock: true,
+        category: action.payload.category || 'Custom',
+        action: action.payload.action || null,
       };
-      oldBlockList.push(newList);
-
-      state.midAreaBlocks = oldBlockList;
+      state.midAreaBlocks.push(newBlock);
+      
+      // Save to localStorage
+      const customBlocks = JSON.parse(localStorage.getItem('customBlocks') || '[]');
+      customBlocks.push(newBlock);
+      localStorage.setItem('customBlocks', JSON.stringify(customBlocks));
     },
 // Add a new runnable block
 /************************************************************************ */
@@ -44,9 +43,10 @@ addANewBlock: (state, action) => {
   let oldBlockList = state.midAreaBlocks;
   let newList = {
     id: `midAreaBlock-${state.midAreaBlocks.length}`,
-    elements: ['MOVE_X'],
+    elements: action.payload.isCustomBlock ? [] : ['MOVE_X'], // Empty for custom blocks
     spriteId: action.payload.spriteId,
     spriteName: action.payload.spriteName,
+    isCustomBlock: action.payload.isCustomBlock, // Flag to identify custom blocks
     ...(
       action.payload.pos ? {
         top: action.payload.pos.top,
