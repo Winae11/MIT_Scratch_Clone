@@ -1,12 +1,11 @@
-import { Button, Paper } from '@material-ui/core';
-import { AddCircleOutline, PlayArrowOutlined } from '@material-ui/icons';
+import { Button, Paper, Snackbar, SnackbarContent, Dialog, DialogTitle, DialogContent, DialogActions, TextField, FormControlLabel, Checkbox, IconButton } from '@material-ui/core';
+import { AddCircleOutline, PlayArrowOutlined, Close } from '@material-ui/icons';
 import React, { useState, useEffect } from 'react';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { renderSideBarComponentBasedOnType } from '../helpers/index.helper';
-import { addANewBlock } from '../redux/sprites.slice';
+import { addANewBlock, updateBlockList } from '../redux/sprites.slice';
 import { CollisionHandler } from '../helpers/collision-handler';
-import MakeABlock from './MakeABlock';
 
 export default function MidArea() {
   const dispatch = useDispatch();
@@ -19,17 +18,9 @@ export default function MidArea() {
   const [openDialog, setOpenDialog] = useState(false);
   const [newBlockName, setNewBlockName] = useState('');
   const [runWithoutRefresh, setRunWithoutRefresh] = useState(false);
+  const [errorSnackbar, setErrorSnackbar] = useState(false);
 
   // Existing functions (keep these as they are)
-  const addANewRunnableBlockContainer = () => {
-    dispatch(addANewBlock({
-      pos:{
-        top: "0",
-        left: "-100"
-      }
-    }));
-  };
-
   const fireEvent = (element, eventType) => {
     if (element && element.fireEvent) {
       element.fireEvent('on' + eventType);
@@ -134,16 +125,15 @@ export default function MidArea() {
     }, 3000)
   };
 
-  // New functions for the dialog
+  // Dialog functions
   const handleOpenDialog = () => {
     setOpenDialog(true);
     setNewBlockName('');
+    setRunWithoutRefresh(false);
   };
 
   const handleCloseDialog = () => {
     setOpenDialog(false);
-    setNewBlockName('');
-    setRunWithoutRefresh(false);
   };
 
   const handleNewBlockNameChange = (e) => {
@@ -151,14 +141,25 @@ export default function MidArea() {
   };
 
   const handleAddNewBlock = () => {
+    if (!newBlockName.trim()) {
+      setErrorSnackbar(true);
+      return;
+    }
     const nextSpriteNumber = blocksList.length;
     dispatch(addANewBlock({
-      spriteName: newBlockName || `Sprite${nextSpriteNumber}`,
+      spriteName: newBlockName,
       spriteId: `sprite${nextSpriteNumber}`,
       runWithoutRefresh,
       isCustomBlock: true
     }));
     handleCloseDialog();
+  };
+
+  const handleCloseErrorSnackbar = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setErrorSnackbar(false);
   };
 
   useEffect(() => {
@@ -257,15 +258,88 @@ export default function MidArea() {
         ))}
       </div>
 
-      <MakeABlock 
-        open={openDialog}
-        onClose={handleCloseDialog}
-        newBlockName={newBlockName}
-        onNewBlockNameChange={handleNewBlockNameChange}
-        runWithoutRefresh={runWithoutRefresh}
-        onRunWithoutRefreshChange={(e) => setRunWithoutRefresh(e.target.checked)}
-        onAddNewBlock={handleAddNewBlock}
-      />
+      {/* Make A Block Dialog */}
+      <Dialog open={openDialog} onClose={handleCloseDialog} maxWidth="sm" fullWidth>
+        <DialogTitle style={{ backgroundColor: '#9c27b0', color: 'white', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+          Make a Block
+          <IconButton edge="end" color="inherit" onClick={handleCloseDialog} aria-label="close">
+            <Close />
+          </IconButton>
+        </DialogTitle>
+        <DialogContent style={{ backgroundColor: '#e3f2fd', paddingTop: '20px' }}>
+          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
+            <Paper 
+              style={{ 
+                padding: '5px 15px', 
+                backgroundColor: 'white', 
+                borderRadius: '20px',
+                border: '2px solid #ff4081'
+              }}
+            >
+              <TextField
+                value={newBlockName}
+                onChange={handleNewBlockNameChange}
+                placeholder="my Block"
+                InputProps={{
+                  disableUnderline: true,
+                  style: { color: 'black' }
+                }}
+              />
+            </Paper>
+          </div>
+          <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '20px' }}>
+            <Button variant="contained" style={{ backgroundColor: '#ff4081', color: 'white' }}>
+              Add an input<br />number or text
+            </Button>
+            <Button variant="contained" style={{ backgroundColor: '#ff4081', color: 'white' }}>
+              Add an input<br />boolean
+            </Button>
+            <Button variant="contained" style={{ backgroundColor: '#ff4081', color: 'white' }}>
+              Add a label
+            </Button>
+          </div>
+          <FormControlLabel
+            control={
+              <Checkbox
+                checked={runWithoutRefresh}
+                onChange={(e) => setRunWithoutRefresh(e.target.checked)}
+                color="primary"
+              />
+            }
+            label="Run without screen refresh"
+          />
+        </DialogContent>
+        <DialogActions style={{ backgroundColor: '#e3f2fd', justifyContent: 'flex-end', padding: '16px' }}>
+          <Button onClick={handleCloseDialog} style={{ color: '#9c27b0' }}>
+            Cancel
+          </Button>
+          <Button 
+            onClick={handleAddNewBlock} 
+            style={{ backgroundColor: '#9c27b0', color: 'white' }}
+            disabled={!newBlockName.trim()}
+          >
+            OK
+          </Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* Error Snackbar */}
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        open={errorSnackbar}
+        autoHideDuration={6000}
+        onClose={handleCloseErrorSnackbar}
+      >
+        <SnackbarContent
+          style={{
+            backgroundColor: '#d32f2f',
+          }}
+          message="Please enter a name for the block."
+        />
+      </Snackbar>
     </div>
   );
 }
