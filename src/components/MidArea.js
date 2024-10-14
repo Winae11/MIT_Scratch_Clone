@@ -1,69 +1,26 @@
-import { Button, Paper, Dialog, DialogContent, DialogActions, TextField, Checkbox, FormControlLabel, IconButton } from '@material-ui/core';
-import { AddCircleOutline, PlayArrowOutlined, Close, Delete } from '@material-ui/icons';
-import React, {useState, useEffect} from 'react';
+import { Button, Paper } from '@material-ui/core';
+import { AddCircleOutline, PlayArrowOutlined } from '@material-ui/icons';
+import React, { useState, useEffect } from 'react';
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { renderSideBarComponentBasedOnType } from '../helpers/index.helper';
 import { addANewBlock } from '../redux/sprites.slice';
 import { CollisionHandler } from '../helpers/collision-handler';
-import { makeStyles } from '@material-ui/core/styles';
 import MakeABlock from './MakeABlock';
 
-const useStyles = makeStyles({
-  dialog: {
-    '& .MuiDialog-paper': {
-      width: '400px',
-      maxWidth: '400px',
-    },
-  },
-  dialogContent: {
-    padding: '20px',
-  },
-  dialogActions: {
-    padding: '8px 24px 16px',
-  },
-  button: {
-    textTransform: 'none',
-  },
-  pinkButton: {
-    backgroundColor: '#ff69b4',
-    color: 'white',
-    '&:hover': {
-      backgroundColor: '#ff69b4',
-    },
-  },
-  greenButton: {
-    backgroundColor: '#4CAF50',
-    color: 'white',
-    '&:hover': {
-      backgroundColor: '#4CAF50',
-    },
-  },
-  blueButton: {
-    backgroundColor: '#2196F3',
-    color: 'white',
-    '&:hover': {
-      backgroundColor: '#2196F3',
-    },
-  },
-  yellowButton: {
-    backgroundColor: '#FFC107',
-    color: 'white',
-    '&:hover': {
-      backgroundColor: '#FFC107',
-    },
-  },
-});
-
 export default function MidArea() {
-  const classes = useStyles();
-
   const dispatch = useDispatch();
 
   const blocksList = useSelector((state) => state.spriteUseCase.midAreaBlocks);
   const waitList = useSelector((state) => state.spriteUseCase.wait);
   const repeatList = useSelector((state) => state.spriteUseCase.repeat);
 
+  const [running, setRunning] = useState([]);
+  const [openDialog, setOpenDialog] = useState(false);
+  const [newBlockName, setNewBlockName] = useState('');
+  const [runWithoutRefresh, setRunWithoutRefresh] = useState(false);
+
+  // Existing functions (keep these as they are)
   const addANewRunnableBlockContainer = () => {
     dispatch(addANewBlock({
       pos:{
@@ -83,9 +40,7 @@ export default function MidArea() {
     }
   };
 
-  // Handle Running the list
   const handleBlockRun = (arr, id) => {
-
     if (arr.length === 0) return;
     let i = 0;
 
@@ -149,14 +104,12 @@ export default function MidArea() {
     // }
   };
 
-  const [running, setRunning] = useState([]);
-  
   const handleCollisionChecker = (spriteId) => {
-      setRunning(prev => [...prev, spriteId]);
-      setInterval(()=>{
-        const removeFromPrev = running.filter(sprite=> sprite.spriteId != spriteId);
-        setRunning(removeFromPrev);
-      }, 2000)
+    setRunning(prev => [...prev, spriteId]);
+    setInterval(()=>{
+      const removeFromPrev = running.filter(sprite=> sprite.spriteId != spriteId);
+      setRunning(removeFromPrev);
+    }, 2000)
   };
 
   const handleMoveClick = (spriteId, steps) => {
@@ -179,12 +132,9 @@ export default function MidArea() {
       handleMoveClick("sprite0",100);
       handleMoveClick("sprite1",100);
     }, 3000)
-  }
+  };
 
-  const [openDialog, setOpenDialog] = useState(false);
-  const [newBlockName, setNewBlockName] = useState('');
-  const [runWithoutRefresh, setRunWithoutRefresh] = useState(false);
-
+  // New functions for the dialog
   const handleOpenDialog = () => {
     setOpenDialog(true);
     setNewBlockName('');
@@ -244,72 +194,67 @@ export default function MidArea() {
 
       {/* Mid area blocks */}
       <div className='flex flex-wrap gap-2.5'>
-        {blocksList?.map((block, index) => {
-          return (
-            <div className='w-60' key={block.id}>
-              <Paper elevation={3} className='p-4'>
-                <div className='w-52 border border-2 border-gray-300 p-2'>
-                  <h2 className='text-center'>{block.isCustomBlock ? block.spriteName : `Sprite ${index}`}</h2>
-                  <Droppable droppableId={block.id} type='COMPONENTS'>
-                    {(provided) => {
-                      return (
-                        <ul
-                          className={`${block.id} w-48 h-full`}
-                          {...provided.droppableProps}
-                          ref={provided.innerRef}
+        {blocksList?.map((block, index) => (
+          <div className='w-60' key={block.id}>
+            <Paper elevation={3} className='p-4'>
+              <div className='w-52 border border-2 border-gray-300 p-2'>
+                <h2 className='text-center'>{block.isCustomBlock ? block.spriteName : `Sprite ${index}`}</h2>
+                <Droppable droppableId={block.id} type='COMPONENTS'>
+                  {(provided) => (
+                    <ul
+                      className={`${block.id} w-48 h-full`}
+                      {...provided.droppableProps}
+                      ref={provided.innerRef}
+                    >
+                      <div className='text-center mx-auto my-2 mb-4'>
+                        <Button
+                          variant='contained'
+                          startIcon={<PlayArrowOutlined />}
+                          onClick={() => {
+                            handleBlockRun(block.elements, block.id);
+                            handleCollisionChecker(block.spriteId);
+                          }}
                         >
-                          <div className='text-center mx-auto my-2 mb-4'>
-                            <Button
-                              variant='contained'
-                              startIcon={<PlayArrowOutlined />}
-                              onClick={() =>{
-                                handleBlockRun(block.elements, block.id);
-                                handleCollisionChecker(block.spriteId);
-                              }
-                              }
+                          Run
+                        </Button>
+                      </div>
+
+                      {block.elements &&
+                        block.elements.map((x, i) => {
+                          let str = `${x}`;
+                          let componentId = `element${str}-${block.id}-${i}`;
+
+                          return (
+                            <Draggable
+                              key={`${str}-${block.id}-${i}`}
+                              draggableId={`${str}-${block.id}-${i}`}
+                              index={i}
                             >
-                              Run
-                            </Button>
-                          </div>
-
-                          {block.elements &&
-                            block.elements.map((x, i) => {
-                              let str = `${x}`;
-                              let componentId = `element${str}-${block.id}-${i}`;
-
-                              return (
-                                <Draggable
-                                  key={`${str}-${block.id}-${i}`}
-                                  draggableId={`${str}-${block.id}-${i}`}
-                                  index={i}
+                              {(provided) => (
+                                <li
+                                  ref={provided.innerRef}
+                                  {...provided.draggableProps}
+                                  {...provided.dragHandleProps}
                                 >
-                                  {(provided) => (
-                                    <li
-                                      ref={provided.innerRef}
-                                      {...provided.draggableProps}
-                                      {...provided.dragHandleProps}
-                                    >
-                                      {renderSideBarComponentBasedOnType(
-                                        str,
-                                        componentId,
-                                        block.spriteId
-                                      )}
-                                      {provided.placeholder}
-                                    </li>
+                                  {renderSideBarComponentBasedOnType(
+                                    str,
+                                    componentId,
+                                    block.spriteId
                                   )}
-                                </Draggable>
-                              );
-                            })}
-                          {provided.placeholder}
-                        </ul>
-                      );
-                    }}
-                  </Droppable>
-                </div>
-              </Paper>
-            </div>
-          );
-        })}
+                                  {provided.placeholder}
+                                </li>
+                              )}
+                            </Draggable>
+                          );
+                        })}
+                      {provided.placeholder}
+                    </ul>
+                  )}
+                </Droppable>
+              </div>
+            </Paper>
+          </div>
+        ))}
       </div>
 
       <MakeABlock 
