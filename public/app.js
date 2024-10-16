@@ -9,9 +9,10 @@
 /* harmony export */   X4: () => (/* binding */ alpha),
 /* harmony export */   a: () => (/* binding */ lighten),
 /* harmony export */   e$: () => (/* binding */ darken),
-/* harmony export */   eM: () => (/* binding */ getContrastRatio)
+/* harmony export */   eM: () => (/* binding */ getContrastRatio),
+/* harmony export */   tL: () => (/* binding */ emphasize)
 /* harmony export */ });
-/* unused harmony exports hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getLuminance, emphasize, fade */
+/* unused harmony exports hexToRgb, rgbToHex, hslToRgb, decomposeColor, recomposeColor, getLuminance, fade */
 /* harmony import */ var _material_ui_utils__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(7860);
 
 
@@ -310,7 +311,7 @@ function lighten(color, coefficient) {
 
 /***/ }),
 
-/***/ 8336:
+/***/ 7727:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -1179,81 +1180,8 @@ function createSpacing() {
   spacing.mui = true;
   return spacing;
 }
-;// ./node_modules/@material-ui/core/esm/styles/transitions.js
-
-// Follow https://material.google.com/motion/duration-easing.html#duration-easing-natural-easing-curves
-// to learn the context in which each easing should be used.
-var easing = {
-  // This is the most common easing curve.
-  easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
-  // Objects enter the screen at full velocity from off-screen and
-  // slowly decelerate to a resting point.
-  easeOut: 'cubic-bezier(0.0, 0, 0.2, 1)',
-  // Objects leave the screen at full velocity. They do not decelerate when off-screen.
-  easeIn: 'cubic-bezier(0.4, 0, 1, 1)',
-  // The sharp curve is used by objects that may return to the screen at any time.
-  sharp: 'cubic-bezier(0.4, 0, 0.6, 1)'
-}; // Follow https://material.io/guidelines/motion/duration-easing.html#duration-easing-common-durations
-// to learn when use what timing
-
-var duration = {
-  shortest: 150,
-  shorter: 200,
-  short: 250,
-  // most basic recommended timing
-  standard: 300,
-  // this is to be used in complex animations
-  complex: 375,
-  // recommended when something is entering screen
-  enteringScreen: 225,
-  // recommended when something is leaving screen
-  leavingScreen: 195
-};
-
-function formatMs(milliseconds) {
-  return "".concat(Math.round(milliseconds), "ms");
-}
-/**
- * @param {string|Array} props
- * @param {object} param
- * @param {string} param.prop
- * @param {number} param.duration
- * @param {string} param.easing
- * @param {number} param.delay
- */
-
-
-/* harmony default export */ const transitions = ({
-  easing: easing,
-  duration: duration,
-  create: function create() {
-    var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ['all'];
-    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
-
-    var _options$duration = options.duration,
-        durationOption = _options$duration === void 0 ? duration.standard : _options$duration,
-        _options$easing = options.easing,
-        easingOption = _options$easing === void 0 ? easing.easeInOut : _options$easing,
-        _options$delay = options.delay,
-        delay = _options$delay === void 0 ? 0 : _options$delay,
-        other = (0,objectWithoutProperties/* default */.A)(options, ["duration", "easing", "delay"]);
-
-    if (false) { var isNumber, isString; }
-
-    return (Array.isArray(props) ? props : [props]).map(function (animatedProp) {
-      return "".concat(animatedProp, " ").concat(typeof durationOption === 'string' ? durationOption : formatMs(durationOption), " ").concat(easingOption, " ").concat(typeof delay === 'string' ? delay : formatMs(delay));
-    }).join(',');
-  },
-  getAutoHeightDuration: function getAutoHeightDuration(height) {
-    if (!height) {
-      return 0;
-    }
-
-    var constant = height / 36; // https://www.wolframalpha.com/input/?i=(4+%2B+15+*+(x+%2F+36+)+**+0.25+%2B+(x+%2F+36)+%2F+5)+*+10
-
-    return Math.round((4 + 15 * Math.pow(constant, 0.25) + constant / 5) * 10);
-  }
-});
+// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/styles/transitions.js
+var transitions = __webpack_require__(3870);
 // EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/styles/zIndex.js
 var zIndex = __webpack_require__(9474);
 ;// ./node_modules/@material-ui/core/esm/styles/createTheme.js
@@ -1300,7 +1228,7 @@ function createTheme() {
     typography: createTypography(palette, typographyInput),
     spacing: spacing,
     shape: styles_shape,
-    transitions: transitions,
+    transitions: transitions/* default */.Ay,
     zIndex: zIndex/* default */.A
   }, other);
 
@@ -1328,6 +1256,93 @@ function createMuiTheme() {
 
 var defaultTheme = styles_createTheme();
 /* harmony default export */ const styles_defaultTheme = (defaultTheme);
+
+/***/ }),
+
+/***/ 3870:
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+"use strict";
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   Ay: () => (__WEBPACK_DEFAULT_EXPORT__),
+/* harmony export */   p0: () => (/* binding */ duration)
+/* harmony export */ });
+/* unused harmony export easing */
+/* harmony import */ var _babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(45);
+
+// Follow https://material.google.com/motion/duration-easing.html#duration-easing-natural-easing-curves
+// to learn the context in which each easing should be used.
+var easing = {
+  // This is the most common easing curve.
+  easeInOut: 'cubic-bezier(0.4, 0, 0.2, 1)',
+  // Objects enter the screen at full velocity from off-screen and
+  // slowly decelerate to a resting point.
+  easeOut: 'cubic-bezier(0.0, 0, 0.2, 1)',
+  // Objects leave the screen at full velocity. They do not decelerate when off-screen.
+  easeIn: 'cubic-bezier(0.4, 0, 1, 1)',
+  // The sharp curve is used by objects that may return to the screen at any time.
+  sharp: 'cubic-bezier(0.4, 0, 0.6, 1)'
+}; // Follow https://material.io/guidelines/motion/duration-easing.html#duration-easing-common-durations
+// to learn when use what timing
+
+var duration = {
+  shortest: 150,
+  shorter: 200,
+  short: 250,
+  // most basic recommended timing
+  standard: 300,
+  // this is to be used in complex animations
+  complex: 375,
+  // recommended when something is entering screen
+  enteringScreen: 225,
+  // recommended when something is leaving screen
+  leavingScreen: 195
+};
+
+function formatMs(milliseconds) {
+  return "".concat(Math.round(milliseconds), "ms");
+}
+/**
+ * @param {string|Array} props
+ * @param {object} param
+ * @param {string} param.prop
+ * @param {number} param.duration
+ * @param {string} param.easing
+ * @param {number} param.delay
+ */
+
+
+/* harmony default export */ const __WEBPACK_DEFAULT_EXPORT__ = ({
+  easing: easing,
+  duration: duration,
+  create: function create() {
+    var props = arguments.length > 0 && arguments[0] !== undefined ? arguments[0] : ['all'];
+    var options = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : {};
+
+    var _options$duration = options.duration,
+        durationOption = _options$duration === void 0 ? duration.standard : _options$duration,
+        _options$easing = options.easing,
+        easingOption = _options$easing === void 0 ? easing.easeInOut : _options$easing,
+        _options$delay = options.delay,
+        delay = _options$delay === void 0 ? 0 : _options$delay,
+        other = (0,_babel_runtime_helpers_esm_objectWithoutProperties__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .A)(options, ["duration", "easing", "delay"]);
+
+    if (false) { var isNumber, isString; }
+
+    return (Array.isArray(props) ? props : [props]).map(function (animatedProp) {
+      return "".concat(animatedProp, " ").concat(typeof durationOption === 'string' ? durationOption : formatMs(durationOption), " ").concat(easingOption, " ").concat(typeof delay === 'string' ? delay : formatMs(delay));
+    }).join(',');
+  },
+  getAutoHeightDuration: function getAutoHeightDuration(height) {
+    if (!height) {
+      return 0;
+    }
+
+    var constant = height / 36; // https://www.wolframalpha.com/input/?i=(4+%2B+15+*+(x+%2F+36+)+**+0.25+%2B+(x+%2F+36)+%2F+5)+*+10
+
+    return Math.round((4 + 15 * Math.pow(constant, 0.25) + constant / 5) * 10);
+  }
+});
 
 /***/ }),
 
@@ -5616,8 +5631,8 @@ var withStyles = function withStyles(stylesOrCreator) {
 };
 
 /* harmony default export */ const withStyles_withStyles = (withStyles);
-// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/styles/defaultTheme.js + 21 modules
-var defaultTheme = __webpack_require__(8336);
+// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/styles/defaultTheme.js + 20 modules
+var defaultTheme = __webpack_require__(7727);
 ;// ./node_modules/@material-ui/core/esm/styles/withStyles.js
 
 
@@ -10054,7 +10069,7 @@ function resolveBreakpointValues({
 
 /***/ }),
 
-/***/ 5955:
+/***/ 8336:
 /***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
 
 "use strict";
@@ -10292,7 +10307,7 @@ var styleFunctionSx = __webpack_require__(3571);
 // EXTERNAL MODULE: ./node_modules/@mui/system/esm/styleFunctionSx/defaultSxConfig.js + 5 modules
 var defaultSxConfig = __webpack_require__(4188);
 // EXTERNAL MODULE: ./node_modules/@mui/system/esm/createTheme/applyStyles.js
-var applyStyles = __webpack_require__(5955);
+var applyStyles = __webpack_require__(8336);
 ;// ./node_modules/@mui/system/esm/createTheme/createTheme.js
 
 
@@ -10352,7 +10367,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export */ });
 /* harmony import */ var _createTheme__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(8749);
 /* harmony import */ var _createBreakpoints__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(8094);
-/* harmony import */ var _applyStyles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(5955);
+/* harmony import */ var _applyStyles__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(8336);
 
 
 
@@ -27479,14 +27494,6853 @@ var Paper_Paper_Paper = /*#__PURE__*/react.forwardRef(function Paper(props, ref)
 /* harmony default export */ const esm_Paper_Paper = ((0,withStyles/* default */.A)(Paper_styles, {
   name: 'MuiPaper'
 })(Paper_Paper_Paper));
+// EXTERNAL MODULE: ./node_modules/@material-ui/styles/esm/useTheme/useTheme.js + 1 modules
+var useTheme = __webpack_require__(6061);
+// EXTERNAL MODULE: ./node_modules/@material-ui/styles/esm/getThemeProps/getThemeProps.js
+var getThemeProps_getThemeProps = __webpack_require__(6081);
+// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/utils/ownerDocument.js
+var ownerDocument = __webpack_require__(1475);
+// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/utils/setRef.js
+var setRef = __webpack_require__(4960);
+;// ./node_modules/@material-ui/core/esm/Portal/Portal.js
+
+
+
+
+
+
+
+
+function getContainer(container) {
+  container = typeof container === 'function' ? container() : container; // #StrictMode ready
+
+  return react_dom.findDOMNode(container);
+}
+
+var Portal_useEnhancedEffect = typeof window !== 'undefined' ? react.useLayoutEffect : react.useEffect;
+/**
+ * Portals provide a first-class way to render children into a DOM node
+ * that exists outside the DOM hierarchy of the parent component.
+ */
+
+var Portal = /*#__PURE__*/react.forwardRef(function Portal(props, ref) {
+  var children = props.children,
+      container = props.container,
+      _props$disablePortal = props.disablePortal,
+      disablePortal = _props$disablePortal === void 0 ? false : _props$disablePortal,
+      onRendered = props.onRendered;
+
+  var _React$useState = react.useState(null),
+      mountNode = _React$useState[0],
+      setMountNode = _React$useState[1];
+
+  var handleRef = (0,useForkRef/* default */.A)( /*#__PURE__*/react.isValidElement(children) ? children.ref : null, ref);
+  Portal_useEnhancedEffect(function () {
+    if (!disablePortal) {
+      setMountNode(getContainer(container) || document.body);
+    }
+  }, [container, disablePortal]);
+  Portal_useEnhancedEffect(function () {
+    if (mountNode && !disablePortal) {
+      (0,setRef/* default */.A)(ref, mountNode);
+      return function () {
+        (0,setRef/* default */.A)(ref, null);
+      };
+    }
+
+    return undefined;
+  }, [ref, mountNode, disablePortal]);
+  Portal_useEnhancedEffect(function () {
+    if (onRendered && (mountNode || disablePortal)) {
+      onRendered();
+    }
+  }, [onRendered, mountNode, disablePortal]);
+
+  if (disablePortal) {
+    if ( /*#__PURE__*/react.isValidElement(children)) {
+      return /*#__PURE__*/react.cloneElement(children, {
+        ref: handleRef
+      });
+    }
+
+    return children;
+  }
+
+  return mountNode ? /*#__PURE__*/react_dom.createPortal(children, mountNode) : mountNode;
+});
+ false ? 0 : void 0;
+
+if (false) {}
+
+/* harmony default export */ const Portal_Portal = (Portal);
+// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/utils/createChainedFunction.js
+var createChainedFunction = __webpack_require__(8521);
+// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/styles/zIndex.js
+var esm_styles_zIndex = __webpack_require__(9474);
+;// ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js
+function _classCallCheck(a, n) {
+  if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function");
+}
+
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/createClass.js
+var createClass = __webpack_require__(2901);
+;// ./node_modules/@material-ui/core/esm/utils/getScrollbarSize.js
+// A change of the browser zoom change the scrollbar size.
+// Credit https://github.com/twbs/bootstrap/blob/3ffe3a5d82f6f561b82ff78d82b32a7d14aed558/js/src/modal.js#L512-L519
+function getScrollbarSize() {
+  var scrollDiv = document.createElement('div');
+  scrollDiv.style.width = '99px';
+  scrollDiv.style.height = '99px';
+  scrollDiv.style.position = 'absolute';
+  scrollDiv.style.top = '-9999px';
+  scrollDiv.style.overflow = 'scroll';
+  document.body.appendChild(scrollDiv);
+  var scrollbarSize = scrollDiv.offsetWidth - scrollDiv.clientWidth;
+  document.body.removeChild(scrollDiv);
+  return scrollbarSize;
+}
+// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/utils/ownerWindow.js
+var ownerWindow = __webpack_require__(6182);
+;// ./node_modules/@material-ui/core/esm/Modal/ModalManager.js
+
+
+
+
+
+ // Is a vertical scrollbar displayed?
+
+function isOverflowing(container) {
+  var doc = (0,ownerDocument/* default */.A)(container);
+
+  if (doc.body === container) {
+    return (0,ownerWindow/* default */.A)(doc).innerWidth > doc.documentElement.clientWidth;
+  }
+
+  return container.scrollHeight > container.clientHeight;
+}
+
+function ariaHidden(node, show) {
+  if (show) {
+    node.setAttribute('aria-hidden', 'true');
+  } else {
+    node.removeAttribute('aria-hidden');
+  }
+}
+
+function getPaddingRight(node) {
+  return parseInt(window.getComputedStyle(node)['padding-right'], 10) || 0;
+}
+
+function ariaHiddenSiblings(container, mountNode, currentNode) {
+  var nodesToExclude = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
+  var show = arguments.length > 4 ? arguments[4] : undefined;
+  var blacklist = [mountNode, currentNode].concat((0,toConsumableArray/* default */.A)(nodesToExclude));
+  var blacklistTagNames = ['TEMPLATE', 'SCRIPT', 'STYLE'];
+  [].forEach.call(container.children, function (node) {
+    if (node.nodeType === 1 && blacklist.indexOf(node) === -1 && blacklistTagNames.indexOf(node.tagName) === -1) {
+      ariaHidden(node, show);
+    }
+  });
+}
+
+function findIndexOf(containerInfo, callback) {
+  var idx = -1;
+  containerInfo.some(function (item, index) {
+    if (callback(item)) {
+      idx = index;
+      return true;
+    }
+
+    return false;
+  });
+  return idx;
+}
+
+function handleContainer(containerInfo, props) {
+  var restoreStyle = [];
+  var restorePaddings = [];
+  var container = containerInfo.container;
+  var fixedNodes;
+
+  if (!props.disableScrollLock) {
+    if (isOverflowing(container)) {
+      // Compute the size before applying overflow hidden to avoid any scroll jumps.
+      var scrollbarSize = getScrollbarSize();
+      restoreStyle.push({
+        value: container.style.paddingRight,
+        key: 'padding-right',
+        el: container
+      }); // Use computed style, here to get the real padding to add our scrollbar width.
+
+      container.style['padding-right'] = "".concat(getPaddingRight(container) + scrollbarSize, "px"); // .mui-fixed is a global helper.
+
+      fixedNodes = (0,ownerDocument/* default */.A)(container).querySelectorAll('.mui-fixed');
+      [].forEach.call(fixedNodes, function (node) {
+        restorePaddings.push(node.style.paddingRight);
+        node.style.paddingRight = "".concat(getPaddingRight(node) + scrollbarSize, "px");
+      });
+    } // Improve Gatsby support
+    // https://css-tricks.com/snippets/css/force-vertical-scrollbar/
+
+
+    var parent = container.parentElement;
+    var scrollContainer = parent.nodeName === 'HTML' && window.getComputedStyle(parent)['overflow-y'] === 'scroll' ? parent : container; // Block the scroll even if no scrollbar is visible to account for mobile keyboard
+    // screensize shrink.
+
+    restoreStyle.push({
+      value: scrollContainer.style.overflow,
+      key: 'overflow',
+      el: scrollContainer
+    });
+    scrollContainer.style.overflow = 'hidden';
+  }
+
+  var restore = function restore() {
+    if (fixedNodes) {
+      [].forEach.call(fixedNodes, function (node, i) {
+        if (restorePaddings[i]) {
+          node.style.paddingRight = restorePaddings[i];
+        } else {
+          node.style.removeProperty('padding-right');
+        }
+      });
+    }
+
+    restoreStyle.forEach(function (_ref) {
+      var value = _ref.value,
+          el = _ref.el,
+          key = _ref.key;
+
+      if (value) {
+        el.style.setProperty(key, value);
+      } else {
+        el.style.removeProperty(key);
+      }
+    });
+  };
+
+  return restore;
+}
+
+function getHiddenSiblings(container) {
+  var hiddenSiblings = [];
+  [].forEach.call(container.children, function (node) {
+    if (node.getAttribute && node.getAttribute('aria-hidden') === 'true') {
+      hiddenSiblings.push(node);
+    }
+  });
+  return hiddenSiblings;
+}
+/**
+ * @ignore - do not document.
+ *
+ * Proper state management for containers and the modals in those containers.
+ * Simplified, but inspired by react-overlay's ModalManager class.
+ * Used by the Modal to ensure proper styling of containers.
+ */
+
+
+var ModalManager = /*#__PURE__*/function () {
+  function ModalManager() {
+    _classCallCheck(this, ModalManager);
+
+    // this.modals[modalIndex] = modal
+    this.modals = []; // this.containers[containerIndex] = {
+    //   modals: [],
+    //   container,
+    //   restore: null,
+    // }
+
+    this.containers = [];
+  }
+
+  (0,createClass/* default */.A)(ModalManager, [{
+    key: "add",
+    value: function add(modal, container) {
+      var modalIndex = this.modals.indexOf(modal);
+
+      if (modalIndex !== -1) {
+        return modalIndex;
+      }
+
+      modalIndex = this.modals.length;
+      this.modals.push(modal); // If the modal we are adding is already in the DOM.
+
+      if (modal.modalRef) {
+        ariaHidden(modal.modalRef, false);
+      }
+
+      var hiddenSiblingNodes = getHiddenSiblings(container);
+      ariaHiddenSiblings(container, modal.mountNode, modal.modalRef, hiddenSiblingNodes, true);
+      var containerIndex = findIndexOf(this.containers, function (item) {
+        return item.container === container;
+      });
+
+      if (containerIndex !== -1) {
+        this.containers[containerIndex].modals.push(modal);
+        return modalIndex;
+      }
+
+      this.containers.push({
+        modals: [modal],
+        container: container,
+        restore: null,
+        hiddenSiblingNodes: hiddenSiblingNodes
+      });
+      return modalIndex;
+    }
+  }, {
+    key: "mount",
+    value: function mount(modal, props) {
+      var containerIndex = findIndexOf(this.containers, function (item) {
+        return item.modals.indexOf(modal) !== -1;
+      });
+      var containerInfo = this.containers[containerIndex];
+
+      if (!containerInfo.restore) {
+        containerInfo.restore = handleContainer(containerInfo, props);
+      }
+    }
+  }, {
+    key: "remove",
+    value: function remove(modal) {
+      var modalIndex = this.modals.indexOf(modal);
+
+      if (modalIndex === -1) {
+        return modalIndex;
+      }
+
+      var containerIndex = findIndexOf(this.containers, function (item) {
+        return item.modals.indexOf(modal) !== -1;
+      });
+      var containerInfo = this.containers[containerIndex];
+      containerInfo.modals.splice(containerInfo.modals.indexOf(modal), 1);
+      this.modals.splice(modalIndex, 1); // If that was the last modal in a container, clean up the container.
+
+      if (containerInfo.modals.length === 0) {
+        // The modal might be closed before it had the chance to be mounted in the DOM.
+        if (containerInfo.restore) {
+          containerInfo.restore();
+        }
+
+        if (modal.modalRef) {
+          // In case the modal wasn't in the DOM yet.
+          ariaHidden(modal.modalRef, true);
+        }
+
+        ariaHiddenSiblings(containerInfo.container, modal.mountNode, modal.modalRef, containerInfo.hiddenSiblingNodes, false);
+        this.containers.splice(containerIndex, 1);
+      } else {
+        // Otherwise make sure the next top modal is visible to a screen reader.
+        var nextTop = containerInfo.modals[containerInfo.modals.length - 1]; // as soon as a modal is adding its modalRef is undefined. it can't set
+        // aria-hidden because the dom element doesn't exist either
+        // when modal was unmounted before modalRef gets null
+
+        if (nextTop.modalRef) {
+          ariaHidden(nextTop.modalRef, false);
+        }
+      }
+
+      return modalIndex;
+    }
+  }, {
+    key: "isTopModal",
+    value: function isTopModal(modal) {
+      return this.modals.length > 0 && this.modals[this.modals.length - 1] === modal;
+    }
+  }]);
+
+  return ModalManager;
+}();
+
+
+;// ./node_modules/@material-ui/core/esm/Unstable_TrapFocus/Unstable_TrapFocus.js
+/* eslint-disable consistent-return, jsx-a11y/no-noninteractive-tabindex, camelcase */
+
+
+
+
+
+
+/**
+ * Utility component that locks focus inside the component.
+ */
+
+function Unstable_TrapFocus(props) {
+  var children = props.children,
+      _props$disableAutoFoc = props.disableAutoFocus,
+      disableAutoFocus = _props$disableAutoFoc === void 0 ? false : _props$disableAutoFoc,
+      _props$disableEnforce = props.disableEnforceFocus,
+      disableEnforceFocus = _props$disableEnforce === void 0 ? false : _props$disableEnforce,
+      _props$disableRestore = props.disableRestoreFocus,
+      disableRestoreFocus = _props$disableRestore === void 0 ? false : _props$disableRestore,
+      getDoc = props.getDoc,
+      isEnabled = props.isEnabled,
+      open = props.open;
+  var ignoreNextEnforceFocus = react.useRef();
+  var sentinelStart = react.useRef(null);
+  var sentinelEnd = react.useRef(null);
+  var nodeToRestore = react.useRef();
+  var rootRef = react.useRef(null); // can be removed once we drop support for non ref forwarding class components
+
+  var handleOwnRef = react.useCallback(function (instance) {
+    // #StrictMode ready
+    rootRef.current = react_dom.findDOMNode(instance);
+  }, []);
+  var handleRef = (0,useForkRef/* default */.A)(children.ref, handleOwnRef);
+  var prevOpenRef = react.useRef();
+  react.useEffect(function () {
+    prevOpenRef.current = open;
+  }, [open]);
+
+  if (!prevOpenRef.current && open && typeof window !== 'undefined') {
+    // WARNING: Potentially unsafe in concurrent mode.
+    // The way the read on `nodeToRestore` is setup could make this actually safe.
+    // Say we render `open={false}` -> `open={true}` but never commit.
+    // We have now written a state that wasn't committed. But no committed effect
+    // will read this wrong value. We only read from `nodeToRestore` in effects
+    // that were committed on `open={true}`
+    // WARNING: Prevents the instance from being garbage collected. Should only
+    // hold a weak ref.
+    nodeToRestore.current = getDoc().activeElement;
+  }
+
+  react.useEffect(function () {
+    if (!open) {
+      return;
+    }
+
+    var doc = (0,ownerDocument/* default */.A)(rootRef.current); // We might render an empty child.
+
+    if (!disableAutoFocus && rootRef.current && !rootRef.current.contains(doc.activeElement)) {
+      if (!rootRef.current.hasAttribute('tabIndex')) {
+        if (false) {}
+
+        rootRef.current.setAttribute('tabIndex', -1);
+      }
+
+      rootRef.current.focus();
+    }
+
+    var contain = function contain() {
+      var rootElement = rootRef.current; // Cleanup functions are executed lazily in React 17.
+      // Contain can be called between the component being unmounted and its cleanup function being run.
+
+      if (rootElement === null) {
+        return;
+      }
+
+      if (!doc.hasFocus() || disableEnforceFocus || !isEnabled() || ignoreNextEnforceFocus.current) {
+        ignoreNextEnforceFocus.current = false;
+        return;
+      }
+
+      if (rootRef.current && !rootRef.current.contains(doc.activeElement)) {
+        rootRef.current.focus();
+      }
+    };
+
+    var loopFocus = function loopFocus(event) {
+      // 9 = Tab
+      if (disableEnforceFocus || !isEnabled() || event.keyCode !== 9) {
+        return;
+      } // Make sure the next tab starts from the right place.
+
+
+      if (doc.activeElement === rootRef.current) {
+        // We need to ignore the next contain as
+        // it will try to move the focus back to the rootRef element.
+        ignoreNextEnforceFocus.current = true;
+
+        if (event.shiftKey) {
+          sentinelEnd.current.focus();
+        } else {
+          sentinelStart.current.focus();
+        }
+      }
+    };
+
+    doc.addEventListener('focus', contain, true);
+    doc.addEventListener('keydown', loopFocus, true); // With Edge, Safari and Firefox, no focus related events are fired when the focused area stops being a focused area
+    // e.g. https://bugzilla.mozilla.org/show_bug.cgi?id=559561.
+    //
+    // The whatwg spec defines how the browser should behave but does not explicitly mention any events:
+    // https://html.spec.whatwg.org/multipage/interaction.html#focus-fixup-rule.
+
+    var interval = setInterval(function () {
+      contain();
+    }, 50);
+    return function () {
+      clearInterval(interval);
+      doc.removeEventListener('focus', contain, true);
+      doc.removeEventListener('keydown', loopFocus, true); // restoreLastFocus()
+
+      if (!disableRestoreFocus) {
+        // In IE 11 it is possible for document.activeElement to be null resulting
+        // in nodeToRestore.current being null.
+        // Not all elements in IE 11 have a focus method.
+        // Once IE 11 support is dropped the focus() call can be unconditional.
+        if (nodeToRestore.current && nodeToRestore.current.focus) {
+          nodeToRestore.current.focus();
+        }
+
+        nodeToRestore.current = null;
+      }
+    };
+  }, [disableAutoFocus, disableEnforceFocus, disableRestoreFocus, isEnabled, open]);
+  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("div", {
+    tabIndex: 0,
+    ref: sentinelStart,
+    "data-test": "sentinelStart"
+  }), /*#__PURE__*/react.cloneElement(children, {
+    ref: handleRef
+  }), /*#__PURE__*/react.createElement("div", {
+    tabIndex: 0,
+    ref: sentinelEnd,
+    "data-test": "sentinelEnd"
+  }));
+}
+
+ false ? 0 : void 0;
+
+if (false) {}
+
+/* harmony default export */ const Unstable_TrapFocus_Unstable_TrapFocus = (Unstable_TrapFocus);
+;// ./node_modules/@material-ui/core/esm/Modal/SimpleBackdrop.js
+
+
+
+
+var SimpleBackdrop_styles = {
+  /* Styles applied to the root element. */
+  root: {
+    zIndex: -1,
+    position: 'fixed',
+    right: 0,
+    bottom: 0,
+    top: 0,
+    left: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    WebkitTapHighlightColor: 'transparent'
+  },
+
+  /* Styles applied to the root element if `invisible={true}`. */
+  invisible: {
+    backgroundColor: 'transparent'
+  }
+};
+/**
+ * @ignore - internal component.
+ */
+
+var SimpleBackdrop = /*#__PURE__*/react.forwardRef(function SimpleBackdrop(props, ref) {
+  var _props$invisible = props.invisible,
+      invisible = _props$invisible === void 0 ? false : _props$invisible,
+      open = props.open,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["invisible", "open"]);
+
+  return open ? /*#__PURE__*/react.createElement("div", (0,esm_extends/* default */.A)({
+    "aria-hidden": true,
+    ref: ref
+  }, other, {
+    style: (0,esm_extends/* default */.A)({}, SimpleBackdrop_styles.root, invisible ? SimpleBackdrop_styles.invisible : {}, other.style)
+  })) : null;
+});
+ false ? 0 : void 0;
+/* harmony default export */ const Modal_SimpleBackdrop = (SimpleBackdrop);
+;// ./node_modules/@material-ui/core/esm/Modal/Modal.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function Modal_getContainer(container) {
+  container = typeof container === 'function' ? container() : container;
+  return react_dom.findDOMNode(container);
+}
+
+function getHasTransition(props) {
+  return props.children ? props.children.props.hasOwnProperty('in') : false;
+} // A modal manager used to track and manage the state of open Modals.
+// Modals don't open on the server so this won't conflict with concurrent requests.
+
+
+var defaultManager = new ModalManager();
+var Modal_styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      position: 'fixed',
+      zIndex: theme.zIndex.modal,
+      right: 0,
+      bottom: 0,
+      top: 0,
+      left: 0
+    },
+
+    /* Styles applied to the root element if the `Modal` has exited. */
+    hidden: {
+      visibility: 'hidden'
+    }
+  };
+};
+/**
+ * Modal is a lower-level construct that is leveraged by the following components:
+ *
+ * - [Dialog](/api/dialog/)
+ * - [Drawer](/api/drawer/)
+ * - [Menu](/api/menu/)
+ * - [Popover](/api/popover/)
+ *
+ * If you are creating a modal dialog, you probably want to use the [Dialog](/api/dialog/) component
+ * rather than directly using Modal.
+ *
+ * This component shares many concepts with [react-overlays](https://react-bootstrap.github.io/react-overlays/#modals).
+ */
+
+var Modal = /*#__PURE__*/react.forwardRef(function Modal(inProps, ref) {
+  var theme = (0,useTheme/* default */.A)();
+  var props = (0,getThemeProps_getThemeProps/* default */.A)({
+    name: 'MuiModal',
+    props: (0,esm_extends/* default */.A)({}, inProps),
+    theme: theme
+  });
+
+  var _props$BackdropCompon = props.BackdropComponent,
+      BackdropComponent = _props$BackdropCompon === void 0 ? Modal_SimpleBackdrop : _props$BackdropCompon,
+      BackdropProps = props.BackdropProps,
+      children = props.children,
+      _props$closeAfterTran = props.closeAfterTransition,
+      closeAfterTransition = _props$closeAfterTran === void 0 ? false : _props$closeAfterTran,
+      container = props.container,
+      _props$disableAutoFoc = props.disableAutoFocus,
+      disableAutoFocus = _props$disableAutoFoc === void 0 ? false : _props$disableAutoFoc,
+      _props$disableBackdro = props.disableBackdropClick,
+      disableBackdropClick = _props$disableBackdro === void 0 ? false : _props$disableBackdro,
+      _props$disableEnforce = props.disableEnforceFocus,
+      disableEnforceFocus = _props$disableEnforce === void 0 ? false : _props$disableEnforce,
+      _props$disableEscapeK = props.disableEscapeKeyDown,
+      disableEscapeKeyDown = _props$disableEscapeK === void 0 ? false : _props$disableEscapeK,
+      _props$disablePortal = props.disablePortal,
+      disablePortal = _props$disablePortal === void 0 ? false : _props$disablePortal,
+      _props$disableRestore = props.disableRestoreFocus,
+      disableRestoreFocus = _props$disableRestore === void 0 ? false : _props$disableRestore,
+      _props$disableScrollL = props.disableScrollLock,
+      disableScrollLock = _props$disableScrollL === void 0 ? false : _props$disableScrollL,
+      _props$hideBackdrop = props.hideBackdrop,
+      hideBackdrop = _props$hideBackdrop === void 0 ? false : _props$hideBackdrop,
+      _props$keepMounted = props.keepMounted,
+      keepMounted = _props$keepMounted === void 0 ? false : _props$keepMounted,
+      _props$manager = props.manager,
+      manager = _props$manager === void 0 ? defaultManager : _props$manager,
+      onBackdropClick = props.onBackdropClick,
+      onClose = props.onClose,
+      onEscapeKeyDown = props.onEscapeKeyDown,
+      onRendered = props.onRendered,
+      open = props.open,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["BackdropComponent", "BackdropProps", "children", "closeAfterTransition", "container", "disableAutoFocus", "disableBackdropClick", "disableEnforceFocus", "disableEscapeKeyDown", "disablePortal", "disableRestoreFocus", "disableScrollLock", "hideBackdrop", "keepMounted", "manager", "onBackdropClick", "onClose", "onEscapeKeyDown", "onRendered", "open"]);
+
+  var _React$useState = react.useState(true),
+      exited = _React$useState[0],
+      setExited = _React$useState[1];
+
+  var modal = react.useRef({});
+  var mountNodeRef = react.useRef(null);
+  var modalRef = react.useRef(null);
+  var handleRef = (0,useForkRef/* default */.A)(modalRef, ref);
+  var hasTransition = getHasTransition(props);
+
+  var getDoc = function getDoc() {
+    return (0,ownerDocument/* default */.A)(mountNodeRef.current);
+  };
+
+  var getModal = function getModal() {
+    modal.current.modalRef = modalRef.current;
+    modal.current.mountNode = mountNodeRef.current;
+    return modal.current;
+  };
+
+  var handleMounted = function handleMounted() {
+    manager.mount(getModal(), {
+      disableScrollLock: disableScrollLock
+    }); // Fix a bug on Chrome where the scroll isn't initially 0.
+
+    modalRef.current.scrollTop = 0;
+  };
+
+  var handleOpen = (0,useEventCallback/* default */.A)(function () {
+    var resolvedContainer = Modal_getContainer(container) || getDoc().body;
+    manager.add(getModal(), resolvedContainer); // The element was already mounted.
+
+    if (modalRef.current) {
+      handleMounted();
+    }
+  });
+  var isTopModal = react.useCallback(function () {
+    return manager.isTopModal(getModal());
+  }, [manager]);
+  var handlePortalRef = (0,useEventCallback/* default */.A)(function (node) {
+    mountNodeRef.current = node;
+
+    if (!node) {
+      return;
+    }
+
+    if (onRendered) {
+      onRendered();
+    }
+
+    if (open && isTopModal()) {
+      handleMounted();
+    } else {
+      ariaHidden(modalRef.current, true);
+    }
+  });
+  var handleClose = react.useCallback(function () {
+    manager.remove(getModal());
+  }, [manager]);
+  react.useEffect(function () {
+    return function () {
+      handleClose();
+    };
+  }, [handleClose]);
+  react.useEffect(function () {
+    if (open) {
+      handleOpen();
+    } else if (!hasTransition || !closeAfterTransition) {
+      handleClose();
+    }
+  }, [open, handleClose, hasTransition, closeAfterTransition, handleOpen]);
+
+  if (!keepMounted && !open && (!hasTransition || exited)) {
+    return null;
+  }
+
+  var handleEnter = function handleEnter() {
+    setExited(false);
+  };
+
+  var handleExited = function handleExited() {
+    setExited(true);
+
+    if (closeAfterTransition) {
+      handleClose();
+    }
+  };
+
+  var handleBackdropClick = function handleBackdropClick(event) {
+    if (event.target !== event.currentTarget) {
+      return;
+    }
+
+    if (onBackdropClick) {
+      onBackdropClick(event);
+    }
+
+    if (!disableBackdropClick && onClose) {
+      onClose(event, 'backdropClick');
+    }
+  };
+
+  var handleKeyDown = function handleKeyDown(event) {
+    // The handler doesn't take event.defaultPrevented into account:
+    //
+    // event.preventDefault() is meant to stop default behaviours like
+    // clicking a checkbox to check it, hitting a button to submit a form,
+    // and hitting left arrow to move the cursor in a text input etc.
+    // Only special HTML elements have these default behaviors.
+    if (event.key !== 'Escape' || !isTopModal()) {
+      return;
+    }
+
+    if (onEscapeKeyDown) {
+      onEscapeKeyDown(event);
+    }
+
+    if (!disableEscapeKeyDown) {
+      // Swallow the event, in case someone is listening for the escape key on the body.
+      event.stopPropagation();
+
+      if (onClose) {
+        onClose(event, 'escapeKeyDown');
+      }
+    }
+  };
+
+  var inlineStyle = Modal_styles(theme || {
+    zIndex: esm_styles_zIndex/* default */.A
+  });
+  var childProps = {};
+
+  if (children.props.tabIndex === undefined) {
+    childProps.tabIndex = children.props.tabIndex || '-1';
+  } // It's a Transition like component
+
+
+  if (hasTransition) {
+    childProps.onEnter = (0,createChainedFunction/* default */.A)(handleEnter, children.props.onEnter);
+    childProps.onExited = (0,createChainedFunction/* default */.A)(handleExited, children.props.onExited);
+  }
+
+  return /*#__PURE__*/react.createElement(Portal_Portal, {
+    ref: handlePortalRef,
+    container: container,
+    disablePortal: disablePortal
+  }, /*#__PURE__*/react.createElement("div", (0,esm_extends/* default */.A)({
+    ref: handleRef,
+    onKeyDown: handleKeyDown,
+    role: "presentation"
+  }, other, {
+    style: (0,esm_extends/* default */.A)({}, inlineStyle.root, !open && exited ? inlineStyle.hidden : {}, other.style)
+  }), hideBackdrop ? null : /*#__PURE__*/react.createElement(BackdropComponent, (0,esm_extends/* default */.A)({
+    open: open,
+    onClick: handleBackdropClick
+  }, BackdropProps)), /*#__PURE__*/react.createElement(Unstable_TrapFocus_Unstable_TrapFocus, {
+    disableEnforceFocus: disableEnforceFocus,
+    disableAutoFocus: disableAutoFocus,
+    disableRestoreFocus: disableRestoreFocus,
+    getDoc: getDoc,
+    isEnabled: isTopModal,
+    open: open
+  }, /*#__PURE__*/react.cloneElement(children, childProps))));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const Modal_Modal = (Modal);
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 3 modules
+var slicedToArray = __webpack_require__(296);
+;// ./node_modules/react-transition-group/esm/config.js
+/* harmony default export */ const esm_config = ({
+  disabled: false
+});
+;// ./node_modules/react-transition-group/esm/utils/reflow.js
+var forceReflow = function forceReflow(node) {
+  return node.scrollTop;
+};
+;// ./node_modules/react-transition-group/esm/Transition.js
+
+
+
+
+
+
+
+
+
+var UNMOUNTED = 'unmounted';
+var EXITED = 'exited';
+var ENTERING = 'entering';
+var ENTERED = 'entered';
+var EXITING = 'exiting';
+/**
+ * The Transition component lets you describe a transition from one component
+ * state to another _over time_ with a simple declarative API. Most commonly
+ * it's used to animate the mounting and unmounting of a component, but can also
+ * be used to describe in-place transition states as well.
+ *
+ * ---
+ *
+ * **Note**: `Transition` is a platform-agnostic base component. If you're using
+ * transitions in CSS, you'll probably want to use
+ * [`CSSTransition`](https://reactcommunity.org/react-transition-group/css-transition)
+ * instead. It inherits all the features of `Transition`, but contains
+ * additional features necessary to play nice with CSS transitions (hence the
+ * name of the component).
+ *
+ * ---
+ *
+ * By default the `Transition` component does not alter the behavior of the
+ * component it renders, it only tracks "enter" and "exit" states for the
+ * components. It's up to you to give meaning and effect to those states. For
+ * example we can add styles to a component when it enters or exits:
+ *
+ * ```jsx
+ * import { Transition } from 'react-transition-group';
+ *
+ * const duration = 300;
+ *
+ * const defaultStyle = {
+ *   transition: `opacity ${duration}ms ease-in-out`,
+ *   opacity: 0,
+ * }
+ *
+ * const transitionStyles = {
+ *   entering: { opacity: 1 },
+ *   entered:  { opacity: 1 },
+ *   exiting:  { opacity: 0 },
+ *   exited:  { opacity: 0 },
+ * };
+ *
+ * const Fade = ({ in: inProp }) => (
+ *   <Transition in={inProp} timeout={duration}>
+ *     {state => (
+ *       <div style={{
+ *         ...defaultStyle,
+ *         ...transitionStyles[state]
+ *       }}>
+ *         I'm a fade Transition!
+ *       </div>
+ *     )}
+ *   </Transition>
+ * );
+ * ```
+ *
+ * There are 4 main states a Transition can be in:
+ *  - `'entering'`
+ *  - `'entered'`
+ *  - `'exiting'`
+ *  - `'exited'`
+ *
+ * Transition state is toggled via the `in` prop. When `true` the component
+ * begins the "Enter" stage. During this stage, the component will shift from
+ * its current transition state, to `'entering'` for the duration of the
+ * transition and then to the `'entered'` stage once it's complete. Let's take
+ * the following example (we'll use the
+ * [useState](https://reactjs.org/docs/hooks-reference.html#usestate) hook):
+ *
+ * ```jsx
+ * function App() {
+ *   const [inProp, setInProp] = useState(false);
+ *   return (
+ *     <div>
+ *       <Transition in={inProp} timeout={500}>
+ *         {state => (
+ *           // ...
+ *         )}
+ *       </Transition>
+ *       <button onClick={() => setInProp(true)}>
+ *         Click to Enter
+ *       </button>
+ *     </div>
+ *   );
+ * }
+ * ```
+ *
+ * When the button is clicked the component will shift to the `'entering'` state
+ * and stay there for 500ms (the value of `timeout`) before it finally switches
+ * to `'entered'`.
+ *
+ * When `in` is `false` the same thing happens except the state moves from
+ * `'exiting'` to `'exited'`.
+ */
+
+var Transition = /*#__PURE__*/function (_React$Component) {
+  (0,inheritsLoose/* default */.A)(Transition, _React$Component);
+
+  function Transition(props, context) {
+    var _this;
+
+    _this = _React$Component.call(this, props, context) || this;
+    var parentGroup = context; // In the context of a TransitionGroup all enters are really appears
+
+    var appear = parentGroup && !parentGroup.isMounting ? props.enter : props.appear;
+    var initialStatus;
+    _this.appearStatus = null;
+
+    if (props.in) {
+      if (appear) {
+        initialStatus = EXITED;
+        _this.appearStatus = ENTERING;
+      } else {
+        initialStatus = ENTERED;
+      }
+    } else {
+      if (props.unmountOnExit || props.mountOnEnter) {
+        initialStatus = UNMOUNTED;
+      } else {
+        initialStatus = EXITED;
+      }
+    }
+
+    _this.state = {
+      status: initialStatus
+    };
+    _this.nextCallback = null;
+    return _this;
+  }
+
+  Transition.getDerivedStateFromProps = function getDerivedStateFromProps(_ref, prevState) {
+    var nextIn = _ref.in;
+
+    if (nextIn && prevState.status === UNMOUNTED) {
+      return {
+        status: EXITED
+      };
+    }
+
+    return null;
+  } // getSnapshotBeforeUpdate(prevProps) {
+  //   let nextStatus = null
+  //   if (prevProps !== this.props) {
+  //     const { status } = this.state
+  //     if (this.props.in) {
+  //       if (status !== ENTERING && status !== ENTERED) {
+  //         nextStatus = ENTERING
+  //       }
+  //     } else {
+  //       if (status === ENTERING || status === ENTERED) {
+  //         nextStatus = EXITING
+  //       }
+  //     }
+  //   }
+  //   return { nextStatus }
+  // }
+  ;
+
+  var _proto = Transition.prototype;
+
+  _proto.componentDidMount = function componentDidMount() {
+    this.updateStatus(true, this.appearStatus);
+  };
+
+  _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
+    var nextStatus = null;
+
+    if (prevProps !== this.props) {
+      var status = this.state.status;
+
+      if (this.props.in) {
+        if (status !== ENTERING && status !== ENTERED) {
+          nextStatus = ENTERING;
+        }
+      } else {
+        if (status === ENTERING || status === ENTERED) {
+          nextStatus = EXITING;
+        }
+      }
+    }
+
+    this.updateStatus(false, nextStatus);
+  };
+
+  _proto.componentWillUnmount = function componentWillUnmount() {
+    this.cancelNextCallback();
+  };
+
+  _proto.getTimeouts = function getTimeouts() {
+    var timeout = this.props.timeout;
+    var exit, enter, appear;
+    exit = enter = appear = timeout;
+
+    if (timeout != null && typeof timeout !== 'number') {
+      exit = timeout.exit;
+      enter = timeout.enter; // TODO: remove fallback for next major
+
+      appear = timeout.appear !== undefined ? timeout.appear : enter;
+    }
+
+    return {
+      exit: exit,
+      enter: enter,
+      appear: appear
+    };
+  };
+
+  _proto.updateStatus = function updateStatus(mounting, nextStatus) {
+    if (mounting === void 0) {
+      mounting = false;
+    }
+
+    if (nextStatus !== null) {
+      // nextStatus will always be ENTERING or EXITING.
+      this.cancelNextCallback();
+
+      if (nextStatus === ENTERING) {
+        if (this.props.unmountOnExit || this.props.mountOnEnter) {
+          var node = this.props.nodeRef ? this.props.nodeRef.current : react_dom.findDOMNode(this); // https://github.com/reactjs/react-transition-group/pull/749
+          // With unmountOnExit or mountOnEnter, the enter animation should happen at the transition between `exited` and `entering`.
+          // To make the animation happen,  we have to separate each rendering and avoid being processed as batched.
+
+          if (node) forceReflow(node);
+        }
+
+        this.performEnter(mounting);
+      } else {
+        this.performExit();
+      }
+    } else if (this.props.unmountOnExit && this.state.status === EXITED) {
+      this.setState({
+        status: UNMOUNTED
+      });
+    }
+  };
+
+  _proto.performEnter = function performEnter(mounting) {
+    var _this2 = this;
+
+    var enter = this.props.enter;
+    var appearing = this.context ? this.context.isMounting : mounting;
+
+    var _ref2 = this.props.nodeRef ? [appearing] : [react_dom.findDOMNode(this), appearing],
+        maybeNode = _ref2[0],
+        maybeAppearing = _ref2[1];
+
+    var timeouts = this.getTimeouts();
+    var enterTimeout = appearing ? timeouts.appear : timeouts.enter; // no enter animation skip right to ENTERED
+    // if we are mounting and running this it means appear _must_ be set
+
+    if (!mounting && !enter || esm_config.disabled) {
+      this.safeSetState({
+        status: ENTERED
+      }, function () {
+        _this2.props.onEntered(maybeNode);
+      });
+      return;
+    }
+
+    this.props.onEnter(maybeNode, maybeAppearing);
+    this.safeSetState({
+      status: ENTERING
+    }, function () {
+      _this2.props.onEntering(maybeNode, maybeAppearing);
+
+      _this2.onTransitionEnd(enterTimeout, function () {
+        _this2.safeSetState({
+          status: ENTERED
+        }, function () {
+          _this2.props.onEntered(maybeNode, maybeAppearing);
+        });
+      });
+    });
+  };
+
+  _proto.performExit = function performExit() {
+    var _this3 = this;
+
+    var exit = this.props.exit;
+    var timeouts = this.getTimeouts();
+    var maybeNode = this.props.nodeRef ? undefined : react_dom.findDOMNode(this); // no exit animation skip right to EXITED
+
+    if (!exit || esm_config.disabled) {
+      this.safeSetState({
+        status: EXITED
+      }, function () {
+        _this3.props.onExited(maybeNode);
+      });
+      return;
+    }
+
+    this.props.onExit(maybeNode);
+    this.safeSetState({
+      status: EXITING
+    }, function () {
+      _this3.props.onExiting(maybeNode);
+
+      _this3.onTransitionEnd(timeouts.exit, function () {
+        _this3.safeSetState({
+          status: EXITED
+        }, function () {
+          _this3.props.onExited(maybeNode);
+        });
+      });
+    });
+  };
+
+  _proto.cancelNextCallback = function cancelNextCallback() {
+    if (this.nextCallback !== null) {
+      this.nextCallback.cancel();
+      this.nextCallback = null;
+    }
+  };
+
+  _proto.safeSetState = function safeSetState(nextState, callback) {
+    // This shouldn't be necessary, but there are weird race conditions with
+    // setState callbacks and unmounting in testing, so always make sure that
+    // we can cancel any pending setState callbacks after we unmount.
+    callback = this.setNextCallback(callback);
+    this.setState(nextState, callback);
+  };
+
+  _proto.setNextCallback = function setNextCallback(callback) {
+    var _this4 = this;
+
+    var active = true;
+
+    this.nextCallback = function (event) {
+      if (active) {
+        active = false;
+        _this4.nextCallback = null;
+        callback(event);
+      }
+    };
+
+    this.nextCallback.cancel = function () {
+      active = false;
+    };
+
+    return this.nextCallback;
+  };
+
+  _proto.onTransitionEnd = function onTransitionEnd(timeout, handler) {
+    this.setNextCallback(handler);
+    var node = this.props.nodeRef ? this.props.nodeRef.current : react_dom.findDOMNode(this);
+    var doesNotHaveTimeoutOrListener = timeout == null && !this.props.addEndListener;
+
+    if (!node || doesNotHaveTimeoutOrListener) {
+      setTimeout(this.nextCallback, 0);
+      return;
+    }
+
+    if (this.props.addEndListener) {
+      var _ref3 = this.props.nodeRef ? [this.nextCallback] : [node, this.nextCallback],
+          maybeNode = _ref3[0],
+          maybeNextCallback = _ref3[1];
+
+      this.props.addEndListener(maybeNode, maybeNextCallback);
+    }
+
+    if (timeout != null) {
+      setTimeout(this.nextCallback, timeout);
+    }
+  };
+
+  _proto.render = function render() {
+    var status = this.state.status;
+
+    if (status === UNMOUNTED) {
+      return null;
+    }
+
+    var _this$props = this.props,
+        children = _this$props.children,
+        _in = _this$props.in,
+        _mountOnEnter = _this$props.mountOnEnter,
+        _unmountOnExit = _this$props.unmountOnExit,
+        _appear = _this$props.appear,
+        _enter = _this$props.enter,
+        _exit = _this$props.exit,
+        _timeout = _this$props.timeout,
+        _addEndListener = _this$props.addEndListener,
+        _onEnter = _this$props.onEnter,
+        _onEntering = _this$props.onEntering,
+        _onEntered = _this$props.onEntered,
+        _onExit = _this$props.onExit,
+        _onExiting = _this$props.onExiting,
+        _onExited = _this$props.onExited,
+        _nodeRef = _this$props.nodeRef,
+        childProps = (0,objectWithoutPropertiesLoose/* default */.A)(_this$props, ["children", "in", "mountOnEnter", "unmountOnExit", "appear", "enter", "exit", "timeout", "addEndListener", "onEnter", "onEntering", "onEntered", "onExit", "onExiting", "onExited", "nodeRef"]);
+
+    return (
+      /*#__PURE__*/
+      // allows for nested Transitions
+      react.createElement(TransitionGroupContext.Provider, {
+        value: null
+      }, typeof children === 'function' ? children(status, childProps) : react.cloneElement(react.Children.only(children), childProps))
+    );
+  };
+
+  return Transition;
+}(react.Component);
+
+Transition.contextType = TransitionGroupContext;
+Transition.propTypes =  false ? 0 : {}; // Name the function so it is clearer in the documentation
+
+function Transition_noop() {}
+
+Transition.defaultProps = {
+  in: false,
+  mountOnEnter: false,
+  unmountOnExit: false,
+  appear: false,
+  enter: true,
+  exit: true,
+  onEnter: Transition_noop,
+  onEntering: Transition_noop,
+  onEntered: Transition_noop,
+  onExit: Transition_noop,
+  onExiting: Transition_noop,
+  onExited: Transition_noop
+};
+Transition.UNMOUNTED = UNMOUNTED;
+Transition.EXITED = EXITED;
+Transition.ENTERING = ENTERING;
+Transition.ENTERED = ENTERED;
+Transition.EXITING = EXITING;
+/* harmony default export */ const esm_Transition = (Transition);
+// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/styles/transitions.js
+var styles_transitions = __webpack_require__(3870);
+// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/styles/defaultTheme.js + 20 modules
+var esm_styles_defaultTheme = __webpack_require__(7727);
+;// ./node_modules/@material-ui/core/esm/styles/useTheme.js
+
+
+
+function useTheme_useTheme() {
+  var theme = (0,useTheme/* default */.A)() || esm_styles_defaultTheme/* default */.A;
+
+  if (false) {}
+
+  return theme;
+}
+;// ./node_modules/@material-ui/core/esm/transitions/utils.js
+var reflow = function reflow(node) {
+  return node.scrollTop;
+};
+function getTransitionProps(props, options) {
+  var timeout = props.timeout,
+      _props$style = props.style,
+      style = _props$style === void 0 ? {} : _props$style;
+  return {
+    duration: style.transitionDuration || typeof timeout === 'number' ? timeout : timeout[options.mode] || 0,
+    delay: style.transitionDelay
+  };
+}
+;// ./node_modules/@material-ui/core/esm/Fade/Fade.js
+
+
+
+
+
+
+
+
+
+
+var Fade_styles = {
+  entering: {
+    opacity: 1
+  },
+  entered: {
+    opacity: 1
+  }
+};
+var defaultTimeout = {
+  enter: styles_transitions/* duration */.p0.enteringScreen,
+  exit: styles_transitions/* duration */.p0.leavingScreen
+};
+/**
+ * The Fade transition is used by the [Modal](/components/modal/) component.
+ * It uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.
+ */
+
+var Fade = /*#__PURE__*/react.forwardRef(function Fade(props, ref) {
+  var children = props.children,
+      _props$disableStrictM = props.disableStrictModeCompat,
+      disableStrictModeCompat = _props$disableStrictM === void 0 ? false : _props$disableStrictM,
+      inProp = props.in,
+      onEnter = props.onEnter,
+      onEntered = props.onEntered,
+      onEntering = props.onEntering,
+      onExit = props.onExit,
+      onExited = props.onExited,
+      onExiting = props.onExiting,
+      style = props.style,
+      _props$TransitionComp = props.TransitionComponent,
+      TransitionComponent = _props$TransitionComp === void 0 ? esm_Transition : _props$TransitionComp,
+      _props$timeout = props.timeout,
+      timeout = _props$timeout === void 0 ? defaultTimeout : _props$timeout,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["children", "disableStrictModeCompat", "in", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "style", "TransitionComponent", "timeout"]);
+
+  var theme = useTheme_useTheme();
+  var enableStrictModeCompat = theme.unstable_strictMode && !disableStrictModeCompat;
+  var nodeRef = react.useRef(null);
+  var foreignRef = (0,useForkRef/* default */.A)(children.ref, ref);
+  var handleRef = (0,useForkRef/* default */.A)(enableStrictModeCompat ? nodeRef : undefined, foreignRef);
+
+  var normalizedTransitionCallback = function normalizedTransitionCallback(callback) {
+    return function (nodeOrAppearing, maybeAppearing) {
+      if (callback) {
+        var _ref = enableStrictModeCompat ? [nodeRef.current, nodeOrAppearing] : [nodeOrAppearing, maybeAppearing],
+            _ref2 = (0,slicedToArray/* default */.A)(_ref, 2),
+            node = _ref2[0],
+            isAppearing = _ref2[1]; // onEnterXxx and onExitXxx callbacks have a different arguments.length value.
+
+
+        if (isAppearing === undefined) {
+          callback(node);
+        } else {
+          callback(node, isAppearing);
+        }
+      }
+    };
+  };
+
+  var handleEntering = normalizedTransitionCallback(onEntering);
+  var handleEnter = normalizedTransitionCallback(function (node, isAppearing) {
+    reflow(node); // So the animation always start from the start.
+
+    var transitionProps = getTransitionProps({
+      style: style,
+      timeout: timeout
+    }, {
+      mode: 'enter'
+    });
+    node.style.webkitTransition = theme.transitions.create('opacity', transitionProps);
+    node.style.transition = theme.transitions.create('opacity', transitionProps);
+
+    if (onEnter) {
+      onEnter(node, isAppearing);
+    }
+  });
+  var handleEntered = normalizedTransitionCallback(onEntered);
+  var handleExiting = normalizedTransitionCallback(onExiting);
+  var handleExit = normalizedTransitionCallback(function (node) {
+    var transitionProps = getTransitionProps({
+      style: style,
+      timeout: timeout
+    }, {
+      mode: 'exit'
+    });
+    node.style.webkitTransition = theme.transitions.create('opacity', transitionProps);
+    node.style.transition = theme.transitions.create('opacity', transitionProps);
+
+    if (onExit) {
+      onExit(node);
+    }
+  });
+  var handleExited = normalizedTransitionCallback(onExited);
+  return /*#__PURE__*/react.createElement(TransitionComponent, (0,esm_extends/* default */.A)({
+    appear: true,
+    in: inProp,
+    nodeRef: enableStrictModeCompat ? nodeRef : undefined,
+    onEnter: handleEnter,
+    onEntered: handleEntered,
+    onEntering: handleEntering,
+    onExit: handleExit,
+    onExited: handleExited,
+    onExiting: handleExiting,
+    timeout: timeout
+  }, other), function (state, childProps) {
+    return /*#__PURE__*/react.cloneElement(children, (0,esm_extends/* default */.A)({
+      style: (0,esm_extends/* default */.A)({
+        opacity: 0,
+        visibility: state === 'exited' && !inProp ? 'hidden' : undefined
+      }, Fade_styles[state], style, children.props.style),
+      ref: handleRef
+    }, childProps));
+  });
+});
+ false ? 0 : void 0;
+/* harmony default export */ const Fade_Fade = (Fade);
+;// ./node_modules/@material-ui/core/esm/Backdrop/Backdrop.js
+
+
+
+
+
+
+
+var Backdrop_styles = {
+  /* Styles applied to the root element. */
+  root: {
+    // Improve scrollable dialog support.
+    zIndex: -1,
+    position: 'fixed',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    right: 0,
+    bottom: 0,
+    top: 0,
+    left: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    WebkitTapHighlightColor: 'transparent'
+  },
+
+  /* Styles applied to the root element if `invisible={true}`. */
+  invisible: {
+    backgroundColor: 'transparent'
+  }
+};
+var Backdrop = /*#__PURE__*/react.forwardRef(function Backdrop(props, ref) {
+  var children = props.children,
+      classes = props.classes,
+      className = props.className,
+      _props$invisible = props.invisible,
+      invisible = _props$invisible === void 0 ? false : _props$invisible,
+      open = props.open,
+      transitionDuration = props.transitionDuration,
+      _props$TransitionComp = props.TransitionComponent,
+      TransitionComponent = _props$TransitionComp === void 0 ? Fade_Fade : _props$TransitionComp,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["children", "classes", "className", "invisible", "open", "transitionDuration", "TransitionComponent"]);
+
+  return /*#__PURE__*/react.createElement(TransitionComponent, (0,esm_extends/* default */.A)({
+    in: open,
+    timeout: transitionDuration
+  }, other), /*#__PURE__*/react.createElement("div", {
+    className: (0,clsx_m/* default */.A)(classes.root, className, invisible && classes.invisible),
+    "aria-hidden": true,
+    ref: ref
+  }, children));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const Backdrop_Backdrop = ((0,withStyles/* default */.A)(Backdrop_styles, {
+  name: 'MuiBackdrop'
+})(Backdrop));
+;// ./node_modules/@material-ui/core/esm/Dialog/Dialog.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Dialog_styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      '@media print': {
+        // Use !important to override the Modal inline-style.
+        position: 'absolute !important'
+      }
+    },
+
+    /* Styles applied to the container element if `scroll="paper"`. */
+    scrollPaper: {
+      display: 'flex',
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+
+    /* Styles applied to the container element if `scroll="body"`. */
+    scrollBody: {
+      overflowY: 'auto',
+      overflowX: 'hidden',
+      textAlign: 'center',
+      '&:after': {
+        content: '""',
+        display: 'inline-block',
+        verticalAlign: 'middle',
+        height: '100%',
+        width: '0'
+      }
+    },
+
+    /* Styles applied to the container element. */
+    container: {
+      height: '100%',
+      '@media print': {
+        height: 'auto'
+      },
+      // We disable the focus ring for mouse, touch and keyboard users.
+      outline: 0
+    },
+
+    /* Styles applied to the `Paper` component. */
+    paper: {
+      margin: 32,
+      position: 'relative',
+      overflowY: 'auto',
+      // Fix IE 11 issue, to remove at some point.
+      '@media print': {
+        overflowY: 'visible',
+        boxShadow: 'none'
+      }
+    },
+
+    /* Styles applied to the `Paper` component if `scroll="paper"`. */
+    paperScrollPaper: {
+      display: 'flex',
+      flexDirection: 'column',
+      maxHeight: 'calc(100% - 64px)'
+    },
+
+    /* Styles applied to the `Paper` component if `scroll="body"`. */
+    paperScrollBody: {
+      display: 'inline-block',
+      verticalAlign: 'middle',
+      textAlign: 'left' // 'initial' doesn't work on IE 11
+
+    },
+
+    /* Styles applied to the `Paper` component if `maxWidth=false`. */
+    paperWidthFalse: {
+      maxWidth: 'calc(100% - 64px)'
+    },
+
+    /* Styles applied to the `Paper` component if `maxWidth="xs"`. */
+    paperWidthXs: {
+      maxWidth: Math.max(theme.breakpoints.values.xs, 444),
+      '&$paperScrollBody': (0,defineProperty/* default */.A)({}, theme.breakpoints.down(Math.max(theme.breakpoints.values.xs, 444) + 32 * 2), {
+        maxWidth: 'calc(100% - 64px)'
+      })
+    },
+
+    /* Styles applied to the `Paper` component if `maxWidth="sm"`. */
+    paperWidthSm: {
+      maxWidth: theme.breakpoints.values.sm,
+      '&$paperScrollBody': (0,defineProperty/* default */.A)({}, theme.breakpoints.down(theme.breakpoints.values.sm + 32 * 2), {
+        maxWidth: 'calc(100% - 64px)'
+      })
+    },
+
+    /* Styles applied to the `Paper` component if `maxWidth="md"`. */
+    paperWidthMd: {
+      maxWidth: theme.breakpoints.values.md,
+      '&$paperScrollBody': (0,defineProperty/* default */.A)({}, theme.breakpoints.down(theme.breakpoints.values.md + 32 * 2), {
+        maxWidth: 'calc(100% - 64px)'
+      })
+    },
+
+    /* Styles applied to the `Paper` component if `maxWidth="lg"`. */
+    paperWidthLg: {
+      maxWidth: theme.breakpoints.values.lg,
+      '&$paperScrollBody': (0,defineProperty/* default */.A)({}, theme.breakpoints.down(theme.breakpoints.values.lg + 32 * 2), {
+        maxWidth: 'calc(100% - 64px)'
+      })
+    },
+
+    /* Styles applied to the `Paper` component if `maxWidth="xl"`. */
+    paperWidthXl: {
+      maxWidth: theme.breakpoints.values.xl,
+      '&$paperScrollBody': (0,defineProperty/* default */.A)({}, theme.breakpoints.down(theme.breakpoints.values.xl + 32 * 2), {
+        maxWidth: 'calc(100% - 64px)'
+      })
+    },
+
+    /* Styles applied to the `Paper` component if `fullWidth={true}`. */
+    paperFullWidth: {
+      width: 'calc(100% - 64px)'
+    },
+
+    /* Styles applied to the `Paper` component if `fullScreen={true}`. */
+    paperFullScreen: {
+      margin: 0,
+      width: '100%',
+      maxWidth: '100%',
+      height: '100%',
+      maxHeight: 'none',
+      borderRadius: 0,
+      '&$paperScrollBody': {
+        margin: 0,
+        maxWidth: '100%'
+      }
+    }
+  };
+};
+var defaultTransitionDuration = {
+  enter: styles_transitions/* duration */.p0.enteringScreen,
+  exit: styles_transitions/* duration */.p0.leavingScreen
+};
+/**
+ * Dialogs are overlaid modal paper based components with a backdrop.
+ */
+
+var Dialog = /*#__PURE__*/react.forwardRef(function Dialog(props, ref) {
+  var BackdropProps = props.BackdropProps,
+      children = props.children,
+      classes = props.classes,
+      className = props.className,
+      _props$disableBackdro = props.disableBackdropClick,
+      disableBackdropClick = _props$disableBackdro === void 0 ? false : _props$disableBackdro,
+      _props$disableEscapeK = props.disableEscapeKeyDown,
+      disableEscapeKeyDown = _props$disableEscapeK === void 0 ? false : _props$disableEscapeK,
+      _props$fullScreen = props.fullScreen,
+      fullScreen = _props$fullScreen === void 0 ? false : _props$fullScreen,
+      _props$fullWidth = props.fullWidth,
+      fullWidth = _props$fullWidth === void 0 ? false : _props$fullWidth,
+      _props$maxWidth = props.maxWidth,
+      maxWidth = _props$maxWidth === void 0 ? 'sm' : _props$maxWidth,
+      onBackdropClick = props.onBackdropClick,
+      onClose = props.onClose,
+      onEnter = props.onEnter,
+      onEntered = props.onEntered,
+      onEntering = props.onEntering,
+      onEscapeKeyDown = props.onEscapeKeyDown,
+      onExit = props.onExit,
+      onExited = props.onExited,
+      onExiting = props.onExiting,
+      open = props.open,
+      _props$PaperComponent = props.PaperComponent,
+      PaperComponent = _props$PaperComponent === void 0 ? esm_Paper_Paper : _props$PaperComponent,
+      _props$PaperProps = props.PaperProps,
+      PaperProps = _props$PaperProps === void 0 ? {} : _props$PaperProps,
+      _props$scroll = props.scroll,
+      scroll = _props$scroll === void 0 ? 'paper' : _props$scroll,
+      _props$TransitionComp = props.TransitionComponent,
+      TransitionComponent = _props$TransitionComp === void 0 ? Fade_Fade : _props$TransitionComp,
+      _props$transitionDura = props.transitionDuration,
+      transitionDuration = _props$transitionDura === void 0 ? defaultTransitionDuration : _props$transitionDura,
+      TransitionProps = props.TransitionProps,
+      ariaDescribedby = props['aria-describedby'],
+      ariaLabelledby = props['aria-labelledby'],
+      other = (0,objectWithoutProperties/* default */.A)(props, ["BackdropProps", "children", "classes", "className", "disableBackdropClick", "disableEscapeKeyDown", "fullScreen", "fullWidth", "maxWidth", "onBackdropClick", "onClose", "onEnter", "onEntered", "onEntering", "onEscapeKeyDown", "onExit", "onExited", "onExiting", "open", "PaperComponent", "PaperProps", "scroll", "TransitionComponent", "transitionDuration", "TransitionProps", "aria-describedby", "aria-labelledby"]);
+
+  var mouseDownTarget = react.useRef();
+
+  var handleMouseDown = function handleMouseDown(event) {
+    mouseDownTarget.current = event.target;
+  };
+
+  var handleBackdropClick = function handleBackdropClick(event) {
+    // Ignore the events not coming from the "backdrop"
+    // We don't want to close the dialog when clicking the dialog content.
+    if (event.target !== event.currentTarget) {
+      return;
+    } // Make sure the event starts and ends on the same DOM element.
+
+
+    if (event.target !== mouseDownTarget.current) {
+      return;
+    }
+
+    mouseDownTarget.current = null;
+
+    if (onBackdropClick) {
+      onBackdropClick(event);
+    }
+
+    if (!disableBackdropClick && onClose) {
+      onClose(event, 'backdropClick');
+    }
+  };
+
+  return /*#__PURE__*/react.createElement(Modal_Modal, (0,esm_extends/* default */.A)({
+    className: (0,clsx_m/* default */.A)(classes.root, className),
+    BackdropComponent: Backdrop_Backdrop,
+    BackdropProps: (0,esm_extends/* default */.A)({
+      transitionDuration: transitionDuration
+    }, BackdropProps),
+    closeAfterTransition: true
+  }, disableBackdropClick ? {
+    disableBackdropClick: disableBackdropClick
+  } : {}, {
+    disableEscapeKeyDown: disableEscapeKeyDown,
+    onEscapeKeyDown: onEscapeKeyDown,
+    onClose: onClose,
+    open: open,
+    ref: ref
+  }, other), /*#__PURE__*/react.createElement(TransitionComponent, (0,esm_extends/* default */.A)({
+    appear: true,
+    in: open,
+    timeout: transitionDuration,
+    onEnter: onEnter,
+    onEntering: onEntering,
+    onEntered: onEntered,
+    onExit: onExit,
+    onExiting: onExiting,
+    onExited: onExited,
+    role: "none presentation"
+  }, TransitionProps), /*#__PURE__*/react.createElement("div", {
+    className: (0,clsx_m/* default */.A)(classes.container, classes["scroll".concat((0,esm_utils_capitalize/* default */.A)(scroll))]),
+    onMouseUp: handleBackdropClick,
+    onMouseDown: handleMouseDown
+  }, /*#__PURE__*/react.createElement(PaperComponent, (0,esm_extends/* default */.A)({
+    elevation: 24,
+    role: "dialog",
+    "aria-describedby": ariaDescribedby,
+    "aria-labelledby": ariaLabelledby
+  }, PaperProps, {
+    className: (0,clsx_m/* default */.A)(classes.paper, classes["paperScroll".concat((0,esm_utils_capitalize/* default */.A)(scroll))], classes["paperWidth".concat((0,esm_utils_capitalize/* default */.A)(String(maxWidth)))], PaperProps.className, fullScreen && classes.paperFullScreen, fullWidth && classes.paperFullWidth)
+  }), children))));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const Dialog_Dialog = ((0,withStyles/* default */.A)(Dialog_styles, {
+  name: 'MuiDialog'
+})(Dialog));
+;// ./node_modules/@material-ui/core/esm/Typography/Typography.js
+
+
+
+
+
+
+
+var Typography_styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      margin: 0
+    },
+
+    /* Styles applied to the root element if `variant="body2"`. */
+    body2: theme.typography.body2,
+
+    /* Styles applied to the root element if `variant="body1"`. */
+    body1: theme.typography.body1,
+
+    /* Styles applied to the root element if `variant="caption"`. */
+    caption: theme.typography.caption,
+
+    /* Styles applied to the root element if `variant="button"`. */
+    button: theme.typography.button,
+
+    /* Styles applied to the root element if `variant="h1"`. */
+    h1: theme.typography.h1,
+
+    /* Styles applied to the root element if `variant="h2"`. */
+    h2: theme.typography.h2,
+
+    /* Styles applied to the root element if `variant="h3"`. */
+    h3: theme.typography.h3,
+
+    /* Styles applied to the root element if `variant="h4"`. */
+    h4: theme.typography.h4,
+
+    /* Styles applied to the root element if `variant="h5"`. */
+    h5: theme.typography.h5,
+
+    /* Styles applied to the root element if `variant="h6"`. */
+    h6: theme.typography.h6,
+
+    /* Styles applied to the root element if `variant="subtitle1"`. */
+    subtitle1: theme.typography.subtitle1,
+
+    /* Styles applied to the root element if `variant="subtitle2"`. */
+    subtitle2: theme.typography.subtitle2,
+
+    /* Styles applied to the root element if `variant="overline"`. */
+    overline: theme.typography.overline,
+
+    /* Styles applied to the root element if `variant="srOnly"`. Only accessible to screen readers. */
+    srOnly: {
+      position: 'absolute',
+      height: 1,
+      width: 1,
+      overflow: 'hidden'
+    },
+
+    /* Styles applied to the root element if `align="left"`. */
+    alignLeft: {
+      textAlign: 'left'
+    },
+
+    /* Styles applied to the root element if `align="center"`. */
+    alignCenter: {
+      textAlign: 'center'
+    },
+
+    /* Styles applied to the root element if `align="right"`. */
+    alignRight: {
+      textAlign: 'right'
+    },
+
+    /* Styles applied to the root element if `align="justify"`. */
+    alignJustify: {
+      textAlign: 'justify'
+    },
+
+    /* Styles applied to the root element if `nowrap={true}`. */
+    noWrap: {
+      overflow: 'hidden',
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap'
+    },
+
+    /* Styles applied to the root element if `gutterBottom={true}`. */
+    gutterBottom: {
+      marginBottom: '0.35em'
+    },
+
+    /* Styles applied to the root element if `paragraph={true}`. */
+    paragraph: {
+      marginBottom: 16
+    },
+
+    /* Styles applied to the root element if `color="inherit"`. */
+    colorInherit: {
+      color: 'inherit'
+    },
+
+    /* Styles applied to the root element if `color="primary"`. */
+    colorPrimary: {
+      color: theme.palette.primary.main
+    },
+
+    /* Styles applied to the root element if `color="secondary"`. */
+    colorSecondary: {
+      color: theme.palette.secondary.main
+    },
+
+    /* Styles applied to the root element if `color="textPrimary"`. */
+    colorTextPrimary: {
+      color: theme.palette.text.primary
+    },
+
+    /* Styles applied to the root element if `color="textSecondary"`. */
+    colorTextSecondary: {
+      color: theme.palette.text.secondary
+    },
+
+    /* Styles applied to the root element if `color="error"`. */
+    colorError: {
+      color: theme.palette.error.main
+    },
+
+    /* Styles applied to the root element if `display="inline"`. */
+    displayInline: {
+      display: 'inline'
+    },
+
+    /* Styles applied to the root element if `display="block"`. */
+    displayBlock: {
+      display: 'block'
+    }
+  };
+};
+var Typography_defaultVariantMapping = {
+  h1: 'h1',
+  h2: 'h2',
+  h3: 'h3',
+  h4: 'h4',
+  h5: 'h5',
+  h6: 'h6',
+  subtitle1: 'h6',
+  subtitle2: 'h6',
+  body1: 'p',
+  body2: 'p'
+};
+var Typography_Typography_Typography = /*#__PURE__*/react.forwardRef(function Typography(props, ref) {
+  var _props$align = props.align,
+      align = _props$align === void 0 ? 'inherit' : _props$align,
+      classes = props.classes,
+      className = props.className,
+      _props$color = props.color,
+      color = _props$color === void 0 ? 'initial' : _props$color,
+      component = props.component,
+      _props$display = props.display,
+      display = _props$display === void 0 ? 'initial' : _props$display,
+      _props$gutterBottom = props.gutterBottom,
+      gutterBottom = _props$gutterBottom === void 0 ? false : _props$gutterBottom,
+      _props$noWrap = props.noWrap,
+      noWrap = _props$noWrap === void 0 ? false : _props$noWrap,
+      _props$paragraph = props.paragraph,
+      paragraph = _props$paragraph === void 0 ? false : _props$paragraph,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'body1' : _props$variant,
+      _props$variantMapping = props.variantMapping,
+      variantMapping = _props$variantMapping === void 0 ? Typography_defaultVariantMapping : _props$variantMapping,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["align", "classes", "className", "color", "component", "display", "gutterBottom", "noWrap", "paragraph", "variant", "variantMapping"]);
+
+  var Component = component || (paragraph ? 'p' : variantMapping[variant] || Typography_defaultVariantMapping[variant]) || 'span';
+  return /*#__PURE__*/react.createElement(Component, (0,esm_extends/* default */.A)({
+    className: (0,clsx_m/* default */.A)(classes.root, className, variant !== 'inherit' && classes[variant], color !== 'initial' && classes["color".concat((0,esm_utils_capitalize/* default */.A)(color))], noWrap && classes.noWrap, gutterBottom && classes.gutterBottom, paragraph && classes.paragraph, align !== 'inherit' && classes["align".concat((0,esm_utils_capitalize/* default */.A)(align))], display !== 'initial' && classes["display".concat((0,esm_utils_capitalize/* default */.A)(display))]),
+    ref: ref
+  }, other));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const esm_Typography_Typography = ((0,withStyles/* default */.A)(Typography_styles, {
+  name: 'MuiTypography'
+})(Typography_Typography_Typography));
+;// ./node_modules/@material-ui/core/esm/DialogTitle/DialogTitle.js
+
+
+
+
+
+
+
+var DialogTitle_styles = {
+  /* Styles applied to the root element. */
+  root: {
+    margin: 0,
+    padding: '16px 24px',
+    flex: '0 0 auto'
+  }
+};
+var DialogTitle = /*#__PURE__*/react.forwardRef(function DialogTitle(props, ref) {
+  var children = props.children,
+      classes = props.classes,
+      className = props.className,
+      _props$disableTypogra = props.disableTypography,
+      disableTypography = _props$disableTypogra === void 0 ? false : _props$disableTypogra,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["children", "classes", "className", "disableTypography"]);
+
+  return /*#__PURE__*/react.createElement("div", (0,esm_extends/* default */.A)({
+    className: (0,clsx_m/* default */.A)(classes.root, className),
+    ref: ref
+  }, other), disableTypography ? children : /*#__PURE__*/react.createElement(esm_Typography_Typography, {
+    component: "h2",
+    variant: "h6"
+  }, children));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const DialogTitle_DialogTitle = ((0,withStyles/* default */.A)(DialogTitle_styles, {
+  name: 'MuiDialogTitle'
+})(DialogTitle));
+;// ./node_modules/@material-ui/core/esm/IconButton/IconButton.js
+
+
+
+
+
+
+
+
+
+
+var IconButton_styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      textAlign: 'center',
+      flex: '0 0 auto',
+      fontSize: theme.typography.pxToRem(24),
+      padding: 12,
+      borderRadius: '50%',
+      overflow: 'visible',
+      // Explicitly set the default value to solve a bug on IE 11.
+      color: theme.palette.action.active,
+      transition: theme.transitions.create('background-color', {
+        duration: theme.transitions.duration.shortest
+      }),
+      '&:hover': {
+        backgroundColor: (0,styles_colorManipulator/* alpha */.X4)(theme.palette.action.active, theme.palette.action.hoverOpacity),
+        // Reset on touch devices, it doesn't add specificity
+        '@media (hover: none)': {
+          backgroundColor: 'transparent'
+        }
+      },
+      '&$disabled': {
+        backgroundColor: 'transparent',
+        color: theme.palette.action.disabled
+      }
+    },
+
+    /* Styles applied to the root element if `edge="start"`. */
+    edgeStart: {
+      marginLeft: -12,
+      '$sizeSmall&': {
+        marginLeft: -3
+      }
+    },
+
+    /* Styles applied to the root element if `edge="end"`. */
+    edgeEnd: {
+      marginRight: -12,
+      '$sizeSmall&': {
+        marginRight: -3
+      }
+    },
+
+    /* Styles applied to the root element if `color="inherit"`. */
+    colorInherit: {
+      color: 'inherit'
+    },
+
+    /* Styles applied to the root element if `color="primary"`. */
+    colorPrimary: {
+      color: theme.palette.primary.main,
+      '&:hover': {
+        backgroundColor: (0,styles_colorManipulator/* alpha */.X4)(theme.palette.primary.main, theme.palette.action.hoverOpacity),
+        // Reset on touch devices, it doesn't add specificity
+        '@media (hover: none)': {
+          backgroundColor: 'transparent'
+        }
+      }
+    },
+
+    /* Styles applied to the root element if `color="secondary"`. */
+    colorSecondary: {
+      color: theme.palette.secondary.main,
+      '&:hover': {
+        backgroundColor: (0,styles_colorManipulator/* alpha */.X4)(theme.palette.secondary.main, theme.palette.action.hoverOpacity),
+        // Reset on touch devices, it doesn't add specificity
+        '@media (hover: none)': {
+          backgroundColor: 'transparent'
+        }
+      }
+    },
+
+    /* Pseudo-class applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Styles applied to the root element if `size="small"`. */
+    sizeSmall: {
+      padding: 3,
+      fontSize: theme.typography.pxToRem(18)
+    },
+
+    /* Styles applied to the children container element. */
+    label: {
+      width: '100%',
+      display: 'flex',
+      alignItems: 'inherit',
+      justifyContent: 'inherit'
+    }
+  };
+};
+/**
+ * Refer to the [Icons](/components/icons/) section of the documentation
+ * regarding the available icon options.
+ */
+
+var IconButton = /*#__PURE__*/react.forwardRef(function IconButton(props, ref) {
+  var _props$edge = props.edge,
+      edge = _props$edge === void 0 ? false : _props$edge,
+      children = props.children,
+      classes = props.classes,
+      className = props.className,
+      _props$color = props.color,
+      color = _props$color === void 0 ? 'default' : _props$color,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled,
+      _props$disableFocusRi = props.disableFocusRipple,
+      disableFocusRipple = _props$disableFocusRi === void 0 ? false : _props$disableFocusRi,
+      _props$size = props.size,
+      size = _props$size === void 0 ? 'medium' : _props$size,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["edge", "children", "classes", "className", "color", "disabled", "disableFocusRipple", "size"]);
+
+  return /*#__PURE__*/react.createElement(ButtonBase_ButtonBase, (0,esm_extends/* default */.A)({
+    className: (0,clsx_m/* default */.A)(classes.root, className, color !== 'default' && classes["color".concat((0,esm_utils_capitalize/* default */.A)(color))], disabled && classes.disabled, size === "small" && classes["size".concat((0,esm_utils_capitalize/* default */.A)(size))], {
+      'start': classes.edgeStart,
+      'end': classes.edgeEnd
+    }[edge]),
+    centerRipple: true,
+    focusRipple: !disableFocusRipple,
+    disabled: disabled,
+    ref: ref
+  }, other), /*#__PURE__*/react.createElement("span", {
+    className: classes.label
+  }, children));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const IconButton_IconButton = ((0,withStyles/* default */.A)(IconButton_styles, {
+  name: 'MuiIconButton'
+})(IconButton));
+;// ./node_modules/@material-ui/core/esm/DialogContent/DialogContent.js
+
+
+
+
+
+
+var DialogContent_styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      flex: '1 1 auto',
+      WebkitOverflowScrolling: 'touch',
+      // Add iOS momentum scrolling.
+      overflowY: 'auto',
+      padding: '8px 24px',
+      '&:first-child': {
+        // dialog without title
+        paddingTop: 20
+      }
+    },
+
+    /* Styles applied to the root element if `dividers={true}`. */
+    dividers: {
+      padding: '16px 24px',
+      borderTop: "1px solid ".concat(theme.palette.divider),
+      borderBottom: "1px solid ".concat(theme.palette.divider)
+    }
+  };
+};
+var DialogContent = /*#__PURE__*/react.forwardRef(function DialogContent(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$dividers = props.dividers,
+      dividers = _props$dividers === void 0 ? false : _props$dividers,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["classes", "className", "dividers"]);
+
+  return /*#__PURE__*/react.createElement("div", (0,esm_extends/* default */.A)({
+    className: (0,clsx_m/* default */.A)(classes.root, className, dividers && classes.dividers),
+    ref: ref
+  }, other));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const DialogContent_DialogContent = ((0,withStyles/* default */.A)(DialogContent_styles, {
+  name: 'MuiDialogContent'
+})(DialogContent));
+// EXTERNAL MODULE: ./node_modules/@material-ui/utils/esm/formatMuiErrorMessage.js
+var esm_formatMuiErrorMessage = __webpack_require__(7860);
+;// ./node_modules/@material-ui/core/esm/FormControl/formControlState.js
+function formControlState(_ref) {
+  var props = _ref.props,
+      states = _ref.states,
+      muiFormControl = _ref.muiFormControl;
+  return states.reduce(function (acc, state) {
+    acc[state] = props[state];
+
+    if (muiFormControl) {
+      if (typeof props[state] === 'undefined') {
+        acc[state] = muiFormControl[state];
+      }
+    }
+
+    return acc;
+  }, {});
+}
+;// ./node_modules/@material-ui/core/esm/FormControl/FormControlContext.js
+
+/**
+ * @ignore - internal component.
+ */
+
+var FormControlContext = react.createContext();
+
+if (false) {}
+
+function useFormControl() {
+  return react.useContext(FormControlContext);
+}
+/* harmony default export */ const FormControl_FormControlContext = (FormControlContext);
+// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/utils/debounce.js
+var debounce = __webpack_require__(1198);
+;// ./node_modules/@material-ui/core/esm/TextareaAutosize/TextareaAutosize.js
+
+
+
+
+
+
+
+
+function getStyleValue(computedStyle, property) {
+  return parseInt(computedStyle[property], 10) || 0;
+}
+
+var TextareaAutosize_useEnhancedEffect = typeof window !== 'undefined' ? react.useLayoutEffect : react.useEffect;
+var TextareaAutosize_styles = {
+  /* Styles applied to the shadow textarea element. */
+  shadow: {
+    // Visibility needed to hide the extra text area on iPads
+    visibility: 'hidden',
+    // Remove from the content flow
+    position: 'absolute',
+    // Ignore the scrollbar width
+    overflow: 'hidden',
+    height: 0,
+    top: 0,
+    left: 0,
+    // Create a new layer, increase the isolation of the computed values
+    transform: 'translateZ(0)'
+  }
+};
+var TextareaAutosize = /*#__PURE__*/react.forwardRef(function TextareaAutosize(props, ref) {
+  var onChange = props.onChange,
+      rows = props.rows,
+      rowsMax = props.rowsMax,
+      rowsMinProp = props.rowsMin,
+      maxRowsProp = props.maxRows,
+      _props$minRows = props.minRows,
+      minRowsProp = _props$minRows === void 0 ? 1 : _props$minRows,
+      style = props.style,
+      value = props.value,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["onChange", "rows", "rowsMax", "rowsMin", "maxRows", "minRows", "style", "value"]);
+
+  var maxRows = maxRowsProp || rowsMax;
+  var minRows = rows || rowsMinProp || minRowsProp;
+
+  var _React$useRef = react.useRef(value != null),
+      isControlled = _React$useRef.current;
+
+  var inputRef = react.useRef(null);
+  var handleRef = (0,useForkRef/* default */.A)(ref, inputRef);
+  var shadowRef = react.useRef(null);
+  var renders = react.useRef(0);
+
+  var _React$useState = react.useState({}),
+      state = _React$useState[0],
+      setState = _React$useState[1];
+
+  var syncHeight = react.useCallback(function () {
+    var input = inputRef.current;
+    var computedStyle = window.getComputedStyle(input);
+    var inputShallow = shadowRef.current;
+    inputShallow.style.width = computedStyle.width;
+    inputShallow.value = input.value || props.placeholder || 'x';
+
+    if (inputShallow.value.slice(-1) === '\n') {
+      // Certain fonts which overflow the line height will cause the textarea
+      // to report a different scrollHeight depending on whether the last line
+      // is empty. Make it non-empty to avoid this issue.
+      inputShallow.value += ' ';
+    }
+
+    var boxSizing = computedStyle['box-sizing'];
+    var padding = getStyleValue(computedStyle, 'padding-bottom') + getStyleValue(computedStyle, 'padding-top');
+    var border = getStyleValue(computedStyle, 'border-bottom-width') + getStyleValue(computedStyle, 'border-top-width'); // The height of the inner content
+
+    var innerHeight = inputShallow.scrollHeight - padding; // Measure height of a textarea with a single row
+
+    inputShallow.value = 'x';
+    var singleRowHeight = inputShallow.scrollHeight - padding; // The height of the outer content
+
+    var outerHeight = innerHeight;
+
+    if (minRows) {
+      outerHeight = Math.max(Number(minRows) * singleRowHeight, outerHeight);
+    }
+
+    if (maxRows) {
+      outerHeight = Math.min(Number(maxRows) * singleRowHeight, outerHeight);
+    }
+
+    outerHeight = Math.max(outerHeight, singleRowHeight); // Take the box sizing into account for applying this value as a style.
+
+    var outerHeightStyle = outerHeight + (boxSizing === 'border-box' ? padding + border : 0);
+    var overflow = Math.abs(outerHeight - innerHeight) <= 1;
+    setState(function (prevState) {
+      // Need a large enough difference to update the height.
+      // This prevents infinite rendering loop.
+      if (renders.current < 20 && (outerHeightStyle > 0 && Math.abs((prevState.outerHeightStyle || 0) - outerHeightStyle) > 1 || prevState.overflow !== overflow)) {
+        renders.current += 1;
+        return {
+          overflow: overflow,
+          outerHeightStyle: outerHeightStyle
+        };
+      }
+
+      if (false) {}
+
+      return prevState;
+    });
+  }, [maxRows, minRows, props.placeholder]);
+  react.useEffect(function () {
+    var handleResize = (0,debounce/* default */.A)(function () {
+      renders.current = 0;
+      syncHeight();
+    });
+    window.addEventListener('resize', handleResize);
+    return function () {
+      handleResize.clear();
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [syncHeight]);
+  TextareaAutosize_useEnhancedEffect(function () {
+    syncHeight();
+  });
+  react.useEffect(function () {
+    renders.current = 0;
+  }, [value]);
+
+  var handleChange = function handleChange(event) {
+    renders.current = 0;
+
+    if (!isControlled) {
+      syncHeight();
+    }
+
+    if (onChange) {
+      onChange(event);
+    }
+  };
+
+  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("textarea", (0,esm_extends/* default */.A)({
+    value: value,
+    onChange: handleChange,
+    ref: handleRef // Apply the rows prop to get a "correct" first SSR paint
+    ,
+    rows: minRows,
+    style: (0,esm_extends/* default */.A)({
+      height: state.outerHeightStyle,
+      // Need a large enough difference to allow scrolling.
+      // This prevents infinite rendering loop.
+      overflow: state.overflow ? 'hidden' : null
+    }, style)
+  }, other)), /*#__PURE__*/react.createElement("textarea", {
+    "aria-hidden": true,
+    className: props.className,
+    readOnly: true,
+    ref: shadowRef,
+    tabIndex: -1,
+    style: (0,esm_extends/* default */.A)({}, TextareaAutosize_styles.shadow, style)
+  }));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const TextareaAutosize_TextareaAutosize = (TextareaAutosize);
+;// ./node_modules/@material-ui/core/esm/InputBase/utils.js
+// Supports determination of isControlled().
+// Controlled input accepts its current value as a prop.
+//
+// @see https://facebook.github.io/react/docs/forms.html#controlled-components
+// @param value
+// @returns {boolean} true if string (including '') or number (including zero)
+function hasValue(value) {
+  return value != null && !(Array.isArray(value) && value.length === 0);
+} // Determine if field is empty or filled.
+// Response determines if label is presented above field or as placeholder.
+//
+// @param obj
+// @param SSR
+// @returns {boolean} False when not present or empty string.
+//                    True when any number or string with length.
+
+function isFilled(obj) {
+  var SSR = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
+  return obj && (hasValue(obj.value) && obj.value !== '' || SSR && hasValue(obj.defaultValue) && obj.defaultValue !== '');
+} // Determine if an Input is adorned on start.
+// It's corresponding to the left with LTR.
+//
+// @param obj
+// @returns {boolean} False when no adornments.
+//                    True when adorned at the start.
+
+function isAdornedStart(obj) {
+  return obj.startAdornment;
+}
+;// ./node_modules/@material-ui/core/esm/InputBase/InputBase.js
+
+
+
+
+/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
+
+
+
+
+
+
+
+
+
+
+
+var InputBase_styles = function styles(theme) {
+  var light = theme.palette.type === 'light';
+  var placeholder = {
+    color: 'currentColor',
+    opacity: light ? 0.42 : 0.5,
+    transition: theme.transitions.create('opacity', {
+      duration: theme.transitions.duration.shorter
+    })
+  };
+  var placeholderHidden = {
+    opacity: '0 !important'
+  };
+  var placeholderVisible = {
+    opacity: light ? 0.42 : 0.5
+  };
+  return {
+    '@global': {
+      '@keyframes mui-auto-fill': {},
+      '@keyframes mui-auto-fill-cancel': {}
+    },
+
+    /* Styles applied to the root element. */
+    root: (0,esm_extends/* default */.A)({}, theme.typography.body1, {
+      color: theme.palette.text.primary,
+      lineHeight: '1.1876em',
+      // Reset (19px), match the native input line-height
+      boxSizing: 'border-box',
+      // Prevent padding issue with fullWidth.
+      position: 'relative',
+      cursor: 'text',
+      display: 'inline-flex',
+      alignItems: 'center',
+      '&$disabled': {
+        color: theme.palette.text.disabled,
+        cursor: 'default'
+      }
+    }),
+
+    /* Styles applied to the root element if the component is a descendant of `FormControl`. */
+    formControl: {},
+
+    /* Styles applied to the root element if the component is focused. */
+    focused: {},
+
+    /* Styles applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Styles applied to the root element if `startAdornment` is provided. */
+    adornedStart: {},
+
+    /* Styles applied to the root element if `endAdornment` is provided. */
+    adornedEnd: {},
+
+    /* Pseudo-class applied to the root element if `error={true}`. */
+    error: {},
+
+    /* Styles applied to the `input` element if `margin="dense"`. */
+    marginDense: {},
+
+    /* Styles applied to the root element if `multiline={true}`. */
+    multiline: {
+      padding: "".concat(8 - 2, "px 0 ").concat(8 - 1, "px"),
+      '&$marginDense': {
+        paddingTop: 4 - 1
+      }
+    },
+
+    /* Styles applied to the root element if the color is secondary. */
+    colorSecondary: {},
+
+    /* Styles applied to the root element if `fullWidth={true}`. */
+    fullWidth: {
+      width: '100%'
+    },
+
+    /* Styles applied to the `input` element. */
+    input: {
+      font: 'inherit',
+      letterSpacing: 'inherit',
+      color: 'currentColor',
+      padding: "".concat(8 - 2, "px 0 ").concat(8 - 1, "px"),
+      border: 0,
+      boxSizing: 'content-box',
+      background: 'none',
+      height: '1.1876em',
+      // Reset (19px), match the native input line-height
+      margin: 0,
+      // Reset for Safari
+      WebkitTapHighlightColor: 'transparent',
+      display: 'block',
+      // Make the flex item shrink with Firefox
+      minWidth: 0,
+      width: '100%',
+      // Fix IE 11 width issue
+      animationName: 'mui-auto-fill-cancel',
+      animationDuration: '10ms',
+      '&::-webkit-input-placeholder': placeholder,
+      '&::-moz-placeholder': placeholder,
+      // Firefox 19+
+      '&:-ms-input-placeholder': placeholder,
+      // IE 11
+      '&::-ms-input-placeholder': placeholder,
+      // Edge
+      '&:focus': {
+        outline: 0
+      },
+      // Reset Firefox invalid required input style
+      '&:invalid': {
+        boxShadow: 'none'
+      },
+      '&::-webkit-search-decoration': {
+        // Remove the padding when type=search.
+        '-webkit-appearance': 'none'
+      },
+      // Show and hide the placeholder logic
+      'label[data-shrink=false] + $formControl &': {
+        '&::-webkit-input-placeholder': placeholderHidden,
+        '&::-moz-placeholder': placeholderHidden,
+        // Firefox 19+
+        '&:-ms-input-placeholder': placeholderHidden,
+        // IE 11
+        '&::-ms-input-placeholder': placeholderHidden,
+        // Edge
+        '&:focus::-webkit-input-placeholder': placeholderVisible,
+        '&:focus::-moz-placeholder': placeholderVisible,
+        // Firefox 19+
+        '&:focus:-ms-input-placeholder': placeholderVisible,
+        // IE 11
+        '&:focus::-ms-input-placeholder': placeholderVisible // Edge
+
+      },
+      '&$disabled': {
+        opacity: 1 // Reset iOS opacity
+
+      },
+      '&:-webkit-autofill': {
+        animationDuration: '5000s',
+        animationName: 'mui-auto-fill'
+      }
+    },
+
+    /* Styles applied to the `input` element if `margin="dense"`. */
+    inputMarginDense: {
+      paddingTop: 4 - 1
+    },
+
+    /* Styles applied to the `input` element if `multiline={true}`. */
+    inputMultiline: {
+      height: 'auto',
+      resize: 'none',
+      padding: 0
+    },
+
+    /* Styles applied to the `input` element if `type="search"`. */
+    inputTypeSearch: {
+      // Improve type search style.
+      '-moz-appearance': 'textfield',
+      '-webkit-appearance': 'textfield'
+    },
+
+    /* Styles applied to the `input` element if `startAdornment` is provided. */
+    inputAdornedStart: {},
+
+    /* Styles applied to the `input` element if `endAdornment` is provided. */
+    inputAdornedEnd: {},
+
+    /* Styles applied to the `input` element if `hiddenLabel={true}`. */
+    inputHiddenLabel: {}
+  };
+};
+var InputBase_useEnhancedEffect = typeof window === 'undefined' ? react.useEffect : react.useLayoutEffect;
+/**
+ * `InputBase` contains as few styles as possible.
+ * It aims to be a simple building block for creating an input.
+ * It contains a load of style reset and some state logic.
+ */
+
+var InputBase = /*#__PURE__*/react.forwardRef(function InputBase(props, ref) {
+  var ariaDescribedby = props['aria-describedby'],
+      autoComplete = props.autoComplete,
+      autoFocus = props.autoFocus,
+      classes = props.classes,
+      className = props.className,
+      color = props.color,
+      defaultValue = props.defaultValue,
+      disabled = props.disabled,
+      endAdornment = props.endAdornment,
+      error = props.error,
+      _props$fullWidth = props.fullWidth,
+      fullWidth = _props$fullWidth === void 0 ? false : _props$fullWidth,
+      id = props.id,
+      _props$inputComponent = props.inputComponent,
+      inputComponent = _props$inputComponent === void 0 ? 'input' : _props$inputComponent,
+      _props$inputProps = props.inputProps,
+      inputPropsProp = _props$inputProps === void 0 ? {} : _props$inputProps,
+      inputRefProp = props.inputRef,
+      margin = props.margin,
+      _props$multiline = props.multiline,
+      multiline = _props$multiline === void 0 ? false : _props$multiline,
+      name = props.name,
+      onBlur = props.onBlur,
+      onChange = props.onChange,
+      onClick = props.onClick,
+      onFocus = props.onFocus,
+      onKeyDown = props.onKeyDown,
+      onKeyUp = props.onKeyUp,
+      placeholder = props.placeholder,
+      readOnly = props.readOnly,
+      renderSuffix = props.renderSuffix,
+      rows = props.rows,
+      rowsMax = props.rowsMax,
+      rowsMin = props.rowsMin,
+      maxRows = props.maxRows,
+      minRows = props.minRows,
+      startAdornment = props.startAdornment,
+      _props$type = props.type,
+      type = _props$type === void 0 ? 'text' : _props$type,
+      valueProp = props.value,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["aria-describedby", "autoComplete", "autoFocus", "classes", "className", "color", "defaultValue", "disabled", "endAdornment", "error", "fullWidth", "id", "inputComponent", "inputProps", "inputRef", "margin", "multiline", "name", "onBlur", "onChange", "onClick", "onFocus", "onKeyDown", "onKeyUp", "placeholder", "readOnly", "renderSuffix", "rows", "rowsMax", "rowsMin", "maxRows", "minRows", "startAdornment", "type", "value"]);
+
+  var value = inputPropsProp.value != null ? inputPropsProp.value : valueProp;
+
+  var _React$useRef = react.useRef(value != null),
+      isControlled = _React$useRef.current;
+
+  var inputRef = react.useRef();
+  var handleInputRefWarning = react.useCallback(function (instance) {
+    if (false) {}
+  }, []);
+  var handleInputPropsRefProp = (0,useForkRef/* default */.A)(inputPropsProp.ref, handleInputRefWarning);
+  var handleInputRefProp = (0,useForkRef/* default */.A)(inputRefProp, handleInputPropsRefProp);
+  var handleInputRef = (0,useForkRef/* default */.A)(inputRef, handleInputRefProp);
+
+  var _React$useState = react.useState(false),
+      focused = _React$useState[0],
+      setFocused = _React$useState[1];
+
+  var muiFormControl = useFormControl();
+
+  if (false) {}
+
+  var fcs = formControlState({
+    props: props,
+    muiFormControl: muiFormControl,
+    states: ['color', 'disabled', 'error', 'hiddenLabel', 'margin', 'required', 'filled']
+  });
+  fcs.focused = muiFormControl ? muiFormControl.focused : focused; // The blur won't fire when the disabled state is set on a focused input.
+  // We need to book keep the focused state manually.
+
+  react.useEffect(function () {
+    if (!muiFormControl && disabled && focused) {
+      setFocused(false);
+
+      if (onBlur) {
+        onBlur();
+      }
+    }
+  }, [muiFormControl, disabled, focused, onBlur]);
+  var onFilled = muiFormControl && muiFormControl.onFilled;
+  var onEmpty = muiFormControl && muiFormControl.onEmpty;
+  var checkDirty = react.useCallback(function (obj) {
+    if (isFilled(obj)) {
+      if (onFilled) {
+        onFilled();
+      }
+    } else if (onEmpty) {
+      onEmpty();
+    }
+  }, [onFilled, onEmpty]);
+  InputBase_useEnhancedEffect(function () {
+    if (isControlled) {
+      checkDirty({
+        value: value
+      });
+    }
+  }, [value, checkDirty, isControlled]);
+
+  var handleFocus = function handleFocus(event) {
+    // Fix a bug with IE 11 where the focus/blur events are triggered
+    // while the input is disabled.
+    if (fcs.disabled) {
+      event.stopPropagation();
+      return;
+    }
+
+    if (onFocus) {
+      onFocus(event);
+    }
+
+    if (inputPropsProp.onFocus) {
+      inputPropsProp.onFocus(event);
+    }
+
+    if (muiFormControl && muiFormControl.onFocus) {
+      muiFormControl.onFocus(event);
+    } else {
+      setFocused(true);
+    }
+  };
+
+  var handleBlur = function handleBlur(event) {
+    if (onBlur) {
+      onBlur(event);
+    }
+
+    if (inputPropsProp.onBlur) {
+      inputPropsProp.onBlur(event);
+    }
+
+    if (muiFormControl && muiFormControl.onBlur) {
+      muiFormControl.onBlur(event);
+    } else {
+      setFocused(false);
+    }
+  };
+
+  var handleChange = function handleChange(event) {
+    if (!isControlled) {
+      var element = event.target || inputRef.current;
+
+      if (element == null) {
+        throw new Error( false ? 0 : (0,esm_formatMuiErrorMessage/* default */.A)(1));
+      }
+
+      checkDirty({
+        value: element.value
+      });
+    }
+
+    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
+      args[_key - 1] = arguments[_key];
+    }
+
+    if (inputPropsProp.onChange) {
+      inputPropsProp.onChange.apply(inputPropsProp, [event].concat(args));
+    } // Perform in the willUpdate
+
+
+    if (onChange) {
+      onChange.apply(void 0, [event].concat(args));
+    }
+  }; // Check the input state on mount, in case it was filled by the user
+  // or auto filled by the browser before the hydration (for SSR).
+
+
+  react.useEffect(function () {
+    checkDirty(inputRef.current);
+  }, []); // eslint-disable-line react-hooks/exhaustive-deps
+
+  var handleClick = function handleClick(event) {
+    if (inputRef.current && event.currentTarget === event.target) {
+      inputRef.current.focus();
+    }
+
+    if (onClick) {
+      onClick(event);
+    }
+  };
+
+  var InputComponent = inputComponent;
+
+  var inputProps = (0,esm_extends/* default */.A)({}, inputPropsProp, {
+    ref: handleInputRef
+  });
+
+  if (typeof InputComponent !== 'string') {
+    inputProps = (0,esm_extends/* default */.A)({
+      // Rename ref to inputRef as we don't know the
+      // provided `inputComponent` structure.
+      inputRef: handleInputRef,
+      type: type
+    }, inputProps, {
+      ref: null
+    });
+  } else if (multiline) {
+    if (rows && !maxRows && !minRows && !rowsMax && !rowsMin) {
+      InputComponent = 'textarea';
+    } else {
+      inputProps = (0,esm_extends/* default */.A)({
+        minRows: rows || minRows,
+        rowsMax: rowsMax,
+        maxRows: maxRows
+      }, inputProps);
+      InputComponent = TextareaAutosize_TextareaAutosize;
+    }
+  } else {
+    inputProps = (0,esm_extends/* default */.A)({
+      type: type
+    }, inputProps);
+  }
+
+  var handleAutoFill = function handleAutoFill(event) {
+    // Provide a fake value as Chrome might not let you access it for security reasons.
+    checkDirty(event.animationName === 'mui-auto-fill-cancel' ? inputRef.current : {
+      value: 'x'
+    });
+  };
+
+  react.useEffect(function () {
+    if (muiFormControl) {
+      muiFormControl.setAdornedStart(Boolean(startAdornment));
+    }
+  }, [muiFormControl, startAdornment]);
+  return /*#__PURE__*/react.createElement("div", (0,esm_extends/* default */.A)({
+    className: (0,clsx_m/* default */.A)(classes.root, classes["color".concat((0,esm_utils_capitalize/* default */.A)(fcs.color || 'primary'))], className, fcs.disabled && classes.disabled, fcs.error && classes.error, fullWidth && classes.fullWidth, fcs.focused && classes.focused, muiFormControl && classes.formControl, multiline && classes.multiline, startAdornment && classes.adornedStart, endAdornment && classes.adornedEnd, fcs.margin === 'dense' && classes.marginDense),
+    onClick: handleClick,
+    ref: ref
+  }, other), startAdornment, /*#__PURE__*/react.createElement(FormControl_FormControlContext.Provider, {
+    value: null
+  }, /*#__PURE__*/react.createElement(InputComponent, (0,esm_extends/* default */.A)({
+    "aria-invalid": fcs.error,
+    "aria-describedby": ariaDescribedby,
+    autoComplete: autoComplete,
+    autoFocus: autoFocus,
+    defaultValue: defaultValue,
+    disabled: fcs.disabled,
+    id: id,
+    onAnimationStart: handleAutoFill,
+    name: name,
+    placeholder: placeholder,
+    readOnly: readOnly,
+    required: fcs.required,
+    rows: rows,
+    value: value,
+    onKeyDown: onKeyDown,
+    onKeyUp: onKeyUp
+  }, inputProps, {
+    className: (0,clsx_m/* default */.A)(classes.input, inputPropsProp.className, fcs.disabled && classes.disabled, multiline && classes.inputMultiline, fcs.hiddenLabel && classes.inputHiddenLabel, startAdornment && classes.inputAdornedStart, endAdornment && classes.inputAdornedEnd, type === 'search' && classes.inputTypeSearch, fcs.margin === 'dense' && classes.inputMarginDense),
+    onBlur: handleBlur,
+    onChange: handleChange,
+    onFocus: handleFocus
+  }))), endAdornment, renderSuffix ? renderSuffix((0,esm_extends/* default */.A)({}, fcs, {
+    startAdornment: startAdornment
+  })) : null);
+});
+ false ? 0 : void 0;
+/* harmony default export */ const InputBase_InputBase = ((0,withStyles/* default */.A)(InputBase_styles, {
+  name: 'MuiInputBase'
+})(InputBase));
+;// ./node_modules/@material-ui/core/esm/Input/Input.js
+
+
+
+
+
+
+
+
+var Input_styles = function styles(theme) {
+  var light = theme.palette.type === 'light';
+  var bottomLineColor = light ? 'rgba(0, 0, 0, 0.42)' : 'rgba(255, 255, 255, 0.7)';
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      position: 'relative'
+    },
+
+    /* Styles applied to the root element if the component is a descendant of `FormControl`. */
+    formControl: {
+      'label + &': {
+        marginTop: 16
+      }
+    },
+
+    /* Styles applied to the root element if the component is focused. */
+    focused: {},
+
+    /* Styles applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Styles applied to the root element if color secondary. */
+    colorSecondary: {
+      '&$underline:after': {
+        borderBottomColor: theme.palette.secondary.main
+      }
+    },
+
+    /* Styles applied to the root element if `disableUnderline={false}`. */
+    underline: {
+      '&:after': {
+        borderBottom: "2px solid ".concat(theme.palette.primary.main),
+        left: 0,
+        bottom: 0,
+        // Doing the other way around crash on IE 11 "''" https://github.com/cssinjs/jss/issues/242
+        content: '""',
+        position: 'absolute',
+        right: 0,
+        transform: 'scaleX(0)',
+        transition: theme.transitions.create('transform', {
+          duration: theme.transitions.duration.shorter,
+          easing: theme.transitions.easing.easeOut
+        }),
+        pointerEvents: 'none' // Transparent to the hover style.
+
+      },
+      '&$focused:after': {
+        transform: 'scaleX(1)'
+      },
+      '&$error:after': {
+        borderBottomColor: theme.palette.error.main,
+        transform: 'scaleX(1)' // error is always underlined in red
+
+      },
+      '&:before': {
+        borderBottom: "1px solid ".concat(bottomLineColor),
+        left: 0,
+        bottom: 0,
+        // Doing the other way around crash on IE 11 "''" https://github.com/cssinjs/jss/issues/242
+        content: '"\\00a0"',
+        position: 'absolute',
+        right: 0,
+        transition: theme.transitions.create('border-bottom-color', {
+          duration: theme.transitions.duration.shorter
+        }),
+        pointerEvents: 'none' // Transparent to the hover style.
+
+      },
+      '&:hover:not($disabled):before': {
+        borderBottom: "2px solid ".concat(theme.palette.text.primary),
+        // Reset on touch devices, it doesn't add specificity
+        '@media (hover: none)': {
+          borderBottom: "1px solid ".concat(bottomLineColor)
+        }
+      },
+      '&$disabled:before': {
+        borderBottomStyle: 'dotted'
+      }
+    },
+
+    /* Pseudo-class applied to the root element if `error={true}`. */
+    error: {},
+
+    /* Styles applied to the `input` element if `margin="dense"`. */
+    marginDense: {},
+
+    /* Styles applied to the root element if `multiline={true}`. */
+    multiline: {},
+
+    /* Styles applied to the root element if `fullWidth={true}`. */
+    fullWidth: {},
+
+    /* Styles applied to the `input` element. */
+    input: {},
+
+    /* Styles applied to the `input` element if `margin="dense"`. */
+    inputMarginDense: {},
+
+    /* Styles applied to the `input` element if `multiline={true}`. */
+    inputMultiline: {},
+
+    /* Styles applied to the `input` element if `type="search"`. */
+    inputTypeSearch: {}
+  };
+};
+var Input = /*#__PURE__*/react.forwardRef(function Input(props, ref) {
+  var disableUnderline = props.disableUnderline,
+      classes = props.classes,
+      _props$fullWidth = props.fullWidth,
+      fullWidth = _props$fullWidth === void 0 ? false : _props$fullWidth,
+      _props$inputComponent = props.inputComponent,
+      inputComponent = _props$inputComponent === void 0 ? 'input' : _props$inputComponent,
+      _props$multiline = props.multiline,
+      multiline = _props$multiline === void 0 ? false : _props$multiline,
+      _props$type = props.type,
+      type = _props$type === void 0 ? 'text' : _props$type,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["disableUnderline", "classes", "fullWidth", "inputComponent", "multiline", "type"]);
+
+  return /*#__PURE__*/react.createElement(InputBase_InputBase, (0,esm_extends/* default */.A)({
+    classes: (0,esm_extends/* default */.A)({}, classes, {
+      root: (0,clsx_m/* default */.A)(classes.root, !disableUnderline && classes.underline),
+      underline: null
+    }),
+    fullWidth: fullWidth,
+    inputComponent: inputComponent,
+    multiline: multiline,
+    ref: ref,
+    type: type
+  }, other));
+});
+ false ? 0 : void 0;
+Input.muiName = 'Input';
+/* harmony default export */ const Input_Input = ((0,withStyles/* default */.A)(Input_styles, {
+  name: 'MuiInput'
+})(Input));
+;// ./node_modules/@material-ui/core/esm/FilledInput/FilledInput.js
+
+
+
+
+
+
+
+
+var FilledInput_styles = function styles(theme) {
+  var light = theme.palette.type === 'light';
+  var bottomLineColor = light ? 'rgba(0, 0, 0, 0.42)' : 'rgba(255, 255, 255, 0.7)';
+  var backgroundColor = light ? 'rgba(0, 0, 0, 0.09)' : 'rgba(255, 255, 255, 0.09)';
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      position: 'relative',
+      backgroundColor: backgroundColor,
+      borderTopLeftRadius: theme.shape.borderRadius,
+      borderTopRightRadius: theme.shape.borderRadius,
+      transition: theme.transitions.create('background-color', {
+        duration: theme.transitions.duration.shorter,
+        easing: theme.transitions.easing.easeOut
+      }),
+      '&:hover': {
+        backgroundColor: light ? 'rgba(0, 0, 0, 0.13)' : 'rgba(255, 255, 255, 0.13)',
+        // Reset on touch devices, it doesn't add specificity
+        '@media (hover: none)': {
+          backgroundColor: backgroundColor
+        }
+      },
+      '&$focused': {
+        backgroundColor: light ? 'rgba(0, 0, 0, 0.09)' : 'rgba(255, 255, 255, 0.09)'
+      },
+      '&$disabled': {
+        backgroundColor: light ? 'rgba(0, 0, 0, 0.12)' : 'rgba(255, 255, 255, 0.12)'
+      }
+    },
+
+    /* Styles applied to the root element if color secondary. */
+    colorSecondary: {
+      '&$underline:after': {
+        borderBottomColor: theme.palette.secondary.main
+      }
+    },
+
+    /* Styles applied to the root element if `disableUnderline={false}`. */
+    underline: {
+      '&:after': {
+        borderBottom: "2px solid ".concat(theme.palette.primary.main),
+        left: 0,
+        bottom: 0,
+        // Doing the other way around crash on IE 11 "''" https://github.com/cssinjs/jss/issues/242
+        content: '""',
+        position: 'absolute',
+        right: 0,
+        transform: 'scaleX(0)',
+        transition: theme.transitions.create('transform', {
+          duration: theme.transitions.duration.shorter,
+          easing: theme.transitions.easing.easeOut
+        }),
+        pointerEvents: 'none' // Transparent to the hover style.
+
+      },
+      '&$focused:after': {
+        transform: 'scaleX(1)'
+      },
+      '&$error:after': {
+        borderBottomColor: theme.palette.error.main,
+        transform: 'scaleX(1)' // error is always underlined in red
+
+      },
+      '&:before': {
+        borderBottom: "1px solid ".concat(bottomLineColor),
+        left: 0,
+        bottom: 0,
+        // Doing the other way around crash on IE 11 "''" https://github.com/cssinjs/jss/issues/242
+        content: '"\\00a0"',
+        position: 'absolute',
+        right: 0,
+        transition: theme.transitions.create('border-bottom-color', {
+          duration: theme.transitions.duration.shorter
+        }),
+        pointerEvents: 'none' // Transparent to the hover style.
+
+      },
+      '&:hover:before': {
+        borderBottom: "1px solid ".concat(theme.palette.text.primary)
+      },
+      '&$disabled:before': {
+        borderBottomStyle: 'dotted'
+      }
+    },
+
+    /* Pseudo-class applied to the root element if the component is focused. */
+    focused: {},
+
+    /* Pseudo-class applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Styles applied to the root element if `startAdornment` is provided. */
+    adornedStart: {
+      paddingLeft: 12
+    },
+
+    /* Styles applied to the root element if `endAdornment` is provided. */
+    adornedEnd: {
+      paddingRight: 12
+    },
+
+    /* Pseudo-class applied to the root element if `error={true}`. */
+    error: {},
+
+    /* Styles applied to the `input` element if `margin="dense"`. */
+    marginDense: {},
+
+    /* Styles applied to the root element if `multiline={true}`. */
+    multiline: {
+      padding: '27px 12px 10px',
+      '&$marginDense': {
+        paddingTop: 23,
+        paddingBottom: 6
+      }
+    },
+
+    /* Styles applied to the `input` element. */
+    input: {
+      padding: '27px 12px 10px',
+      '&:-webkit-autofill': {
+        WebkitBoxShadow: theme.palette.type === 'light' ? null : '0 0 0 100px #266798 inset',
+        WebkitTextFillColor: theme.palette.type === 'light' ? null : '#fff',
+        caretColor: theme.palette.type === 'light' ? null : '#fff',
+        borderTopLeftRadius: 'inherit',
+        borderTopRightRadius: 'inherit'
+      }
+    },
+
+    /* Styles applied to the `input` element if `margin="dense"`. */
+    inputMarginDense: {
+      paddingTop: 23,
+      paddingBottom: 6
+    },
+
+    /* Styles applied to the `input` if in `<FormControl hiddenLabel />`. */
+    inputHiddenLabel: {
+      paddingTop: 18,
+      paddingBottom: 19,
+      '&$inputMarginDense': {
+        paddingTop: 10,
+        paddingBottom: 11
+      }
+    },
+
+    /* Styles applied to the `input` element if `multiline={true}`. */
+    inputMultiline: {
+      padding: 0
+    },
+
+    /* Styles applied to the `input` element if `startAdornment` is provided. */
+    inputAdornedStart: {
+      paddingLeft: 0
+    },
+
+    /* Styles applied to the `input` element if `endAdornment` is provided. */
+    inputAdornedEnd: {
+      paddingRight: 0
+    }
+  };
+};
+var FilledInput = /*#__PURE__*/react.forwardRef(function FilledInput(props, ref) {
+  var disableUnderline = props.disableUnderline,
+      classes = props.classes,
+      _props$fullWidth = props.fullWidth,
+      fullWidth = _props$fullWidth === void 0 ? false : _props$fullWidth,
+      _props$inputComponent = props.inputComponent,
+      inputComponent = _props$inputComponent === void 0 ? 'input' : _props$inputComponent,
+      _props$multiline = props.multiline,
+      multiline = _props$multiline === void 0 ? false : _props$multiline,
+      _props$type = props.type,
+      type = _props$type === void 0 ? 'text' : _props$type,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["disableUnderline", "classes", "fullWidth", "inputComponent", "multiline", "type"]);
+
+  return /*#__PURE__*/react.createElement(InputBase_InputBase, (0,esm_extends/* default */.A)({
+    classes: (0,esm_extends/* default */.A)({}, classes, {
+      root: (0,clsx_m/* default */.A)(classes.root, !disableUnderline && classes.underline),
+      underline: null
+    }),
+    fullWidth: fullWidth,
+    inputComponent: inputComponent,
+    multiline: multiline,
+    ref: ref,
+    type: type
+  }, other));
+});
+ false ? 0 : void 0;
+FilledInput.muiName = 'Input';
+/* harmony default export */ const FilledInput_FilledInput = ((0,withStyles/* default */.A)(FilledInput_styles, {
+  name: 'MuiFilledInput'
+})(FilledInput));
+;// ./node_modules/@material-ui/core/esm/OutlinedInput/NotchedOutline.js
+
+
+
+
+
+
+
+
+
+var NotchedOutline_styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      position: 'absolute',
+      bottom: 0,
+      right: 0,
+      top: -5,
+      left: 0,
+      margin: 0,
+      padding: '0 8px',
+      pointerEvents: 'none',
+      borderRadius: 'inherit',
+      borderStyle: 'solid',
+      borderWidth: 1,
+      overflow: 'hidden'
+    },
+
+    /* Styles applied to the legend element when `labelWidth` is provided. */
+    legend: {
+      textAlign: 'left',
+      padding: 0,
+      lineHeight: '11px',
+      // sync with `height` in `legend` styles
+      transition: theme.transitions.create('width', {
+        duration: 150,
+        easing: theme.transitions.easing.easeOut
+      })
+    },
+
+    /* Styles applied to the legend element. */
+    legendLabelled: {
+      display: 'block',
+      width: 'auto',
+      textAlign: 'left',
+      padding: 0,
+      height: 11,
+      // sync with `lineHeight` in `legend` styles
+      fontSize: '0.75em',
+      visibility: 'hidden',
+      maxWidth: 0.01,
+      transition: theme.transitions.create('max-width', {
+        duration: 50,
+        easing: theme.transitions.easing.easeOut
+      }),
+      '& > span': {
+        paddingLeft: 5,
+        paddingRight: 5,
+        display: 'inline-block'
+      }
+    },
+
+    /* Styles applied to the legend element is notched. */
+    legendNotched: {
+      maxWidth: 1000,
+      transition: theme.transitions.create('max-width', {
+        duration: 100,
+        easing: theme.transitions.easing.easeOut,
+        delay: 50
+      })
+    }
+  };
+};
+/**
+ * @ignore - internal component.
+ */
+
+var NotchedOutline = /*#__PURE__*/react.forwardRef(function NotchedOutline(props, ref) {
+  var children = props.children,
+      classes = props.classes,
+      className = props.className,
+      label = props.label,
+      labelWidthProp = props.labelWidth,
+      notched = props.notched,
+      style = props.style,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["children", "classes", "className", "label", "labelWidth", "notched", "style"]);
+
+  var theme = useTheme_useTheme();
+  var align = theme.direction === 'rtl' ? 'right' : 'left';
+
+  if (label !== undefined) {
+    return /*#__PURE__*/react.createElement("fieldset", (0,esm_extends/* default */.A)({
+      "aria-hidden": true,
+      className: (0,clsx_m/* default */.A)(classes.root, className),
+      ref: ref,
+      style: style
+    }, other), /*#__PURE__*/react.createElement("legend", {
+      className: (0,clsx_m/* default */.A)(classes.legendLabelled, notched && classes.legendNotched)
+    }, label ? /*#__PURE__*/react.createElement("span", null, label) : /*#__PURE__*/react.createElement("span", {
+      dangerouslySetInnerHTML: {
+        __html: '&#8203;'
+      }
+    })));
+  }
+
+  var labelWidth = labelWidthProp > 0 ? labelWidthProp * 0.75 + 8 : 0.01;
+  return /*#__PURE__*/react.createElement("fieldset", (0,esm_extends/* default */.A)({
+    "aria-hidden": true,
+    style: (0,esm_extends/* default */.A)((0,defineProperty/* default */.A)({}, "padding".concat((0,esm_utils_capitalize/* default */.A)(align)), 8), style),
+    className: (0,clsx_m/* default */.A)(classes.root, className),
+    ref: ref
+  }, other), /*#__PURE__*/react.createElement("legend", {
+    className: classes.legend,
+    style: {
+      // IE 11: fieldset with legend does not render
+      // a border radius. This maintains consistency
+      // by always having a legend rendered
+      width: notched ? labelWidth : 0.01
+    }
+  }, /*#__PURE__*/react.createElement("span", {
+    dangerouslySetInnerHTML: {
+      __html: '&#8203;'
+    }
+  })));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const OutlinedInput_NotchedOutline = ((0,withStyles/* default */.A)(NotchedOutline_styles, {
+  name: 'PrivateNotchedOutline'
+})(NotchedOutline));
+;// ./node_modules/@material-ui/core/esm/OutlinedInput/OutlinedInput.js
+
+
+
+
+
+
+
+
+
+var OutlinedInput_styles = function styles(theme) {
+  var borderColor = theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.23)' : 'rgba(255, 255, 255, 0.23)';
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      position: 'relative',
+      borderRadius: theme.shape.borderRadius,
+      '&:hover $notchedOutline': {
+        borderColor: theme.palette.text.primary
+      },
+      // Reset on touch devices, it doesn't add specificity
+      '@media (hover: none)': {
+        '&:hover $notchedOutline': {
+          borderColor: borderColor
+        }
+      },
+      '&$focused $notchedOutline': {
+        borderColor: theme.palette.primary.main,
+        borderWidth: 2
+      },
+      '&$error $notchedOutline': {
+        borderColor: theme.palette.error.main
+      },
+      '&$disabled $notchedOutline': {
+        borderColor: theme.palette.action.disabled
+      }
+    },
+
+    /* Styles applied to the root element if the color is secondary. */
+    colorSecondary: {
+      '&$focused $notchedOutline': {
+        borderColor: theme.palette.secondary.main
+      }
+    },
+
+    /* Styles applied to the root element if the component is focused. */
+    focused: {},
+
+    /* Styles applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Styles applied to the root element if `startAdornment` is provided. */
+    adornedStart: {
+      paddingLeft: 14
+    },
+
+    /* Styles applied to the root element if `endAdornment` is provided. */
+    adornedEnd: {
+      paddingRight: 14
+    },
+
+    /* Pseudo-class applied to the root element if `error={true}`. */
+    error: {},
+
+    /* Styles applied to the `input` element if `margin="dense"`. */
+    marginDense: {},
+
+    /* Styles applied to the root element if `multiline={true}`. */
+    multiline: {
+      padding: '18.5px 14px',
+      '&$marginDense': {
+        paddingTop: 10.5,
+        paddingBottom: 10.5
+      }
+    },
+
+    /* Styles applied to the `NotchedOutline` element. */
+    notchedOutline: {
+      borderColor: borderColor
+    },
+
+    /* Styles applied to the `input` element. */
+    input: {
+      padding: '18.5px 14px',
+      '&:-webkit-autofill': {
+        WebkitBoxShadow: theme.palette.type === 'light' ? null : '0 0 0 100px #266798 inset',
+        WebkitTextFillColor: theme.palette.type === 'light' ? null : '#fff',
+        caretColor: theme.palette.type === 'light' ? null : '#fff',
+        borderRadius: 'inherit'
+      }
+    },
+
+    /* Styles applied to the `input` element if `margin="dense"`. */
+    inputMarginDense: {
+      paddingTop: 10.5,
+      paddingBottom: 10.5
+    },
+
+    /* Styles applied to the `input` element if `multiline={true}`. */
+    inputMultiline: {
+      padding: 0
+    },
+
+    /* Styles applied to the `input` element if `startAdornment` is provided. */
+    inputAdornedStart: {
+      paddingLeft: 0
+    },
+
+    /* Styles applied to the `input` element if `endAdornment` is provided. */
+    inputAdornedEnd: {
+      paddingRight: 0
+    }
+  };
+};
+var OutlinedInput = /*#__PURE__*/react.forwardRef(function OutlinedInput(props, ref) {
+  var classes = props.classes,
+      _props$fullWidth = props.fullWidth,
+      fullWidth = _props$fullWidth === void 0 ? false : _props$fullWidth,
+      _props$inputComponent = props.inputComponent,
+      inputComponent = _props$inputComponent === void 0 ? 'input' : _props$inputComponent,
+      label = props.label,
+      _props$labelWidth = props.labelWidth,
+      labelWidth = _props$labelWidth === void 0 ? 0 : _props$labelWidth,
+      _props$multiline = props.multiline,
+      multiline = _props$multiline === void 0 ? false : _props$multiline,
+      notched = props.notched,
+      _props$type = props.type,
+      type = _props$type === void 0 ? 'text' : _props$type,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["classes", "fullWidth", "inputComponent", "label", "labelWidth", "multiline", "notched", "type"]);
+
+  return /*#__PURE__*/react.createElement(InputBase_InputBase, (0,esm_extends/* default */.A)({
+    renderSuffix: function renderSuffix(state) {
+      return /*#__PURE__*/react.createElement(OutlinedInput_NotchedOutline, {
+        className: classes.notchedOutline,
+        label: label,
+        labelWidth: labelWidth,
+        notched: typeof notched !== 'undefined' ? notched : Boolean(state.startAdornment || state.filled || state.focused)
+      });
+    },
+    classes: (0,esm_extends/* default */.A)({}, classes, {
+      root: (0,clsx_m/* default */.A)(classes.root, classes.underline),
+      notchedOutline: null
+    }),
+    fullWidth: fullWidth,
+    inputComponent: inputComponent,
+    multiline: multiline,
+    ref: ref,
+    type: type
+  }, other));
+});
+ false ? 0 : void 0;
+OutlinedInput.muiName = 'Input';
+/* harmony default export */ const OutlinedInput_OutlinedInput = ((0,withStyles/* default */.A)(OutlinedInput_styles, {
+  name: 'MuiOutlinedInput'
+})(OutlinedInput));
+;// ./node_modules/@material-ui/core/esm/FormControl/useFormControl.js
+
+
+function useFormControl_useFormControl() {
+  return react.useContext(FormControl_FormControlContext);
+}
+;// ./node_modules/@material-ui/core/esm/FormLabel/FormLabel.js
+
+
+
+
+
+
+
+
+
+var FormLabel_styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: (0,esm_extends/* default */.A)({
+      color: theme.palette.text.secondary
+    }, theme.typography.body1, {
+      lineHeight: 1,
+      padding: 0,
+      '&$focused': {
+        color: theme.palette.primary.main
+      },
+      '&$disabled': {
+        color: theme.palette.text.disabled
+      },
+      '&$error': {
+        color: theme.palette.error.main
+      }
+    }),
+
+    /* Styles applied to the root element if the color is secondary. */
+    colorSecondary: {
+      '&$focused': {
+        color: theme.palette.secondary.main
+      }
+    },
+
+    /* Pseudo-class applied to the root element if `focused={true}`. */
+    focused: {},
+
+    /* Pseudo-class applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Pseudo-class applied to the root element if `error={true}`. */
+    error: {},
+
+    /* Pseudo-class applied to the root element if `filled={true}`. */
+    filled: {},
+
+    /* Pseudo-class applied to the root element if `required={true}`. */
+    required: {},
+
+    /* Styles applied to the asterisk element. */
+    asterisk: {
+      '&$error': {
+        color: theme.palette.error.main
+      }
+    }
+  };
+};
+var FormLabel = /*#__PURE__*/react.forwardRef(function FormLabel(props, ref) {
+  var children = props.children,
+      classes = props.classes,
+      className = props.className,
+      color = props.color,
+      _props$component = props.component,
+      Component = _props$component === void 0 ? 'label' : _props$component,
+      disabled = props.disabled,
+      error = props.error,
+      filled = props.filled,
+      focused = props.focused,
+      required = props.required,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["children", "classes", "className", "color", "component", "disabled", "error", "filled", "focused", "required"]);
+
+  var muiFormControl = useFormControl_useFormControl();
+  var fcs = formControlState({
+    props: props,
+    muiFormControl: muiFormControl,
+    states: ['color', 'required', 'focused', 'disabled', 'error', 'filled']
+  });
+  return /*#__PURE__*/react.createElement(Component, (0,esm_extends/* default */.A)({
+    className: (0,clsx_m/* default */.A)(classes.root, classes["color".concat((0,esm_utils_capitalize/* default */.A)(fcs.color || 'primary'))], className, fcs.disabled && classes.disabled, fcs.error && classes.error, fcs.filled && classes.filled, fcs.focused && classes.focused, fcs.required && classes.required),
+    ref: ref
+  }, other), children, fcs.required && /*#__PURE__*/react.createElement("span", {
+    "aria-hidden": true,
+    className: (0,clsx_m/* default */.A)(classes.asterisk, fcs.error && classes.error)
+  }, "\u2009", '*'));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const FormLabel_FormLabel = ((0,withStyles/* default */.A)(FormLabel_styles, {
+  name: 'MuiFormLabel'
+})(FormLabel));
+;// ./node_modules/@material-ui/core/esm/InputLabel/InputLabel.js
+
+
+
+
+
+
+
+
+
+var InputLabel_styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      display: 'block',
+      transformOrigin: 'top left'
+    },
+
+    /* Pseudo-class applied to the root element if `focused={true}`. */
+    focused: {},
+
+    /* Pseudo-class applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Pseudo-class applied to the root element if `error={true}`. */
+    error: {},
+
+    /* Pseudo-class applied to the root element if `required={true}`. */
+    required: {},
+
+    /* Pseudo-class applied to the asterisk element. */
+    asterisk: {},
+
+    /* Styles applied to the root element if the component is a descendant of `FormControl`. */
+    formControl: {
+      position: 'absolute',
+      left: 0,
+      top: 0,
+      // slight alteration to spec spacing to match visual spec result
+      transform: 'translate(0, 24px) scale(1)'
+    },
+
+    /* Styles applied to the root element if `margin="dense"`. */
+    marginDense: {
+      // Compensation for the `Input.inputDense` style.
+      transform: 'translate(0, 21px) scale(1)'
+    },
+
+    /* Styles applied to the `input` element if `shrink={true}`. */
+    shrink: {
+      transform: 'translate(0, 1.5px) scale(0.75)',
+      transformOrigin: 'top left'
+    },
+
+    /* Styles applied to the `input` element if `disableAnimation={false}`. */
+    animated: {
+      transition: theme.transitions.create(['color', 'transform'], {
+        duration: theme.transitions.duration.shorter,
+        easing: theme.transitions.easing.easeOut
+      })
+    },
+
+    /* Styles applied to the root element if `variant="filled"`. */
+    filled: {
+      // Chrome's autofill feature gives the input field a yellow background.
+      // Since the input field is behind the label in the HTML tree,
+      // the input field is drawn last and hides the label with an opaque background color.
+      // zIndex: 1 will raise the label above opaque background-colors of input.
+      zIndex: 1,
+      pointerEvents: 'none',
+      transform: 'translate(12px, 20px) scale(1)',
+      '&$marginDense': {
+        transform: 'translate(12px, 17px) scale(1)'
+      },
+      '&$shrink': {
+        transform: 'translate(12px, 10px) scale(0.75)',
+        '&$marginDense': {
+          transform: 'translate(12px, 7px) scale(0.75)'
+        }
+      }
+    },
+
+    /* Styles applied to the root element if `variant="outlined"`. */
+    outlined: {
+      // see comment above on filled.zIndex
+      zIndex: 1,
+      pointerEvents: 'none',
+      transform: 'translate(14px, 20px) scale(1)',
+      '&$marginDense': {
+        transform: 'translate(14px, 12px) scale(1)'
+      },
+      '&$shrink': {
+        transform: 'translate(14px, -6px) scale(0.75)'
+      }
+    }
+  };
+};
+var InputLabel = /*#__PURE__*/react.forwardRef(function InputLabel(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      _props$disableAnimati = props.disableAnimation,
+      disableAnimation = _props$disableAnimati === void 0 ? false : _props$disableAnimati,
+      margin = props.margin,
+      shrinkProp = props.shrink,
+      variant = props.variant,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["classes", "className", "disableAnimation", "margin", "shrink", "variant"]);
+
+  var muiFormControl = useFormControl_useFormControl();
+  var shrink = shrinkProp;
+
+  if (typeof shrink === 'undefined' && muiFormControl) {
+    shrink = muiFormControl.filled || muiFormControl.focused || muiFormControl.adornedStart;
+  }
+
+  var fcs = formControlState({
+    props: props,
+    muiFormControl: muiFormControl,
+    states: ['margin', 'variant']
+  });
+  return /*#__PURE__*/react.createElement(FormLabel_FormLabel, (0,esm_extends/* default */.A)({
+    "data-shrink": shrink,
+    className: (0,clsx_m/* default */.A)(classes.root, className, muiFormControl && classes.formControl, !disableAnimation && classes.animated, shrink && classes.shrink, fcs.margin === 'dense' && classes.marginDense, {
+      'filled': classes.filled,
+      'outlined': classes.outlined
+    }[fcs.variant]),
+    classes: {
+      focused: classes.focused,
+      disabled: classes.disabled,
+      error: classes.error,
+      required: classes.required,
+      asterisk: classes.asterisk
+    },
+    ref: ref
+  }, other));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const InputLabel_InputLabel = ((0,withStyles/* default */.A)(InputLabel_styles, {
+  name: 'MuiInputLabel'
+})(InputLabel));
+// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/utils/isMuiElement.js
+var isMuiElement = __webpack_require__(7570);
+;// ./node_modules/@material-ui/core/esm/FormControl/FormControl.js
+
+
+
+
+
+
+
+
+
+
+var FormControl_styles = {
+  /* Styles applied to the root element. */
+  root: {
+    display: 'inline-flex',
+    flexDirection: 'column',
+    position: 'relative',
+    // Reset fieldset default style.
+    minWidth: 0,
+    padding: 0,
+    margin: 0,
+    border: 0,
+    verticalAlign: 'top' // Fix alignment issue on Safari.
+
+  },
+
+  /* Styles applied to the root element if `margin="normal"`. */
+  marginNormal: {
+    marginTop: 16,
+    marginBottom: 8
+  },
+
+  /* Styles applied to the root element if `margin="dense"`. */
+  marginDense: {
+    marginTop: 8,
+    marginBottom: 4
+  },
+
+  /* Styles applied to the root element if `fullWidth={true}`. */
+  fullWidth: {
+    width: '100%'
+  }
+};
+/**
+ * Provides context such as filled/focused/error/required for form inputs.
+ * Relying on the context provides high flexibility and ensures that the state always stays
+ * consistent across the children of the `FormControl`.
+ * This context is used by the following components:
+ *
+ *  - FormLabel
+ *  - FormHelperText
+ *  - Input
+ *  - InputLabel
+ *
+ * You can find one composition example below and more going to [the demos](/components/text-fields/#components).
+ *
+ * ```jsx
+ * <FormControl>
+ *   <InputLabel htmlFor="my-input">Email address</InputLabel>
+ *   <Input id="my-input" aria-describedby="my-helper-text" />
+ *   <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
+ * </FormControl>
+ * ```
+ *
+ * ⚠️Only one input can be used within a FormControl.
+ */
+
+var FormControl = /*#__PURE__*/react.forwardRef(function FormControl(props, ref) {
+  var children = props.children,
+      classes = props.classes,
+      className = props.className,
+      _props$color = props.color,
+      color = _props$color === void 0 ? 'primary' : _props$color,
+      _props$component = props.component,
+      Component = _props$component === void 0 ? 'div' : _props$component,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled,
+      _props$error = props.error,
+      error = _props$error === void 0 ? false : _props$error,
+      _props$fullWidth = props.fullWidth,
+      fullWidth = _props$fullWidth === void 0 ? false : _props$fullWidth,
+      visuallyFocused = props.focused,
+      _props$hiddenLabel = props.hiddenLabel,
+      hiddenLabel = _props$hiddenLabel === void 0 ? false : _props$hiddenLabel,
+      _props$margin = props.margin,
+      margin = _props$margin === void 0 ? 'none' : _props$margin,
+      _props$required = props.required,
+      required = _props$required === void 0 ? false : _props$required,
+      size = props.size,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'standard' : _props$variant,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["children", "classes", "className", "color", "component", "disabled", "error", "fullWidth", "focused", "hiddenLabel", "margin", "required", "size", "variant"]);
+
+  var _React$useState = react.useState(function () {
+    // We need to iterate through the children and find the Input in order
+    // to fully support server-side rendering.
+    var initialAdornedStart = false;
+
+    if (children) {
+      react.Children.forEach(children, function (child) {
+        if (!(0,isMuiElement/* default */.A)(child, ['Input', 'Select'])) {
+          return;
+        }
+
+        var input = (0,isMuiElement/* default */.A)(child, ['Select']) ? child.props.input : child;
+
+        if (input && isAdornedStart(input.props)) {
+          initialAdornedStart = true;
+        }
+      });
+    }
+
+    return initialAdornedStart;
+  }),
+      adornedStart = _React$useState[0],
+      setAdornedStart = _React$useState[1];
+
+  var _React$useState2 = react.useState(function () {
+    // We need to iterate through the children and find the Input in order
+    // to fully support server-side rendering.
+    var initialFilled = false;
+
+    if (children) {
+      react.Children.forEach(children, function (child) {
+        if (!(0,isMuiElement/* default */.A)(child, ['Input', 'Select'])) {
+          return;
+        }
+
+        if (isFilled(child.props, true)) {
+          initialFilled = true;
+        }
+      });
+    }
+
+    return initialFilled;
+  }),
+      filled = _React$useState2[0],
+      setFilled = _React$useState2[1];
+
+  var _React$useState3 = react.useState(false),
+      _focused = _React$useState3[0],
+      setFocused = _React$useState3[1];
+
+  var focused = visuallyFocused !== undefined ? visuallyFocused : _focused;
+
+  if (disabled && focused) {
+    setFocused(false);
+  }
+
+  var registerEffect;
+
+  if (false) { var registeredInput; }
+
+  var onFilled = react.useCallback(function () {
+    setFilled(true);
+  }, []);
+  var onEmpty = react.useCallback(function () {
+    setFilled(false);
+  }, []);
+  var childContext = {
+    adornedStart: adornedStart,
+    setAdornedStart: setAdornedStart,
+    color: color,
+    disabled: disabled,
+    error: error,
+    filled: filled,
+    focused: focused,
+    fullWidth: fullWidth,
+    hiddenLabel: hiddenLabel,
+    margin: (size === 'small' ? 'dense' : undefined) || margin,
+    onBlur: function onBlur() {
+      setFocused(false);
+    },
+    onEmpty: onEmpty,
+    onFilled: onFilled,
+    onFocus: function onFocus() {
+      setFocused(true);
+    },
+    registerEffect: registerEffect,
+    required: required,
+    variant: variant
+  };
+  return /*#__PURE__*/react.createElement(FormControl_FormControlContext.Provider, {
+    value: childContext
+  }, /*#__PURE__*/react.createElement(Component, (0,esm_extends/* default */.A)({
+    className: (0,clsx_m/* default */.A)(classes.root, className, margin !== 'none' && classes["margin".concat((0,esm_utils_capitalize/* default */.A)(margin))], fullWidth && classes.fullWidth),
+    ref: ref
+  }, other), children));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const FormControl_FormControl = ((0,withStyles/* default */.A)(FormControl_styles, {
+  name: 'MuiFormControl'
+})(FormControl));
+;// ./node_modules/@material-ui/core/esm/FormHelperText/FormHelperText.js
+
+
+
+
+
+
+
+
+var FormHelperText_styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: (0,esm_extends/* default */.A)({
+      color: theme.palette.text.secondary
+    }, theme.typography.caption, {
+      textAlign: 'left',
+      marginTop: 3,
+      margin: 0,
+      '&$disabled': {
+        color: theme.palette.text.disabled
+      },
+      '&$error': {
+        color: theme.palette.error.main
+      }
+    }),
+
+    /* Pseudo-class applied to the root element if `error={true}`. */
+    error: {},
+
+    /* Pseudo-class applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Styles applied to the root element if `margin="dense"`. */
+    marginDense: {
+      marginTop: 4
+    },
+
+    /* Styles applied to the root element if `variant="filled"` or `variant="outlined"`. */
+    contained: {
+      marginLeft: 14,
+      marginRight: 14
+    },
+
+    /* Pseudo-class applied to the root element if `focused={true}`. */
+    focused: {},
+
+    /* Pseudo-class applied to the root element if `filled={true}`. */
+    filled: {},
+
+    /* Pseudo-class applied to the root element if `required={true}`. */
+    required: {}
+  };
+};
+var FormHelperText = /*#__PURE__*/react.forwardRef(function FormHelperText(props, ref) {
+  var children = props.children,
+      classes = props.classes,
+      className = props.className,
+      _props$component = props.component,
+      Component = _props$component === void 0 ? 'p' : _props$component,
+      disabled = props.disabled,
+      error = props.error,
+      filled = props.filled,
+      focused = props.focused,
+      margin = props.margin,
+      required = props.required,
+      variant = props.variant,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["children", "classes", "className", "component", "disabled", "error", "filled", "focused", "margin", "required", "variant"]);
+
+  var muiFormControl = useFormControl_useFormControl();
+  var fcs = formControlState({
+    props: props,
+    muiFormControl: muiFormControl,
+    states: ['variant', 'margin', 'disabled', 'error', 'filled', 'focused', 'required']
+  });
+  return /*#__PURE__*/react.createElement(Component, (0,esm_extends/* default */.A)({
+    className: (0,clsx_m/* default */.A)(classes.root, (fcs.variant === 'filled' || fcs.variant === 'outlined') && classes.contained, className, fcs.disabled && classes.disabled, fcs.error && classes.error, fcs.filled && classes.filled, fcs.focused && classes.focused, fcs.required && classes.required, fcs.margin === 'dense' && classes.marginDense),
+    ref: ref
+  }, other), children === ' ' ?
+  /*#__PURE__*/
+  // eslint-disable-next-line react/no-danger
+  react.createElement("span", {
+    dangerouslySetInnerHTML: {
+      __html: '&#8203;'
+    }
+  }) : children);
+});
+ false ? 0 : void 0;
+/* harmony default export */ const FormHelperText_FormHelperText = ((0,withStyles/* default */.A)(FormHelperText_styles, {
+  name: 'MuiFormHelperText'
+})(FormHelperText));
+// EXTERNAL MODULE: ./node_modules/@material-ui/styles/esm/mergeClasses/mergeClasses.js
+var mergeClasses = __webpack_require__(3043);
+// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/typeof.js
+var esm_typeof = __webpack_require__(2284);
+;// ./node_modules/@material-ui/core/esm/Grow/Grow.js
+
+
+
+
+
+
+
+
+
+
+function getScale(value) {
+  return "scale(".concat(value, ", ").concat(Math.pow(value, 2), ")");
+}
+
+var Grow_styles = {
+  entering: {
+    opacity: 1,
+    transform: getScale(1)
+  },
+  entered: {
+    opacity: 1,
+    transform: 'none'
+  }
+};
+/**
+ * The Grow transition is used by the [Tooltip](/components/tooltips/) and
+ * [Popover](/components/popover/) components.
+ * It uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.
+ */
+
+var Grow = /*#__PURE__*/react.forwardRef(function Grow(props, ref) {
+  var children = props.children,
+      _props$disableStrictM = props.disableStrictModeCompat,
+      disableStrictModeCompat = _props$disableStrictM === void 0 ? false : _props$disableStrictM,
+      inProp = props.in,
+      onEnter = props.onEnter,
+      onEntered = props.onEntered,
+      onEntering = props.onEntering,
+      onExit = props.onExit,
+      onExited = props.onExited,
+      onExiting = props.onExiting,
+      style = props.style,
+      _props$timeout = props.timeout,
+      timeout = _props$timeout === void 0 ? 'auto' : _props$timeout,
+      _props$TransitionComp = props.TransitionComponent,
+      TransitionComponent = _props$TransitionComp === void 0 ? esm_Transition : _props$TransitionComp,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["children", "disableStrictModeCompat", "in", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "style", "timeout", "TransitionComponent"]);
+
+  var timer = react.useRef();
+  var autoTimeout = react.useRef();
+  var theme = useTheme_useTheme();
+  var enableStrictModeCompat = theme.unstable_strictMode && !disableStrictModeCompat;
+  var nodeRef = react.useRef(null);
+  var foreignRef = (0,useForkRef/* default */.A)(children.ref, ref);
+  var handleRef = (0,useForkRef/* default */.A)(enableStrictModeCompat ? nodeRef : undefined, foreignRef);
+
+  var normalizedTransitionCallback = function normalizedTransitionCallback(callback) {
+    return function (nodeOrAppearing, maybeAppearing) {
+      if (callback) {
+        var _ref = enableStrictModeCompat ? [nodeRef.current, nodeOrAppearing] : [nodeOrAppearing, maybeAppearing],
+            _ref2 = (0,slicedToArray/* default */.A)(_ref, 2),
+            node = _ref2[0],
+            isAppearing = _ref2[1]; // onEnterXxx and onExitXxx callbacks have a different arguments.length value.
+
+
+        if (isAppearing === undefined) {
+          callback(node);
+        } else {
+          callback(node, isAppearing);
+        }
+      }
+    };
+  };
+
+  var handleEntering = normalizedTransitionCallback(onEntering);
+  var handleEnter = normalizedTransitionCallback(function (node, isAppearing) {
+    reflow(node); // So the animation always start from the start.
+
+    var _getTransitionProps = getTransitionProps({
+      style: style,
+      timeout: timeout
+    }, {
+      mode: 'enter'
+    }),
+        transitionDuration = _getTransitionProps.duration,
+        delay = _getTransitionProps.delay;
+
+    var duration;
+
+    if (timeout === 'auto') {
+      duration = theme.transitions.getAutoHeightDuration(node.clientHeight);
+      autoTimeout.current = duration;
+    } else {
+      duration = transitionDuration;
+    }
+
+    node.style.transition = [theme.transitions.create('opacity', {
+      duration: duration,
+      delay: delay
+    }), theme.transitions.create('transform', {
+      duration: duration * 0.666,
+      delay: delay
+    })].join(',');
+
+    if (onEnter) {
+      onEnter(node, isAppearing);
+    }
+  });
+  var handleEntered = normalizedTransitionCallback(onEntered);
+  var handleExiting = normalizedTransitionCallback(onExiting);
+  var handleExit = normalizedTransitionCallback(function (node) {
+    var _getTransitionProps2 = getTransitionProps({
+      style: style,
+      timeout: timeout
+    }, {
+      mode: 'exit'
+    }),
+        transitionDuration = _getTransitionProps2.duration,
+        delay = _getTransitionProps2.delay;
+
+    var duration;
+
+    if (timeout === 'auto') {
+      duration = theme.transitions.getAutoHeightDuration(node.clientHeight);
+      autoTimeout.current = duration;
+    } else {
+      duration = transitionDuration;
+    }
+
+    node.style.transition = [theme.transitions.create('opacity', {
+      duration: duration,
+      delay: delay
+    }), theme.transitions.create('transform', {
+      duration: duration * 0.666,
+      delay: delay || duration * 0.333
+    })].join(',');
+    node.style.opacity = '0';
+    node.style.transform = getScale(0.75);
+
+    if (onExit) {
+      onExit(node);
+    }
+  });
+  var handleExited = normalizedTransitionCallback(onExited);
+
+  var addEndListener = function addEndListener(nodeOrNext, maybeNext) {
+    var next = enableStrictModeCompat ? nodeOrNext : maybeNext;
+
+    if (timeout === 'auto') {
+      timer.current = setTimeout(next, autoTimeout.current || 0);
+    }
+  };
+
+  react.useEffect(function () {
+    return function () {
+      clearTimeout(timer.current);
+    };
+  }, []);
+  return /*#__PURE__*/react.createElement(TransitionComponent, (0,esm_extends/* default */.A)({
+    appear: true,
+    in: inProp,
+    nodeRef: enableStrictModeCompat ? nodeRef : undefined,
+    onEnter: handleEnter,
+    onEntered: handleEntered,
+    onEntering: handleEntering,
+    onExit: handleExit,
+    onExited: handleExited,
+    onExiting: handleExiting,
+    addEndListener: addEndListener,
+    timeout: timeout === 'auto' ? null : timeout
+  }, other), function (state, childProps) {
+    return /*#__PURE__*/react.cloneElement(children, (0,esm_extends/* default */.A)({
+      style: (0,esm_extends/* default */.A)({
+        opacity: 0,
+        transform: getScale(0.75),
+        visibility: state === 'exited' && !inProp ? 'hidden' : undefined
+      }, Grow_styles[state], style, children.props.style),
+      ref: handleRef
+    }, childProps));
+  });
+});
+ false ? 0 : void 0;
+Grow.muiSupportAuto = true;
+/* harmony default export */ const Grow_Grow = (Grow);
+;// ./node_modules/@material-ui/core/esm/Popover/Popover.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function getOffsetTop(rect, vertical) {
+  var offset = 0;
+
+  if (typeof vertical === 'number') {
+    offset = vertical;
+  } else if (vertical === 'center') {
+    offset = rect.height / 2;
+  } else if (vertical === 'bottom') {
+    offset = rect.height;
+  }
+
+  return offset;
+}
+function getOffsetLeft(rect, horizontal) {
+  var offset = 0;
+
+  if (typeof horizontal === 'number') {
+    offset = horizontal;
+  } else if (horizontal === 'center') {
+    offset = rect.width / 2;
+  } else if (horizontal === 'right') {
+    offset = rect.width;
+  }
+
+  return offset;
+}
+
+function getTransformOriginValue(transformOrigin) {
+  return [transformOrigin.horizontal, transformOrigin.vertical].map(function (n) {
+    return typeof n === 'number' ? "".concat(n, "px") : n;
+  }).join(' ');
+} // Sum the scrollTop between two elements.
+
+
+function getScrollParent(parent, child) {
+  var element = child;
+  var scrollTop = 0;
+
+  while (element && element !== parent) {
+    element = element.parentElement;
+    scrollTop += element.scrollTop;
+  }
+
+  return scrollTop;
+}
+
+function getAnchorEl(anchorEl) {
+  return typeof anchorEl === 'function' ? anchorEl() : anchorEl;
+}
+
+var Popover_styles = {
+  /* Styles applied to the root element. */
+  root: {},
+
+  /* Styles applied to the `Paper` component. */
+  paper: {
+    position: 'absolute',
+    overflowY: 'auto',
+    overflowX: 'hidden',
+    // So we see the popover when it's empty.
+    // It's most likely on issue on userland.
+    minWidth: 16,
+    minHeight: 16,
+    maxWidth: 'calc(100% - 32px)',
+    maxHeight: 'calc(100% - 32px)',
+    // We disable the focus ring for mouse, touch and keyboard users.
+    outline: 0
+  }
+};
+var Popover = /*#__PURE__*/react.forwardRef(function Popover(props, ref) {
+  var action = props.action,
+      anchorEl = props.anchorEl,
+      _props$anchorOrigin = props.anchorOrigin,
+      anchorOrigin = _props$anchorOrigin === void 0 ? {
+    vertical: 'top',
+    horizontal: 'left'
+  } : _props$anchorOrigin,
+      anchorPosition = props.anchorPosition,
+      _props$anchorReferenc = props.anchorReference,
+      anchorReference = _props$anchorReferenc === void 0 ? 'anchorEl' : _props$anchorReferenc,
+      children = props.children,
+      classes = props.classes,
+      className = props.className,
+      containerProp = props.container,
+      _props$elevation = props.elevation,
+      elevation = _props$elevation === void 0 ? 8 : _props$elevation,
+      getContentAnchorEl = props.getContentAnchorEl,
+      _props$marginThreshol = props.marginThreshold,
+      marginThreshold = _props$marginThreshol === void 0 ? 16 : _props$marginThreshol,
+      onEnter = props.onEnter,
+      onEntered = props.onEntered,
+      onEntering = props.onEntering,
+      onExit = props.onExit,
+      onExited = props.onExited,
+      onExiting = props.onExiting,
+      open = props.open,
+      _props$PaperProps = props.PaperProps,
+      PaperProps = _props$PaperProps === void 0 ? {} : _props$PaperProps,
+      _props$transformOrigi = props.transformOrigin,
+      transformOrigin = _props$transformOrigi === void 0 ? {
+    vertical: 'top',
+    horizontal: 'left'
+  } : _props$transformOrigi,
+      _props$TransitionComp = props.TransitionComponent,
+      TransitionComponent = _props$TransitionComp === void 0 ? Grow_Grow : _props$TransitionComp,
+      _props$transitionDura = props.transitionDuration,
+      transitionDurationProp = _props$transitionDura === void 0 ? 'auto' : _props$transitionDura,
+      _props$TransitionProp = props.TransitionProps,
+      TransitionProps = _props$TransitionProp === void 0 ? {} : _props$TransitionProp,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["action", "anchorEl", "anchorOrigin", "anchorPosition", "anchorReference", "children", "classes", "className", "container", "elevation", "getContentAnchorEl", "marginThreshold", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "open", "PaperProps", "transformOrigin", "TransitionComponent", "transitionDuration", "TransitionProps"]);
+
+  var paperRef = react.useRef(); // Returns the top/left offset of the position
+  // to attach to on the anchor element (or body if none is provided)
+
+  var getAnchorOffset = react.useCallback(function (contentAnchorOffset) {
+    if (anchorReference === 'anchorPosition') {
+      if (false) {}
+
+      return anchorPosition;
+    }
+
+    var resolvedAnchorEl = getAnchorEl(anchorEl); // If an anchor element wasn't provided, just use the parent body element of this Popover
+
+    var anchorElement = resolvedAnchorEl && resolvedAnchorEl.nodeType === 1 ? resolvedAnchorEl : (0,ownerDocument/* default */.A)(paperRef.current).body;
+    var anchorRect = anchorElement.getBoundingClientRect();
+
+    if (false) { var box; }
+
+    var anchorVertical = contentAnchorOffset === 0 ? anchorOrigin.vertical : 'center';
+    return {
+      top: anchorRect.top + getOffsetTop(anchorRect, anchorVertical),
+      left: anchorRect.left + getOffsetLeft(anchorRect, anchorOrigin.horizontal)
+    };
+  }, [anchorEl, anchorOrigin.horizontal, anchorOrigin.vertical, anchorPosition, anchorReference]); // Returns the vertical offset of inner content to anchor the transform on if provided
+
+  var getContentAnchorOffset = react.useCallback(function (element) {
+    var contentAnchorOffset = 0;
+
+    if (getContentAnchorEl && anchorReference === 'anchorEl') {
+      var contentAnchorEl = getContentAnchorEl(element);
+
+      if (contentAnchorEl && element.contains(contentAnchorEl)) {
+        var scrollTop = getScrollParent(element, contentAnchorEl);
+        contentAnchorOffset = contentAnchorEl.offsetTop + contentAnchorEl.clientHeight / 2 - scrollTop || 0;
+      } // != the default value
+
+
+      if (false) {}
+    }
+
+    return contentAnchorOffset;
+  }, [anchorOrigin.vertical, anchorReference, getContentAnchorEl]); // Return the base transform origin using the element
+  // and taking the content anchor offset into account if in use
+
+  var getTransformOrigin = react.useCallback(function (elemRect) {
+    var contentAnchorOffset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
+    return {
+      vertical: getOffsetTop(elemRect, transformOrigin.vertical) + contentAnchorOffset,
+      horizontal: getOffsetLeft(elemRect, transformOrigin.horizontal)
+    };
+  }, [transformOrigin.horizontal, transformOrigin.vertical]);
+  var getPositioningStyle = react.useCallback(function (element) {
+    // Check if the parent has requested anchoring on an inner content node
+    var contentAnchorOffset = getContentAnchorOffset(element);
+    var elemRect = {
+      width: element.offsetWidth,
+      height: element.offsetHeight
+    }; // Get the transform origin point on the element itself
+
+    var elemTransformOrigin = getTransformOrigin(elemRect, contentAnchorOffset);
+
+    if (anchorReference === 'none') {
+      return {
+        top: null,
+        left: null,
+        transformOrigin: getTransformOriginValue(elemTransformOrigin)
+      };
+    } // Get the offset of of the anchoring element
+
+
+    var anchorOffset = getAnchorOffset(contentAnchorOffset); // Calculate element positioning
+
+    var top = anchorOffset.top - elemTransformOrigin.vertical;
+    var left = anchorOffset.left - elemTransformOrigin.horizontal;
+    var bottom = top + elemRect.height;
+    var right = left + elemRect.width; // Use the parent window of the anchorEl if provided
+
+    var containerWindow = (0,ownerWindow/* default */.A)(getAnchorEl(anchorEl)); // Window thresholds taking required margin into account
+
+    var heightThreshold = containerWindow.innerHeight - marginThreshold;
+    var widthThreshold = containerWindow.innerWidth - marginThreshold; // Check if the vertical axis needs shifting
+
+    if (top < marginThreshold) {
+      var diff = top - marginThreshold;
+      top -= diff;
+      elemTransformOrigin.vertical += diff;
+    } else if (bottom > heightThreshold) {
+      var _diff = bottom - heightThreshold;
+
+      top -= _diff;
+      elemTransformOrigin.vertical += _diff;
+    }
+
+    if (false) {} // Check if the horizontal axis needs shifting
+
+
+    if (left < marginThreshold) {
+      var _diff2 = left - marginThreshold;
+
+      left -= _diff2;
+      elemTransformOrigin.horizontal += _diff2;
+    } else if (right > widthThreshold) {
+      var _diff3 = right - widthThreshold;
+
+      left -= _diff3;
+      elemTransformOrigin.horizontal += _diff3;
+    }
+
+    return {
+      top: "".concat(Math.round(top), "px"),
+      left: "".concat(Math.round(left), "px"),
+      transformOrigin: getTransformOriginValue(elemTransformOrigin)
+    };
+  }, [anchorEl, anchorReference, getAnchorOffset, getContentAnchorOffset, getTransformOrigin, marginThreshold]);
+  var setPositioningStyles = react.useCallback(function () {
+    var element = paperRef.current;
+
+    if (!element) {
+      return;
+    }
+
+    var positioning = getPositioningStyle(element);
+
+    if (positioning.top !== null) {
+      element.style.top = positioning.top;
+    }
+
+    if (positioning.left !== null) {
+      element.style.left = positioning.left;
+    }
+
+    element.style.transformOrigin = positioning.transformOrigin;
+  }, [getPositioningStyle]);
+
+  var handleEntering = function handleEntering(element, isAppearing) {
+    if (onEntering) {
+      onEntering(element, isAppearing);
+    }
+
+    setPositioningStyles();
+  };
+
+  var handlePaperRef = react.useCallback(function (instance) {
+    // #StrictMode ready
+    paperRef.current = react_dom.findDOMNode(instance);
+  }, []);
+  react.useEffect(function () {
+    if (open) {
+      setPositioningStyles();
+    }
+  });
+  react.useImperativeHandle(action, function () {
+    return open ? {
+      updatePosition: function updatePosition() {
+        setPositioningStyles();
+      }
+    } : null;
+  }, [open, setPositioningStyles]);
+  react.useEffect(function () {
+    if (!open) {
+      return undefined;
+    }
+
+    var handleResize = (0,debounce/* default */.A)(function () {
+      setPositioningStyles();
+    });
+    window.addEventListener('resize', handleResize);
+    return function () {
+      handleResize.clear();
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [open, setPositioningStyles]);
+  var transitionDuration = transitionDurationProp;
+
+  if (transitionDurationProp === 'auto' && !TransitionComponent.muiSupportAuto) {
+    transitionDuration = undefined;
+  } // If the container prop is provided, use that
+  // If the anchorEl prop is provided, use its parent body element as the container
+  // If neither are provided let the Modal take care of choosing the container
+
+
+  var container = containerProp || (anchorEl ? (0,ownerDocument/* default */.A)(getAnchorEl(anchorEl)).body : undefined);
+  return /*#__PURE__*/react.createElement(Modal_Modal, (0,esm_extends/* default */.A)({
+    container: container,
+    open: open,
+    ref: ref,
+    BackdropProps: {
+      invisible: true
+    },
+    className: (0,clsx_m/* default */.A)(classes.root, className)
+  }, other), /*#__PURE__*/react.createElement(TransitionComponent, (0,esm_extends/* default */.A)({
+    appear: true,
+    in: open,
+    onEnter: onEnter,
+    onEntered: onEntered,
+    onExit: onExit,
+    onExited: onExited,
+    onExiting: onExiting,
+    timeout: transitionDuration
+  }, TransitionProps, {
+    onEntering: (0,createChainedFunction/* default */.A)(handleEntering, TransitionProps.onEntering)
+  }), /*#__PURE__*/react.createElement(esm_Paper_Paper, (0,esm_extends/* default */.A)({
+    elevation: elevation,
+    ref: handlePaperRef
+  }, PaperProps, {
+    className: (0,clsx_m/* default */.A)(classes.paper, PaperProps.className)
+  }), children)));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const Popover_Popover = ((0,withStyles/* default */.A)(Popover_styles, {
+  name: 'MuiPopover'
+})(Popover));
+;// ./node_modules/@material-ui/core/esm/List/ListContext.js
+
+/**
+ * @ignore - internal component.
+ */
+
+var ListContext = react.createContext({});
+
+if (false) {}
+
+/* harmony default export */ const List_ListContext = (ListContext);
+;// ./node_modules/@material-ui/core/esm/List/List.js
+
+
+
+
+
+
+
+var List_styles = {
+  /* Styles applied to the root element. */
+  root: {
+    listStyle: 'none',
+    margin: 0,
+    padding: 0,
+    position: 'relative'
+  },
+
+  /* Styles applied to the root element if `disablePadding={false}`. */
+  padding: {
+    paddingTop: 8,
+    paddingBottom: 8
+  },
+
+  /* Styles applied to the root element if dense. */
+  dense: {},
+
+  /* Styles applied to the root element if a `subheader` is provided. */
+  subheader: {
+    paddingTop: 0
+  }
+};
+var List = /*#__PURE__*/react.forwardRef(function List(props, ref) {
+  var children = props.children,
+      classes = props.classes,
+      className = props.className,
+      _props$component = props.component,
+      Component = _props$component === void 0 ? 'ul' : _props$component,
+      _props$dense = props.dense,
+      dense = _props$dense === void 0 ? false : _props$dense,
+      _props$disablePadding = props.disablePadding,
+      disablePadding = _props$disablePadding === void 0 ? false : _props$disablePadding,
+      subheader = props.subheader,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["children", "classes", "className", "component", "dense", "disablePadding", "subheader"]);
+
+  var context = react.useMemo(function () {
+    return {
+      dense: dense
+    };
+  }, [dense]);
+  return /*#__PURE__*/react.createElement(List_ListContext.Provider, {
+    value: context
+  }, /*#__PURE__*/react.createElement(Component, (0,esm_extends/* default */.A)({
+    className: (0,clsx_m/* default */.A)(classes.root, className, dense && classes.dense, !disablePadding && classes.padding, subheader && classes.subheader),
+    ref: ref
+  }, other), subheader, children));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const List_List = ((0,withStyles/* default */.A)(List_styles, {
+  name: 'MuiList'
+})(List));
+;// ./node_modules/@material-ui/core/esm/MenuList/MenuList.js
+
+
+
+
+
+
+
+
+
+
+
+function nextItem(list, item, disableListWrap) {
+  if (list === item) {
+    return list.firstChild;
+  }
+
+  if (item && item.nextElementSibling) {
+    return item.nextElementSibling;
+  }
+
+  return disableListWrap ? null : list.firstChild;
+}
+
+function previousItem(list, item, disableListWrap) {
+  if (list === item) {
+    return disableListWrap ? list.firstChild : list.lastChild;
+  }
+
+  if (item && item.previousElementSibling) {
+    return item.previousElementSibling;
+  }
+
+  return disableListWrap ? null : list.lastChild;
+}
+
+function textCriteriaMatches(nextFocus, textCriteria) {
+  if (textCriteria === undefined) {
+    return true;
+  }
+
+  var text = nextFocus.innerText;
+
+  if (text === undefined) {
+    // jsdom doesn't support innerText
+    text = nextFocus.textContent;
+  }
+
+  text = text.trim().toLowerCase();
+
+  if (text.length === 0) {
+    return false;
+  }
+
+  if (textCriteria.repeating) {
+    return text[0] === textCriteria.keys[0];
+  }
+
+  return text.indexOf(textCriteria.keys.join('')) === 0;
+}
+
+function moveFocus(list, currentFocus, disableListWrap, disabledItemsFocusable, traversalFunction, textCriteria) {
+  var wrappedOnce = false;
+  var nextFocus = traversalFunction(list, currentFocus, currentFocus ? disableListWrap : false);
+
+  while (nextFocus) {
+    // Prevent infinite loop.
+    if (nextFocus === list.firstChild) {
+      if (wrappedOnce) {
+        return;
+      }
+
+      wrappedOnce = true;
+    } // Same logic as useAutocomplete.js
+
+
+    var nextFocusDisabled = disabledItemsFocusable ? false : nextFocus.disabled || nextFocus.getAttribute('aria-disabled') === 'true';
+
+    if (!nextFocus.hasAttribute('tabindex') || !textCriteriaMatches(nextFocus, textCriteria) || nextFocusDisabled) {
+      // Move to the next element.
+      nextFocus = traversalFunction(list, nextFocus, disableListWrap);
+    } else {
+      nextFocus.focus();
+      return;
+    }
+  }
+}
+
+var MenuList_useEnhancedEffect = typeof window === 'undefined' ? react.useEffect : react.useLayoutEffect;
+/**
+ * A permanently displayed menu following https://www.w3.org/TR/wai-aria-practices/#menubutton.
+ * It's exposed to help customization of the [`Menu`](/api/menu/) component. If you
+ * use it separately you need to move focus into the component manually. Once
+ * the focus is placed inside the component it is fully keyboard accessible.
+ */
+
+var MenuList = /*#__PURE__*/react.forwardRef(function MenuList(props, ref) {
+  var actions = props.actions,
+      _props$autoFocus = props.autoFocus,
+      autoFocus = _props$autoFocus === void 0 ? false : _props$autoFocus,
+      _props$autoFocusItem = props.autoFocusItem,
+      autoFocusItem = _props$autoFocusItem === void 0 ? false : _props$autoFocusItem,
+      children = props.children,
+      className = props.className,
+      _props$disabledItemsF = props.disabledItemsFocusable,
+      disabledItemsFocusable = _props$disabledItemsF === void 0 ? false : _props$disabledItemsF,
+      _props$disableListWra = props.disableListWrap,
+      disableListWrap = _props$disableListWra === void 0 ? false : _props$disableListWra,
+      onKeyDown = props.onKeyDown,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'selectedMenu' : _props$variant,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["actions", "autoFocus", "autoFocusItem", "children", "className", "disabledItemsFocusable", "disableListWrap", "onKeyDown", "variant"]);
+
+  var listRef = react.useRef(null);
+  var textCriteriaRef = react.useRef({
+    keys: [],
+    repeating: true,
+    previousKeyMatched: true,
+    lastTime: null
+  });
+  MenuList_useEnhancedEffect(function () {
+    if (autoFocus) {
+      listRef.current.focus();
+    }
+  }, [autoFocus]);
+  react.useImperativeHandle(actions, function () {
+    return {
+      adjustStyleForScrollbar: function adjustStyleForScrollbar(containerElement, theme) {
+        // Let's ignore that piece of logic if users are already overriding the width
+        // of the menu.
+        var noExplicitWidth = !listRef.current.style.width;
+
+        if (containerElement.clientHeight < listRef.current.clientHeight && noExplicitWidth) {
+          var scrollbarSize = "".concat(getScrollbarSize(true), "px");
+          listRef.current.style[theme.direction === 'rtl' ? 'paddingLeft' : 'paddingRight'] = scrollbarSize;
+          listRef.current.style.width = "calc(100% + ".concat(scrollbarSize, ")");
+        }
+
+        return listRef.current;
+      }
+    };
+  }, []);
+
+  var handleKeyDown = function handleKeyDown(event) {
+    var list = listRef.current;
+    var key = event.key;
+    /**
+     * @type {Element} - will always be defined since we are in a keydown handler
+     * attached to an element. A keydown event is either dispatched to the activeElement
+     * or document.body or document.documentElement. Only the first case will
+     * trigger this specific handler.
+     */
+
+    var currentFocus = (0,ownerDocument/* default */.A)(list).activeElement;
+
+    if (key === 'ArrowDown') {
+      // Prevent scroll of the page
+      event.preventDefault();
+      moveFocus(list, currentFocus, disableListWrap, disabledItemsFocusable, nextItem);
+    } else if (key === 'ArrowUp') {
+      event.preventDefault();
+      moveFocus(list, currentFocus, disableListWrap, disabledItemsFocusable, previousItem);
+    } else if (key === 'Home') {
+      event.preventDefault();
+      moveFocus(list, null, disableListWrap, disabledItemsFocusable, nextItem);
+    } else if (key === 'End') {
+      event.preventDefault();
+      moveFocus(list, null, disableListWrap, disabledItemsFocusable, previousItem);
+    } else if (key.length === 1) {
+      var criteria = textCriteriaRef.current;
+      var lowerKey = key.toLowerCase();
+      var currTime = performance.now();
+
+      if (criteria.keys.length > 0) {
+        // Reset
+        if (currTime - criteria.lastTime > 500) {
+          criteria.keys = [];
+          criteria.repeating = true;
+          criteria.previousKeyMatched = true;
+        } else if (criteria.repeating && lowerKey !== criteria.keys[0]) {
+          criteria.repeating = false;
+        }
+      }
+
+      criteria.lastTime = currTime;
+      criteria.keys.push(lowerKey);
+      var keepFocusOnCurrent = currentFocus && !criteria.repeating && textCriteriaMatches(currentFocus, criteria);
+
+      if (criteria.previousKeyMatched && (keepFocusOnCurrent || moveFocus(list, currentFocus, false, disabledItemsFocusable, nextItem, criteria))) {
+        event.preventDefault();
+      } else {
+        criteria.previousKeyMatched = false;
+      }
+    }
+
+    if (onKeyDown) {
+      onKeyDown(event);
+    }
+  };
+
+  var handleOwnRef = react.useCallback(function (instance) {
+    // #StrictMode ready
+    listRef.current = react_dom.findDOMNode(instance);
+  }, []);
+  var handleRef = (0,useForkRef/* default */.A)(handleOwnRef, ref);
+  /**
+   * the index of the item should receive focus
+   * in a `variant="selectedMenu"` it's the first `selected` item
+   * otherwise it's the very first item.
+   */
+
+  var activeItemIndex = -1; // since we inject focus related props into children we have to do a lookahead
+  // to check if there is a `selected` item. We're looking for the last `selected`
+  // item and use the first valid item as a fallback
+
+  react.Children.forEach(children, function (child, index) {
+    if (! /*#__PURE__*/react.isValidElement(child)) {
+      return;
+    }
+
+    if (false) {}
+
+    if (!child.props.disabled) {
+      if (variant === 'selectedMenu' && child.props.selected) {
+        activeItemIndex = index;
+      } else if (activeItemIndex === -1) {
+        activeItemIndex = index;
+      }
+    }
+  });
+  var items = react.Children.map(children, function (child, index) {
+    if (index === activeItemIndex) {
+      var newChildProps = {};
+
+      if (autoFocusItem) {
+        newChildProps.autoFocus = true;
+      }
+
+      if (child.props.tabIndex === undefined && variant === 'selectedMenu') {
+        newChildProps.tabIndex = 0;
+      }
+
+      return /*#__PURE__*/react.cloneElement(child, newChildProps);
+    }
+
+    return child;
+  });
+  return /*#__PURE__*/react.createElement(List_List, (0,esm_extends/* default */.A)({
+    role: "menu",
+    ref: handleRef,
+    className: className,
+    onKeyDown: handleKeyDown,
+    tabIndex: autoFocus ? 0 : -1
+  }, other), items);
+});
+ false ? 0 : void 0;
+/* harmony default export */ const MenuList_MenuList = (MenuList);
+;// ./node_modules/@material-ui/core/esm/Menu/Menu.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var RTL_ORIGIN = {
+  vertical: 'top',
+  horizontal: 'right'
+};
+var LTR_ORIGIN = {
+  vertical: 'top',
+  horizontal: 'left'
+};
+var Menu_styles = {
+  /* Styles applied to the `Paper` component. */
+  paper: {
+    // specZ: The maximum height of a simple menu should be one or more rows less than the view
+    // height. This ensures a tapable area outside of the simple menu with which to dismiss
+    // the menu.
+    maxHeight: 'calc(100% - 96px)',
+    // Add iOS momentum scrolling.
+    WebkitOverflowScrolling: 'touch'
+  },
+
+  /* Styles applied to the `List` component via `MenuList`. */
+  list: {
+    // We disable the focus ring for mouse, touch and keyboard users.
+    outline: 0
+  }
+};
+var Menu = /*#__PURE__*/react.forwardRef(function Menu(props, ref) {
+  var _props$autoFocus = props.autoFocus,
+      autoFocus = _props$autoFocus === void 0 ? true : _props$autoFocus,
+      children = props.children,
+      classes = props.classes,
+      _props$disableAutoFoc = props.disableAutoFocusItem,
+      disableAutoFocusItem = _props$disableAutoFoc === void 0 ? false : _props$disableAutoFoc,
+      _props$MenuListProps = props.MenuListProps,
+      MenuListProps = _props$MenuListProps === void 0 ? {} : _props$MenuListProps,
+      onClose = props.onClose,
+      onEnteringProp = props.onEntering,
+      open = props.open,
+      _props$PaperProps = props.PaperProps,
+      PaperProps = _props$PaperProps === void 0 ? {} : _props$PaperProps,
+      PopoverClasses = props.PopoverClasses,
+      _props$transitionDura = props.transitionDuration,
+      transitionDuration = _props$transitionDura === void 0 ? 'auto' : _props$transitionDura,
+      _props$TransitionProp = props.TransitionProps;
+  _props$TransitionProp = _props$TransitionProp === void 0 ? {} : _props$TransitionProp;
+
+  var onEntering = _props$TransitionProp.onEntering,
+      TransitionProps = (0,objectWithoutProperties/* default */.A)(_props$TransitionProp, ["onEntering"]),
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'selectedMenu' : _props$variant,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["autoFocus", "children", "classes", "disableAutoFocusItem", "MenuListProps", "onClose", "onEntering", "open", "PaperProps", "PopoverClasses", "transitionDuration", "TransitionProps", "variant"]);
+
+  var theme = useTheme_useTheme();
+  var autoFocusItem = autoFocus && !disableAutoFocusItem && open;
+  var menuListActionsRef = react.useRef(null);
+  var contentAnchorRef = react.useRef(null);
+
+  var getContentAnchorEl = function getContentAnchorEl() {
+    return contentAnchorRef.current;
+  };
+
+  var handleEntering = function handleEntering(element, isAppearing) {
+    if (menuListActionsRef.current) {
+      menuListActionsRef.current.adjustStyleForScrollbar(element, theme);
+    }
+
+    if (onEnteringProp) {
+      onEnteringProp(element, isAppearing);
+    }
+
+    if (onEntering) {
+      onEntering(element, isAppearing);
+    }
+  };
+
+  var handleListKeyDown = function handleListKeyDown(event) {
+    if (event.key === 'Tab') {
+      event.preventDefault();
+
+      if (onClose) {
+        onClose(event, 'tabKeyDown');
+      }
+    }
+  };
+  /**
+   * the index of the item should receive focus
+   * in a `variant="selectedMenu"` it's the first `selected` item
+   * otherwise it's the very first item.
+   */
+
+
+  var activeItemIndex = -1; // since we inject focus related props into children we have to do a lookahead
+  // to check if there is a `selected` item. We're looking for the last `selected`
+  // item and use the first valid item as a fallback
+
+  react.Children.map(children, function (child, index) {
+    if (! /*#__PURE__*/react.isValidElement(child)) {
+      return;
+    }
+
+    if (false) {}
+
+    if (!child.props.disabled) {
+      if (variant !== "menu" && child.props.selected) {
+        activeItemIndex = index;
+      } else if (activeItemIndex === -1) {
+        activeItemIndex = index;
+      }
+    }
+  });
+  var items = react.Children.map(children, function (child, index) {
+    if (index === activeItemIndex) {
+      return /*#__PURE__*/react.cloneElement(child, {
+        ref: function ref(instance) {
+          // #StrictMode ready
+          contentAnchorRef.current = react_dom.findDOMNode(instance);
+          (0,setRef/* default */.A)(child.ref, instance);
+        }
+      });
+    }
+
+    return child;
+  });
+  return /*#__PURE__*/react.createElement(Popover_Popover, (0,esm_extends/* default */.A)({
+    getContentAnchorEl: getContentAnchorEl,
+    classes: PopoverClasses,
+    onClose: onClose,
+    TransitionProps: (0,esm_extends/* default */.A)({
+      onEntering: handleEntering
+    }, TransitionProps),
+    anchorOrigin: theme.direction === 'rtl' ? RTL_ORIGIN : LTR_ORIGIN,
+    transformOrigin: theme.direction === 'rtl' ? RTL_ORIGIN : LTR_ORIGIN,
+    PaperProps: (0,esm_extends/* default */.A)({}, PaperProps, {
+      classes: (0,esm_extends/* default */.A)({}, PaperProps.classes, {
+        root: classes.paper
+      })
+    }),
+    open: open,
+    ref: ref,
+    transitionDuration: transitionDuration
+  }, other), /*#__PURE__*/react.createElement(MenuList_MenuList, (0,esm_extends/* default */.A)({
+    onKeyDown: handleListKeyDown,
+    actions: menuListActionsRef,
+    autoFocus: autoFocus && (activeItemIndex === -1 || disableAutoFocusItem),
+    autoFocusItem: autoFocusItem,
+    variant: variant
+  }, MenuListProps, {
+    className: (0,clsx_m/* default */.A)(classes.list, MenuListProps.className)
+  }), items));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const Menu_Menu = ((0,withStyles/* default */.A)(Menu_styles, {
+  name: 'MuiMenu'
+})(Menu));
+// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/utils/useControlled.js
+var useControlled = __webpack_require__(8060);
+;// ./node_modules/@material-ui/core/esm/Select/SelectInput.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+function areEqualValues(a, b) {
+  if ((0,esm_typeof/* default */.A)(b) === 'object' && b !== null) {
+    return a === b;
+  }
+
+  return String(a) === String(b);
+}
+
+function isEmpty(display) {
+  return display == null || typeof display === 'string' && !display.trim();
+}
+/**
+ * @ignore - internal component.
+ */
+
+
+var SelectInput = /*#__PURE__*/react.forwardRef(function SelectInput(props, ref) {
+  var ariaLabel = props['aria-label'],
+      autoFocus = props.autoFocus,
+      autoWidth = props.autoWidth,
+      children = props.children,
+      classes = props.classes,
+      className = props.className,
+      defaultValue = props.defaultValue,
+      disabled = props.disabled,
+      displayEmpty = props.displayEmpty,
+      IconComponent = props.IconComponent,
+      inputRefProp = props.inputRef,
+      labelId = props.labelId,
+      _props$MenuProps = props.MenuProps,
+      MenuProps = _props$MenuProps === void 0 ? {} : _props$MenuProps,
+      multiple = props.multiple,
+      name = props.name,
+      onBlur = props.onBlur,
+      onChange = props.onChange,
+      onClose = props.onClose,
+      onFocus = props.onFocus,
+      onOpen = props.onOpen,
+      openProp = props.open,
+      readOnly = props.readOnly,
+      renderValue = props.renderValue,
+      _props$SelectDisplayP = props.SelectDisplayProps,
+      SelectDisplayProps = _props$SelectDisplayP === void 0 ? {} : _props$SelectDisplayP,
+      tabIndexProp = props.tabIndex,
+      type = props.type,
+      valueProp = props.value,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'standard' : _props$variant,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["aria-label", "autoFocus", "autoWidth", "children", "classes", "className", "defaultValue", "disabled", "displayEmpty", "IconComponent", "inputRef", "labelId", "MenuProps", "multiple", "name", "onBlur", "onChange", "onClose", "onFocus", "onOpen", "open", "readOnly", "renderValue", "SelectDisplayProps", "tabIndex", "type", "value", "variant"]);
+
+  var _useControlled = (0,useControlled/* default */.A)({
+    controlled: valueProp,
+    default: defaultValue,
+    name: 'Select'
+  }),
+      _useControlled2 = (0,slicedToArray/* default */.A)(_useControlled, 2),
+      value = _useControlled2[0],
+      setValue = _useControlled2[1];
+
+  var inputRef = react.useRef(null);
+
+  var _React$useState = react.useState(null),
+      displayNode = _React$useState[0],
+      setDisplayNode = _React$useState[1];
+
+  var _React$useRef = react.useRef(openProp != null),
+      isOpenControlled = _React$useRef.current;
+
+  var _React$useState2 = react.useState(),
+      menuMinWidthState = _React$useState2[0],
+      setMenuMinWidthState = _React$useState2[1];
+
+  var _React$useState3 = react.useState(false),
+      openState = _React$useState3[0],
+      setOpenState = _React$useState3[1];
+
+  var handleRef = (0,useForkRef/* default */.A)(ref, inputRefProp);
+  react.useImperativeHandle(handleRef, function () {
+    return {
+      focus: function focus() {
+        displayNode.focus();
+      },
+      node: inputRef.current,
+      value: value
+    };
+  }, [displayNode, value]);
+  react.useEffect(function () {
+    if (autoFocus && displayNode) {
+      displayNode.focus();
+    }
+  }, [autoFocus, displayNode]);
+  react.useEffect(function () {
+    if (displayNode) {
+      var label = (0,ownerDocument/* default */.A)(displayNode).getElementById(labelId);
+
+      if (label) {
+        var handler = function handler() {
+          if (getSelection().isCollapsed) {
+            displayNode.focus();
+          }
+        };
+
+        label.addEventListener('click', handler);
+        return function () {
+          label.removeEventListener('click', handler);
+        };
+      }
+    }
+
+    return undefined;
+  }, [labelId, displayNode]);
+
+  var update = function update(open, event) {
+    if (open) {
+      if (onOpen) {
+        onOpen(event);
+      }
+    } else if (onClose) {
+      onClose(event);
+    }
+
+    if (!isOpenControlled) {
+      setMenuMinWidthState(autoWidth ? null : displayNode.clientWidth);
+      setOpenState(open);
+    }
+  };
+
+  var handleMouseDown = function handleMouseDown(event) {
+    // Ignore everything but left-click
+    if (event.button !== 0) {
+      return;
+    } // Hijack the default focus behavior.
+
+
+    event.preventDefault();
+    displayNode.focus();
+    update(true, event);
+  };
+
+  var handleClose = function handleClose(event) {
+    update(false, event);
+  };
+
+  var childrenArray = react.Children.toArray(children); // Support autofill.
+
+  var handleChange = function handleChange(event) {
+    var index = childrenArray.map(function (child) {
+      return child.props.value;
+    }).indexOf(event.target.value);
+
+    if (index === -1) {
+      return;
+    }
+
+    var child = childrenArray[index];
+    setValue(child.props.value);
+
+    if (onChange) {
+      onChange(event, child);
+    }
+  };
+
+  var handleItemClick = function handleItemClick(child) {
+    return function (event) {
+      if (!multiple) {
+        update(false, event);
+      }
+
+      var newValue;
+
+      if (multiple) {
+        newValue = Array.isArray(value) ? value.slice() : [];
+        var itemIndex = value.indexOf(child.props.value);
+
+        if (itemIndex === -1) {
+          newValue.push(child.props.value);
+        } else {
+          newValue.splice(itemIndex, 1);
+        }
+      } else {
+        newValue = child.props.value;
+      }
+
+      if (child.props.onClick) {
+        child.props.onClick(event);
+      }
+
+      if (value === newValue) {
+        return;
+      }
+
+      setValue(newValue);
+
+      if (onChange) {
+        event.persist(); // Preact support, target is read only property on a native event.
+
+        Object.defineProperty(event, 'target', {
+          writable: true,
+          value: {
+            value: newValue,
+            name: name
+          }
+        });
+        onChange(event, child);
+      }
+    };
+  };
+
+  var handleKeyDown = function handleKeyDown(event) {
+    if (!readOnly) {
+      var validKeys = [' ', 'ArrowUp', 'ArrowDown', // The native select doesn't respond to enter on MacOS, but it's recommended by
+      // https://www.w3.org/TR/wai-aria-practices/examples/listbox/listbox-collapsible.html
+      'Enter'];
+
+      if (validKeys.indexOf(event.key) !== -1) {
+        event.preventDefault();
+        update(true, event);
+      }
+    }
+  };
+
+  var open = displayNode !== null && (isOpenControlled ? openProp : openState);
+
+  var handleBlur = function handleBlur(event) {
+    // if open event.stopImmediatePropagation
+    if (!open && onBlur) {
+      event.persist(); // Preact support, target is read only property on a native event.
+
+      Object.defineProperty(event, 'target', {
+        writable: true,
+        value: {
+          value: value,
+          name: name
+        }
+      });
+      onBlur(event);
+    }
+  };
+
+  delete other['aria-invalid'];
+  var display;
+  var displaySingle;
+  var displayMultiple = [];
+  var computeDisplay = false;
+  var foundMatch = false; // No need to display any value if the field is empty.
+
+  if (isFilled({
+    value: value
+  }) || displayEmpty) {
+    if (renderValue) {
+      display = renderValue(value);
+    } else {
+      computeDisplay = true;
+    }
+  }
+
+  var items = childrenArray.map(function (child) {
+    if (! /*#__PURE__*/react.isValidElement(child)) {
+      return null;
+    }
+
+    if (false) {}
+
+    var selected;
+
+    if (multiple) {
+      if (!Array.isArray(value)) {
+        throw new Error( false ? 0 : (0,esm_formatMuiErrorMessage/* default */.A)(2));
+      }
+
+      selected = value.some(function (v) {
+        return areEqualValues(v, child.props.value);
+      });
+
+      if (selected && computeDisplay) {
+        displayMultiple.push(child.props.children);
+      }
+    } else {
+      selected = areEqualValues(value, child.props.value);
+
+      if (selected && computeDisplay) {
+        displaySingle = child.props.children;
+      }
+    }
+
+    if (selected) {
+      foundMatch = true;
+    }
+
+    return /*#__PURE__*/react.cloneElement(child, {
+      'aria-selected': selected ? 'true' : undefined,
+      onClick: handleItemClick(child),
+      onKeyUp: function onKeyUp(event) {
+        if (event.key === ' ') {
+          // otherwise our MenuItems dispatches a click event
+          // it's not behavior of the native <option> and causes
+          // the select to close immediately since we open on space keydown
+          event.preventDefault();
+        }
+
+        if (child.props.onKeyUp) {
+          child.props.onKeyUp(event);
+        }
+      },
+      role: 'option',
+      selected: selected,
+      value: undefined,
+      // The value is most likely not a valid HTML attribute.
+      'data-value': child.props.value // Instead, we provide it as a data attribute.
+
+    });
+  });
+
+  if (false) {}
+
+  if (computeDisplay) {
+    display = multiple ? displayMultiple.join(', ') : displaySingle;
+  } // Avoid performing a layout computation in the render method.
+
+
+  var menuMinWidth = menuMinWidthState;
+
+  if (!autoWidth && isOpenControlled && displayNode) {
+    menuMinWidth = displayNode.clientWidth;
+  }
+
+  var tabIndex;
+
+  if (typeof tabIndexProp !== 'undefined') {
+    tabIndex = tabIndexProp;
+  } else {
+    tabIndex = disabled ? null : 0;
+  }
+
+  var buttonId = SelectDisplayProps.id || (name ? "mui-component-select-".concat(name) : undefined);
+  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("div", (0,esm_extends/* default */.A)({
+    className: (0,clsx_m/* default */.A)(classes.root, // TODO v5: merge root and select
+    classes.select, classes.selectMenu, classes[variant], className, disabled && classes.disabled),
+    ref: setDisplayNode,
+    tabIndex: tabIndex,
+    role: "button",
+    "aria-disabled": disabled ? 'true' : undefined,
+    "aria-expanded": open ? 'true' : undefined,
+    "aria-haspopup": "listbox",
+    "aria-label": ariaLabel,
+    "aria-labelledby": [labelId, buttonId].filter(Boolean).join(' ') || undefined,
+    onKeyDown: handleKeyDown,
+    onMouseDown: disabled || readOnly ? null : handleMouseDown,
+    onBlur: handleBlur,
+    onFocus: onFocus
+  }, SelectDisplayProps, {
+    // The id is required for proper a11y
+    id: buttonId
+  }), isEmpty(display) ?
+  /*#__PURE__*/
+  // eslint-disable-next-line react/no-danger
+  react.createElement("span", {
+    dangerouslySetInnerHTML: {
+      __html: '&#8203;'
+    }
+  }) : display), /*#__PURE__*/react.createElement("input", (0,esm_extends/* default */.A)({
+    value: Array.isArray(value) ? value.join(',') : value,
+    name: name,
+    ref: inputRef,
+    "aria-hidden": true,
+    onChange: handleChange,
+    tabIndex: -1,
+    className: classes.nativeInput,
+    autoFocus: autoFocus
+  }, other)), /*#__PURE__*/react.createElement(IconComponent, {
+    className: (0,clsx_m/* default */.A)(classes.icon, classes["icon".concat((0,esm_utils_capitalize/* default */.A)(variant))], open && classes.iconOpen, disabled && classes.disabled)
+  }), /*#__PURE__*/react.createElement(Menu_Menu, (0,esm_extends/* default */.A)({
+    id: "menu-".concat(name || ''),
+    anchorEl: displayNode,
+    open: open,
+    onClose: handleClose
+  }, MenuProps, {
+    MenuListProps: (0,esm_extends/* default */.A)({
+      'aria-labelledby': labelId,
+      role: 'listbox',
+      disableListWrap: true
+    }, MenuProps.MenuListProps),
+    PaperProps: (0,esm_extends/* default */.A)({}, MenuProps.PaperProps, {
+      style: (0,esm_extends/* default */.A)({
+        minWidth: menuMinWidth
+      }, MenuProps.PaperProps != null ? MenuProps.PaperProps.style : null)
+    })
+  }), items));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const Select_SelectInput = (SelectInput);
 // EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/utils/createSvgIcon.js + 1 modules
 var createSvgIcon = __webpack_require__(4507);
+;// ./node_modules/@material-ui/core/esm/internal/svg-icons/ArrowDropDown.js
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ const ArrowDropDown = ((0,createSvgIcon/* default */.A)( /*#__PURE__*/react.createElement("path", {
+  d: "M7 10l5 5 5-5z"
+}), 'ArrowDropDown'));
+;// ./node_modules/@material-ui/core/esm/NativeSelect/NativeSelectInput.js
+
+
+
+
+
+
+
+/**
+ * @ignore - internal component.
+ */
+
+var NativeSelectInput = /*#__PURE__*/react.forwardRef(function NativeSelectInput(props, ref) {
+  var classes = props.classes,
+      className = props.className,
+      disabled = props.disabled,
+      IconComponent = props.IconComponent,
+      inputRef = props.inputRef,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'standard' : _props$variant,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["classes", "className", "disabled", "IconComponent", "inputRef", "variant"]);
+
+  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("select", (0,esm_extends/* default */.A)({
+    className: (0,clsx_m/* default */.A)(classes.root, // TODO v5: merge root and select
+    classes.select, classes[variant], className, disabled && classes.disabled),
+    disabled: disabled,
+    ref: inputRef || ref
+  }, other)), props.multiple ? null : /*#__PURE__*/react.createElement(IconComponent, {
+    className: (0,clsx_m/* default */.A)(classes.icon, classes["icon".concat((0,esm_utils_capitalize/* default */.A)(variant))], disabled && classes.disabled)
+  }));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const NativeSelect_NativeSelectInput = (NativeSelectInput);
+;// ./node_modules/@material-ui/core/esm/NativeSelect/NativeSelect.js
+
+
+
+
+
+
+
+
+
+
+var NativeSelect_styles = function styles(theme) {
+  return {
+    /* Styles applied to the select component `root` class. */
+    root: {},
+
+    /* Styles applied to the select component `select` class. */
+    select: {
+      '-moz-appearance': 'none',
+      // Reset
+      '-webkit-appearance': 'none',
+      // Reset
+      // When interacting quickly, the text can end up selected.
+      // Native select can't be selected either.
+      userSelect: 'none',
+      borderRadius: 0,
+      // Reset
+      minWidth: 16,
+      // So it doesn't collapse.
+      cursor: 'pointer',
+      '&:focus': {
+        // Show that it's not an text input
+        backgroundColor: theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.05)',
+        borderRadius: 0 // Reset Chrome style
+
+      },
+      // Remove IE 11 arrow
+      '&::-ms-expand': {
+        display: 'none'
+      },
+      '&$disabled': {
+        cursor: 'default'
+      },
+      '&[multiple]': {
+        height: 'auto'
+      },
+      '&:not([multiple]) option, &:not([multiple]) optgroup': {
+        backgroundColor: theme.palette.background.paper
+      },
+      '&&': {
+        paddingRight: 24
+      }
+    },
+
+    /* Styles applied to the select component if `variant="filled"`. */
+    filled: {
+      '&&': {
+        paddingRight: 32
+      }
+    },
+
+    /* Styles applied to the select component if `variant="outlined"`. */
+    outlined: {
+      borderRadius: theme.shape.borderRadius,
+      '&&': {
+        paddingRight: 32
+      }
+    },
+
+    /* Styles applied to the select component `selectMenu` class. */
+    selectMenu: {
+      height: 'auto',
+      // Resets for multpile select with chips
+      minHeight: '1.1876em',
+      // Required for select\text-field height consistency
+      textOverflow: 'ellipsis',
+      whiteSpace: 'nowrap',
+      overflow: 'hidden'
+    },
+
+    /* Pseudo-class applied to the select component `disabled` class. */
+    disabled: {},
+
+    /* Styles applied to the icon component. */
+    icon: {
+      // We use a position absolute over a flexbox in order to forward the pointer events
+      // to the input and to support wrapping tags..
+      position: 'absolute',
+      right: 0,
+      top: 'calc(50% - 12px)',
+      // Center vertically
+      pointerEvents: 'none',
+      // Don't block pointer events on the select under the icon.
+      color: theme.palette.action.active,
+      '&$disabled': {
+        color: theme.palette.action.disabled
+      }
+    },
+
+    /* Styles applied to the icon component if the popup is open. */
+    iconOpen: {
+      transform: 'rotate(180deg)'
+    },
+
+    /* Styles applied to the icon component if `variant="filled"`. */
+    iconFilled: {
+      right: 7
+    },
+
+    /* Styles applied to the icon component if `variant="outlined"`. */
+    iconOutlined: {
+      right: 7
+    },
+
+    /* Styles applied to the underlying native input component. */
+    nativeInput: {
+      bottom: 0,
+      left: 0,
+      position: 'absolute',
+      opacity: 0,
+      pointerEvents: 'none',
+      width: '100%'
+    }
+  };
+};
+var defaultInput = /*#__PURE__*/react.createElement(Input_Input, null);
+/**
+ * An alternative to `<Select native />` with a much smaller bundle size footprint.
+ */
+
+var NativeSelect = /*#__PURE__*/react.forwardRef(function NativeSelect(props, ref) {
+  var children = props.children,
+      classes = props.classes,
+      _props$IconComponent = props.IconComponent,
+      IconComponent = _props$IconComponent === void 0 ? ArrowDropDown : _props$IconComponent,
+      _props$input = props.input,
+      input = _props$input === void 0 ? defaultInput : _props$input,
+      inputProps = props.inputProps,
+      variant = props.variant,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["children", "classes", "IconComponent", "input", "inputProps", "variant"]);
+
+  var muiFormControl = useFormControl_useFormControl();
+  var fcs = formControlState({
+    props: props,
+    muiFormControl: muiFormControl,
+    states: ['variant']
+  });
+  return /*#__PURE__*/react.cloneElement(input, (0,esm_extends/* default */.A)({
+    // Most of the logic is implemented in `NativeSelectInput`.
+    // The `Select` component is a simple API wrapper to expose something better to play with.
+    inputComponent: NativeSelect_NativeSelectInput,
+    inputProps: (0,esm_extends/* default */.A)({
+      children: children,
+      classes: classes,
+      IconComponent: IconComponent,
+      variant: fcs.variant,
+      type: undefined
+    }, inputProps, input ? input.props.inputProps : {}),
+    ref: ref
+  }, other));
+});
+ false ? 0 : void 0;
+NativeSelect.muiName = 'Select';
+/* harmony default export */ const NativeSelect_NativeSelect = ((0,withStyles/* default */.A)(NativeSelect_styles, {
+  name: 'MuiNativeSelect'
+})(NativeSelect));
+;// ./node_modules/@material-ui/core/esm/Select/Select.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Select_styles = NativeSelect_styles;
+
+var _ref = /*#__PURE__*/react.createElement(Input_Input, null);
+
+var _ref2 = /*#__PURE__*/react.createElement(FilledInput_FilledInput, null);
+
+var Select = /*#__PURE__*/react.forwardRef(function Select(props, ref) {
+  var _props$autoWidth = props.autoWidth,
+      autoWidth = _props$autoWidth === void 0 ? false : _props$autoWidth,
+      children = props.children,
+      classes = props.classes,
+      _props$displayEmpty = props.displayEmpty,
+      displayEmpty = _props$displayEmpty === void 0 ? false : _props$displayEmpty,
+      _props$IconComponent = props.IconComponent,
+      IconComponent = _props$IconComponent === void 0 ? ArrowDropDown : _props$IconComponent,
+      id = props.id,
+      input = props.input,
+      inputProps = props.inputProps,
+      label = props.label,
+      labelId = props.labelId,
+      _props$labelWidth = props.labelWidth,
+      labelWidth = _props$labelWidth === void 0 ? 0 : _props$labelWidth,
+      MenuProps = props.MenuProps,
+      _props$multiple = props.multiple,
+      multiple = _props$multiple === void 0 ? false : _props$multiple,
+      _props$native = props.native,
+      native = _props$native === void 0 ? false : _props$native,
+      onClose = props.onClose,
+      onOpen = props.onOpen,
+      open = props.open,
+      renderValue = props.renderValue,
+      SelectDisplayProps = props.SelectDisplayProps,
+      _props$variant = props.variant,
+      variantProps = _props$variant === void 0 ? 'standard' : _props$variant,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["autoWidth", "children", "classes", "displayEmpty", "IconComponent", "id", "input", "inputProps", "label", "labelId", "labelWidth", "MenuProps", "multiple", "native", "onClose", "onOpen", "open", "renderValue", "SelectDisplayProps", "variant"]);
+
+  var inputComponent = native ? NativeSelect_NativeSelectInput : Select_SelectInput;
+  var muiFormControl = useFormControl_useFormControl();
+  var fcs = formControlState({
+    props: props,
+    muiFormControl: muiFormControl,
+    states: ['variant']
+  });
+  var variant = fcs.variant || variantProps;
+  var InputComponent = input || {
+    standard: _ref,
+    outlined: /*#__PURE__*/react.createElement(OutlinedInput_OutlinedInput, {
+      label: label,
+      labelWidth: labelWidth
+    }),
+    filled: _ref2
+  }[variant];
+  return /*#__PURE__*/react.cloneElement(InputComponent, (0,esm_extends/* default */.A)({
+    // Most of the logic is implemented in `SelectInput`.
+    // The `Select` component is a simple API wrapper to expose something better to play with.
+    inputComponent: inputComponent,
+    inputProps: (0,esm_extends/* default */.A)({
+      children: children,
+      IconComponent: IconComponent,
+      variant: variant,
+      type: undefined,
+      // We render a select. We can ignore the type provided by the `Input`.
+      multiple: multiple
+    }, native ? {
+      id: id
+    } : {
+      autoWidth: autoWidth,
+      displayEmpty: displayEmpty,
+      labelId: labelId,
+      MenuProps: MenuProps,
+      onClose: onClose,
+      onOpen: onOpen,
+      open: open,
+      renderValue: renderValue,
+      SelectDisplayProps: (0,esm_extends/* default */.A)({
+        id: id
+      }, SelectDisplayProps)
+    }, inputProps, {
+      classes: inputProps ? (0,mergeClasses/* default */.A)({
+        baseClasses: classes,
+        newClasses: inputProps.classes,
+        Component: Select
+      }) : classes
+    }, input ? input.props.inputProps : {}),
+    ref: ref
+  }, other));
+});
+ false ? 0 : void 0;
+Select.muiName = 'Select';
+/* harmony default export */ const Select_Select = ((0,withStyles/* default */.A)(Select_styles, {
+  name: 'MuiSelect'
+})(Select));
+;// ./node_modules/@material-ui/core/esm/TextField/TextField.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var variantComponent = {
+  standard: Input_Input,
+  filled: FilledInput_FilledInput,
+  outlined: OutlinedInput_OutlinedInput
+};
+var TextField_styles = {
+  /* Styles applied to the root element. */
+  root: {}
+};
+/**
+ * The `TextField` is a convenience wrapper for the most common cases (80%).
+ * It cannot be all things to all people, otherwise the API would grow out of control.
+ *
+ * ## Advanced Configuration
+ *
+ * It's important to understand that the text field is a simple abstraction
+ * on top of the following components:
+ *
+ * - [FormControl](/api/form-control/)
+ * - [InputLabel](/api/input-label/)
+ * - [FilledInput](/api/filled-input/)
+ * - [OutlinedInput](/api/outlined-input/)
+ * - [Input](/api/input/)
+ * - [FormHelperText](/api/form-helper-text/)
+ *
+ * If you wish to alter the props applied to the `input` element, you can do so as follows:
+ *
+ * ```jsx
+ * const inputProps = {
+ *   step: 300,
+ * };
+ *
+ * return <TextField id="time" type="time" inputProps={inputProps} />;
+ * ```
+ *
+ * For advanced cases, please look at the source of TextField by clicking on the
+ * "Edit this page" button above. Consider either:
+ *
+ * - using the upper case props for passing values directly to the components
+ * - using the underlying components directly as shown in the demos
+ */
+
+var TextField = /*#__PURE__*/react.forwardRef(function TextField(props, ref) {
+  var autoComplete = props.autoComplete,
+      _props$autoFocus = props.autoFocus,
+      autoFocus = _props$autoFocus === void 0 ? false : _props$autoFocus,
+      children = props.children,
+      classes = props.classes,
+      className = props.className,
+      _props$color = props.color,
+      color = _props$color === void 0 ? 'primary' : _props$color,
+      defaultValue = props.defaultValue,
+      _props$disabled = props.disabled,
+      disabled = _props$disabled === void 0 ? false : _props$disabled,
+      _props$error = props.error,
+      error = _props$error === void 0 ? false : _props$error,
+      FormHelperTextProps = props.FormHelperTextProps,
+      _props$fullWidth = props.fullWidth,
+      fullWidth = _props$fullWidth === void 0 ? false : _props$fullWidth,
+      helperText = props.helperText,
+      hiddenLabel = props.hiddenLabel,
+      id = props.id,
+      InputLabelProps = props.InputLabelProps,
+      inputProps = props.inputProps,
+      InputProps = props.InputProps,
+      inputRef = props.inputRef,
+      label = props.label,
+      _props$multiline = props.multiline,
+      multiline = _props$multiline === void 0 ? false : _props$multiline,
+      name = props.name,
+      onBlur = props.onBlur,
+      onChange = props.onChange,
+      onFocus = props.onFocus,
+      placeholder = props.placeholder,
+      _props$required = props.required,
+      required = _props$required === void 0 ? false : _props$required,
+      rows = props.rows,
+      rowsMax = props.rowsMax,
+      maxRows = props.maxRows,
+      minRows = props.minRows,
+      _props$select = props.select,
+      select = _props$select === void 0 ? false : _props$select,
+      SelectProps = props.SelectProps,
+      type = props.type,
+      value = props.value,
+      _props$variant = props.variant,
+      variant = _props$variant === void 0 ? 'standard' : _props$variant,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["autoComplete", "autoFocus", "children", "classes", "className", "color", "defaultValue", "disabled", "error", "FormHelperTextProps", "fullWidth", "helperText", "hiddenLabel", "id", "InputLabelProps", "inputProps", "InputProps", "inputRef", "label", "multiline", "name", "onBlur", "onChange", "onFocus", "placeholder", "required", "rows", "rowsMax", "maxRows", "minRows", "select", "SelectProps", "type", "value", "variant"]);
+
+  if (false) {}
+
+  var InputMore = {};
+
+  if (variant === 'outlined') {
+    if (InputLabelProps && typeof InputLabelProps.shrink !== 'undefined') {
+      InputMore.notched = InputLabelProps.shrink;
+    }
+
+    if (label) {
+      var _InputLabelProps$requ;
+
+      var displayRequired = (_InputLabelProps$requ = InputLabelProps === null || InputLabelProps === void 0 ? void 0 : InputLabelProps.required) !== null && _InputLabelProps$requ !== void 0 ? _InputLabelProps$requ : required;
+      InputMore.label = /*#__PURE__*/react.createElement(react.Fragment, null, label, displayRequired && "\xA0*");
+    }
+  }
+
+  if (select) {
+    // unset defaults from textbox inputs
+    if (!SelectProps || !SelectProps.native) {
+      InputMore.id = undefined;
+    }
+
+    InputMore['aria-describedby'] = undefined;
+  }
+
+  var helperTextId = helperText && id ? "".concat(id, "-helper-text") : undefined;
+  var inputLabelId = label && id ? "".concat(id, "-label") : undefined;
+  var InputComponent = variantComponent[variant];
+  var InputElement = /*#__PURE__*/react.createElement(InputComponent, (0,esm_extends/* default */.A)({
+    "aria-describedby": helperTextId,
+    autoComplete: autoComplete,
+    autoFocus: autoFocus,
+    defaultValue: defaultValue,
+    fullWidth: fullWidth,
+    multiline: multiline,
+    name: name,
+    rows: rows,
+    rowsMax: rowsMax,
+    maxRows: maxRows,
+    minRows: minRows,
+    type: type,
+    value: value,
+    id: id,
+    inputRef: inputRef,
+    onBlur: onBlur,
+    onChange: onChange,
+    onFocus: onFocus,
+    placeholder: placeholder,
+    inputProps: inputProps
+  }, InputMore, InputProps));
+  return /*#__PURE__*/react.createElement(FormControl_FormControl, (0,esm_extends/* default */.A)({
+    className: (0,clsx_m/* default */.A)(classes.root, className),
+    disabled: disabled,
+    error: error,
+    fullWidth: fullWidth,
+    hiddenLabel: hiddenLabel,
+    ref: ref,
+    required: required,
+    color: color,
+    variant: variant
+  }, other), label && /*#__PURE__*/react.createElement(InputLabel_InputLabel, (0,esm_extends/* default */.A)({
+    htmlFor: id,
+    id: inputLabelId
+  }, InputLabelProps), label), select ? /*#__PURE__*/react.createElement(Select_Select, (0,esm_extends/* default */.A)({
+    "aria-describedby": helperTextId,
+    id: id,
+    labelId: inputLabelId,
+    value: value,
+    input: InputElement
+  }, SelectProps), children) : InputElement, helperText && /*#__PURE__*/react.createElement(FormHelperText_FormHelperText, (0,esm_extends/* default */.A)({
+    id: helperTextId
+  }, FormHelperTextProps), helperText));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const TextField_TextField = ((0,withStyles/* default */.A)(TextField_styles, {
+  name: 'MuiTextField'
+})(TextField));
+;// ./node_modules/@material-ui/core/esm/FormControlLabel/FormControlLabel.js
+
+
+
+
+
+
+
+
+
+
+var FormControlLabel_styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      display: 'inline-flex',
+      alignItems: 'center',
+      cursor: 'pointer',
+      // For correct alignment with the text.
+      verticalAlign: 'middle',
+      WebkitTapHighlightColor: 'transparent',
+      marginLeft: -11,
+      marginRight: 16,
+      // used for row presentation of radio/checkbox
+      '&$disabled': {
+        cursor: 'default'
+      }
+    },
+
+    /* Styles applied to the root element if `labelPlacement="start"`. */
+    labelPlacementStart: {
+      flexDirection: 'row-reverse',
+      marginLeft: 16,
+      // used for row presentation of radio/checkbox
+      marginRight: -11
+    },
+
+    /* Styles applied to the root element if `labelPlacement="top"`. */
+    labelPlacementTop: {
+      flexDirection: 'column-reverse',
+      marginLeft: 16
+    },
+
+    /* Styles applied to the root element if `labelPlacement="bottom"`. */
+    labelPlacementBottom: {
+      flexDirection: 'column',
+      marginLeft: 16
+    },
+
+    /* Pseudo-class applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Styles applied to the label's Typography component. */
+    label: {
+      '&$disabled': {
+        color: theme.palette.text.disabled
+      }
+    }
+  };
+};
+/**
+ * Drop in replacement of the `Radio`, `Switch` and `Checkbox` component.
+ * Use this component if you want to display an extra label.
+ */
+
+var FormControlLabel = /*#__PURE__*/react.forwardRef(function FormControlLabel(props, ref) {
+  var checked = props.checked,
+      classes = props.classes,
+      className = props.className,
+      control = props.control,
+      disabledProp = props.disabled,
+      inputRef = props.inputRef,
+      label = props.label,
+      _props$labelPlacement = props.labelPlacement,
+      labelPlacement = _props$labelPlacement === void 0 ? 'end' : _props$labelPlacement,
+      name = props.name,
+      onChange = props.onChange,
+      value = props.value,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["checked", "classes", "className", "control", "disabled", "inputRef", "label", "labelPlacement", "name", "onChange", "value"]);
+
+  var muiFormControl = useFormControl_useFormControl();
+  var disabled = disabledProp;
+
+  if (typeof disabled === 'undefined' && typeof control.props.disabled !== 'undefined') {
+    disabled = control.props.disabled;
+  }
+
+  if (typeof disabled === 'undefined' && muiFormControl) {
+    disabled = muiFormControl.disabled;
+  }
+
+  var controlProps = {
+    disabled: disabled
+  };
+  ['checked', 'name', 'onChange', 'value', 'inputRef'].forEach(function (key) {
+    if (typeof control.props[key] === 'undefined' && typeof props[key] !== 'undefined') {
+      controlProps[key] = props[key];
+    }
+  });
+  return /*#__PURE__*/react.createElement("label", (0,esm_extends/* default */.A)({
+    className: (0,clsx_m/* default */.A)(classes.root, className, labelPlacement !== 'end' && classes["labelPlacement".concat((0,esm_utils_capitalize/* default */.A)(labelPlacement))], disabled && classes.disabled),
+    ref: ref
+  }, other), /*#__PURE__*/react.cloneElement(control, controlProps), /*#__PURE__*/react.createElement(esm_Typography_Typography, {
+    component: "span",
+    className: (0,clsx_m/* default */.A)(classes.label, disabled && classes.disabled)
+  }, label));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const FormControlLabel_FormControlLabel = ((0,withStyles/* default */.A)(FormControlLabel_styles, {
+  name: 'MuiFormControlLabel'
+})(FormControlLabel));
+;// ./node_modules/@material-ui/core/esm/internal/SwitchBase.js
+
+
+
+
+
+
+
+
+
+
+
+var SwitchBase_styles = {
+  root: {
+    padding: 9
+  },
+  checked: {},
+  disabled: {},
+  input: {
+    cursor: 'inherit',
+    position: 'absolute',
+    opacity: 0,
+    width: '100%',
+    height: '100%',
+    top: 0,
+    left: 0,
+    margin: 0,
+    padding: 0,
+    zIndex: 1
+  }
+};
+/**
+ * @ignore - internal component.
+ */
+
+var SwitchBase = /*#__PURE__*/react.forwardRef(function SwitchBase(props, ref) {
+  var autoFocus = props.autoFocus,
+      checkedProp = props.checked,
+      checkedIcon = props.checkedIcon,
+      classes = props.classes,
+      className = props.className,
+      defaultChecked = props.defaultChecked,
+      disabledProp = props.disabled,
+      icon = props.icon,
+      id = props.id,
+      inputProps = props.inputProps,
+      inputRef = props.inputRef,
+      name = props.name,
+      onBlur = props.onBlur,
+      onChange = props.onChange,
+      onFocus = props.onFocus,
+      readOnly = props.readOnly,
+      required = props.required,
+      tabIndex = props.tabIndex,
+      type = props.type,
+      value = props.value,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["autoFocus", "checked", "checkedIcon", "classes", "className", "defaultChecked", "disabled", "icon", "id", "inputProps", "inputRef", "name", "onBlur", "onChange", "onFocus", "readOnly", "required", "tabIndex", "type", "value"]);
+
+  var _useControlled = (0,useControlled/* default */.A)({
+    controlled: checkedProp,
+    default: Boolean(defaultChecked),
+    name: 'SwitchBase',
+    state: 'checked'
+  }),
+      _useControlled2 = (0,slicedToArray/* default */.A)(_useControlled, 2),
+      checked = _useControlled2[0],
+      setCheckedState = _useControlled2[1];
+
+  var muiFormControl = useFormControl_useFormControl();
+
+  var handleFocus = function handleFocus(event) {
+    if (onFocus) {
+      onFocus(event);
+    }
+
+    if (muiFormControl && muiFormControl.onFocus) {
+      muiFormControl.onFocus(event);
+    }
+  };
+
+  var handleBlur = function handleBlur(event) {
+    if (onBlur) {
+      onBlur(event);
+    }
+
+    if (muiFormControl && muiFormControl.onBlur) {
+      muiFormControl.onBlur(event);
+    }
+  };
+
+  var handleInputChange = function handleInputChange(event) {
+    var newChecked = event.target.checked;
+    setCheckedState(newChecked);
+
+    if (onChange) {
+      // TODO v5: remove the second argument.
+      onChange(event, newChecked);
+    }
+  };
+
+  var disabled = disabledProp;
+
+  if (muiFormControl) {
+    if (typeof disabled === 'undefined') {
+      disabled = muiFormControl.disabled;
+    }
+  }
+
+  var hasLabelFor = type === 'checkbox' || type === 'radio';
+  return /*#__PURE__*/react.createElement(IconButton_IconButton, (0,esm_extends/* default */.A)({
+    component: "span",
+    className: (0,clsx_m/* default */.A)(classes.root, className, checked && classes.checked, disabled && classes.disabled),
+    disabled: disabled,
+    tabIndex: null,
+    role: undefined,
+    onFocus: handleFocus,
+    onBlur: handleBlur,
+    ref: ref
+  }, other), /*#__PURE__*/react.createElement("input", (0,esm_extends/* default */.A)({
+    autoFocus: autoFocus,
+    checked: checkedProp,
+    defaultChecked: defaultChecked,
+    className: classes.input,
+    disabled: disabled,
+    id: hasLabelFor && id,
+    name: name,
+    onChange: handleInputChange,
+    readOnly: readOnly,
+    ref: inputRef,
+    required: required,
+    tabIndex: tabIndex,
+    type: type,
+    value: value
+  }, inputProps)), checked ? checkedIcon : icon);
+}); // NB: If changed, please update Checkbox, Switch and Radio
+// so that the API documentation is updated.
+
+ false ? 0 : void 0;
+/* harmony default export */ const internal_SwitchBase = ((0,withStyles/* default */.A)(SwitchBase_styles, {
+  name: 'PrivateSwitchBase'
+})(SwitchBase));
+;// ./node_modules/@material-ui/core/esm/internal/svg-icons/CheckBoxOutlineBlank.js
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ const CheckBoxOutlineBlank = ((0,createSvgIcon/* default */.A)( /*#__PURE__*/react.createElement("path", {
+  d: "M19 5v14H5V5h14m0-2H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"
+}), 'CheckBoxOutlineBlank'));
+;// ./node_modules/@material-ui/core/esm/internal/svg-icons/CheckBox.js
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ const CheckBox = ((0,createSvgIcon/* default */.A)( /*#__PURE__*/react.createElement("path", {
+  d: "M19 3H5c-1.11 0-2 .9-2 2v14c0 1.1.89 2 2 2h14c1.11 0 2-.9 2-2V5c0-1.1-.89-2-2-2zm-9 14l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"
+}), 'CheckBox'));
+;// ./node_modules/@material-ui/core/esm/internal/svg-icons/IndeterminateCheckBox.js
+
+
+/**
+ * @ignore - internal component.
+ */
+
+/* harmony default export */ const IndeterminateCheckBox = ((0,createSvgIcon/* default */.A)( /*#__PURE__*/react.createElement("path", {
+  d: "M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-2 10H7v-2h10v2z"
+}), 'IndeterminateCheckBox'));
+;// ./node_modules/@material-ui/core/esm/Checkbox/Checkbox.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Checkbox_styles = function styles(theme) {
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      color: theme.palette.text.secondary
+    },
+
+    /* Pseudo-class applied to the root element if `checked={true}`. */
+    checked: {},
+
+    /* Pseudo-class applied to the root element if `disabled={true}`. */
+    disabled: {},
+
+    /* Pseudo-class applied to the root element if `indeterminate={true}`. */
+    indeterminate: {},
+
+    /* Styles applied to the root element if `color="primary"`. */
+    colorPrimary: {
+      '&$checked': {
+        color: theme.palette.primary.main,
+        '&:hover': {
+          backgroundColor: (0,styles_colorManipulator/* alpha */.X4)(theme.palette.primary.main, theme.palette.action.hoverOpacity),
+          // Reset on touch devices, it doesn't add specificity
+          '@media (hover: none)': {
+            backgroundColor: 'transparent'
+          }
+        }
+      },
+      '&$disabled': {
+        color: theme.palette.action.disabled
+      }
+    },
+
+    /* Styles applied to the root element if `color="secondary"`. */
+    colorSecondary: {
+      '&$checked': {
+        color: theme.palette.secondary.main,
+        '&:hover': {
+          backgroundColor: (0,styles_colorManipulator/* alpha */.X4)(theme.palette.secondary.main, theme.palette.action.hoverOpacity),
+          // Reset on touch devices, it doesn't add specificity
+          '@media (hover: none)': {
+            backgroundColor: 'transparent'
+          }
+        }
+      },
+      '&$disabled': {
+        color: theme.palette.action.disabled
+      }
+    }
+  };
+};
+var defaultCheckedIcon = /*#__PURE__*/react.createElement(CheckBox, null);
+var defaultIcon = /*#__PURE__*/react.createElement(CheckBoxOutlineBlank, null);
+var defaultIndeterminateIcon = /*#__PURE__*/react.createElement(IndeterminateCheckBox, null);
+var Checkbox = /*#__PURE__*/react.forwardRef(function Checkbox(props, ref) {
+  var _props$checkedIcon = props.checkedIcon,
+      checkedIcon = _props$checkedIcon === void 0 ? defaultCheckedIcon : _props$checkedIcon,
+      classes = props.classes,
+      _props$color = props.color,
+      color = _props$color === void 0 ? 'secondary' : _props$color,
+      _props$icon = props.icon,
+      iconProp = _props$icon === void 0 ? defaultIcon : _props$icon,
+      _props$indeterminate = props.indeterminate,
+      indeterminate = _props$indeterminate === void 0 ? false : _props$indeterminate,
+      _props$indeterminateI = props.indeterminateIcon,
+      indeterminateIconProp = _props$indeterminateI === void 0 ? defaultIndeterminateIcon : _props$indeterminateI,
+      inputProps = props.inputProps,
+      _props$size = props.size,
+      size = _props$size === void 0 ? 'medium' : _props$size,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["checkedIcon", "classes", "color", "icon", "indeterminate", "indeterminateIcon", "inputProps", "size"]);
+
+  var icon = indeterminate ? indeterminateIconProp : iconProp;
+  var indeterminateIcon = indeterminate ? indeterminateIconProp : checkedIcon;
+  return /*#__PURE__*/react.createElement(internal_SwitchBase, (0,esm_extends/* default */.A)({
+    type: "checkbox",
+    classes: {
+      root: (0,clsx_m/* default */.A)(classes.root, classes["color".concat((0,esm_utils_capitalize/* default */.A)(color))], indeterminate && classes.indeterminate),
+      checked: classes.checked,
+      disabled: classes.disabled
+    },
+    color: color,
+    inputProps: (0,esm_extends/* default */.A)({
+      'data-indeterminate': indeterminate
+    }, inputProps),
+    icon: /*#__PURE__*/react.cloneElement(icon, {
+      fontSize: icon.props.fontSize === undefined && size === "small" ? size : icon.props.fontSize
+    }),
+    checkedIcon: /*#__PURE__*/react.cloneElement(indeterminateIcon, {
+      fontSize: indeterminateIcon.props.fontSize === undefined && size === "small" ? size : indeterminateIcon.props.fontSize
+    }),
+    ref: ref
+  }, other));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const Checkbox_Checkbox = ((0,withStyles/* default */.A)(Checkbox_styles, {
+  name: 'MuiCheckbox'
+})(Checkbox));
+;// ./node_modules/@material-ui/core/esm/DialogActions/DialogActions.js
+
+
+
+
+
+
+var DialogActions_styles = {
+  /* Styles applied to the root element. */
+  root: {
+    display: 'flex',
+    alignItems: 'center',
+    padding: 8,
+    justifyContent: 'flex-end',
+    flex: '0 0 auto'
+  },
+
+  /* Styles applied to the root element if `disableSpacing={false}`. */
+  spacing: {
+    '& > :not(:first-child)': {
+      marginLeft: 8
+    }
+  }
+};
+var DialogActions = /*#__PURE__*/react.forwardRef(function DialogActions(props, ref) {
+  var _props$disableSpacing = props.disableSpacing,
+      disableSpacing = _props$disableSpacing === void 0 ? false : _props$disableSpacing,
+      classes = props.classes,
+      className = props.className,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["disableSpacing", "classes", "className"]);
+
+  return /*#__PURE__*/react.createElement("div", (0,esm_extends/* default */.A)({
+    className: (0,clsx_m/* default */.A)(classes.root, className, !disableSpacing && classes.spacing),
+    ref: ref
+  }, other));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const DialogActions_DialogActions = ((0,withStyles/* default */.A)(DialogActions_styles, {
+  name: 'MuiDialogActions'
+})(DialogActions));
+;// ./node_modules/@material-ui/core/esm/ClickAwayListener/ClickAwayListener.js
+
+
+
+
+
+
+
+
+function mapEventPropToEvent(eventProp) {
+  return eventProp.substring(2).toLowerCase();
+}
+
+function clickedRootScrollbar(event) {
+  return document.documentElement.clientWidth < event.clientX || document.documentElement.clientHeight < event.clientY;
+}
+/**
+ * Listen for click events that occur somewhere in the document, outside of the element itself.
+ * For instance, if you need to hide a menu when people click anywhere else on your page.
+ */
+
+
+function ClickAwayListener(props) {
+  var children = props.children,
+      _props$disableReactTr = props.disableReactTree,
+      disableReactTree = _props$disableReactTr === void 0 ? false : _props$disableReactTr,
+      _props$mouseEvent = props.mouseEvent,
+      mouseEvent = _props$mouseEvent === void 0 ? 'onClick' : _props$mouseEvent,
+      onClickAway = props.onClickAway,
+      _props$touchEvent = props.touchEvent,
+      touchEvent = _props$touchEvent === void 0 ? 'onTouchEnd' : _props$touchEvent;
+  var movedRef = react.useRef(false);
+  var nodeRef = react.useRef(null);
+  var activatedRef = react.useRef(false);
+  var syntheticEventRef = react.useRef(false);
+  react.useEffect(function () {
+    // Ensure that this component is not "activated" synchronously.
+    // https://github.com/facebook/react/issues/20074
+    setTimeout(function () {
+      activatedRef.current = true;
+    }, 0);
+    return function () {
+      activatedRef.current = false;
+    };
+  }, []); // can be removed once we drop support for non ref forwarding class components
+
+  var handleOwnRef = react.useCallback(function (instance) {
+    // #StrictMode ready
+    nodeRef.current = react_dom.findDOMNode(instance);
+  }, []);
+  var handleRef = (0,useForkRef/* default */.A)(children.ref, handleOwnRef); // The handler doesn't take event.defaultPrevented into account:
+  //
+  // event.preventDefault() is meant to stop default behaviours like
+  // clicking a checkbox to check it, hitting a button to submit a form,
+  // and hitting left arrow to move the cursor in a text input etc.
+  // Only special HTML elements have these default behaviors.
+
+  var handleClickAway = (0,useEventCallback/* default */.A)(function (event) {
+    // Given developers can stop the propagation of the synthetic event,
+    // we can only be confident with a positive value.
+    var insideReactTree = syntheticEventRef.current;
+    syntheticEventRef.current = false; // 1. IE 11 support, which trigger the handleClickAway even after the unbind
+    // 2. The child might render null.
+    // 3. Behave like a blur listener.
+
+    if (!activatedRef.current || !nodeRef.current || clickedRootScrollbar(event)) {
+      return;
+    } // Do not act if user performed touchmove
+
+
+    if (movedRef.current) {
+      movedRef.current = false;
+      return;
+    }
+
+    var insideDOM; // If not enough, can use https://github.com/DieterHolvoet/event-propagation-path/blob/master/propagationPath.js
+
+    if (event.composedPath) {
+      insideDOM = event.composedPath().indexOf(nodeRef.current) > -1;
+    } else {
+      // TODO v6 remove dead logic https://caniuse.com/#search=composedPath.
+      var doc = (0,ownerDocument/* default */.A)(nodeRef.current);
+      insideDOM = !doc.documentElement.contains(event.target) || nodeRef.current.contains(event.target);
+    }
+
+    if (!insideDOM && (disableReactTree || !insideReactTree)) {
+      onClickAway(event);
+    }
+  }); // Keep track of mouse/touch events that bubbled up through the portal.
+
+  var createHandleSynthetic = function createHandleSynthetic(handlerName) {
+    return function (event) {
+      syntheticEventRef.current = true;
+      var childrenPropsHandler = children.props[handlerName];
+
+      if (childrenPropsHandler) {
+        childrenPropsHandler(event);
+      }
+    };
+  };
+
+  var childrenProps = {
+    ref: handleRef
+  };
+
+  if (touchEvent !== false) {
+    childrenProps[touchEvent] = createHandleSynthetic(touchEvent);
+  }
+
+  react.useEffect(function () {
+    if (touchEvent !== false) {
+      var mappedTouchEvent = mapEventPropToEvent(touchEvent);
+      var doc = (0,ownerDocument/* default */.A)(nodeRef.current);
+
+      var handleTouchMove = function handleTouchMove() {
+        movedRef.current = true;
+      };
+
+      doc.addEventListener(mappedTouchEvent, handleClickAway);
+      doc.addEventListener('touchmove', handleTouchMove);
+      return function () {
+        doc.removeEventListener(mappedTouchEvent, handleClickAway);
+        doc.removeEventListener('touchmove', handleTouchMove);
+      };
+    }
+
+    return undefined;
+  }, [handleClickAway, touchEvent]);
+
+  if (mouseEvent !== false) {
+    childrenProps[mouseEvent] = createHandleSynthetic(mouseEvent);
+  }
+
+  react.useEffect(function () {
+    if (mouseEvent !== false) {
+      var mappedMouseEvent = mapEventPropToEvent(mouseEvent);
+      var doc = (0,ownerDocument/* default */.A)(nodeRef.current);
+      doc.addEventListener(mappedMouseEvent, handleClickAway);
+      return function () {
+        doc.removeEventListener(mappedMouseEvent, handleClickAway);
+      };
+    }
+
+    return undefined;
+  }, [handleClickAway, mouseEvent]);
+  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.cloneElement(children, childrenProps));
+}
+
+ false ? 0 : void 0;
+
+if (false) {}
+
+/* harmony default export */ const ClickAwayListener_ClickAwayListener = (ClickAwayListener);
+;// ./node_modules/@material-ui/core/esm/SnackbarContent/SnackbarContent.js
+
+
+
+
+
+
+
+
+
+var SnackbarContent_styles = function styles(theme) {
+  var emphasis = theme.palette.type === 'light' ? 0.8 : 0.98;
+  var backgroundColor = (0,styles_colorManipulator/* emphasize */.tL)(theme.palette.background.default, emphasis);
+  return {
+    /* Styles applied to the root element. */
+    root: (0,esm_extends/* default */.A)({}, theme.typography.body2, (0,defineProperty/* default */.A)({
+      color: theme.palette.getContrastText(backgroundColor),
+      backgroundColor: backgroundColor,
+      display: 'flex',
+      alignItems: 'center',
+      flexWrap: 'wrap',
+      padding: '6px 16px',
+      borderRadius: theme.shape.borderRadius,
+      flexGrow: 1
+    }, theme.breakpoints.up('sm'), {
+      flexGrow: 'initial',
+      minWidth: 288
+    })),
+
+    /* Styles applied to the message wrapper element. */
+    message: {
+      padding: '8px 0'
+    },
+
+    /* Styles applied to the action wrapper element if `action` is provided. */
+    action: {
+      display: 'flex',
+      alignItems: 'center',
+      marginLeft: 'auto',
+      paddingLeft: 16,
+      marginRight: -8
+    }
+  };
+};
+var SnackbarContent = /*#__PURE__*/react.forwardRef(function SnackbarContent(props, ref) {
+  var action = props.action,
+      classes = props.classes,
+      className = props.className,
+      message = props.message,
+      _props$role = props.role,
+      role = _props$role === void 0 ? 'alert' : _props$role,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["action", "classes", "className", "message", "role"]);
+
+  return /*#__PURE__*/react.createElement(esm_Paper_Paper, (0,esm_extends/* default */.A)({
+    role: role,
+    square: true,
+    elevation: 6,
+    className: (0,clsx_m/* default */.A)(classes.root, className),
+    ref: ref
+  }, other), /*#__PURE__*/react.createElement("div", {
+    className: classes.message
+  }, message), action ? /*#__PURE__*/react.createElement("div", {
+    className: classes.action
+  }, action) : null);
+});
+ false ? 0 : void 0;
+/* harmony default export */ const SnackbarContent_SnackbarContent = ((0,withStyles/* default */.A)(SnackbarContent_styles, {
+  name: 'MuiSnackbarContent'
+})(SnackbarContent));
+;// ./node_modules/@material-ui/core/esm/Snackbar/Snackbar.js
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var Snackbar_styles = function styles(theme) {
+  var top1 = {
+    top: 8
+  };
+  var bottom1 = {
+    bottom: 8
+  };
+  var right = {
+    justifyContent: 'flex-end'
+  };
+  var left = {
+    justifyContent: 'flex-start'
+  };
+  var top3 = {
+    top: 24
+  };
+  var bottom3 = {
+    bottom: 24
+  };
+  var right3 = {
+    right: 24
+  };
+  var left3 = {
+    left: 24
+  };
+  var center = {
+    left: '50%',
+    right: 'auto',
+    transform: 'translateX(-50%)'
+  };
+  return {
+    /* Styles applied to the root element. */
+    root: {
+      zIndex: theme.zIndex.snackbar,
+      position: 'fixed',
+      display: 'flex',
+      left: 8,
+      right: 8,
+      justifyContent: 'center',
+      alignItems: 'center'
+    },
+
+    /* Styles applied to the root element if `anchorOrigin={{ 'top', 'center' }}`. */
+    anchorOriginTopCenter: (0,esm_extends/* default */.A)({}, top1, (0,defineProperty/* default */.A)({}, theme.breakpoints.up('sm'), (0,esm_extends/* default */.A)({}, top3, center))),
+
+    /* Styles applied to the root element if `anchorOrigin={{ 'bottom', 'center' }}`. */
+    anchorOriginBottomCenter: (0,esm_extends/* default */.A)({}, bottom1, (0,defineProperty/* default */.A)({}, theme.breakpoints.up('sm'), (0,esm_extends/* default */.A)({}, bottom3, center))),
+
+    /* Styles applied to the root element if `anchorOrigin={{ 'top', 'right' }}`. */
+    anchorOriginTopRight: (0,esm_extends/* default */.A)({}, top1, right, (0,defineProperty/* default */.A)({}, theme.breakpoints.up('sm'), (0,esm_extends/* default */.A)({
+      left: 'auto'
+    }, top3, right3))),
+
+    /* Styles applied to the root element if `anchorOrigin={{ 'bottom', 'right' }}`. */
+    anchorOriginBottomRight: (0,esm_extends/* default */.A)({}, bottom1, right, (0,defineProperty/* default */.A)({}, theme.breakpoints.up('sm'), (0,esm_extends/* default */.A)({
+      left: 'auto'
+    }, bottom3, right3))),
+
+    /* Styles applied to the root element if `anchorOrigin={{ 'top', 'left' }}`. */
+    anchorOriginTopLeft: (0,esm_extends/* default */.A)({}, top1, left, (0,defineProperty/* default */.A)({}, theme.breakpoints.up('sm'), (0,esm_extends/* default */.A)({
+      right: 'auto'
+    }, top3, left3))),
+
+    /* Styles applied to the root element if `anchorOrigin={{ 'bottom', 'left' }}`. */
+    anchorOriginBottomLeft: (0,esm_extends/* default */.A)({}, bottom1, left, (0,defineProperty/* default */.A)({}, theme.breakpoints.up('sm'), (0,esm_extends/* default */.A)({
+      right: 'auto'
+    }, bottom3, left3)))
+  };
+};
+var Snackbar = /*#__PURE__*/react.forwardRef(function Snackbar(props, ref) {
+  var action = props.action,
+      _props$anchorOrigin = props.anchorOrigin;
+  _props$anchorOrigin = _props$anchorOrigin === void 0 ? {
+    vertical: 'bottom',
+    horizontal: 'center'
+  } : _props$anchorOrigin;
+
+  var vertical = _props$anchorOrigin.vertical,
+      horizontal = _props$anchorOrigin.horizontal,
+      _props$autoHideDurati = props.autoHideDuration,
+      autoHideDuration = _props$autoHideDurati === void 0 ? null : _props$autoHideDurati,
+      children = props.children,
+      classes = props.classes,
+      className = props.className,
+      ClickAwayListenerProps = props.ClickAwayListenerProps,
+      ContentProps = props.ContentProps,
+      _props$disableWindowB = props.disableWindowBlurListener,
+      disableWindowBlurListener = _props$disableWindowB === void 0 ? false : _props$disableWindowB,
+      message = props.message,
+      onClose = props.onClose,
+      onEnter = props.onEnter,
+      onEntered = props.onEntered,
+      onEntering = props.onEntering,
+      onExit = props.onExit,
+      onExited = props.onExited,
+      onExiting = props.onExiting,
+      onMouseEnter = props.onMouseEnter,
+      onMouseLeave = props.onMouseLeave,
+      open = props.open,
+      resumeHideDuration = props.resumeHideDuration,
+      _props$TransitionComp = props.TransitionComponent,
+      TransitionComponent = _props$TransitionComp === void 0 ? Grow_Grow : _props$TransitionComp,
+      _props$transitionDura = props.transitionDuration,
+      transitionDuration = _props$transitionDura === void 0 ? {
+    enter: styles_transitions/* duration */.p0.enteringScreen,
+    exit: styles_transitions/* duration */.p0.leavingScreen
+  } : _props$transitionDura,
+      TransitionProps = props.TransitionProps,
+      other = (0,objectWithoutProperties/* default */.A)(props, ["action", "anchorOrigin", "autoHideDuration", "children", "classes", "className", "ClickAwayListenerProps", "ContentProps", "disableWindowBlurListener", "message", "onClose", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "onMouseEnter", "onMouseLeave", "open", "resumeHideDuration", "TransitionComponent", "transitionDuration", "TransitionProps"]);
+
+  var timerAutoHide = react.useRef();
+
+  var _React$useState = react.useState(true),
+      exited = _React$useState[0],
+      setExited = _React$useState[1];
+
+  var handleClose = (0,useEventCallback/* default */.A)(function () {
+    if (onClose) {
+      onClose.apply(void 0, arguments);
+    }
+  });
+  var setAutoHideTimer = (0,useEventCallback/* default */.A)(function (autoHideDurationParam) {
+    if (!onClose || autoHideDurationParam == null) {
+      return;
+    }
+
+    clearTimeout(timerAutoHide.current);
+    timerAutoHide.current = setTimeout(function () {
+      handleClose(null, 'timeout');
+    }, autoHideDurationParam);
+  });
+  react.useEffect(function () {
+    if (open) {
+      setAutoHideTimer(autoHideDuration);
+    }
+
+    return function () {
+      clearTimeout(timerAutoHide.current);
+    };
+  }, [open, autoHideDuration, setAutoHideTimer]); // Pause the timer when the user is interacting with the Snackbar
+  // or when the user hide the window.
+
+  var handlePause = function handlePause() {
+    clearTimeout(timerAutoHide.current);
+  }; // Restart the timer when the user is no longer interacting with the Snackbar
+  // or when the window is shown back.
+
+
+  var handleResume = react.useCallback(function () {
+    if (autoHideDuration != null) {
+      setAutoHideTimer(resumeHideDuration != null ? resumeHideDuration : autoHideDuration * 0.5);
+    }
+  }, [autoHideDuration, resumeHideDuration, setAutoHideTimer]);
+
+  var handleMouseEnter = function handleMouseEnter(event) {
+    if (onMouseEnter) {
+      onMouseEnter(event);
+    }
+
+    handlePause();
+  };
+
+  var handleMouseLeave = function handleMouseLeave(event) {
+    if (onMouseLeave) {
+      onMouseLeave(event);
+    }
+
+    handleResume();
+  };
+
+  var handleClickAway = function handleClickAway(event) {
+    if (onClose) {
+      onClose(event, 'clickaway');
+    }
+  };
+
+  var handleExited = function handleExited() {
+    setExited(true);
+  };
+
+  var handleEnter = function handleEnter() {
+    setExited(false);
+  };
+
+  react.useEffect(function () {
+    if (!disableWindowBlurListener && open) {
+      window.addEventListener('focus', handleResume);
+      window.addEventListener('blur', handlePause);
+      return function () {
+        window.removeEventListener('focus', handleResume);
+        window.removeEventListener('blur', handlePause);
+      };
+    }
+
+    return undefined;
+  }, [disableWindowBlurListener, handleResume, open]); // So we only render active snackbars.
+
+  if (!open && exited) {
+    return null;
+  }
+
+  return /*#__PURE__*/react.createElement(ClickAwayListener_ClickAwayListener, (0,esm_extends/* default */.A)({
+    onClickAway: handleClickAway
+  }, ClickAwayListenerProps), /*#__PURE__*/react.createElement("div", (0,esm_extends/* default */.A)({
+    className: (0,clsx_m/* default */.A)(classes.root, classes["anchorOrigin".concat((0,esm_utils_capitalize/* default */.A)(vertical)).concat((0,esm_utils_capitalize/* default */.A)(horizontal))], className),
+    onMouseEnter: handleMouseEnter,
+    onMouseLeave: handleMouseLeave,
+    ref: ref
+  }, other), /*#__PURE__*/react.createElement(TransitionComponent, (0,esm_extends/* default */.A)({
+    appear: true,
+    in: open,
+    onEnter: (0,createChainedFunction/* default */.A)(handleEnter, onEnter),
+    onEntered: onEntered,
+    onEntering: onEntering,
+    onExit: onExit,
+    onExited: (0,createChainedFunction/* default */.A)(handleExited, onExited),
+    onExiting: onExiting,
+    timeout: transitionDuration,
+    direction: vertical === 'top' ? 'down' : 'up'
+  }, TransitionProps), children || /*#__PURE__*/react.createElement(SnackbarContent_SnackbarContent, (0,esm_extends/* default */.A)({
+    message: message,
+    action: action
+  }, ContentProps)))));
+});
+ false ? 0 : void 0;
+/* harmony default export */ const Snackbar_Snackbar = ((0,withStyles/* default */.A)(Snackbar_styles, {
+  flip: false,
+  name: 'MuiSnackbar'
+})(Snackbar));
+;// ./node_modules/@material-ui/icons/esm/AddCircleOutline.js
+
+
+/* harmony default export */ const AddCircleOutline = ((0,createSvgIcon/* default */.A)( /*#__PURE__*/react.createElement("path", {
+  d: "M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
+}), 'AddCircleOutline'));
 ;// ./node_modules/@material-ui/icons/esm/PlayArrowOutlined.js
 
 
 /* harmony default export */ const PlayArrowOutlined = ((0,createSvgIcon/* default */.A)( /*#__PURE__*/react.createElement("path", {
   d: "M10 8.64L15.27 12 10 15.36V8.64M8 5v14l11-7L8 5z"
 }), 'PlayArrowOutlined'));
+;// ./node_modules/@material-ui/icons/esm/Close.js
+
+
+/* harmony default export */ const Close = ((0,createSvgIcon/* default */.A)( /*#__PURE__*/react.createElement("path", {
+  d: "M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"
+}), 'Close'));
 ;// ./node_modules/immer/dist/immer.esm.mjs
 function n(n){for(var r=arguments.length,t=Array(r>1?r-1:0),e=1;e<r;e++)t[e-1]=arguments[e];if(false){ var i, o; }throw Error("[Immer] minified error nr: "+n+(t.length?" "+t.map((function(n){return"'"+n+"'"})).join(","):"")+". Find the full error at: https://bit.ly/3cXEKWf")}function immer_esm_r(n){return!!n&&!!n[Q]}function t(n){var r;return!!n&&(function(n){if(!n||"object"!=typeof n)return!1;var r=Object.getPrototypeOf(n);if(null===r)return!0;var t=Object.hasOwnProperty.call(r,"constructor")&&r.constructor;return t===Object||"function"==typeof t&&Function.toString.call(t)===Z}(n)||Array.isArray(n)||!!n[L]||!!(null===(r=n.constructor)||void 0===r?void 0:r[L])||s(n)||v(n))}function e(t){return immer_esm_r(t)||n(23,t),t[Q].t}function i(n,r,t){void 0===t&&(t=!1),0===o(n)?(t?Object.keys:nn)(n).forEach((function(e){t&&"symbol"==typeof e||r(e,n[e],n)})):n.forEach((function(t,e){return r(e,t,n)}))}function o(n){var r=n[Q];return r?r.i>3?r.i-4:r.i:Array.isArray(n)?1:s(n)?2:v(n)?3:0}function u(n,r){return 2===o(n)?n.has(r):Object.prototype.hasOwnProperty.call(n,r)}function a(n,r){return 2===o(n)?n.get(r):n[r]}function f(n,r,t){var e=o(n);2===e?n.set(r,t):3===e?n.add(t):n[r]=t}function c(n,r){return n===r?0!==n||1/n==1/r:n!=n&&r!=r}function s(n){return X&&n instanceof Map}function v(n){return q&&n instanceof Set}function p(n){return n.o||n.t}function l(n){if(Array.isArray(n))return Array.prototype.slice.call(n);var r=rn(n);delete r[Q];for(var t=nn(r),e=0;e<t.length;e++){var i=t[e],o=r[i];!1===o.writable&&(o.writable=!0,o.configurable=!0),(o.get||o.set)&&(r[i]={configurable:!0,writable:!0,enumerable:o.enumerable,value:n[i]})}return Object.create(Object.getPrototypeOf(n),r)}function d(n,e){return void 0===e&&(e=!1),y(n)||immer_esm_r(n)||!t(n)||(o(n)>1&&(n.set=n.add=n.clear=n.delete=h),Object.freeze(n),e&&i(n,(function(n,r){return d(r,!0)}),!0)),n}function h(){n(2)}function y(n){return null==n||"object"!=typeof n||Object.isFrozen(n)}function b(r){var t=tn[r];return t||n(18,r),t}function m(n,r){tn[n]||(tn[n]=r)}function _(){return true||0,U}function j(n,r){r&&(b("Patches"),n.u=[],n.s=[],n.v=r)}function g(n){O(n),n.p.forEach(S),n.p=null}function O(n){n===U&&(U=n.l)}function w(n){return U={p:[],l:U,h:n,m:!0,_:0}}function S(n){var r=n[Q];0===r.i||1===r.i?r.j():r.g=!0}function P(r,e){e._=e.p.length;var i=e.p[0],o=void 0!==r&&r!==i;return e.h.O||b("ES5").S(e,r,o),o?(i[Q].P&&(g(e),n(4)),t(r)&&(r=M(e,r),e.l||x(e,r)),e.u&&b("Patches").M(i[Q].t,r,e.u,e.s)):r=M(e,i,[]),g(e),e.u&&e.v(e.u,e.s),r!==H?r:void 0}function M(n,r,t){if(y(r))return r;var e=r[Q];if(!e)return i(r,(function(i,o){return A(n,e,r,i,o,t)}),!0),r;if(e.A!==n)return r;if(!e.P)return x(n,e.t,!0),e.t;if(!e.I){e.I=!0,e.A._--;var o=4===e.i||5===e.i?e.o=l(e.k):e.o,u=o,a=!1;3===e.i&&(u=new Set(o),o.clear(),a=!0),i(u,(function(r,i){return A(n,e,o,r,i,t,a)})),x(n,o,!1),t&&n.u&&b("Patches").N(e,t,n.u,n.s)}return e.o}function A(e,i,o,a,c,s,v){if( false&&0,immer_esm_r(c)){var p=M(e,c,s&&i&&3!==i.i&&!u(i.R,a)?s.concat(a):void 0);if(f(o,a,p),!immer_esm_r(p))return;e.m=!1}else v&&o.add(c);if(t(c)&&!y(c)){if(!e.h.D&&e._<1)return;M(e,c),i&&i.A.l||x(e,c)}}function x(n,r,t){void 0===t&&(t=!1),!n.l&&n.h.D&&n.m&&d(r,t)}function z(n,r){var t=n[Q];return(t?p(t):n)[r]}function I(n,r){if(r in n)for(var t=Object.getPrototypeOf(n);t;){var e=Object.getOwnPropertyDescriptor(t,r);if(e)return e;t=Object.getPrototypeOf(t)}}function k(n){n.P||(n.P=!0,n.l&&k(n.l))}function E(n){n.o||(n.o=l(n.t))}function N(n,r,t){var e=s(r)?b("MapSet").F(r,t):v(r)?b("MapSet").T(r,t):n.O?function(n,r){var t=Array.isArray(n),e={i:t?1:0,A:r?r.A:_(),P:!1,I:!1,R:{},l:r,t:n,k:null,o:null,j:null,C:!1},i=e,o=en;t&&(i=[e],o=on);var u=Proxy.revocable(i,o),a=u.revoke,f=u.proxy;return e.k=f,e.j=a,f}(r,t):b("ES5").J(r,t);return(t?t.A:_()).p.push(e),e}function R(e){return immer_esm_r(e)||n(22,e),function n(r){if(!t(r))return r;var e,u=r[Q],c=o(r);if(u){if(!u.P&&(u.i<4||!b("ES5").K(u)))return u.t;u.I=!0,e=D(r,c),u.I=!1}else e=D(r,c);return i(e,(function(r,t){u&&a(u.t,r)===t||f(e,r,n(t))})),3===c?new Set(e):e}(e)}function D(n,r){switch(r){case 2:return new Map(n);case 3:return Array.from(n)}return l(n)}function F(){function t(n,r){var t=s[n];return t?t.enumerable=r:s[n]=t={configurable:!0,enumerable:r,get:function(){var r=this[Q];return false&&0,en.get(r,n)},set:function(r){var t=this[Q]; false&&0,en.set(t,n,r)}},t}function e(n){for(var r=n.length-1;r>=0;r--){var t=n[r][Q];if(!t.P)switch(t.i){case 5:a(t)&&k(t);break;case 4:o(t)&&k(t)}}}function o(n){for(var r=n.t,t=n.k,e=nn(t),i=e.length-1;i>=0;i--){var o=e[i];if(o!==Q){var a=r[o];if(void 0===a&&!u(r,o))return!0;var f=t[o],s=f&&f[Q];if(s?s.t!==a:!c(f,a))return!0}}var v=!!r[Q];return e.length!==nn(r).length+(v?0:1)}function a(n){var r=n.k;if(r.length!==n.t.length)return!0;var t=Object.getOwnPropertyDescriptor(r,r.length-1);if(t&&!t.get)return!0;for(var e=0;e<r.length;e++)if(!r.hasOwnProperty(e))return!0;return!1}function f(r){r.g&&n(3,JSON.stringify(p(r)))}var s={};m("ES5",{J:function(n,r){var e=Array.isArray(n),i=function(n,r){if(n){for(var e=Array(r.length),i=0;i<r.length;i++)Object.defineProperty(e,""+i,t(i,!0));return e}var o=rn(r);delete o[Q];for(var u=nn(o),a=0;a<u.length;a++){var f=u[a];o[f]=t(f,n||!!o[f].enumerable)}return Object.create(Object.getPrototypeOf(r),o)}(e,n),o={i:e?5:4,A:r?r.A:_(),P:!1,I:!1,R:{},l:r,t:n,k:i,o:null,g:!1,C:!1};return Object.defineProperty(i,Q,{value:o,writable:!0}),i},S:function(n,t,o){o?immer_esm_r(t)&&t[Q].A===n&&e(n.p):(n.u&&function n(r){if(r&&"object"==typeof r){var t=r[Q];if(t){var e=t.t,o=t.k,f=t.R,c=t.i;if(4===c)i(o,(function(r){r!==Q&&(void 0!==e[r]||u(e,r)?f[r]||n(o[r]):(f[r]=!0,k(t)))})),i(e,(function(n){void 0!==o[n]||u(o,n)||(f[n]=!1,k(t))}));else if(5===c){if(a(t)&&(k(t),f.length=!0),o.length<e.length)for(var s=o.length;s<e.length;s++)f[s]=!1;else for(var v=e.length;v<o.length;v++)f[v]=!0;for(var p=Math.min(o.length,e.length),l=0;l<p;l++)o.hasOwnProperty(l)||(f[l]=!0),void 0===f[l]&&n(o[l])}}}}(n.p[0]),e(n.p))},K:function(n){return 4===n.i?o(n):a(n)}})}function T(){function e(n){if(!t(n))return n;if(Array.isArray(n))return n.map(e);if(s(n))return new Map(Array.from(n.entries()).map((function(n){return[n[0],e(n[1])]})));if(v(n))return new Set(Array.from(n).map(e));var r=Object.create(Object.getPrototypeOf(n));for(var i in n)r[i]=e(n[i]);return u(n,L)&&(r[L]=n[L]),r}function f(n){return immer_esm_r(n)?e(n):n}var c="add";m("Patches",{$:function(r,t){return t.forEach((function(t){for(var i=t.path,u=t.op,f=r,s=0;s<i.length-1;s++){var v=o(f),p=i[s];"string"!=typeof p&&"number"!=typeof p&&(p=""+p),0!==v&&1!==v||"__proto__"!==p&&"constructor"!==p||n(24),"function"==typeof f&&"prototype"===p&&n(24),"object"!=typeof(f=a(f,p))&&n(15,i.join("/"))}var l=o(f),d=e(t.value),h=i[i.length-1];switch(u){case"replace":switch(l){case 2:return f.set(h,d);case 3:n(16);default:return f[h]=d}case c:switch(l){case 1:return"-"===h?f.push(d):f.splice(h,0,d);case 2:return f.set(h,d);case 3:return f.add(d);default:return f[h]=d}case"remove":switch(l){case 1:return f.splice(h,1);case 2:return f.delete(h);case 3:return f.delete(t.value);default:return delete f[h]}default:n(17,u)}})),r},N:function(n,r,t,e){switch(n.i){case 0:case 4:case 2:return function(n,r,t,e){var o=n.t,s=n.o;i(n.R,(function(n,i){var v=a(o,n),p=a(s,n),l=i?u(o,n)?"replace":c:"remove";if(v!==p||"replace"!==l){var d=r.concat(n);t.push("remove"===l?{op:l,path:d}:{op:l,path:d,value:p}),e.push(l===c?{op:"remove",path:d}:"remove"===l?{op:c,path:d,value:f(v)}:{op:"replace",path:d,value:f(v)})}}))}(n,r,t,e);case 5:case 1:return function(n,r,t,e){var i=n.t,o=n.R,u=n.o;if(u.length<i.length){var a=[u,i];i=a[0],u=a[1];var s=[e,t];t=s[0],e=s[1]}for(var v=0;v<i.length;v++)if(o[v]&&u[v]!==i[v]){var p=r.concat([v]);t.push({op:"replace",path:p,value:f(u[v])}),e.push({op:"replace",path:p,value:f(i[v])})}for(var l=i.length;l<u.length;l++){var d=r.concat([l]);t.push({op:c,path:d,value:f(u[l])})}i.length<u.length&&e.push({op:"replace",path:r.concat(["length"]),value:i.length})}(n,r,t,e);case 3:return function(n,r,t,e){var i=n.t,o=n.o,u=0;i.forEach((function(n){if(!o.has(n)){var i=r.concat([u]);t.push({op:"remove",path:i,value:n}),e.unshift({op:c,path:i,value:n})}u++})),u=0,o.forEach((function(n){if(!i.has(n)){var o=r.concat([u]);t.push({op:c,path:o,value:n}),e.unshift({op:"remove",path:o,value:n})}u++}))}(n,r,t,e)}},M:function(n,r,t,e){t.push({op:"replace",path:[],value:r===H?void 0:r}),e.push({op:"replace",path:[],value:n})}})}function C(){function r(n,r){function t(){this.constructor=n}a(n,r),n.prototype=(t.prototype=r.prototype,new t)}function e(n){n.o||(n.R=new Map,n.o=new Map(n.t))}function o(n){n.o||(n.o=new Set,n.t.forEach((function(r){if(t(r)){var e=N(n.A.h,r,n);n.p.set(r,e),n.o.add(e)}else n.o.add(r)})))}function u(r){r.g&&n(3,JSON.stringify(p(r)))}var a=function(n,r){return(a=Object.setPrototypeOf||{__proto__:[]}instanceof Array&&function(n,r){n.__proto__=r}||function(n,r){for(var t in r)r.hasOwnProperty(t)&&(n[t]=r[t])})(n,r)},f=function(){function n(n,r){return this[Q]={i:2,l:r,A:r?r.A:_(),P:!1,I:!1,o:void 0,R:void 0,t:n,k:this,C:!1,g:!1},this}r(n,Map);var o=n.prototype;return Object.defineProperty(o,"size",{get:function(){return p(this[Q]).size}}),o.has=function(n){return p(this[Q]).has(n)},o.set=function(n,r){var t=this[Q];return u(t),p(t).has(n)&&p(t).get(n)===r||(e(t),k(t),t.R.set(n,!0),t.o.set(n,r),t.R.set(n,!0)),this},o.delete=function(n){if(!this.has(n))return!1;var r=this[Q];return u(r),e(r),k(r),r.t.has(n)?r.R.set(n,!1):r.R.delete(n),r.o.delete(n),!0},o.clear=function(){var n=this[Q];u(n),p(n).size&&(e(n),k(n),n.R=new Map,i(n.t,(function(r){n.R.set(r,!1)})),n.o.clear())},o.forEach=function(n,r){var t=this;p(this[Q]).forEach((function(e,i){n.call(r,t.get(i),i,t)}))},o.get=function(n){var r=this[Q];u(r);var i=p(r).get(n);if(r.I||!t(i))return i;if(i!==r.t.get(n))return i;var o=N(r.A.h,i,r);return e(r),r.o.set(n,o),o},o.keys=function(){return p(this[Q]).keys()},o.values=function(){var n,r=this,t=this.keys();return(n={})[V]=function(){return r.values()},n.next=function(){var n=t.next();return n.done?n:{done:!1,value:r.get(n.value)}},n},o.entries=function(){var n,r=this,t=this.keys();return(n={})[V]=function(){return r.entries()},n.next=function(){var n=t.next();if(n.done)return n;var e=r.get(n.value);return{done:!1,value:[n.value,e]}},n},o[V]=function(){return this.entries()},n}(),c=function(){function n(n,r){return this[Q]={i:3,l:r,A:r?r.A:_(),P:!1,I:!1,o:void 0,t:n,k:this,p:new Map,g:!1,C:!1},this}r(n,Set);var t=n.prototype;return Object.defineProperty(t,"size",{get:function(){return p(this[Q]).size}}),t.has=function(n){var r=this[Q];return u(r),r.o?!!r.o.has(n)||!(!r.p.has(n)||!r.o.has(r.p.get(n))):r.t.has(n)},t.add=function(n){var r=this[Q];return u(r),this.has(n)||(o(r),k(r),r.o.add(n)),this},t.delete=function(n){if(!this.has(n))return!1;var r=this[Q];return u(r),o(r),k(r),r.o.delete(n)||!!r.p.has(n)&&r.o.delete(r.p.get(n))},t.clear=function(){var n=this[Q];u(n),p(n).size&&(o(n),k(n),n.o.clear())},t.values=function(){var n=this[Q];return u(n),o(n),n.o.values()},t.entries=function(){var n=this[Q];return u(n),o(n),n.o.entries()},t.keys=function(){return this.values()},t[V]=function(){return this.values()},t.forEach=function(n,r){for(var t=this.values(),e=t.next();!e.done;)n.call(r,e.value,e.value,this),e=t.next()},n}();m("MapSet",{F:function(n,r){return new f(n,r)},T:function(n,r){return new c(n,r)}})}function J(){F(),C(),T()}function K(n){return n}function $(n){return n}var G,U,W="undefined"!=typeof Symbol&&"symbol"==typeof Symbol("x"),X="undefined"!=typeof Map,q="undefined"!=typeof Set,B="undefined"!=typeof Proxy&&void 0!==Proxy.revocable&&"undefined"!=typeof Reflect,H=W?Symbol.for("immer-nothing"):((G={})["immer-nothing"]=!0,G),L=W?Symbol.for("immer-draftable"):"__$immer_draftable",Q=W?Symbol.for("immer-state"):"__$immer_state",V="undefined"!=typeof Symbol&&Symbol.iterator||"@@iterator",Y={0:"Illegal state",1:"Immer drafts cannot have computed properties",2:"This object has been frozen and should not be mutated",3:function(n){return"Cannot use a proxy that has been revoked. Did you pass an object from inside an immer function to an async process? "+n},4:"An immer producer returned a new value *and* modified its draft. Either return a new value *or* modify the draft.",5:"Immer forbids circular references",6:"The first or second argument to `produce` must be a function",7:"The third argument to `produce` must be a function or undefined",8:"First argument to `createDraft` must be a plain object, an array, or an immerable object",9:"First argument to `finishDraft` must be a draft returned by `createDraft`",10:"The given draft is already finalized",11:"Object.defineProperty() cannot be used on an Immer draft",12:"Object.setPrototypeOf() cannot be used on an Immer draft",13:"Immer only supports deleting array indices",14:"Immer only supports setting array indices and the 'length' property",15:function(n){return"Cannot apply patch, path doesn't resolve: "+n},16:'Sets cannot have "replace" patches.',17:function(n){return"Unsupported patch operation: "+n},18:function(n){return"The plugin for '"+n+"' has not been loaded into Immer. To enable the plugin, import and call `enable"+n+"()` when initializing your application."},20:"Cannot use proxies if Proxy, Proxy.revocable or Reflect are not available",21:function(n){return"produce can only be called on things that are draftable: plain objects, arrays, Map, Set or classes that are marked with '[immerable]: true'. Got '"+n+"'"},22:function(n){return"'current' expects a draft, got: "+n},23:function(n){return"'original' expects a draft, got: "+n},24:"Patching reserved attributes like __proto__, prototype and constructor is not allowed"},Z=""+Object.prototype.constructor,nn="undefined"!=typeof Reflect&&Reflect.ownKeys?Reflect.ownKeys:void 0!==Object.getOwnPropertySymbols?function(n){return Object.getOwnPropertyNames(n).concat(Object.getOwnPropertySymbols(n))}:Object.getOwnPropertyNames,rn=Object.getOwnPropertyDescriptors||function(n){var r={};return nn(n).forEach((function(t){r[t]=Object.getOwnPropertyDescriptor(n,t)})),r},tn={},en={get:function(n,r){if(r===Q)return n;var e=p(n);if(!u(e,r))return function(n,r,t){var e,i=I(r,t);return i?"value"in i?i.value:null===(e=i.get)||void 0===e?void 0:e.call(n.k):void 0}(n,e,r);var i=e[r];return n.I||!t(i)?i:i===z(n.t,r)?(E(n),n.o[r]=N(n.A.h,i,n)):i},has:function(n,r){return r in p(n)},ownKeys:function(n){return Reflect.ownKeys(p(n))},set:function(n,r,t){var e=I(p(n),r);if(null==e?void 0:e.set)return e.set.call(n.k,t),!0;if(!n.P){var i=z(p(n),r),o=null==i?void 0:i[Q];if(o&&o.t===t)return n.o[r]=t,n.R[r]=!1,!0;if(c(t,i)&&(void 0!==t||u(n.t,r)))return!0;E(n),k(n)}return n.o[r]===t&&(void 0!==t||r in n.o)||Number.isNaN(t)&&Number.isNaN(n.o[r])||(n.o[r]=t,n.R[r]=!0),!0},deleteProperty:function(n,r){return void 0!==z(n.t,r)||r in n.t?(n.R[r]=!1,E(n),k(n)):delete n.R[r],n.o&&delete n.o[r],!0},getOwnPropertyDescriptor:function(n,r){var t=p(n),e=Reflect.getOwnPropertyDescriptor(t,r);return e?{writable:!0,configurable:1!==n.i||"length"!==r,enumerable:e.enumerable,value:t[r]}:e},defineProperty:function(){n(11)},getPrototypeOf:function(n){return Object.getPrototypeOf(n.t)},setPrototypeOf:function(){n(12)}},on={};i(en,(function(n,r){on[n]=function(){return arguments[0]=arguments[0][0],r.apply(this,arguments)}})),on.deleteProperty=function(r,t){return false&&0,on.set.call(this,r,t,void 0)},on.set=function(r,t,e){return false&&0,en.set.call(this,r[0],t,e,r[0])};var un=function(){function e(r){var e=this;this.O=B,this.D=!0,this.produce=function(r,i,o){if("function"==typeof r&&"function"!=typeof i){var u=i;i=r;var a=e;return function(n){var r=this;void 0===n&&(n=u);for(var t=arguments.length,e=Array(t>1?t-1:0),o=1;o<t;o++)e[o-1]=arguments[o];return a.produce(n,(function(n){var t;return(t=i).call.apply(t,[r,n].concat(e))}))}}var f;if("function"!=typeof i&&n(6),void 0!==o&&"function"!=typeof o&&n(7),t(r)){var c=w(e),s=N(e,r,void 0),v=!0;try{f=i(s),v=!1}finally{v?g(c):O(c)}return"undefined"!=typeof Promise&&f instanceof Promise?f.then((function(n){return j(c,o),P(n,c)}),(function(n){throw g(c),n})):(j(c,o),P(f,c))}if(!r||"object"!=typeof r){if(void 0===(f=i(r))&&(f=r),f===H&&(f=void 0),e.D&&d(f,!0),o){var p=[],l=[];b("Patches").M(r,f,p,l),o(p,l)}return f}n(21,r)},this.produceWithPatches=function(n,r){if("function"==typeof n)return function(r){for(var t=arguments.length,i=Array(t>1?t-1:0),o=1;o<t;o++)i[o-1]=arguments[o];return e.produceWithPatches(r,(function(r){return n.apply(void 0,[r].concat(i))}))};var t,i,o=e.produce(n,r,(function(n,r){t=n,i=r}));return"undefined"!=typeof Promise&&o instanceof Promise?o.then((function(n){return[n,t,i]})):[o,t,i]},"boolean"==typeof(null==r?void 0:r.useProxies)&&this.setUseProxies(r.useProxies),"boolean"==typeof(null==r?void 0:r.autoFreeze)&&this.setAutoFreeze(r.autoFreeze)}var i=e.prototype;return i.createDraft=function(e){t(e)||n(8),immer_esm_r(e)&&(e=R(e));var i=w(this),o=N(this,e,void 0);return o[Q].C=!0,O(i),o},i.finishDraft=function(r,t){var e=r&&r[Q]; false&&(0);var i=e.A;return j(i,t),P(void 0,i)},i.setAutoFreeze=function(n){this.D=n},i.setUseProxies=function(r){r&&!B&&n(20),this.O=r},i.applyPatches=function(n,t){var e;for(e=t.length-1;e>=0;e--){var i=t[e];if(0===i.path.length&&"replace"===i.op){n=i.value;break}}e>-1&&(t=t.slice(e+1));var o=b("Patches").$;return immer_esm_r(n)?o(n,t):this.produce(n,(function(n){return o(n,t)}))},e}(),an=new un,fn=an.produce,cn=an.produceWithPatches.bind(an),sn=an.setAutoFreeze.bind(an),vn=an.setUseProxies.bind(an),pn=an.applyPatches.bind(an),ln=an.createDraft.bind(an),dn=an.finishDraft.bind(an);/* harmony default export */ const immer_esm = (fn);
 //# sourceMappingURL=immer.esm.js.map
@@ -29504,18 +36358,22 @@ const spriteSlice = createSlice({
   initialState,
   reducers: {
     // Add a new runnable block
-    addANewBlock: (state, payload) => {
-      let oldBlockList = state.midAreaBlocks;
-      let newList = {
+    addANewBlock: (state, action) => {
+      let newBlock = {
         id: `midAreaBlock-${state.midAreaBlocks.length}`,
-        elements: ['MOVE_X'],
-        ...(payload ? {
-          top: payload.top,
-          left: payload.left
-        } : {})
+        elements: [],
+        spriteId: action.payload.spriteId,
+        spriteName: action.payload.spriteName,
+        isCustomBlock: true,
+        category: action.payload.category || 'Custom',
+        action: action.payload.action || null
       };
-      oldBlockList.push(newList);
-      state.midAreaBlocks = oldBlockList;
+      state.midAreaBlocks.push(newBlock);
+
+      // Save to localStorage
+      const customBlocks = JSON.parse(localStorage.getItem('customBlocks') || '[]');
+      customBlocks.push(newBlock);
+      localStorage.setItem('customBlocks', JSON.stringify(customBlocks));
     },
     // Add a new runnable block
     /************************************************************************ */
@@ -29523,9 +36381,12 @@ const spriteSlice = createSlice({
       let oldBlockList = state.midAreaBlocks;
       let newList = {
         id: `midAreaBlock-${state.midAreaBlocks.length}`,
-        elements: ['MOVE_X'],
+        elements: action.payload.isCustomBlock ? [] : ['MOVE_X'],
+        // Empty for custom blocks
         spriteId: action.payload.spriteId,
         spriteName: action.payload.spriteName,
+        isCustomBlock: action.payload.isCustomBlock,
+        // Flag to identify custom blocks
         ...(action.payload.pos ? {
           top: action.payload.pos.top,
           left: action.payload.pos.left
@@ -30019,4572 +36880,6 @@ const renderSideBarComponentBasedOnType = (componentType, id, spriteId) => {
       return null;
   }
 };
-;// ./node_modules/@material-ui/core/esm/InputBase/utils.js
-// Supports determination of isControlled().
-// Controlled input accepts its current value as a prop.
-//
-// @see https://facebook.github.io/react/docs/forms.html#controlled-components
-// @param value
-// @returns {boolean} true if string (including '') or number (including zero)
-function hasValue(value) {
-  return value != null && !(Array.isArray(value) && value.length === 0);
-} // Determine if field is empty or filled.
-// Response determines if label is presented above field or as placeholder.
-//
-// @param obj
-// @param SSR
-// @returns {boolean} False when not present or empty string.
-//                    True when any number or string with length.
-
-function isFilled(obj) {
-  var SSR = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : false;
-  return obj && (hasValue(obj.value) && obj.value !== '' || SSR && hasValue(obj.defaultValue) && obj.defaultValue !== '');
-} // Determine if an Input is adorned on start.
-// It's corresponding to the left with LTR.
-//
-// @param obj
-// @returns {boolean} False when no adornments.
-//                    True when adorned at the start.
-
-function isAdornedStart(obj) {
-  return obj.startAdornment;
-}
-// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/utils/isMuiElement.js
-var isMuiElement = __webpack_require__(7570);
-;// ./node_modules/@material-ui/core/esm/FormControl/FormControlContext.js
-
-/**
- * @ignore - internal component.
- */
-
-var FormControlContext = react.createContext();
-
-if (false) {}
-
-function useFormControl() {
-  return react.useContext(FormControlContext);
-}
-/* harmony default export */ const FormControl_FormControlContext = (FormControlContext);
-;// ./node_modules/@material-ui/core/esm/FormControl/FormControl.js
-
-
-
-
-
-
-
-
-
-
-var FormControl_styles = {
-  /* Styles applied to the root element. */
-  root: {
-    display: 'inline-flex',
-    flexDirection: 'column',
-    position: 'relative',
-    // Reset fieldset default style.
-    minWidth: 0,
-    padding: 0,
-    margin: 0,
-    border: 0,
-    verticalAlign: 'top' // Fix alignment issue on Safari.
-
-  },
-
-  /* Styles applied to the root element if `margin="normal"`. */
-  marginNormal: {
-    marginTop: 16,
-    marginBottom: 8
-  },
-
-  /* Styles applied to the root element if `margin="dense"`. */
-  marginDense: {
-    marginTop: 8,
-    marginBottom: 4
-  },
-
-  /* Styles applied to the root element if `fullWidth={true}`. */
-  fullWidth: {
-    width: '100%'
-  }
-};
-/**
- * Provides context such as filled/focused/error/required for form inputs.
- * Relying on the context provides high flexibility and ensures that the state always stays
- * consistent across the children of the `FormControl`.
- * This context is used by the following components:
- *
- *  - FormLabel
- *  - FormHelperText
- *  - Input
- *  - InputLabel
- *
- * You can find one composition example below and more going to [the demos](/components/text-fields/#components).
- *
- * ```jsx
- * <FormControl>
- *   <InputLabel htmlFor="my-input">Email address</InputLabel>
- *   <Input id="my-input" aria-describedby="my-helper-text" />
- *   <FormHelperText id="my-helper-text">We'll never share your email.</FormHelperText>
- * </FormControl>
- * ```
- *
- * ⚠️Only one input can be used within a FormControl.
- */
-
-var FormControl = /*#__PURE__*/react.forwardRef(function FormControl(props, ref) {
-  var children = props.children,
-      classes = props.classes,
-      className = props.className,
-      _props$color = props.color,
-      color = _props$color === void 0 ? 'primary' : _props$color,
-      _props$component = props.component,
-      Component = _props$component === void 0 ? 'div' : _props$component,
-      _props$disabled = props.disabled,
-      disabled = _props$disabled === void 0 ? false : _props$disabled,
-      _props$error = props.error,
-      error = _props$error === void 0 ? false : _props$error,
-      _props$fullWidth = props.fullWidth,
-      fullWidth = _props$fullWidth === void 0 ? false : _props$fullWidth,
-      visuallyFocused = props.focused,
-      _props$hiddenLabel = props.hiddenLabel,
-      hiddenLabel = _props$hiddenLabel === void 0 ? false : _props$hiddenLabel,
-      _props$margin = props.margin,
-      margin = _props$margin === void 0 ? 'none' : _props$margin,
-      _props$required = props.required,
-      required = _props$required === void 0 ? false : _props$required,
-      size = props.size,
-      _props$variant = props.variant,
-      variant = _props$variant === void 0 ? 'standard' : _props$variant,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["children", "classes", "className", "color", "component", "disabled", "error", "fullWidth", "focused", "hiddenLabel", "margin", "required", "size", "variant"]);
-
-  var _React$useState = react.useState(function () {
-    // We need to iterate through the children and find the Input in order
-    // to fully support server-side rendering.
-    var initialAdornedStart = false;
-
-    if (children) {
-      react.Children.forEach(children, function (child) {
-        if (!(0,isMuiElement/* default */.A)(child, ['Input', 'Select'])) {
-          return;
-        }
-
-        var input = (0,isMuiElement/* default */.A)(child, ['Select']) ? child.props.input : child;
-
-        if (input && isAdornedStart(input.props)) {
-          initialAdornedStart = true;
-        }
-      });
-    }
-
-    return initialAdornedStart;
-  }),
-      adornedStart = _React$useState[0],
-      setAdornedStart = _React$useState[1];
-
-  var _React$useState2 = react.useState(function () {
-    // We need to iterate through the children and find the Input in order
-    // to fully support server-side rendering.
-    var initialFilled = false;
-
-    if (children) {
-      react.Children.forEach(children, function (child) {
-        if (!(0,isMuiElement/* default */.A)(child, ['Input', 'Select'])) {
-          return;
-        }
-
-        if (isFilled(child.props, true)) {
-          initialFilled = true;
-        }
-      });
-    }
-
-    return initialFilled;
-  }),
-      filled = _React$useState2[0],
-      setFilled = _React$useState2[1];
-
-  var _React$useState3 = react.useState(false),
-      _focused = _React$useState3[0],
-      setFocused = _React$useState3[1];
-
-  var focused = visuallyFocused !== undefined ? visuallyFocused : _focused;
-
-  if (disabled && focused) {
-    setFocused(false);
-  }
-
-  var registerEffect;
-
-  if (false) { var registeredInput; }
-
-  var onFilled = react.useCallback(function () {
-    setFilled(true);
-  }, []);
-  var onEmpty = react.useCallback(function () {
-    setFilled(false);
-  }, []);
-  var childContext = {
-    adornedStart: adornedStart,
-    setAdornedStart: setAdornedStart,
-    color: color,
-    disabled: disabled,
-    error: error,
-    filled: filled,
-    focused: focused,
-    fullWidth: fullWidth,
-    hiddenLabel: hiddenLabel,
-    margin: (size === 'small' ? 'dense' : undefined) || margin,
-    onBlur: function onBlur() {
-      setFocused(false);
-    },
-    onEmpty: onEmpty,
-    onFilled: onFilled,
-    onFocus: function onFocus() {
-      setFocused(true);
-    },
-    registerEffect: registerEffect,
-    required: required,
-    variant: variant
-  };
-  return /*#__PURE__*/react.createElement(FormControl_FormControlContext.Provider, {
-    value: childContext
-  }, /*#__PURE__*/react.createElement(Component, (0,esm_extends/* default */.A)({
-    className: (0,clsx_m/* default */.A)(classes.root, className, margin !== 'none' && classes["margin".concat((0,esm_utils_capitalize/* default */.A)(margin))], fullWidth && classes.fullWidth),
-    ref: ref
-  }, other), children));
-});
- false ? 0 : void 0;
-/* harmony default export */ const FormControl_FormControl = ((0,withStyles/* default */.A)(FormControl_styles, {
-  name: 'MuiFormControl'
-})(FormControl));
-// EXTERNAL MODULE: ./node_modules/@material-ui/styles/esm/mergeClasses/mergeClasses.js
-var mergeClasses = __webpack_require__(3043);
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/slicedToArray.js + 3 modules
-var slicedToArray = __webpack_require__(296);
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/typeof.js
-var esm_typeof = __webpack_require__(2284);
-// EXTERNAL MODULE: ./node_modules/@material-ui/utils/esm/formatMuiErrorMessage.js
-var esm_formatMuiErrorMessage = __webpack_require__(7860);
-// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/utils/ownerDocument.js
-var ownerDocument = __webpack_require__(1475);
-// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/utils/debounce.js
-var debounce = __webpack_require__(1198);
-// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/utils/ownerWindow.js
-var ownerWindow = __webpack_require__(6182);
-// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/utils/createChainedFunction.js
-var createChainedFunction = __webpack_require__(8521);
-// EXTERNAL MODULE: ./node_modules/@material-ui/styles/esm/useTheme/useTheme.js + 1 modules
-var useTheme = __webpack_require__(6061);
-// EXTERNAL MODULE: ./node_modules/@material-ui/styles/esm/getThemeProps/getThemeProps.js
-var getThemeProps_getThemeProps = __webpack_require__(6081);
-// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/utils/setRef.js
-var setRef = __webpack_require__(4960);
-;// ./node_modules/@material-ui/core/esm/Portal/Portal.js
-
-
-
-
-
-
-
-
-function getContainer(container) {
-  container = typeof container === 'function' ? container() : container; // #StrictMode ready
-
-  return react_dom.findDOMNode(container);
-}
-
-var Portal_useEnhancedEffect = typeof window !== 'undefined' ? react.useLayoutEffect : react.useEffect;
-/**
- * Portals provide a first-class way to render children into a DOM node
- * that exists outside the DOM hierarchy of the parent component.
- */
-
-var Portal = /*#__PURE__*/react.forwardRef(function Portal(props, ref) {
-  var children = props.children,
-      container = props.container,
-      _props$disablePortal = props.disablePortal,
-      disablePortal = _props$disablePortal === void 0 ? false : _props$disablePortal,
-      onRendered = props.onRendered;
-
-  var _React$useState = react.useState(null),
-      mountNode = _React$useState[0],
-      setMountNode = _React$useState[1];
-
-  var handleRef = (0,useForkRef/* default */.A)( /*#__PURE__*/react.isValidElement(children) ? children.ref : null, ref);
-  Portal_useEnhancedEffect(function () {
-    if (!disablePortal) {
-      setMountNode(getContainer(container) || document.body);
-    }
-  }, [container, disablePortal]);
-  Portal_useEnhancedEffect(function () {
-    if (mountNode && !disablePortal) {
-      (0,setRef/* default */.A)(ref, mountNode);
-      return function () {
-        (0,setRef/* default */.A)(ref, null);
-      };
-    }
-
-    return undefined;
-  }, [ref, mountNode, disablePortal]);
-  Portal_useEnhancedEffect(function () {
-    if (onRendered && (mountNode || disablePortal)) {
-      onRendered();
-    }
-  }, [onRendered, mountNode, disablePortal]);
-
-  if (disablePortal) {
-    if ( /*#__PURE__*/react.isValidElement(children)) {
-      return /*#__PURE__*/react.cloneElement(children, {
-        ref: handleRef
-      });
-    }
-
-    return children;
-  }
-
-  return mountNode ? /*#__PURE__*/react_dom.createPortal(children, mountNode) : mountNode;
-});
- false ? 0 : void 0;
-
-if (false) {}
-
-/* harmony default export */ const Portal_Portal = (Portal);
-// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/styles/zIndex.js
-var esm_styles_zIndex = __webpack_require__(9474);
-;// ./node_modules/@babel/runtime/helpers/esm/classCallCheck.js
-function _classCallCheck(a, n) {
-  if (!(a instanceof n)) throw new TypeError("Cannot call a class as a function");
-}
-
-// EXTERNAL MODULE: ./node_modules/@babel/runtime/helpers/esm/createClass.js
-var createClass = __webpack_require__(2901);
-;// ./node_modules/@material-ui/core/esm/utils/getScrollbarSize.js
-// A change of the browser zoom change the scrollbar size.
-// Credit https://github.com/twbs/bootstrap/blob/3ffe3a5d82f6f561b82ff78d82b32a7d14aed558/js/src/modal.js#L512-L519
-function getScrollbarSize() {
-  var scrollDiv = document.createElement('div');
-  scrollDiv.style.width = '99px';
-  scrollDiv.style.height = '99px';
-  scrollDiv.style.position = 'absolute';
-  scrollDiv.style.top = '-9999px';
-  scrollDiv.style.overflow = 'scroll';
-  document.body.appendChild(scrollDiv);
-  var scrollbarSize = scrollDiv.offsetWidth - scrollDiv.clientWidth;
-  document.body.removeChild(scrollDiv);
-  return scrollbarSize;
-}
-;// ./node_modules/@material-ui/core/esm/Modal/ModalManager.js
-
-
-
-
-
- // Is a vertical scrollbar displayed?
-
-function isOverflowing(container) {
-  var doc = (0,ownerDocument/* default */.A)(container);
-
-  if (doc.body === container) {
-    return (0,ownerWindow/* default */.A)(doc).innerWidth > doc.documentElement.clientWidth;
-  }
-
-  return container.scrollHeight > container.clientHeight;
-}
-
-function ariaHidden(node, show) {
-  if (show) {
-    node.setAttribute('aria-hidden', 'true');
-  } else {
-    node.removeAttribute('aria-hidden');
-  }
-}
-
-function getPaddingRight(node) {
-  return parseInt(window.getComputedStyle(node)['padding-right'], 10) || 0;
-}
-
-function ariaHiddenSiblings(container, mountNode, currentNode) {
-  var nodesToExclude = arguments.length > 3 && arguments[3] !== undefined ? arguments[3] : [];
-  var show = arguments.length > 4 ? arguments[4] : undefined;
-  var blacklist = [mountNode, currentNode].concat((0,toConsumableArray/* default */.A)(nodesToExclude));
-  var blacklistTagNames = ['TEMPLATE', 'SCRIPT', 'STYLE'];
-  [].forEach.call(container.children, function (node) {
-    if (node.nodeType === 1 && blacklist.indexOf(node) === -1 && blacklistTagNames.indexOf(node.tagName) === -1) {
-      ariaHidden(node, show);
-    }
-  });
-}
-
-function findIndexOf(containerInfo, callback) {
-  var idx = -1;
-  containerInfo.some(function (item, index) {
-    if (callback(item)) {
-      idx = index;
-      return true;
-    }
-
-    return false;
-  });
-  return idx;
-}
-
-function handleContainer(containerInfo, props) {
-  var restoreStyle = [];
-  var restorePaddings = [];
-  var container = containerInfo.container;
-  var fixedNodes;
-
-  if (!props.disableScrollLock) {
-    if (isOverflowing(container)) {
-      // Compute the size before applying overflow hidden to avoid any scroll jumps.
-      var scrollbarSize = getScrollbarSize();
-      restoreStyle.push({
-        value: container.style.paddingRight,
-        key: 'padding-right',
-        el: container
-      }); // Use computed style, here to get the real padding to add our scrollbar width.
-
-      container.style['padding-right'] = "".concat(getPaddingRight(container) + scrollbarSize, "px"); // .mui-fixed is a global helper.
-
-      fixedNodes = (0,ownerDocument/* default */.A)(container).querySelectorAll('.mui-fixed');
-      [].forEach.call(fixedNodes, function (node) {
-        restorePaddings.push(node.style.paddingRight);
-        node.style.paddingRight = "".concat(getPaddingRight(node) + scrollbarSize, "px");
-      });
-    } // Improve Gatsby support
-    // https://css-tricks.com/snippets/css/force-vertical-scrollbar/
-
-
-    var parent = container.parentElement;
-    var scrollContainer = parent.nodeName === 'HTML' && window.getComputedStyle(parent)['overflow-y'] === 'scroll' ? parent : container; // Block the scroll even if no scrollbar is visible to account for mobile keyboard
-    // screensize shrink.
-
-    restoreStyle.push({
-      value: scrollContainer.style.overflow,
-      key: 'overflow',
-      el: scrollContainer
-    });
-    scrollContainer.style.overflow = 'hidden';
-  }
-
-  var restore = function restore() {
-    if (fixedNodes) {
-      [].forEach.call(fixedNodes, function (node, i) {
-        if (restorePaddings[i]) {
-          node.style.paddingRight = restorePaddings[i];
-        } else {
-          node.style.removeProperty('padding-right');
-        }
-      });
-    }
-
-    restoreStyle.forEach(function (_ref) {
-      var value = _ref.value,
-          el = _ref.el,
-          key = _ref.key;
-
-      if (value) {
-        el.style.setProperty(key, value);
-      } else {
-        el.style.removeProperty(key);
-      }
-    });
-  };
-
-  return restore;
-}
-
-function getHiddenSiblings(container) {
-  var hiddenSiblings = [];
-  [].forEach.call(container.children, function (node) {
-    if (node.getAttribute && node.getAttribute('aria-hidden') === 'true') {
-      hiddenSiblings.push(node);
-    }
-  });
-  return hiddenSiblings;
-}
-/**
- * @ignore - do not document.
- *
- * Proper state management for containers and the modals in those containers.
- * Simplified, but inspired by react-overlay's ModalManager class.
- * Used by the Modal to ensure proper styling of containers.
- */
-
-
-var ModalManager = /*#__PURE__*/function () {
-  function ModalManager() {
-    _classCallCheck(this, ModalManager);
-
-    // this.modals[modalIndex] = modal
-    this.modals = []; // this.containers[containerIndex] = {
-    //   modals: [],
-    //   container,
-    //   restore: null,
-    // }
-
-    this.containers = [];
-  }
-
-  (0,createClass/* default */.A)(ModalManager, [{
-    key: "add",
-    value: function add(modal, container) {
-      var modalIndex = this.modals.indexOf(modal);
-
-      if (modalIndex !== -1) {
-        return modalIndex;
-      }
-
-      modalIndex = this.modals.length;
-      this.modals.push(modal); // If the modal we are adding is already in the DOM.
-
-      if (modal.modalRef) {
-        ariaHidden(modal.modalRef, false);
-      }
-
-      var hiddenSiblingNodes = getHiddenSiblings(container);
-      ariaHiddenSiblings(container, modal.mountNode, modal.modalRef, hiddenSiblingNodes, true);
-      var containerIndex = findIndexOf(this.containers, function (item) {
-        return item.container === container;
-      });
-
-      if (containerIndex !== -1) {
-        this.containers[containerIndex].modals.push(modal);
-        return modalIndex;
-      }
-
-      this.containers.push({
-        modals: [modal],
-        container: container,
-        restore: null,
-        hiddenSiblingNodes: hiddenSiblingNodes
-      });
-      return modalIndex;
-    }
-  }, {
-    key: "mount",
-    value: function mount(modal, props) {
-      var containerIndex = findIndexOf(this.containers, function (item) {
-        return item.modals.indexOf(modal) !== -1;
-      });
-      var containerInfo = this.containers[containerIndex];
-
-      if (!containerInfo.restore) {
-        containerInfo.restore = handleContainer(containerInfo, props);
-      }
-    }
-  }, {
-    key: "remove",
-    value: function remove(modal) {
-      var modalIndex = this.modals.indexOf(modal);
-
-      if (modalIndex === -1) {
-        return modalIndex;
-      }
-
-      var containerIndex = findIndexOf(this.containers, function (item) {
-        return item.modals.indexOf(modal) !== -1;
-      });
-      var containerInfo = this.containers[containerIndex];
-      containerInfo.modals.splice(containerInfo.modals.indexOf(modal), 1);
-      this.modals.splice(modalIndex, 1); // If that was the last modal in a container, clean up the container.
-
-      if (containerInfo.modals.length === 0) {
-        // The modal might be closed before it had the chance to be mounted in the DOM.
-        if (containerInfo.restore) {
-          containerInfo.restore();
-        }
-
-        if (modal.modalRef) {
-          // In case the modal wasn't in the DOM yet.
-          ariaHidden(modal.modalRef, true);
-        }
-
-        ariaHiddenSiblings(containerInfo.container, modal.mountNode, modal.modalRef, containerInfo.hiddenSiblingNodes, false);
-        this.containers.splice(containerIndex, 1);
-      } else {
-        // Otherwise make sure the next top modal is visible to a screen reader.
-        var nextTop = containerInfo.modals[containerInfo.modals.length - 1]; // as soon as a modal is adding its modalRef is undefined. it can't set
-        // aria-hidden because the dom element doesn't exist either
-        // when modal was unmounted before modalRef gets null
-
-        if (nextTop.modalRef) {
-          ariaHidden(nextTop.modalRef, false);
-        }
-      }
-
-      return modalIndex;
-    }
-  }, {
-    key: "isTopModal",
-    value: function isTopModal(modal) {
-      return this.modals.length > 0 && this.modals[this.modals.length - 1] === modal;
-    }
-  }]);
-
-  return ModalManager;
-}();
-
-
-;// ./node_modules/@material-ui/core/esm/Unstable_TrapFocus/Unstable_TrapFocus.js
-/* eslint-disable consistent-return, jsx-a11y/no-noninteractive-tabindex, camelcase */
-
-
-
-
-
-
-/**
- * Utility component that locks focus inside the component.
- */
-
-function Unstable_TrapFocus(props) {
-  var children = props.children,
-      _props$disableAutoFoc = props.disableAutoFocus,
-      disableAutoFocus = _props$disableAutoFoc === void 0 ? false : _props$disableAutoFoc,
-      _props$disableEnforce = props.disableEnforceFocus,
-      disableEnforceFocus = _props$disableEnforce === void 0 ? false : _props$disableEnforce,
-      _props$disableRestore = props.disableRestoreFocus,
-      disableRestoreFocus = _props$disableRestore === void 0 ? false : _props$disableRestore,
-      getDoc = props.getDoc,
-      isEnabled = props.isEnabled,
-      open = props.open;
-  var ignoreNextEnforceFocus = react.useRef();
-  var sentinelStart = react.useRef(null);
-  var sentinelEnd = react.useRef(null);
-  var nodeToRestore = react.useRef();
-  var rootRef = react.useRef(null); // can be removed once we drop support for non ref forwarding class components
-
-  var handleOwnRef = react.useCallback(function (instance) {
-    // #StrictMode ready
-    rootRef.current = react_dom.findDOMNode(instance);
-  }, []);
-  var handleRef = (0,useForkRef/* default */.A)(children.ref, handleOwnRef);
-  var prevOpenRef = react.useRef();
-  react.useEffect(function () {
-    prevOpenRef.current = open;
-  }, [open]);
-
-  if (!prevOpenRef.current && open && typeof window !== 'undefined') {
-    // WARNING: Potentially unsafe in concurrent mode.
-    // The way the read on `nodeToRestore` is setup could make this actually safe.
-    // Say we render `open={false}` -> `open={true}` but never commit.
-    // We have now written a state that wasn't committed. But no committed effect
-    // will read this wrong value. We only read from `nodeToRestore` in effects
-    // that were committed on `open={true}`
-    // WARNING: Prevents the instance from being garbage collected. Should only
-    // hold a weak ref.
-    nodeToRestore.current = getDoc().activeElement;
-  }
-
-  react.useEffect(function () {
-    if (!open) {
-      return;
-    }
-
-    var doc = (0,ownerDocument/* default */.A)(rootRef.current); // We might render an empty child.
-
-    if (!disableAutoFocus && rootRef.current && !rootRef.current.contains(doc.activeElement)) {
-      if (!rootRef.current.hasAttribute('tabIndex')) {
-        if (false) {}
-
-        rootRef.current.setAttribute('tabIndex', -1);
-      }
-
-      rootRef.current.focus();
-    }
-
-    var contain = function contain() {
-      var rootElement = rootRef.current; // Cleanup functions are executed lazily in React 17.
-      // Contain can be called between the component being unmounted and its cleanup function being run.
-
-      if (rootElement === null) {
-        return;
-      }
-
-      if (!doc.hasFocus() || disableEnforceFocus || !isEnabled() || ignoreNextEnforceFocus.current) {
-        ignoreNextEnforceFocus.current = false;
-        return;
-      }
-
-      if (rootRef.current && !rootRef.current.contains(doc.activeElement)) {
-        rootRef.current.focus();
-      }
-    };
-
-    var loopFocus = function loopFocus(event) {
-      // 9 = Tab
-      if (disableEnforceFocus || !isEnabled() || event.keyCode !== 9) {
-        return;
-      } // Make sure the next tab starts from the right place.
-
-
-      if (doc.activeElement === rootRef.current) {
-        // We need to ignore the next contain as
-        // it will try to move the focus back to the rootRef element.
-        ignoreNextEnforceFocus.current = true;
-
-        if (event.shiftKey) {
-          sentinelEnd.current.focus();
-        } else {
-          sentinelStart.current.focus();
-        }
-      }
-    };
-
-    doc.addEventListener('focus', contain, true);
-    doc.addEventListener('keydown', loopFocus, true); // With Edge, Safari and Firefox, no focus related events are fired when the focused area stops being a focused area
-    // e.g. https://bugzilla.mozilla.org/show_bug.cgi?id=559561.
-    //
-    // The whatwg spec defines how the browser should behave but does not explicitly mention any events:
-    // https://html.spec.whatwg.org/multipage/interaction.html#focus-fixup-rule.
-
-    var interval = setInterval(function () {
-      contain();
-    }, 50);
-    return function () {
-      clearInterval(interval);
-      doc.removeEventListener('focus', contain, true);
-      doc.removeEventListener('keydown', loopFocus, true); // restoreLastFocus()
-
-      if (!disableRestoreFocus) {
-        // In IE 11 it is possible for document.activeElement to be null resulting
-        // in nodeToRestore.current being null.
-        // Not all elements in IE 11 have a focus method.
-        // Once IE 11 support is dropped the focus() call can be unconditional.
-        if (nodeToRestore.current && nodeToRestore.current.focus) {
-          nodeToRestore.current.focus();
-        }
-
-        nodeToRestore.current = null;
-      }
-    };
-  }, [disableAutoFocus, disableEnforceFocus, disableRestoreFocus, isEnabled, open]);
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("div", {
-    tabIndex: 0,
-    ref: sentinelStart,
-    "data-test": "sentinelStart"
-  }), /*#__PURE__*/react.cloneElement(children, {
-    ref: handleRef
-  }), /*#__PURE__*/react.createElement("div", {
-    tabIndex: 0,
-    ref: sentinelEnd,
-    "data-test": "sentinelEnd"
-  }));
-}
-
- false ? 0 : void 0;
-
-if (false) {}
-
-/* harmony default export */ const Unstable_TrapFocus_Unstable_TrapFocus = (Unstable_TrapFocus);
-;// ./node_modules/@material-ui/core/esm/Modal/SimpleBackdrop.js
-
-
-
-
-var SimpleBackdrop_styles = {
-  /* Styles applied to the root element. */
-  root: {
-    zIndex: -1,
-    position: 'fixed',
-    right: 0,
-    bottom: 0,
-    top: 0,
-    left: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-    WebkitTapHighlightColor: 'transparent'
-  },
-
-  /* Styles applied to the root element if `invisible={true}`. */
-  invisible: {
-    backgroundColor: 'transparent'
-  }
-};
-/**
- * @ignore - internal component.
- */
-
-var SimpleBackdrop = /*#__PURE__*/react.forwardRef(function SimpleBackdrop(props, ref) {
-  var _props$invisible = props.invisible,
-      invisible = _props$invisible === void 0 ? false : _props$invisible,
-      open = props.open,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["invisible", "open"]);
-
-  return open ? /*#__PURE__*/react.createElement("div", (0,esm_extends/* default */.A)({
-    "aria-hidden": true,
-    ref: ref
-  }, other, {
-    style: (0,esm_extends/* default */.A)({}, SimpleBackdrop_styles.root, invisible ? SimpleBackdrop_styles.invisible : {}, other.style)
-  })) : null;
-});
- false ? 0 : void 0;
-/* harmony default export */ const Modal_SimpleBackdrop = (SimpleBackdrop);
-;// ./node_modules/@material-ui/core/esm/Modal/Modal.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function Modal_getContainer(container) {
-  container = typeof container === 'function' ? container() : container;
-  return react_dom.findDOMNode(container);
-}
-
-function getHasTransition(props) {
-  return props.children ? props.children.props.hasOwnProperty('in') : false;
-} // A modal manager used to track and manage the state of open Modals.
-// Modals don't open on the server so this won't conflict with concurrent requests.
-
-
-var defaultManager = new ModalManager();
-var Modal_styles = function styles(theme) {
-  return {
-    /* Styles applied to the root element. */
-    root: {
-      position: 'fixed',
-      zIndex: theme.zIndex.modal,
-      right: 0,
-      bottom: 0,
-      top: 0,
-      left: 0
-    },
-
-    /* Styles applied to the root element if the `Modal` has exited. */
-    hidden: {
-      visibility: 'hidden'
-    }
-  };
-};
-/**
- * Modal is a lower-level construct that is leveraged by the following components:
- *
- * - [Dialog](/api/dialog/)
- * - [Drawer](/api/drawer/)
- * - [Menu](/api/menu/)
- * - [Popover](/api/popover/)
- *
- * If you are creating a modal dialog, you probably want to use the [Dialog](/api/dialog/) component
- * rather than directly using Modal.
- *
- * This component shares many concepts with [react-overlays](https://react-bootstrap.github.io/react-overlays/#modals).
- */
-
-var Modal = /*#__PURE__*/react.forwardRef(function Modal(inProps, ref) {
-  var theme = (0,useTheme/* default */.A)();
-  var props = (0,getThemeProps_getThemeProps/* default */.A)({
-    name: 'MuiModal',
-    props: (0,esm_extends/* default */.A)({}, inProps),
-    theme: theme
-  });
-
-  var _props$BackdropCompon = props.BackdropComponent,
-      BackdropComponent = _props$BackdropCompon === void 0 ? Modal_SimpleBackdrop : _props$BackdropCompon,
-      BackdropProps = props.BackdropProps,
-      children = props.children,
-      _props$closeAfterTran = props.closeAfterTransition,
-      closeAfterTransition = _props$closeAfterTran === void 0 ? false : _props$closeAfterTran,
-      container = props.container,
-      _props$disableAutoFoc = props.disableAutoFocus,
-      disableAutoFocus = _props$disableAutoFoc === void 0 ? false : _props$disableAutoFoc,
-      _props$disableBackdro = props.disableBackdropClick,
-      disableBackdropClick = _props$disableBackdro === void 0 ? false : _props$disableBackdro,
-      _props$disableEnforce = props.disableEnforceFocus,
-      disableEnforceFocus = _props$disableEnforce === void 0 ? false : _props$disableEnforce,
-      _props$disableEscapeK = props.disableEscapeKeyDown,
-      disableEscapeKeyDown = _props$disableEscapeK === void 0 ? false : _props$disableEscapeK,
-      _props$disablePortal = props.disablePortal,
-      disablePortal = _props$disablePortal === void 0 ? false : _props$disablePortal,
-      _props$disableRestore = props.disableRestoreFocus,
-      disableRestoreFocus = _props$disableRestore === void 0 ? false : _props$disableRestore,
-      _props$disableScrollL = props.disableScrollLock,
-      disableScrollLock = _props$disableScrollL === void 0 ? false : _props$disableScrollL,
-      _props$hideBackdrop = props.hideBackdrop,
-      hideBackdrop = _props$hideBackdrop === void 0 ? false : _props$hideBackdrop,
-      _props$keepMounted = props.keepMounted,
-      keepMounted = _props$keepMounted === void 0 ? false : _props$keepMounted,
-      _props$manager = props.manager,
-      manager = _props$manager === void 0 ? defaultManager : _props$manager,
-      onBackdropClick = props.onBackdropClick,
-      onClose = props.onClose,
-      onEscapeKeyDown = props.onEscapeKeyDown,
-      onRendered = props.onRendered,
-      open = props.open,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["BackdropComponent", "BackdropProps", "children", "closeAfterTransition", "container", "disableAutoFocus", "disableBackdropClick", "disableEnforceFocus", "disableEscapeKeyDown", "disablePortal", "disableRestoreFocus", "disableScrollLock", "hideBackdrop", "keepMounted", "manager", "onBackdropClick", "onClose", "onEscapeKeyDown", "onRendered", "open"]);
-
-  var _React$useState = react.useState(true),
-      exited = _React$useState[0],
-      setExited = _React$useState[1];
-
-  var modal = react.useRef({});
-  var mountNodeRef = react.useRef(null);
-  var modalRef = react.useRef(null);
-  var handleRef = (0,useForkRef/* default */.A)(modalRef, ref);
-  var hasTransition = getHasTransition(props);
-
-  var getDoc = function getDoc() {
-    return (0,ownerDocument/* default */.A)(mountNodeRef.current);
-  };
-
-  var getModal = function getModal() {
-    modal.current.modalRef = modalRef.current;
-    modal.current.mountNode = mountNodeRef.current;
-    return modal.current;
-  };
-
-  var handleMounted = function handleMounted() {
-    manager.mount(getModal(), {
-      disableScrollLock: disableScrollLock
-    }); // Fix a bug on Chrome where the scroll isn't initially 0.
-
-    modalRef.current.scrollTop = 0;
-  };
-
-  var handleOpen = (0,useEventCallback/* default */.A)(function () {
-    var resolvedContainer = Modal_getContainer(container) || getDoc().body;
-    manager.add(getModal(), resolvedContainer); // The element was already mounted.
-
-    if (modalRef.current) {
-      handleMounted();
-    }
-  });
-  var isTopModal = react.useCallback(function () {
-    return manager.isTopModal(getModal());
-  }, [manager]);
-  var handlePortalRef = (0,useEventCallback/* default */.A)(function (node) {
-    mountNodeRef.current = node;
-
-    if (!node) {
-      return;
-    }
-
-    if (onRendered) {
-      onRendered();
-    }
-
-    if (open && isTopModal()) {
-      handleMounted();
-    } else {
-      ariaHidden(modalRef.current, true);
-    }
-  });
-  var handleClose = react.useCallback(function () {
-    manager.remove(getModal());
-  }, [manager]);
-  react.useEffect(function () {
-    return function () {
-      handleClose();
-    };
-  }, [handleClose]);
-  react.useEffect(function () {
-    if (open) {
-      handleOpen();
-    } else if (!hasTransition || !closeAfterTransition) {
-      handleClose();
-    }
-  }, [open, handleClose, hasTransition, closeAfterTransition, handleOpen]);
-
-  if (!keepMounted && !open && (!hasTransition || exited)) {
-    return null;
-  }
-
-  var handleEnter = function handleEnter() {
-    setExited(false);
-  };
-
-  var handleExited = function handleExited() {
-    setExited(true);
-
-    if (closeAfterTransition) {
-      handleClose();
-    }
-  };
-
-  var handleBackdropClick = function handleBackdropClick(event) {
-    if (event.target !== event.currentTarget) {
-      return;
-    }
-
-    if (onBackdropClick) {
-      onBackdropClick(event);
-    }
-
-    if (!disableBackdropClick && onClose) {
-      onClose(event, 'backdropClick');
-    }
-  };
-
-  var handleKeyDown = function handleKeyDown(event) {
-    // The handler doesn't take event.defaultPrevented into account:
-    //
-    // event.preventDefault() is meant to stop default behaviours like
-    // clicking a checkbox to check it, hitting a button to submit a form,
-    // and hitting left arrow to move the cursor in a text input etc.
-    // Only special HTML elements have these default behaviors.
-    if (event.key !== 'Escape' || !isTopModal()) {
-      return;
-    }
-
-    if (onEscapeKeyDown) {
-      onEscapeKeyDown(event);
-    }
-
-    if (!disableEscapeKeyDown) {
-      // Swallow the event, in case someone is listening for the escape key on the body.
-      event.stopPropagation();
-
-      if (onClose) {
-        onClose(event, 'escapeKeyDown');
-      }
-    }
-  };
-
-  var inlineStyle = Modal_styles(theme || {
-    zIndex: esm_styles_zIndex/* default */.A
-  });
-  var childProps = {};
-
-  if (children.props.tabIndex === undefined) {
-    childProps.tabIndex = children.props.tabIndex || '-1';
-  } // It's a Transition like component
-
-
-  if (hasTransition) {
-    childProps.onEnter = (0,createChainedFunction/* default */.A)(handleEnter, children.props.onEnter);
-    childProps.onExited = (0,createChainedFunction/* default */.A)(handleExited, children.props.onExited);
-  }
-
-  return /*#__PURE__*/react.createElement(Portal_Portal, {
-    ref: handlePortalRef,
-    container: container,
-    disablePortal: disablePortal
-  }, /*#__PURE__*/react.createElement("div", (0,esm_extends/* default */.A)({
-    ref: handleRef,
-    onKeyDown: handleKeyDown,
-    role: "presentation"
-  }, other, {
-    style: (0,esm_extends/* default */.A)({}, inlineStyle.root, !open && exited ? inlineStyle.hidden : {}, other.style)
-  }), hideBackdrop ? null : /*#__PURE__*/react.createElement(BackdropComponent, (0,esm_extends/* default */.A)({
-    open: open,
-    onClick: handleBackdropClick
-  }, BackdropProps)), /*#__PURE__*/react.createElement(Unstable_TrapFocus_Unstable_TrapFocus, {
-    disableEnforceFocus: disableEnforceFocus,
-    disableAutoFocus: disableAutoFocus,
-    disableRestoreFocus: disableRestoreFocus,
-    getDoc: getDoc,
-    isEnabled: isTopModal,
-    open: open
-  }, /*#__PURE__*/react.cloneElement(children, childProps))));
-});
- false ? 0 : void 0;
-/* harmony default export */ const Modal_Modal = (Modal);
-;// ./node_modules/react-transition-group/esm/config.js
-/* harmony default export */ const esm_config = ({
-  disabled: false
-});
-;// ./node_modules/react-transition-group/esm/utils/reflow.js
-var forceReflow = function forceReflow(node) {
-  return node.scrollTop;
-};
-;// ./node_modules/react-transition-group/esm/Transition.js
-
-
-
-
-
-
-
-
-
-var UNMOUNTED = 'unmounted';
-var EXITED = 'exited';
-var ENTERING = 'entering';
-var ENTERED = 'entered';
-var EXITING = 'exiting';
-/**
- * The Transition component lets you describe a transition from one component
- * state to another _over time_ with a simple declarative API. Most commonly
- * it's used to animate the mounting and unmounting of a component, but can also
- * be used to describe in-place transition states as well.
- *
- * ---
- *
- * **Note**: `Transition` is a platform-agnostic base component. If you're using
- * transitions in CSS, you'll probably want to use
- * [`CSSTransition`](https://reactcommunity.org/react-transition-group/css-transition)
- * instead. It inherits all the features of `Transition`, but contains
- * additional features necessary to play nice with CSS transitions (hence the
- * name of the component).
- *
- * ---
- *
- * By default the `Transition` component does not alter the behavior of the
- * component it renders, it only tracks "enter" and "exit" states for the
- * components. It's up to you to give meaning and effect to those states. For
- * example we can add styles to a component when it enters or exits:
- *
- * ```jsx
- * import { Transition } from 'react-transition-group';
- *
- * const duration = 300;
- *
- * const defaultStyle = {
- *   transition: `opacity ${duration}ms ease-in-out`,
- *   opacity: 0,
- * }
- *
- * const transitionStyles = {
- *   entering: { opacity: 1 },
- *   entered:  { opacity: 1 },
- *   exiting:  { opacity: 0 },
- *   exited:  { opacity: 0 },
- * };
- *
- * const Fade = ({ in: inProp }) => (
- *   <Transition in={inProp} timeout={duration}>
- *     {state => (
- *       <div style={{
- *         ...defaultStyle,
- *         ...transitionStyles[state]
- *       }}>
- *         I'm a fade Transition!
- *       </div>
- *     )}
- *   </Transition>
- * );
- * ```
- *
- * There are 4 main states a Transition can be in:
- *  - `'entering'`
- *  - `'entered'`
- *  - `'exiting'`
- *  - `'exited'`
- *
- * Transition state is toggled via the `in` prop. When `true` the component
- * begins the "Enter" stage. During this stage, the component will shift from
- * its current transition state, to `'entering'` for the duration of the
- * transition and then to the `'entered'` stage once it's complete. Let's take
- * the following example (we'll use the
- * [useState](https://reactjs.org/docs/hooks-reference.html#usestate) hook):
- *
- * ```jsx
- * function App() {
- *   const [inProp, setInProp] = useState(false);
- *   return (
- *     <div>
- *       <Transition in={inProp} timeout={500}>
- *         {state => (
- *           // ...
- *         )}
- *       </Transition>
- *       <button onClick={() => setInProp(true)}>
- *         Click to Enter
- *       </button>
- *     </div>
- *   );
- * }
- * ```
- *
- * When the button is clicked the component will shift to the `'entering'` state
- * and stay there for 500ms (the value of `timeout`) before it finally switches
- * to `'entered'`.
- *
- * When `in` is `false` the same thing happens except the state moves from
- * `'exiting'` to `'exited'`.
- */
-
-var Transition = /*#__PURE__*/function (_React$Component) {
-  (0,inheritsLoose/* default */.A)(Transition, _React$Component);
-
-  function Transition(props, context) {
-    var _this;
-
-    _this = _React$Component.call(this, props, context) || this;
-    var parentGroup = context; // In the context of a TransitionGroup all enters are really appears
-
-    var appear = parentGroup && !parentGroup.isMounting ? props.enter : props.appear;
-    var initialStatus;
-    _this.appearStatus = null;
-
-    if (props.in) {
-      if (appear) {
-        initialStatus = EXITED;
-        _this.appearStatus = ENTERING;
-      } else {
-        initialStatus = ENTERED;
-      }
-    } else {
-      if (props.unmountOnExit || props.mountOnEnter) {
-        initialStatus = UNMOUNTED;
-      } else {
-        initialStatus = EXITED;
-      }
-    }
-
-    _this.state = {
-      status: initialStatus
-    };
-    _this.nextCallback = null;
-    return _this;
-  }
-
-  Transition.getDerivedStateFromProps = function getDerivedStateFromProps(_ref, prevState) {
-    var nextIn = _ref.in;
-
-    if (nextIn && prevState.status === UNMOUNTED) {
-      return {
-        status: EXITED
-      };
-    }
-
-    return null;
-  } // getSnapshotBeforeUpdate(prevProps) {
-  //   let nextStatus = null
-  //   if (prevProps !== this.props) {
-  //     const { status } = this.state
-  //     if (this.props.in) {
-  //       if (status !== ENTERING && status !== ENTERED) {
-  //         nextStatus = ENTERING
-  //       }
-  //     } else {
-  //       if (status === ENTERING || status === ENTERED) {
-  //         nextStatus = EXITING
-  //       }
-  //     }
-  //   }
-  //   return { nextStatus }
-  // }
-  ;
-
-  var _proto = Transition.prototype;
-
-  _proto.componentDidMount = function componentDidMount() {
-    this.updateStatus(true, this.appearStatus);
-  };
-
-  _proto.componentDidUpdate = function componentDidUpdate(prevProps) {
-    var nextStatus = null;
-
-    if (prevProps !== this.props) {
-      var status = this.state.status;
-
-      if (this.props.in) {
-        if (status !== ENTERING && status !== ENTERED) {
-          nextStatus = ENTERING;
-        }
-      } else {
-        if (status === ENTERING || status === ENTERED) {
-          nextStatus = EXITING;
-        }
-      }
-    }
-
-    this.updateStatus(false, nextStatus);
-  };
-
-  _proto.componentWillUnmount = function componentWillUnmount() {
-    this.cancelNextCallback();
-  };
-
-  _proto.getTimeouts = function getTimeouts() {
-    var timeout = this.props.timeout;
-    var exit, enter, appear;
-    exit = enter = appear = timeout;
-
-    if (timeout != null && typeof timeout !== 'number') {
-      exit = timeout.exit;
-      enter = timeout.enter; // TODO: remove fallback for next major
-
-      appear = timeout.appear !== undefined ? timeout.appear : enter;
-    }
-
-    return {
-      exit: exit,
-      enter: enter,
-      appear: appear
-    };
-  };
-
-  _proto.updateStatus = function updateStatus(mounting, nextStatus) {
-    if (mounting === void 0) {
-      mounting = false;
-    }
-
-    if (nextStatus !== null) {
-      // nextStatus will always be ENTERING or EXITING.
-      this.cancelNextCallback();
-
-      if (nextStatus === ENTERING) {
-        if (this.props.unmountOnExit || this.props.mountOnEnter) {
-          var node = this.props.nodeRef ? this.props.nodeRef.current : react_dom.findDOMNode(this); // https://github.com/reactjs/react-transition-group/pull/749
-          // With unmountOnExit or mountOnEnter, the enter animation should happen at the transition between `exited` and `entering`.
-          // To make the animation happen,  we have to separate each rendering and avoid being processed as batched.
-
-          if (node) forceReflow(node);
-        }
-
-        this.performEnter(mounting);
-      } else {
-        this.performExit();
-      }
-    } else if (this.props.unmountOnExit && this.state.status === EXITED) {
-      this.setState({
-        status: UNMOUNTED
-      });
-    }
-  };
-
-  _proto.performEnter = function performEnter(mounting) {
-    var _this2 = this;
-
-    var enter = this.props.enter;
-    var appearing = this.context ? this.context.isMounting : mounting;
-
-    var _ref2 = this.props.nodeRef ? [appearing] : [react_dom.findDOMNode(this), appearing],
-        maybeNode = _ref2[0],
-        maybeAppearing = _ref2[1];
-
-    var timeouts = this.getTimeouts();
-    var enterTimeout = appearing ? timeouts.appear : timeouts.enter; // no enter animation skip right to ENTERED
-    // if we are mounting and running this it means appear _must_ be set
-
-    if (!mounting && !enter || esm_config.disabled) {
-      this.safeSetState({
-        status: ENTERED
-      }, function () {
-        _this2.props.onEntered(maybeNode);
-      });
-      return;
-    }
-
-    this.props.onEnter(maybeNode, maybeAppearing);
-    this.safeSetState({
-      status: ENTERING
-    }, function () {
-      _this2.props.onEntering(maybeNode, maybeAppearing);
-
-      _this2.onTransitionEnd(enterTimeout, function () {
-        _this2.safeSetState({
-          status: ENTERED
-        }, function () {
-          _this2.props.onEntered(maybeNode, maybeAppearing);
-        });
-      });
-    });
-  };
-
-  _proto.performExit = function performExit() {
-    var _this3 = this;
-
-    var exit = this.props.exit;
-    var timeouts = this.getTimeouts();
-    var maybeNode = this.props.nodeRef ? undefined : react_dom.findDOMNode(this); // no exit animation skip right to EXITED
-
-    if (!exit || esm_config.disabled) {
-      this.safeSetState({
-        status: EXITED
-      }, function () {
-        _this3.props.onExited(maybeNode);
-      });
-      return;
-    }
-
-    this.props.onExit(maybeNode);
-    this.safeSetState({
-      status: EXITING
-    }, function () {
-      _this3.props.onExiting(maybeNode);
-
-      _this3.onTransitionEnd(timeouts.exit, function () {
-        _this3.safeSetState({
-          status: EXITED
-        }, function () {
-          _this3.props.onExited(maybeNode);
-        });
-      });
-    });
-  };
-
-  _proto.cancelNextCallback = function cancelNextCallback() {
-    if (this.nextCallback !== null) {
-      this.nextCallback.cancel();
-      this.nextCallback = null;
-    }
-  };
-
-  _proto.safeSetState = function safeSetState(nextState, callback) {
-    // This shouldn't be necessary, but there are weird race conditions with
-    // setState callbacks and unmounting in testing, so always make sure that
-    // we can cancel any pending setState callbacks after we unmount.
-    callback = this.setNextCallback(callback);
-    this.setState(nextState, callback);
-  };
-
-  _proto.setNextCallback = function setNextCallback(callback) {
-    var _this4 = this;
-
-    var active = true;
-
-    this.nextCallback = function (event) {
-      if (active) {
-        active = false;
-        _this4.nextCallback = null;
-        callback(event);
-      }
-    };
-
-    this.nextCallback.cancel = function () {
-      active = false;
-    };
-
-    return this.nextCallback;
-  };
-
-  _proto.onTransitionEnd = function onTransitionEnd(timeout, handler) {
-    this.setNextCallback(handler);
-    var node = this.props.nodeRef ? this.props.nodeRef.current : react_dom.findDOMNode(this);
-    var doesNotHaveTimeoutOrListener = timeout == null && !this.props.addEndListener;
-
-    if (!node || doesNotHaveTimeoutOrListener) {
-      setTimeout(this.nextCallback, 0);
-      return;
-    }
-
-    if (this.props.addEndListener) {
-      var _ref3 = this.props.nodeRef ? [this.nextCallback] : [node, this.nextCallback],
-          maybeNode = _ref3[0],
-          maybeNextCallback = _ref3[1];
-
-      this.props.addEndListener(maybeNode, maybeNextCallback);
-    }
-
-    if (timeout != null) {
-      setTimeout(this.nextCallback, timeout);
-    }
-  };
-
-  _proto.render = function render() {
-    var status = this.state.status;
-
-    if (status === UNMOUNTED) {
-      return null;
-    }
-
-    var _this$props = this.props,
-        children = _this$props.children,
-        _in = _this$props.in,
-        _mountOnEnter = _this$props.mountOnEnter,
-        _unmountOnExit = _this$props.unmountOnExit,
-        _appear = _this$props.appear,
-        _enter = _this$props.enter,
-        _exit = _this$props.exit,
-        _timeout = _this$props.timeout,
-        _addEndListener = _this$props.addEndListener,
-        _onEnter = _this$props.onEnter,
-        _onEntering = _this$props.onEntering,
-        _onEntered = _this$props.onEntered,
-        _onExit = _this$props.onExit,
-        _onExiting = _this$props.onExiting,
-        _onExited = _this$props.onExited,
-        _nodeRef = _this$props.nodeRef,
-        childProps = (0,objectWithoutPropertiesLoose/* default */.A)(_this$props, ["children", "in", "mountOnEnter", "unmountOnExit", "appear", "enter", "exit", "timeout", "addEndListener", "onEnter", "onEntering", "onEntered", "onExit", "onExiting", "onExited", "nodeRef"]);
-
-    return (
-      /*#__PURE__*/
-      // allows for nested Transitions
-      react.createElement(TransitionGroupContext.Provider, {
-        value: null
-      }, typeof children === 'function' ? children(status, childProps) : react.cloneElement(react.Children.only(children), childProps))
-    );
-  };
-
-  return Transition;
-}(react.Component);
-
-Transition.contextType = TransitionGroupContext;
-Transition.propTypes =  false ? 0 : {}; // Name the function so it is clearer in the documentation
-
-function Transition_noop() {}
-
-Transition.defaultProps = {
-  in: false,
-  mountOnEnter: false,
-  unmountOnExit: false,
-  appear: false,
-  enter: true,
-  exit: true,
-  onEnter: Transition_noop,
-  onEntering: Transition_noop,
-  onEntered: Transition_noop,
-  onExit: Transition_noop,
-  onExiting: Transition_noop,
-  onExited: Transition_noop
-};
-Transition.UNMOUNTED = UNMOUNTED;
-Transition.EXITED = EXITED;
-Transition.ENTERING = ENTERING;
-Transition.ENTERED = ENTERED;
-Transition.EXITING = EXITING;
-/* harmony default export */ const esm_Transition = (Transition);
-// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/styles/defaultTheme.js + 21 modules
-var esm_styles_defaultTheme = __webpack_require__(8336);
-;// ./node_modules/@material-ui/core/esm/styles/useTheme.js
-
-
-
-function useTheme_useTheme() {
-  var theme = (0,useTheme/* default */.A)() || esm_styles_defaultTheme/* default */.A;
-
-  if (false) {}
-
-  return theme;
-}
-;// ./node_modules/@material-ui/core/esm/transitions/utils.js
-var reflow = function reflow(node) {
-  return node.scrollTop;
-};
-function getTransitionProps(props, options) {
-  var timeout = props.timeout,
-      _props$style = props.style,
-      style = _props$style === void 0 ? {} : _props$style;
-  return {
-    duration: style.transitionDuration || typeof timeout === 'number' ? timeout : timeout[options.mode] || 0,
-    delay: style.transitionDelay
-  };
-}
-;// ./node_modules/@material-ui/core/esm/Grow/Grow.js
-
-
-
-
-
-
-
-
-
-
-function getScale(value) {
-  return "scale(".concat(value, ", ").concat(Math.pow(value, 2), ")");
-}
-
-var Grow_styles = {
-  entering: {
-    opacity: 1,
-    transform: getScale(1)
-  },
-  entered: {
-    opacity: 1,
-    transform: 'none'
-  }
-};
-/**
- * The Grow transition is used by the [Tooltip](/components/tooltips/) and
- * [Popover](/components/popover/) components.
- * It uses [react-transition-group](https://github.com/reactjs/react-transition-group) internally.
- */
-
-var Grow = /*#__PURE__*/react.forwardRef(function Grow(props, ref) {
-  var children = props.children,
-      _props$disableStrictM = props.disableStrictModeCompat,
-      disableStrictModeCompat = _props$disableStrictM === void 0 ? false : _props$disableStrictM,
-      inProp = props.in,
-      onEnter = props.onEnter,
-      onEntered = props.onEntered,
-      onEntering = props.onEntering,
-      onExit = props.onExit,
-      onExited = props.onExited,
-      onExiting = props.onExiting,
-      style = props.style,
-      _props$timeout = props.timeout,
-      timeout = _props$timeout === void 0 ? 'auto' : _props$timeout,
-      _props$TransitionComp = props.TransitionComponent,
-      TransitionComponent = _props$TransitionComp === void 0 ? esm_Transition : _props$TransitionComp,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["children", "disableStrictModeCompat", "in", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "style", "timeout", "TransitionComponent"]);
-
-  var timer = react.useRef();
-  var autoTimeout = react.useRef();
-  var theme = useTheme_useTheme();
-  var enableStrictModeCompat = theme.unstable_strictMode && !disableStrictModeCompat;
-  var nodeRef = react.useRef(null);
-  var foreignRef = (0,useForkRef/* default */.A)(children.ref, ref);
-  var handleRef = (0,useForkRef/* default */.A)(enableStrictModeCompat ? nodeRef : undefined, foreignRef);
-
-  var normalizedTransitionCallback = function normalizedTransitionCallback(callback) {
-    return function (nodeOrAppearing, maybeAppearing) {
-      if (callback) {
-        var _ref = enableStrictModeCompat ? [nodeRef.current, nodeOrAppearing] : [nodeOrAppearing, maybeAppearing],
-            _ref2 = (0,slicedToArray/* default */.A)(_ref, 2),
-            node = _ref2[0],
-            isAppearing = _ref2[1]; // onEnterXxx and onExitXxx callbacks have a different arguments.length value.
-
-
-        if (isAppearing === undefined) {
-          callback(node);
-        } else {
-          callback(node, isAppearing);
-        }
-      }
-    };
-  };
-
-  var handleEntering = normalizedTransitionCallback(onEntering);
-  var handleEnter = normalizedTransitionCallback(function (node, isAppearing) {
-    reflow(node); // So the animation always start from the start.
-
-    var _getTransitionProps = getTransitionProps({
-      style: style,
-      timeout: timeout
-    }, {
-      mode: 'enter'
-    }),
-        transitionDuration = _getTransitionProps.duration,
-        delay = _getTransitionProps.delay;
-
-    var duration;
-
-    if (timeout === 'auto') {
-      duration = theme.transitions.getAutoHeightDuration(node.clientHeight);
-      autoTimeout.current = duration;
-    } else {
-      duration = transitionDuration;
-    }
-
-    node.style.transition = [theme.transitions.create('opacity', {
-      duration: duration,
-      delay: delay
-    }), theme.transitions.create('transform', {
-      duration: duration * 0.666,
-      delay: delay
-    })].join(',');
-
-    if (onEnter) {
-      onEnter(node, isAppearing);
-    }
-  });
-  var handleEntered = normalizedTransitionCallback(onEntered);
-  var handleExiting = normalizedTransitionCallback(onExiting);
-  var handleExit = normalizedTransitionCallback(function (node) {
-    var _getTransitionProps2 = getTransitionProps({
-      style: style,
-      timeout: timeout
-    }, {
-      mode: 'exit'
-    }),
-        transitionDuration = _getTransitionProps2.duration,
-        delay = _getTransitionProps2.delay;
-
-    var duration;
-
-    if (timeout === 'auto') {
-      duration = theme.transitions.getAutoHeightDuration(node.clientHeight);
-      autoTimeout.current = duration;
-    } else {
-      duration = transitionDuration;
-    }
-
-    node.style.transition = [theme.transitions.create('opacity', {
-      duration: duration,
-      delay: delay
-    }), theme.transitions.create('transform', {
-      duration: duration * 0.666,
-      delay: delay || duration * 0.333
-    })].join(',');
-    node.style.opacity = '0';
-    node.style.transform = getScale(0.75);
-
-    if (onExit) {
-      onExit(node);
-    }
-  });
-  var handleExited = normalizedTransitionCallback(onExited);
-
-  var addEndListener = function addEndListener(nodeOrNext, maybeNext) {
-    var next = enableStrictModeCompat ? nodeOrNext : maybeNext;
-
-    if (timeout === 'auto') {
-      timer.current = setTimeout(next, autoTimeout.current || 0);
-    }
-  };
-
-  react.useEffect(function () {
-    return function () {
-      clearTimeout(timer.current);
-    };
-  }, []);
-  return /*#__PURE__*/react.createElement(TransitionComponent, (0,esm_extends/* default */.A)({
-    appear: true,
-    in: inProp,
-    nodeRef: enableStrictModeCompat ? nodeRef : undefined,
-    onEnter: handleEnter,
-    onEntered: handleEntered,
-    onEntering: handleEntering,
-    onExit: handleExit,
-    onExited: handleExited,
-    onExiting: handleExiting,
-    addEndListener: addEndListener,
-    timeout: timeout === 'auto' ? null : timeout
-  }, other), function (state, childProps) {
-    return /*#__PURE__*/react.cloneElement(children, (0,esm_extends/* default */.A)({
-      style: (0,esm_extends/* default */.A)({
-        opacity: 0,
-        transform: getScale(0.75),
-        visibility: state === 'exited' && !inProp ? 'hidden' : undefined
-      }, Grow_styles[state], style, children.props.style),
-      ref: handleRef
-    }, childProps));
-  });
-});
- false ? 0 : void 0;
-Grow.muiSupportAuto = true;
-/* harmony default export */ const Grow_Grow = (Grow);
-;// ./node_modules/@material-ui/core/esm/Popover/Popover.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function getOffsetTop(rect, vertical) {
-  var offset = 0;
-
-  if (typeof vertical === 'number') {
-    offset = vertical;
-  } else if (vertical === 'center') {
-    offset = rect.height / 2;
-  } else if (vertical === 'bottom') {
-    offset = rect.height;
-  }
-
-  return offset;
-}
-function getOffsetLeft(rect, horizontal) {
-  var offset = 0;
-
-  if (typeof horizontal === 'number') {
-    offset = horizontal;
-  } else if (horizontal === 'center') {
-    offset = rect.width / 2;
-  } else if (horizontal === 'right') {
-    offset = rect.width;
-  }
-
-  return offset;
-}
-
-function getTransformOriginValue(transformOrigin) {
-  return [transformOrigin.horizontal, transformOrigin.vertical].map(function (n) {
-    return typeof n === 'number' ? "".concat(n, "px") : n;
-  }).join(' ');
-} // Sum the scrollTop between two elements.
-
-
-function getScrollParent(parent, child) {
-  var element = child;
-  var scrollTop = 0;
-
-  while (element && element !== parent) {
-    element = element.parentElement;
-    scrollTop += element.scrollTop;
-  }
-
-  return scrollTop;
-}
-
-function getAnchorEl(anchorEl) {
-  return typeof anchorEl === 'function' ? anchorEl() : anchorEl;
-}
-
-var Popover_styles = {
-  /* Styles applied to the root element. */
-  root: {},
-
-  /* Styles applied to the `Paper` component. */
-  paper: {
-    position: 'absolute',
-    overflowY: 'auto',
-    overflowX: 'hidden',
-    // So we see the popover when it's empty.
-    // It's most likely on issue on userland.
-    minWidth: 16,
-    minHeight: 16,
-    maxWidth: 'calc(100% - 32px)',
-    maxHeight: 'calc(100% - 32px)',
-    // We disable the focus ring for mouse, touch and keyboard users.
-    outline: 0
-  }
-};
-var Popover = /*#__PURE__*/react.forwardRef(function Popover(props, ref) {
-  var action = props.action,
-      anchorEl = props.anchorEl,
-      _props$anchorOrigin = props.anchorOrigin,
-      anchorOrigin = _props$anchorOrigin === void 0 ? {
-    vertical: 'top',
-    horizontal: 'left'
-  } : _props$anchorOrigin,
-      anchorPosition = props.anchorPosition,
-      _props$anchorReferenc = props.anchorReference,
-      anchorReference = _props$anchorReferenc === void 0 ? 'anchorEl' : _props$anchorReferenc,
-      children = props.children,
-      classes = props.classes,
-      className = props.className,
-      containerProp = props.container,
-      _props$elevation = props.elevation,
-      elevation = _props$elevation === void 0 ? 8 : _props$elevation,
-      getContentAnchorEl = props.getContentAnchorEl,
-      _props$marginThreshol = props.marginThreshold,
-      marginThreshold = _props$marginThreshol === void 0 ? 16 : _props$marginThreshol,
-      onEnter = props.onEnter,
-      onEntered = props.onEntered,
-      onEntering = props.onEntering,
-      onExit = props.onExit,
-      onExited = props.onExited,
-      onExiting = props.onExiting,
-      open = props.open,
-      _props$PaperProps = props.PaperProps,
-      PaperProps = _props$PaperProps === void 0 ? {} : _props$PaperProps,
-      _props$transformOrigi = props.transformOrigin,
-      transformOrigin = _props$transformOrigi === void 0 ? {
-    vertical: 'top',
-    horizontal: 'left'
-  } : _props$transformOrigi,
-      _props$TransitionComp = props.TransitionComponent,
-      TransitionComponent = _props$TransitionComp === void 0 ? Grow_Grow : _props$TransitionComp,
-      _props$transitionDura = props.transitionDuration,
-      transitionDurationProp = _props$transitionDura === void 0 ? 'auto' : _props$transitionDura,
-      _props$TransitionProp = props.TransitionProps,
-      TransitionProps = _props$TransitionProp === void 0 ? {} : _props$TransitionProp,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["action", "anchorEl", "anchorOrigin", "anchorPosition", "anchorReference", "children", "classes", "className", "container", "elevation", "getContentAnchorEl", "marginThreshold", "onEnter", "onEntered", "onEntering", "onExit", "onExited", "onExiting", "open", "PaperProps", "transformOrigin", "TransitionComponent", "transitionDuration", "TransitionProps"]);
-
-  var paperRef = react.useRef(); // Returns the top/left offset of the position
-  // to attach to on the anchor element (or body if none is provided)
-
-  var getAnchorOffset = react.useCallback(function (contentAnchorOffset) {
-    if (anchorReference === 'anchorPosition') {
-      if (false) {}
-
-      return anchorPosition;
-    }
-
-    var resolvedAnchorEl = getAnchorEl(anchorEl); // If an anchor element wasn't provided, just use the parent body element of this Popover
-
-    var anchorElement = resolvedAnchorEl && resolvedAnchorEl.nodeType === 1 ? resolvedAnchorEl : (0,ownerDocument/* default */.A)(paperRef.current).body;
-    var anchorRect = anchorElement.getBoundingClientRect();
-
-    if (false) { var box; }
-
-    var anchorVertical = contentAnchorOffset === 0 ? anchorOrigin.vertical : 'center';
-    return {
-      top: anchorRect.top + getOffsetTop(anchorRect, anchorVertical),
-      left: anchorRect.left + getOffsetLeft(anchorRect, anchorOrigin.horizontal)
-    };
-  }, [anchorEl, anchorOrigin.horizontal, anchorOrigin.vertical, anchorPosition, anchorReference]); // Returns the vertical offset of inner content to anchor the transform on if provided
-
-  var getContentAnchorOffset = react.useCallback(function (element) {
-    var contentAnchorOffset = 0;
-
-    if (getContentAnchorEl && anchorReference === 'anchorEl') {
-      var contentAnchorEl = getContentAnchorEl(element);
-
-      if (contentAnchorEl && element.contains(contentAnchorEl)) {
-        var scrollTop = getScrollParent(element, contentAnchorEl);
-        contentAnchorOffset = contentAnchorEl.offsetTop + contentAnchorEl.clientHeight / 2 - scrollTop || 0;
-      } // != the default value
-
-
-      if (false) {}
-    }
-
-    return contentAnchorOffset;
-  }, [anchorOrigin.vertical, anchorReference, getContentAnchorEl]); // Return the base transform origin using the element
-  // and taking the content anchor offset into account if in use
-
-  var getTransformOrigin = react.useCallback(function (elemRect) {
-    var contentAnchorOffset = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : 0;
-    return {
-      vertical: getOffsetTop(elemRect, transformOrigin.vertical) + contentAnchorOffset,
-      horizontal: getOffsetLeft(elemRect, transformOrigin.horizontal)
-    };
-  }, [transformOrigin.horizontal, transformOrigin.vertical]);
-  var getPositioningStyle = react.useCallback(function (element) {
-    // Check if the parent has requested anchoring on an inner content node
-    var contentAnchorOffset = getContentAnchorOffset(element);
-    var elemRect = {
-      width: element.offsetWidth,
-      height: element.offsetHeight
-    }; // Get the transform origin point on the element itself
-
-    var elemTransformOrigin = getTransformOrigin(elemRect, contentAnchorOffset);
-
-    if (anchorReference === 'none') {
-      return {
-        top: null,
-        left: null,
-        transformOrigin: getTransformOriginValue(elemTransformOrigin)
-      };
-    } // Get the offset of of the anchoring element
-
-
-    var anchorOffset = getAnchorOffset(contentAnchorOffset); // Calculate element positioning
-
-    var top = anchorOffset.top - elemTransformOrigin.vertical;
-    var left = anchorOffset.left - elemTransformOrigin.horizontal;
-    var bottom = top + elemRect.height;
-    var right = left + elemRect.width; // Use the parent window of the anchorEl if provided
-
-    var containerWindow = (0,ownerWindow/* default */.A)(getAnchorEl(anchorEl)); // Window thresholds taking required margin into account
-
-    var heightThreshold = containerWindow.innerHeight - marginThreshold;
-    var widthThreshold = containerWindow.innerWidth - marginThreshold; // Check if the vertical axis needs shifting
-
-    if (top < marginThreshold) {
-      var diff = top - marginThreshold;
-      top -= diff;
-      elemTransformOrigin.vertical += diff;
-    } else if (bottom > heightThreshold) {
-      var _diff = bottom - heightThreshold;
-
-      top -= _diff;
-      elemTransformOrigin.vertical += _diff;
-    }
-
-    if (false) {} // Check if the horizontal axis needs shifting
-
-
-    if (left < marginThreshold) {
-      var _diff2 = left - marginThreshold;
-
-      left -= _diff2;
-      elemTransformOrigin.horizontal += _diff2;
-    } else if (right > widthThreshold) {
-      var _diff3 = right - widthThreshold;
-
-      left -= _diff3;
-      elemTransformOrigin.horizontal += _diff3;
-    }
-
-    return {
-      top: "".concat(Math.round(top), "px"),
-      left: "".concat(Math.round(left), "px"),
-      transformOrigin: getTransformOriginValue(elemTransformOrigin)
-    };
-  }, [anchorEl, anchorReference, getAnchorOffset, getContentAnchorOffset, getTransformOrigin, marginThreshold]);
-  var setPositioningStyles = react.useCallback(function () {
-    var element = paperRef.current;
-
-    if (!element) {
-      return;
-    }
-
-    var positioning = getPositioningStyle(element);
-
-    if (positioning.top !== null) {
-      element.style.top = positioning.top;
-    }
-
-    if (positioning.left !== null) {
-      element.style.left = positioning.left;
-    }
-
-    element.style.transformOrigin = positioning.transformOrigin;
-  }, [getPositioningStyle]);
-
-  var handleEntering = function handleEntering(element, isAppearing) {
-    if (onEntering) {
-      onEntering(element, isAppearing);
-    }
-
-    setPositioningStyles();
-  };
-
-  var handlePaperRef = react.useCallback(function (instance) {
-    // #StrictMode ready
-    paperRef.current = react_dom.findDOMNode(instance);
-  }, []);
-  react.useEffect(function () {
-    if (open) {
-      setPositioningStyles();
-    }
-  });
-  react.useImperativeHandle(action, function () {
-    return open ? {
-      updatePosition: function updatePosition() {
-        setPositioningStyles();
-      }
-    } : null;
-  }, [open, setPositioningStyles]);
-  react.useEffect(function () {
-    if (!open) {
-      return undefined;
-    }
-
-    var handleResize = (0,debounce/* default */.A)(function () {
-      setPositioningStyles();
-    });
-    window.addEventListener('resize', handleResize);
-    return function () {
-      handleResize.clear();
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [open, setPositioningStyles]);
-  var transitionDuration = transitionDurationProp;
-
-  if (transitionDurationProp === 'auto' && !TransitionComponent.muiSupportAuto) {
-    transitionDuration = undefined;
-  } // If the container prop is provided, use that
-  // If the anchorEl prop is provided, use its parent body element as the container
-  // If neither are provided let the Modal take care of choosing the container
-
-
-  var container = containerProp || (anchorEl ? (0,ownerDocument/* default */.A)(getAnchorEl(anchorEl)).body : undefined);
-  return /*#__PURE__*/react.createElement(Modal_Modal, (0,esm_extends/* default */.A)({
-    container: container,
-    open: open,
-    ref: ref,
-    BackdropProps: {
-      invisible: true
-    },
-    className: (0,clsx_m/* default */.A)(classes.root, className)
-  }, other), /*#__PURE__*/react.createElement(TransitionComponent, (0,esm_extends/* default */.A)({
-    appear: true,
-    in: open,
-    onEnter: onEnter,
-    onEntered: onEntered,
-    onExit: onExit,
-    onExited: onExited,
-    onExiting: onExiting,
-    timeout: transitionDuration
-  }, TransitionProps, {
-    onEntering: (0,createChainedFunction/* default */.A)(handleEntering, TransitionProps.onEntering)
-  }), /*#__PURE__*/react.createElement(esm_Paper_Paper, (0,esm_extends/* default */.A)({
-    elevation: elevation,
-    ref: handlePaperRef
-  }, PaperProps, {
-    className: (0,clsx_m/* default */.A)(classes.paper, PaperProps.className)
-  }), children)));
-});
- false ? 0 : void 0;
-/* harmony default export */ const Popover_Popover = ((0,withStyles/* default */.A)(Popover_styles, {
-  name: 'MuiPopover'
-})(Popover));
-;// ./node_modules/@material-ui/core/esm/List/ListContext.js
-
-/**
- * @ignore - internal component.
- */
-
-var ListContext = react.createContext({});
-
-if (false) {}
-
-/* harmony default export */ const List_ListContext = (ListContext);
-;// ./node_modules/@material-ui/core/esm/List/List.js
-
-
-
-
-
-
-
-var List_styles = {
-  /* Styles applied to the root element. */
-  root: {
-    listStyle: 'none',
-    margin: 0,
-    padding: 0,
-    position: 'relative'
-  },
-
-  /* Styles applied to the root element if `disablePadding={false}`. */
-  padding: {
-    paddingTop: 8,
-    paddingBottom: 8
-  },
-
-  /* Styles applied to the root element if dense. */
-  dense: {},
-
-  /* Styles applied to the root element if a `subheader` is provided. */
-  subheader: {
-    paddingTop: 0
-  }
-};
-var List = /*#__PURE__*/react.forwardRef(function List(props, ref) {
-  var children = props.children,
-      classes = props.classes,
-      className = props.className,
-      _props$component = props.component,
-      Component = _props$component === void 0 ? 'ul' : _props$component,
-      _props$dense = props.dense,
-      dense = _props$dense === void 0 ? false : _props$dense,
-      _props$disablePadding = props.disablePadding,
-      disablePadding = _props$disablePadding === void 0 ? false : _props$disablePadding,
-      subheader = props.subheader,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["children", "classes", "className", "component", "dense", "disablePadding", "subheader"]);
-
-  var context = react.useMemo(function () {
-    return {
-      dense: dense
-    };
-  }, [dense]);
-  return /*#__PURE__*/react.createElement(List_ListContext.Provider, {
-    value: context
-  }, /*#__PURE__*/react.createElement(Component, (0,esm_extends/* default */.A)({
-    className: (0,clsx_m/* default */.A)(classes.root, className, dense && classes.dense, !disablePadding && classes.padding, subheader && classes.subheader),
-    ref: ref
-  }, other), subheader, children));
-});
- false ? 0 : void 0;
-/* harmony default export */ const List_List = ((0,withStyles/* default */.A)(List_styles, {
-  name: 'MuiList'
-})(List));
-;// ./node_modules/@material-ui/core/esm/MenuList/MenuList.js
-
-
-
-
-
-
-
-
-
-
-
-function nextItem(list, item, disableListWrap) {
-  if (list === item) {
-    return list.firstChild;
-  }
-
-  if (item && item.nextElementSibling) {
-    return item.nextElementSibling;
-  }
-
-  return disableListWrap ? null : list.firstChild;
-}
-
-function previousItem(list, item, disableListWrap) {
-  if (list === item) {
-    return disableListWrap ? list.firstChild : list.lastChild;
-  }
-
-  if (item && item.previousElementSibling) {
-    return item.previousElementSibling;
-  }
-
-  return disableListWrap ? null : list.lastChild;
-}
-
-function textCriteriaMatches(nextFocus, textCriteria) {
-  if (textCriteria === undefined) {
-    return true;
-  }
-
-  var text = nextFocus.innerText;
-
-  if (text === undefined) {
-    // jsdom doesn't support innerText
-    text = nextFocus.textContent;
-  }
-
-  text = text.trim().toLowerCase();
-
-  if (text.length === 0) {
-    return false;
-  }
-
-  if (textCriteria.repeating) {
-    return text[0] === textCriteria.keys[0];
-  }
-
-  return text.indexOf(textCriteria.keys.join('')) === 0;
-}
-
-function moveFocus(list, currentFocus, disableListWrap, disabledItemsFocusable, traversalFunction, textCriteria) {
-  var wrappedOnce = false;
-  var nextFocus = traversalFunction(list, currentFocus, currentFocus ? disableListWrap : false);
-
-  while (nextFocus) {
-    // Prevent infinite loop.
-    if (nextFocus === list.firstChild) {
-      if (wrappedOnce) {
-        return;
-      }
-
-      wrappedOnce = true;
-    } // Same logic as useAutocomplete.js
-
-
-    var nextFocusDisabled = disabledItemsFocusable ? false : nextFocus.disabled || nextFocus.getAttribute('aria-disabled') === 'true';
-
-    if (!nextFocus.hasAttribute('tabindex') || !textCriteriaMatches(nextFocus, textCriteria) || nextFocusDisabled) {
-      // Move to the next element.
-      nextFocus = traversalFunction(list, nextFocus, disableListWrap);
-    } else {
-      nextFocus.focus();
-      return;
-    }
-  }
-}
-
-var MenuList_useEnhancedEffect = typeof window === 'undefined' ? react.useEffect : react.useLayoutEffect;
-/**
- * A permanently displayed menu following https://www.w3.org/TR/wai-aria-practices/#menubutton.
- * It's exposed to help customization of the [`Menu`](/api/menu/) component. If you
- * use it separately you need to move focus into the component manually. Once
- * the focus is placed inside the component it is fully keyboard accessible.
- */
-
-var MenuList = /*#__PURE__*/react.forwardRef(function MenuList(props, ref) {
-  var actions = props.actions,
-      _props$autoFocus = props.autoFocus,
-      autoFocus = _props$autoFocus === void 0 ? false : _props$autoFocus,
-      _props$autoFocusItem = props.autoFocusItem,
-      autoFocusItem = _props$autoFocusItem === void 0 ? false : _props$autoFocusItem,
-      children = props.children,
-      className = props.className,
-      _props$disabledItemsF = props.disabledItemsFocusable,
-      disabledItemsFocusable = _props$disabledItemsF === void 0 ? false : _props$disabledItemsF,
-      _props$disableListWra = props.disableListWrap,
-      disableListWrap = _props$disableListWra === void 0 ? false : _props$disableListWra,
-      onKeyDown = props.onKeyDown,
-      _props$variant = props.variant,
-      variant = _props$variant === void 0 ? 'selectedMenu' : _props$variant,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["actions", "autoFocus", "autoFocusItem", "children", "className", "disabledItemsFocusable", "disableListWrap", "onKeyDown", "variant"]);
-
-  var listRef = react.useRef(null);
-  var textCriteriaRef = react.useRef({
-    keys: [],
-    repeating: true,
-    previousKeyMatched: true,
-    lastTime: null
-  });
-  MenuList_useEnhancedEffect(function () {
-    if (autoFocus) {
-      listRef.current.focus();
-    }
-  }, [autoFocus]);
-  react.useImperativeHandle(actions, function () {
-    return {
-      adjustStyleForScrollbar: function adjustStyleForScrollbar(containerElement, theme) {
-        // Let's ignore that piece of logic if users are already overriding the width
-        // of the menu.
-        var noExplicitWidth = !listRef.current.style.width;
-
-        if (containerElement.clientHeight < listRef.current.clientHeight && noExplicitWidth) {
-          var scrollbarSize = "".concat(getScrollbarSize(true), "px");
-          listRef.current.style[theme.direction === 'rtl' ? 'paddingLeft' : 'paddingRight'] = scrollbarSize;
-          listRef.current.style.width = "calc(100% + ".concat(scrollbarSize, ")");
-        }
-
-        return listRef.current;
-      }
-    };
-  }, []);
-
-  var handleKeyDown = function handleKeyDown(event) {
-    var list = listRef.current;
-    var key = event.key;
-    /**
-     * @type {Element} - will always be defined since we are in a keydown handler
-     * attached to an element. A keydown event is either dispatched to the activeElement
-     * or document.body or document.documentElement. Only the first case will
-     * trigger this specific handler.
-     */
-
-    var currentFocus = (0,ownerDocument/* default */.A)(list).activeElement;
-
-    if (key === 'ArrowDown') {
-      // Prevent scroll of the page
-      event.preventDefault();
-      moveFocus(list, currentFocus, disableListWrap, disabledItemsFocusable, nextItem);
-    } else if (key === 'ArrowUp') {
-      event.preventDefault();
-      moveFocus(list, currentFocus, disableListWrap, disabledItemsFocusable, previousItem);
-    } else if (key === 'Home') {
-      event.preventDefault();
-      moveFocus(list, null, disableListWrap, disabledItemsFocusable, nextItem);
-    } else if (key === 'End') {
-      event.preventDefault();
-      moveFocus(list, null, disableListWrap, disabledItemsFocusable, previousItem);
-    } else if (key.length === 1) {
-      var criteria = textCriteriaRef.current;
-      var lowerKey = key.toLowerCase();
-      var currTime = performance.now();
-
-      if (criteria.keys.length > 0) {
-        // Reset
-        if (currTime - criteria.lastTime > 500) {
-          criteria.keys = [];
-          criteria.repeating = true;
-          criteria.previousKeyMatched = true;
-        } else if (criteria.repeating && lowerKey !== criteria.keys[0]) {
-          criteria.repeating = false;
-        }
-      }
-
-      criteria.lastTime = currTime;
-      criteria.keys.push(lowerKey);
-      var keepFocusOnCurrent = currentFocus && !criteria.repeating && textCriteriaMatches(currentFocus, criteria);
-
-      if (criteria.previousKeyMatched && (keepFocusOnCurrent || moveFocus(list, currentFocus, false, disabledItemsFocusable, nextItem, criteria))) {
-        event.preventDefault();
-      } else {
-        criteria.previousKeyMatched = false;
-      }
-    }
-
-    if (onKeyDown) {
-      onKeyDown(event);
-    }
-  };
-
-  var handleOwnRef = react.useCallback(function (instance) {
-    // #StrictMode ready
-    listRef.current = react_dom.findDOMNode(instance);
-  }, []);
-  var handleRef = (0,useForkRef/* default */.A)(handleOwnRef, ref);
-  /**
-   * the index of the item should receive focus
-   * in a `variant="selectedMenu"` it's the first `selected` item
-   * otherwise it's the very first item.
-   */
-
-  var activeItemIndex = -1; // since we inject focus related props into children we have to do a lookahead
-  // to check if there is a `selected` item. We're looking for the last `selected`
-  // item and use the first valid item as a fallback
-
-  react.Children.forEach(children, function (child, index) {
-    if (! /*#__PURE__*/react.isValidElement(child)) {
-      return;
-    }
-
-    if (false) {}
-
-    if (!child.props.disabled) {
-      if (variant === 'selectedMenu' && child.props.selected) {
-        activeItemIndex = index;
-      } else if (activeItemIndex === -1) {
-        activeItemIndex = index;
-      }
-    }
-  });
-  var items = react.Children.map(children, function (child, index) {
-    if (index === activeItemIndex) {
-      var newChildProps = {};
-
-      if (autoFocusItem) {
-        newChildProps.autoFocus = true;
-      }
-
-      if (child.props.tabIndex === undefined && variant === 'selectedMenu') {
-        newChildProps.tabIndex = 0;
-      }
-
-      return /*#__PURE__*/react.cloneElement(child, newChildProps);
-    }
-
-    return child;
-  });
-  return /*#__PURE__*/react.createElement(List_List, (0,esm_extends/* default */.A)({
-    role: "menu",
-    ref: handleRef,
-    className: className,
-    onKeyDown: handleKeyDown,
-    tabIndex: autoFocus ? 0 : -1
-  }, other), items);
-});
- false ? 0 : void 0;
-/* harmony default export */ const MenuList_MenuList = (MenuList);
-;// ./node_modules/@material-ui/core/esm/Menu/Menu.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var RTL_ORIGIN = {
-  vertical: 'top',
-  horizontal: 'right'
-};
-var LTR_ORIGIN = {
-  vertical: 'top',
-  horizontal: 'left'
-};
-var Menu_styles = {
-  /* Styles applied to the `Paper` component. */
-  paper: {
-    // specZ: The maximum height of a simple menu should be one or more rows less than the view
-    // height. This ensures a tapable area outside of the simple menu with which to dismiss
-    // the menu.
-    maxHeight: 'calc(100% - 96px)',
-    // Add iOS momentum scrolling.
-    WebkitOverflowScrolling: 'touch'
-  },
-
-  /* Styles applied to the `List` component via `MenuList`. */
-  list: {
-    // We disable the focus ring for mouse, touch and keyboard users.
-    outline: 0
-  }
-};
-var Menu = /*#__PURE__*/react.forwardRef(function Menu(props, ref) {
-  var _props$autoFocus = props.autoFocus,
-      autoFocus = _props$autoFocus === void 0 ? true : _props$autoFocus,
-      children = props.children,
-      classes = props.classes,
-      _props$disableAutoFoc = props.disableAutoFocusItem,
-      disableAutoFocusItem = _props$disableAutoFoc === void 0 ? false : _props$disableAutoFoc,
-      _props$MenuListProps = props.MenuListProps,
-      MenuListProps = _props$MenuListProps === void 0 ? {} : _props$MenuListProps,
-      onClose = props.onClose,
-      onEnteringProp = props.onEntering,
-      open = props.open,
-      _props$PaperProps = props.PaperProps,
-      PaperProps = _props$PaperProps === void 0 ? {} : _props$PaperProps,
-      PopoverClasses = props.PopoverClasses,
-      _props$transitionDura = props.transitionDuration,
-      transitionDuration = _props$transitionDura === void 0 ? 'auto' : _props$transitionDura,
-      _props$TransitionProp = props.TransitionProps;
-  _props$TransitionProp = _props$TransitionProp === void 0 ? {} : _props$TransitionProp;
-
-  var onEntering = _props$TransitionProp.onEntering,
-      TransitionProps = (0,objectWithoutProperties/* default */.A)(_props$TransitionProp, ["onEntering"]),
-      _props$variant = props.variant,
-      variant = _props$variant === void 0 ? 'selectedMenu' : _props$variant,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["autoFocus", "children", "classes", "disableAutoFocusItem", "MenuListProps", "onClose", "onEntering", "open", "PaperProps", "PopoverClasses", "transitionDuration", "TransitionProps", "variant"]);
-
-  var theme = useTheme_useTheme();
-  var autoFocusItem = autoFocus && !disableAutoFocusItem && open;
-  var menuListActionsRef = react.useRef(null);
-  var contentAnchorRef = react.useRef(null);
-
-  var getContentAnchorEl = function getContentAnchorEl() {
-    return contentAnchorRef.current;
-  };
-
-  var handleEntering = function handleEntering(element, isAppearing) {
-    if (menuListActionsRef.current) {
-      menuListActionsRef.current.adjustStyleForScrollbar(element, theme);
-    }
-
-    if (onEnteringProp) {
-      onEnteringProp(element, isAppearing);
-    }
-
-    if (onEntering) {
-      onEntering(element, isAppearing);
-    }
-  };
-
-  var handleListKeyDown = function handleListKeyDown(event) {
-    if (event.key === 'Tab') {
-      event.preventDefault();
-
-      if (onClose) {
-        onClose(event, 'tabKeyDown');
-      }
-    }
-  };
-  /**
-   * the index of the item should receive focus
-   * in a `variant="selectedMenu"` it's the first `selected` item
-   * otherwise it's the very first item.
-   */
-
-
-  var activeItemIndex = -1; // since we inject focus related props into children we have to do a lookahead
-  // to check if there is a `selected` item. We're looking for the last `selected`
-  // item and use the first valid item as a fallback
-
-  react.Children.map(children, function (child, index) {
-    if (! /*#__PURE__*/react.isValidElement(child)) {
-      return;
-    }
-
-    if (false) {}
-
-    if (!child.props.disabled) {
-      if (variant !== "menu" && child.props.selected) {
-        activeItemIndex = index;
-      } else if (activeItemIndex === -1) {
-        activeItemIndex = index;
-      }
-    }
-  });
-  var items = react.Children.map(children, function (child, index) {
-    if (index === activeItemIndex) {
-      return /*#__PURE__*/react.cloneElement(child, {
-        ref: function ref(instance) {
-          // #StrictMode ready
-          contentAnchorRef.current = react_dom.findDOMNode(instance);
-          (0,setRef/* default */.A)(child.ref, instance);
-        }
-      });
-    }
-
-    return child;
-  });
-  return /*#__PURE__*/react.createElement(Popover_Popover, (0,esm_extends/* default */.A)({
-    getContentAnchorEl: getContentAnchorEl,
-    classes: PopoverClasses,
-    onClose: onClose,
-    TransitionProps: (0,esm_extends/* default */.A)({
-      onEntering: handleEntering
-    }, TransitionProps),
-    anchorOrigin: theme.direction === 'rtl' ? RTL_ORIGIN : LTR_ORIGIN,
-    transformOrigin: theme.direction === 'rtl' ? RTL_ORIGIN : LTR_ORIGIN,
-    PaperProps: (0,esm_extends/* default */.A)({}, PaperProps, {
-      classes: (0,esm_extends/* default */.A)({}, PaperProps.classes, {
-        root: classes.paper
-      })
-    }),
-    open: open,
-    ref: ref,
-    transitionDuration: transitionDuration
-  }, other), /*#__PURE__*/react.createElement(MenuList_MenuList, (0,esm_extends/* default */.A)({
-    onKeyDown: handleListKeyDown,
-    actions: menuListActionsRef,
-    autoFocus: autoFocus && (activeItemIndex === -1 || disableAutoFocusItem),
-    autoFocusItem: autoFocusItem,
-    variant: variant
-  }, MenuListProps, {
-    className: (0,clsx_m/* default */.A)(classes.list, MenuListProps.className)
-  }), items));
-});
- false ? 0 : void 0;
-/* harmony default export */ const Menu_Menu = ((0,withStyles/* default */.A)(Menu_styles, {
-  name: 'MuiMenu'
-})(Menu));
-// EXTERNAL MODULE: ./node_modules/@material-ui/core/esm/utils/useControlled.js
-var useControlled = __webpack_require__(8060);
-;// ./node_modules/@material-ui/core/esm/Select/SelectInput.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-function areEqualValues(a, b) {
-  if ((0,esm_typeof/* default */.A)(b) === 'object' && b !== null) {
-    return a === b;
-  }
-
-  return String(a) === String(b);
-}
-
-function isEmpty(display) {
-  return display == null || typeof display === 'string' && !display.trim();
-}
-/**
- * @ignore - internal component.
- */
-
-
-var SelectInput = /*#__PURE__*/react.forwardRef(function SelectInput(props, ref) {
-  var ariaLabel = props['aria-label'],
-      autoFocus = props.autoFocus,
-      autoWidth = props.autoWidth,
-      children = props.children,
-      classes = props.classes,
-      className = props.className,
-      defaultValue = props.defaultValue,
-      disabled = props.disabled,
-      displayEmpty = props.displayEmpty,
-      IconComponent = props.IconComponent,
-      inputRefProp = props.inputRef,
-      labelId = props.labelId,
-      _props$MenuProps = props.MenuProps,
-      MenuProps = _props$MenuProps === void 0 ? {} : _props$MenuProps,
-      multiple = props.multiple,
-      name = props.name,
-      onBlur = props.onBlur,
-      onChange = props.onChange,
-      onClose = props.onClose,
-      onFocus = props.onFocus,
-      onOpen = props.onOpen,
-      openProp = props.open,
-      readOnly = props.readOnly,
-      renderValue = props.renderValue,
-      _props$SelectDisplayP = props.SelectDisplayProps,
-      SelectDisplayProps = _props$SelectDisplayP === void 0 ? {} : _props$SelectDisplayP,
-      tabIndexProp = props.tabIndex,
-      type = props.type,
-      valueProp = props.value,
-      _props$variant = props.variant,
-      variant = _props$variant === void 0 ? 'standard' : _props$variant,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["aria-label", "autoFocus", "autoWidth", "children", "classes", "className", "defaultValue", "disabled", "displayEmpty", "IconComponent", "inputRef", "labelId", "MenuProps", "multiple", "name", "onBlur", "onChange", "onClose", "onFocus", "onOpen", "open", "readOnly", "renderValue", "SelectDisplayProps", "tabIndex", "type", "value", "variant"]);
-
-  var _useControlled = (0,useControlled/* default */.A)({
-    controlled: valueProp,
-    default: defaultValue,
-    name: 'Select'
-  }),
-      _useControlled2 = (0,slicedToArray/* default */.A)(_useControlled, 2),
-      value = _useControlled2[0],
-      setValue = _useControlled2[1];
-
-  var inputRef = react.useRef(null);
-
-  var _React$useState = react.useState(null),
-      displayNode = _React$useState[0],
-      setDisplayNode = _React$useState[1];
-
-  var _React$useRef = react.useRef(openProp != null),
-      isOpenControlled = _React$useRef.current;
-
-  var _React$useState2 = react.useState(),
-      menuMinWidthState = _React$useState2[0],
-      setMenuMinWidthState = _React$useState2[1];
-
-  var _React$useState3 = react.useState(false),
-      openState = _React$useState3[0],
-      setOpenState = _React$useState3[1];
-
-  var handleRef = (0,useForkRef/* default */.A)(ref, inputRefProp);
-  react.useImperativeHandle(handleRef, function () {
-    return {
-      focus: function focus() {
-        displayNode.focus();
-      },
-      node: inputRef.current,
-      value: value
-    };
-  }, [displayNode, value]);
-  react.useEffect(function () {
-    if (autoFocus && displayNode) {
-      displayNode.focus();
-    }
-  }, [autoFocus, displayNode]);
-  react.useEffect(function () {
-    if (displayNode) {
-      var label = (0,ownerDocument/* default */.A)(displayNode).getElementById(labelId);
-
-      if (label) {
-        var handler = function handler() {
-          if (getSelection().isCollapsed) {
-            displayNode.focus();
-          }
-        };
-
-        label.addEventListener('click', handler);
-        return function () {
-          label.removeEventListener('click', handler);
-        };
-      }
-    }
-
-    return undefined;
-  }, [labelId, displayNode]);
-
-  var update = function update(open, event) {
-    if (open) {
-      if (onOpen) {
-        onOpen(event);
-      }
-    } else if (onClose) {
-      onClose(event);
-    }
-
-    if (!isOpenControlled) {
-      setMenuMinWidthState(autoWidth ? null : displayNode.clientWidth);
-      setOpenState(open);
-    }
-  };
-
-  var handleMouseDown = function handleMouseDown(event) {
-    // Ignore everything but left-click
-    if (event.button !== 0) {
-      return;
-    } // Hijack the default focus behavior.
-
-
-    event.preventDefault();
-    displayNode.focus();
-    update(true, event);
-  };
-
-  var handleClose = function handleClose(event) {
-    update(false, event);
-  };
-
-  var childrenArray = react.Children.toArray(children); // Support autofill.
-
-  var handleChange = function handleChange(event) {
-    var index = childrenArray.map(function (child) {
-      return child.props.value;
-    }).indexOf(event.target.value);
-
-    if (index === -1) {
-      return;
-    }
-
-    var child = childrenArray[index];
-    setValue(child.props.value);
-
-    if (onChange) {
-      onChange(event, child);
-    }
-  };
-
-  var handleItemClick = function handleItemClick(child) {
-    return function (event) {
-      if (!multiple) {
-        update(false, event);
-      }
-
-      var newValue;
-
-      if (multiple) {
-        newValue = Array.isArray(value) ? value.slice() : [];
-        var itemIndex = value.indexOf(child.props.value);
-
-        if (itemIndex === -1) {
-          newValue.push(child.props.value);
-        } else {
-          newValue.splice(itemIndex, 1);
-        }
-      } else {
-        newValue = child.props.value;
-      }
-
-      if (child.props.onClick) {
-        child.props.onClick(event);
-      }
-
-      if (value === newValue) {
-        return;
-      }
-
-      setValue(newValue);
-
-      if (onChange) {
-        event.persist(); // Preact support, target is read only property on a native event.
-
-        Object.defineProperty(event, 'target', {
-          writable: true,
-          value: {
-            value: newValue,
-            name: name
-          }
-        });
-        onChange(event, child);
-      }
-    };
-  };
-
-  var handleKeyDown = function handleKeyDown(event) {
-    if (!readOnly) {
-      var validKeys = [' ', 'ArrowUp', 'ArrowDown', // The native select doesn't respond to enter on MacOS, but it's recommended by
-      // https://www.w3.org/TR/wai-aria-practices/examples/listbox/listbox-collapsible.html
-      'Enter'];
-
-      if (validKeys.indexOf(event.key) !== -1) {
-        event.preventDefault();
-        update(true, event);
-      }
-    }
-  };
-
-  var open = displayNode !== null && (isOpenControlled ? openProp : openState);
-
-  var handleBlur = function handleBlur(event) {
-    // if open event.stopImmediatePropagation
-    if (!open && onBlur) {
-      event.persist(); // Preact support, target is read only property on a native event.
-
-      Object.defineProperty(event, 'target', {
-        writable: true,
-        value: {
-          value: value,
-          name: name
-        }
-      });
-      onBlur(event);
-    }
-  };
-
-  delete other['aria-invalid'];
-  var display;
-  var displaySingle;
-  var displayMultiple = [];
-  var computeDisplay = false;
-  var foundMatch = false; // No need to display any value if the field is empty.
-
-  if (isFilled({
-    value: value
-  }) || displayEmpty) {
-    if (renderValue) {
-      display = renderValue(value);
-    } else {
-      computeDisplay = true;
-    }
-  }
-
-  var items = childrenArray.map(function (child) {
-    if (! /*#__PURE__*/react.isValidElement(child)) {
-      return null;
-    }
-
-    if (false) {}
-
-    var selected;
-
-    if (multiple) {
-      if (!Array.isArray(value)) {
-        throw new Error( false ? 0 : (0,esm_formatMuiErrorMessage/* default */.A)(2));
-      }
-
-      selected = value.some(function (v) {
-        return areEqualValues(v, child.props.value);
-      });
-
-      if (selected && computeDisplay) {
-        displayMultiple.push(child.props.children);
-      }
-    } else {
-      selected = areEqualValues(value, child.props.value);
-
-      if (selected && computeDisplay) {
-        displaySingle = child.props.children;
-      }
-    }
-
-    if (selected) {
-      foundMatch = true;
-    }
-
-    return /*#__PURE__*/react.cloneElement(child, {
-      'aria-selected': selected ? 'true' : undefined,
-      onClick: handleItemClick(child),
-      onKeyUp: function onKeyUp(event) {
-        if (event.key === ' ') {
-          // otherwise our MenuItems dispatches a click event
-          // it's not behavior of the native <option> and causes
-          // the select to close immediately since we open on space keydown
-          event.preventDefault();
-        }
-
-        if (child.props.onKeyUp) {
-          child.props.onKeyUp(event);
-        }
-      },
-      role: 'option',
-      selected: selected,
-      value: undefined,
-      // The value is most likely not a valid HTML attribute.
-      'data-value': child.props.value // Instead, we provide it as a data attribute.
-
-    });
-  });
-
-  if (false) {}
-
-  if (computeDisplay) {
-    display = multiple ? displayMultiple.join(', ') : displaySingle;
-  } // Avoid performing a layout computation in the render method.
-
-
-  var menuMinWidth = menuMinWidthState;
-
-  if (!autoWidth && isOpenControlled && displayNode) {
-    menuMinWidth = displayNode.clientWidth;
-  }
-
-  var tabIndex;
-
-  if (typeof tabIndexProp !== 'undefined') {
-    tabIndex = tabIndexProp;
-  } else {
-    tabIndex = disabled ? null : 0;
-  }
-
-  var buttonId = SelectDisplayProps.id || (name ? "mui-component-select-".concat(name) : undefined);
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("div", (0,esm_extends/* default */.A)({
-    className: (0,clsx_m/* default */.A)(classes.root, // TODO v5: merge root and select
-    classes.select, classes.selectMenu, classes[variant], className, disabled && classes.disabled),
-    ref: setDisplayNode,
-    tabIndex: tabIndex,
-    role: "button",
-    "aria-disabled": disabled ? 'true' : undefined,
-    "aria-expanded": open ? 'true' : undefined,
-    "aria-haspopup": "listbox",
-    "aria-label": ariaLabel,
-    "aria-labelledby": [labelId, buttonId].filter(Boolean).join(' ') || undefined,
-    onKeyDown: handleKeyDown,
-    onMouseDown: disabled || readOnly ? null : handleMouseDown,
-    onBlur: handleBlur,
-    onFocus: onFocus
-  }, SelectDisplayProps, {
-    // The id is required for proper a11y
-    id: buttonId
-  }), isEmpty(display) ?
-  /*#__PURE__*/
-  // eslint-disable-next-line react/no-danger
-  react.createElement("span", {
-    dangerouslySetInnerHTML: {
-      __html: '&#8203;'
-    }
-  }) : display), /*#__PURE__*/react.createElement("input", (0,esm_extends/* default */.A)({
-    value: Array.isArray(value) ? value.join(',') : value,
-    name: name,
-    ref: inputRef,
-    "aria-hidden": true,
-    onChange: handleChange,
-    tabIndex: -1,
-    className: classes.nativeInput,
-    autoFocus: autoFocus
-  }, other)), /*#__PURE__*/react.createElement(IconComponent, {
-    className: (0,clsx_m/* default */.A)(classes.icon, classes["icon".concat((0,esm_utils_capitalize/* default */.A)(variant))], open && classes.iconOpen, disabled && classes.disabled)
-  }), /*#__PURE__*/react.createElement(Menu_Menu, (0,esm_extends/* default */.A)({
-    id: "menu-".concat(name || ''),
-    anchorEl: displayNode,
-    open: open,
-    onClose: handleClose
-  }, MenuProps, {
-    MenuListProps: (0,esm_extends/* default */.A)({
-      'aria-labelledby': labelId,
-      role: 'listbox',
-      disableListWrap: true
-    }, MenuProps.MenuListProps),
-    PaperProps: (0,esm_extends/* default */.A)({}, MenuProps.PaperProps, {
-      style: (0,esm_extends/* default */.A)({
-        minWidth: menuMinWidth
-      }, MenuProps.PaperProps != null ? MenuProps.PaperProps.style : null)
-    })
-  }), items));
-});
- false ? 0 : void 0;
-/* harmony default export */ const Select_SelectInput = (SelectInput);
-;// ./node_modules/@material-ui/core/esm/FormControl/formControlState.js
-function formControlState(_ref) {
-  var props = _ref.props,
-      states = _ref.states,
-      muiFormControl = _ref.muiFormControl;
-  return states.reduce(function (acc, state) {
-    acc[state] = props[state];
-
-    if (muiFormControl) {
-      if (typeof props[state] === 'undefined') {
-        acc[state] = muiFormControl[state];
-      }
-    }
-
-    return acc;
-  }, {});
-}
-;// ./node_modules/@material-ui/core/esm/FormControl/useFormControl.js
-
-
-function useFormControl_useFormControl() {
-  return react.useContext(FormControl_FormControlContext);
-}
-;// ./node_modules/@material-ui/core/esm/internal/svg-icons/ArrowDropDown.js
-
-
-/**
- * @ignore - internal component.
- */
-
-/* harmony default export */ const ArrowDropDown = ((0,createSvgIcon/* default */.A)( /*#__PURE__*/react.createElement("path", {
-  d: "M7 10l5 5 5-5z"
-}), 'ArrowDropDown'));
-;// ./node_modules/@material-ui/core/esm/TextareaAutosize/TextareaAutosize.js
-
-
-
-
-
-
-
-
-function getStyleValue(computedStyle, property) {
-  return parseInt(computedStyle[property], 10) || 0;
-}
-
-var TextareaAutosize_useEnhancedEffect = typeof window !== 'undefined' ? react.useLayoutEffect : react.useEffect;
-var TextareaAutosize_styles = {
-  /* Styles applied to the shadow textarea element. */
-  shadow: {
-    // Visibility needed to hide the extra text area on iPads
-    visibility: 'hidden',
-    // Remove from the content flow
-    position: 'absolute',
-    // Ignore the scrollbar width
-    overflow: 'hidden',
-    height: 0,
-    top: 0,
-    left: 0,
-    // Create a new layer, increase the isolation of the computed values
-    transform: 'translateZ(0)'
-  }
-};
-var TextareaAutosize = /*#__PURE__*/react.forwardRef(function TextareaAutosize(props, ref) {
-  var onChange = props.onChange,
-      rows = props.rows,
-      rowsMax = props.rowsMax,
-      rowsMinProp = props.rowsMin,
-      maxRowsProp = props.maxRows,
-      _props$minRows = props.minRows,
-      minRowsProp = _props$minRows === void 0 ? 1 : _props$minRows,
-      style = props.style,
-      value = props.value,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["onChange", "rows", "rowsMax", "rowsMin", "maxRows", "minRows", "style", "value"]);
-
-  var maxRows = maxRowsProp || rowsMax;
-  var minRows = rows || rowsMinProp || minRowsProp;
-
-  var _React$useRef = react.useRef(value != null),
-      isControlled = _React$useRef.current;
-
-  var inputRef = react.useRef(null);
-  var handleRef = (0,useForkRef/* default */.A)(ref, inputRef);
-  var shadowRef = react.useRef(null);
-  var renders = react.useRef(0);
-
-  var _React$useState = react.useState({}),
-      state = _React$useState[0],
-      setState = _React$useState[1];
-
-  var syncHeight = react.useCallback(function () {
-    var input = inputRef.current;
-    var computedStyle = window.getComputedStyle(input);
-    var inputShallow = shadowRef.current;
-    inputShallow.style.width = computedStyle.width;
-    inputShallow.value = input.value || props.placeholder || 'x';
-
-    if (inputShallow.value.slice(-1) === '\n') {
-      // Certain fonts which overflow the line height will cause the textarea
-      // to report a different scrollHeight depending on whether the last line
-      // is empty. Make it non-empty to avoid this issue.
-      inputShallow.value += ' ';
-    }
-
-    var boxSizing = computedStyle['box-sizing'];
-    var padding = getStyleValue(computedStyle, 'padding-bottom') + getStyleValue(computedStyle, 'padding-top');
-    var border = getStyleValue(computedStyle, 'border-bottom-width') + getStyleValue(computedStyle, 'border-top-width'); // The height of the inner content
-
-    var innerHeight = inputShallow.scrollHeight - padding; // Measure height of a textarea with a single row
-
-    inputShallow.value = 'x';
-    var singleRowHeight = inputShallow.scrollHeight - padding; // The height of the outer content
-
-    var outerHeight = innerHeight;
-
-    if (minRows) {
-      outerHeight = Math.max(Number(minRows) * singleRowHeight, outerHeight);
-    }
-
-    if (maxRows) {
-      outerHeight = Math.min(Number(maxRows) * singleRowHeight, outerHeight);
-    }
-
-    outerHeight = Math.max(outerHeight, singleRowHeight); // Take the box sizing into account for applying this value as a style.
-
-    var outerHeightStyle = outerHeight + (boxSizing === 'border-box' ? padding + border : 0);
-    var overflow = Math.abs(outerHeight - innerHeight) <= 1;
-    setState(function (prevState) {
-      // Need a large enough difference to update the height.
-      // This prevents infinite rendering loop.
-      if (renders.current < 20 && (outerHeightStyle > 0 && Math.abs((prevState.outerHeightStyle || 0) - outerHeightStyle) > 1 || prevState.overflow !== overflow)) {
-        renders.current += 1;
-        return {
-          overflow: overflow,
-          outerHeightStyle: outerHeightStyle
-        };
-      }
-
-      if (false) {}
-
-      return prevState;
-    });
-  }, [maxRows, minRows, props.placeholder]);
-  react.useEffect(function () {
-    var handleResize = (0,debounce/* default */.A)(function () {
-      renders.current = 0;
-      syncHeight();
-    });
-    window.addEventListener('resize', handleResize);
-    return function () {
-      handleResize.clear();
-      window.removeEventListener('resize', handleResize);
-    };
-  }, [syncHeight]);
-  TextareaAutosize_useEnhancedEffect(function () {
-    syncHeight();
-  });
-  react.useEffect(function () {
-    renders.current = 0;
-  }, [value]);
-
-  var handleChange = function handleChange(event) {
-    renders.current = 0;
-
-    if (!isControlled) {
-      syncHeight();
-    }
-
-    if (onChange) {
-      onChange(event);
-    }
-  };
-
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("textarea", (0,esm_extends/* default */.A)({
-    value: value,
-    onChange: handleChange,
-    ref: handleRef // Apply the rows prop to get a "correct" first SSR paint
-    ,
-    rows: minRows,
-    style: (0,esm_extends/* default */.A)({
-      height: state.outerHeightStyle,
-      // Need a large enough difference to allow scrolling.
-      // This prevents infinite rendering loop.
-      overflow: state.overflow ? 'hidden' : null
-    }, style)
-  }, other)), /*#__PURE__*/react.createElement("textarea", {
-    "aria-hidden": true,
-    className: props.className,
-    readOnly: true,
-    ref: shadowRef,
-    tabIndex: -1,
-    style: (0,esm_extends/* default */.A)({}, TextareaAutosize_styles.shadow, style)
-  }));
-});
- false ? 0 : void 0;
-/* harmony default export */ const TextareaAutosize_TextareaAutosize = (TextareaAutosize);
-;// ./node_modules/@material-ui/core/esm/InputBase/InputBase.js
-
-
-
-
-/* eslint-disable jsx-a11y/click-events-have-key-events, jsx-a11y/no-static-element-interactions */
-
-
-
-
-
-
-
-
-
-
-
-var InputBase_styles = function styles(theme) {
-  var light = theme.palette.type === 'light';
-  var placeholder = {
-    color: 'currentColor',
-    opacity: light ? 0.42 : 0.5,
-    transition: theme.transitions.create('opacity', {
-      duration: theme.transitions.duration.shorter
-    })
-  };
-  var placeholderHidden = {
-    opacity: '0 !important'
-  };
-  var placeholderVisible = {
-    opacity: light ? 0.42 : 0.5
-  };
-  return {
-    '@global': {
-      '@keyframes mui-auto-fill': {},
-      '@keyframes mui-auto-fill-cancel': {}
-    },
-
-    /* Styles applied to the root element. */
-    root: (0,esm_extends/* default */.A)({}, theme.typography.body1, {
-      color: theme.palette.text.primary,
-      lineHeight: '1.1876em',
-      // Reset (19px), match the native input line-height
-      boxSizing: 'border-box',
-      // Prevent padding issue with fullWidth.
-      position: 'relative',
-      cursor: 'text',
-      display: 'inline-flex',
-      alignItems: 'center',
-      '&$disabled': {
-        color: theme.palette.text.disabled,
-        cursor: 'default'
-      }
-    }),
-
-    /* Styles applied to the root element if the component is a descendant of `FormControl`. */
-    formControl: {},
-
-    /* Styles applied to the root element if the component is focused. */
-    focused: {},
-
-    /* Styles applied to the root element if `disabled={true}`. */
-    disabled: {},
-
-    /* Styles applied to the root element if `startAdornment` is provided. */
-    adornedStart: {},
-
-    /* Styles applied to the root element if `endAdornment` is provided. */
-    adornedEnd: {},
-
-    /* Pseudo-class applied to the root element if `error={true}`. */
-    error: {},
-
-    /* Styles applied to the `input` element if `margin="dense"`. */
-    marginDense: {},
-
-    /* Styles applied to the root element if `multiline={true}`. */
-    multiline: {
-      padding: "".concat(8 - 2, "px 0 ").concat(8 - 1, "px"),
-      '&$marginDense': {
-        paddingTop: 4 - 1
-      }
-    },
-
-    /* Styles applied to the root element if the color is secondary. */
-    colorSecondary: {},
-
-    /* Styles applied to the root element if `fullWidth={true}`. */
-    fullWidth: {
-      width: '100%'
-    },
-
-    /* Styles applied to the `input` element. */
-    input: {
-      font: 'inherit',
-      letterSpacing: 'inherit',
-      color: 'currentColor',
-      padding: "".concat(8 - 2, "px 0 ").concat(8 - 1, "px"),
-      border: 0,
-      boxSizing: 'content-box',
-      background: 'none',
-      height: '1.1876em',
-      // Reset (19px), match the native input line-height
-      margin: 0,
-      // Reset for Safari
-      WebkitTapHighlightColor: 'transparent',
-      display: 'block',
-      // Make the flex item shrink with Firefox
-      minWidth: 0,
-      width: '100%',
-      // Fix IE 11 width issue
-      animationName: 'mui-auto-fill-cancel',
-      animationDuration: '10ms',
-      '&::-webkit-input-placeholder': placeholder,
-      '&::-moz-placeholder': placeholder,
-      // Firefox 19+
-      '&:-ms-input-placeholder': placeholder,
-      // IE 11
-      '&::-ms-input-placeholder': placeholder,
-      // Edge
-      '&:focus': {
-        outline: 0
-      },
-      // Reset Firefox invalid required input style
-      '&:invalid': {
-        boxShadow: 'none'
-      },
-      '&::-webkit-search-decoration': {
-        // Remove the padding when type=search.
-        '-webkit-appearance': 'none'
-      },
-      // Show and hide the placeholder logic
-      'label[data-shrink=false] + $formControl &': {
-        '&::-webkit-input-placeholder': placeholderHidden,
-        '&::-moz-placeholder': placeholderHidden,
-        // Firefox 19+
-        '&:-ms-input-placeholder': placeholderHidden,
-        // IE 11
-        '&::-ms-input-placeholder': placeholderHidden,
-        // Edge
-        '&:focus::-webkit-input-placeholder': placeholderVisible,
-        '&:focus::-moz-placeholder': placeholderVisible,
-        // Firefox 19+
-        '&:focus:-ms-input-placeholder': placeholderVisible,
-        // IE 11
-        '&:focus::-ms-input-placeholder': placeholderVisible // Edge
-
-      },
-      '&$disabled': {
-        opacity: 1 // Reset iOS opacity
-
-      },
-      '&:-webkit-autofill': {
-        animationDuration: '5000s',
-        animationName: 'mui-auto-fill'
-      }
-    },
-
-    /* Styles applied to the `input` element if `margin="dense"`. */
-    inputMarginDense: {
-      paddingTop: 4 - 1
-    },
-
-    /* Styles applied to the `input` element if `multiline={true}`. */
-    inputMultiline: {
-      height: 'auto',
-      resize: 'none',
-      padding: 0
-    },
-
-    /* Styles applied to the `input` element if `type="search"`. */
-    inputTypeSearch: {
-      // Improve type search style.
-      '-moz-appearance': 'textfield',
-      '-webkit-appearance': 'textfield'
-    },
-
-    /* Styles applied to the `input` element if `startAdornment` is provided. */
-    inputAdornedStart: {},
-
-    /* Styles applied to the `input` element if `endAdornment` is provided. */
-    inputAdornedEnd: {},
-
-    /* Styles applied to the `input` element if `hiddenLabel={true}`. */
-    inputHiddenLabel: {}
-  };
-};
-var InputBase_useEnhancedEffect = typeof window === 'undefined' ? react.useEffect : react.useLayoutEffect;
-/**
- * `InputBase` contains as few styles as possible.
- * It aims to be a simple building block for creating an input.
- * It contains a load of style reset and some state logic.
- */
-
-var InputBase = /*#__PURE__*/react.forwardRef(function InputBase(props, ref) {
-  var ariaDescribedby = props['aria-describedby'],
-      autoComplete = props.autoComplete,
-      autoFocus = props.autoFocus,
-      classes = props.classes,
-      className = props.className,
-      color = props.color,
-      defaultValue = props.defaultValue,
-      disabled = props.disabled,
-      endAdornment = props.endAdornment,
-      error = props.error,
-      _props$fullWidth = props.fullWidth,
-      fullWidth = _props$fullWidth === void 0 ? false : _props$fullWidth,
-      id = props.id,
-      _props$inputComponent = props.inputComponent,
-      inputComponent = _props$inputComponent === void 0 ? 'input' : _props$inputComponent,
-      _props$inputProps = props.inputProps,
-      inputPropsProp = _props$inputProps === void 0 ? {} : _props$inputProps,
-      inputRefProp = props.inputRef,
-      margin = props.margin,
-      _props$multiline = props.multiline,
-      multiline = _props$multiline === void 0 ? false : _props$multiline,
-      name = props.name,
-      onBlur = props.onBlur,
-      onChange = props.onChange,
-      onClick = props.onClick,
-      onFocus = props.onFocus,
-      onKeyDown = props.onKeyDown,
-      onKeyUp = props.onKeyUp,
-      placeholder = props.placeholder,
-      readOnly = props.readOnly,
-      renderSuffix = props.renderSuffix,
-      rows = props.rows,
-      rowsMax = props.rowsMax,
-      rowsMin = props.rowsMin,
-      maxRows = props.maxRows,
-      minRows = props.minRows,
-      startAdornment = props.startAdornment,
-      _props$type = props.type,
-      type = _props$type === void 0 ? 'text' : _props$type,
-      valueProp = props.value,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["aria-describedby", "autoComplete", "autoFocus", "classes", "className", "color", "defaultValue", "disabled", "endAdornment", "error", "fullWidth", "id", "inputComponent", "inputProps", "inputRef", "margin", "multiline", "name", "onBlur", "onChange", "onClick", "onFocus", "onKeyDown", "onKeyUp", "placeholder", "readOnly", "renderSuffix", "rows", "rowsMax", "rowsMin", "maxRows", "minRows", "startAdornment", "type", "value"]);
-
-  var value = inputPropsProp.value != null ? inputPropsProp.value : valueProp;
-
-  var _React$useRef = react.useRef(value != null),
-      isControlled = _React$useRef.current;
-
-  var inputRef = react.useRef();
-  var handleInputRefWarning = react.useCallback(function (instance) {
-    if (false) {}
-  }, []);
-  var handleInputPropsRefProp = (0,useForkRef/* default */.A)(inputPropsProp.ref, handleInputRefWarning);
-  var handleInputRefProp = (0,useForkRef/* default */.A)(inputRefProp, handleInputPropsRefProp);
-  var handleInputRef = (0,useForkRef/* default */.A)(inputRef, handleInputRefProp);
-
-  var _React$useState = react.useState(false),
-      focused = _React$useState[0],
-      setFocused = _React$useState[1];
-
-  var muiFormControl = useFormControl();
-
-  if (false) {}
-
-  var fcs = formControlState({
-    props: props,
-    muiFormControl: muiFormControl,
-    states: ['color', 'disabled', 'error', 'hiddenLabel', 'margin', 'required', 'filled']
-  });
-  fcs.focused = muiFormControl ? muiFormControl.focused : focused; // The blur won't fire when the disabled state is set on a focused input.
-  // We need to book keep the focused state manually.
-
-  react.useEffect(function () {
-    if (!muiFormControl && disabled && focused) {
-      setFocused(false);
-
-      if (onBlur) {
-        onBlur();
-      }
-    }
-  }, [muiFormControl, disabled, focused, onBlur]);
-  var onFilled = muiFormControl && muiFormControl.onFilled;
-  var onEmpty = muiFormControl && muiFormControl.onEmpty;
-  var checkDirty = react.useCallback(function (obj) {
-    if (isFilled(obj)) {
-      if (onFilled) {
-        onFilled();
-      }
-    } else if (onEmpty) {
-      onEmpty();
-    }
-  }, [onFilled, onEmpty]);
-  InputBase_useEnhancedEffect(function () {
-    if (isControlled) {
-      checkDirty({
-        value: value
-      });
-    }
-  }, [value, checkDirty, isControlled]);
-
-  var handleFocus = function handleFocus(event) {
-    // Fix a bug with IE 11 where the focus/blur events are triggered
-    // while the input is disabled.
-    if (fcs.disabled) {
-      event.stopPropagation();
-      return;
-    }
-
-    if (onFocus) {
-      onFocus(event);
-    }
-
-    if (inputPropsProp.onFocus) {
-      inputPropsProp.onFocus(event);
-    }
-
-    if (muiFormControl && muiFormControl.onFocus) {
-      muiFormControl.onFocus(event);
-    } else {
-      setFocused(true);
-    }
-  };
-
-  var handleBlur = function handleBlur(event) {
-    if (onBlur) {
-      onBlur(event);
-    }
-
-    if (inputPropsProp.onBlur) {
-      inputPropsProp.onBlur(event);
-    }
-
-    if (muiFormControl && muiFormControl.onBlur) {
-      muiFormControl.onBlur(event);
-    } else {
-      setFocused(false);
-    }
-  };
-
-  var handleChange = function handleChange(event) {
-    if (!isControlled) {
-      var element = event.target || inputRef.current;
-
-      if (element == null) {
-        throw new Error( false ? 0 : (0,esm_formatMuiErrorMessage/* default */.A)(1));
-      }
-
-      checkDirty({
-        value: element.value
-      });
-    }
-
-    for (var _len = arguments.length, args = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      args[_key - 1] = arguments[_key];
-    }
-
-    if (inputPropsProp.onChange) {
-      inputPropsProp.onChange.apply(inputPropsProp, [event].concat(args));
-    } // Perform in the willUpdate
-
-
-    if (onChange) {
-      onChange.apply(void 0, [event].concat(args));
-    }
-  }; // Check the input state on mount, in case it was filled by the user
-  // or auto filled by the browser before the hydration (for SSR).
-
-
-  react.useEffect(function () {
-    checkDirty(inputRef.current);
-  }, []); // eslint-disable-line react-hooks/exhaustive-deps
-
-  var handleClick = function handleClick(event) {
-    if (inputRef.current && event.currentTarget === event.target) {
-      inputRef.current.focus();
-    }
-
-    if (onClick) {
-      onClick(event);
-    }
-  };
-
-  var InputComponent = inputComponent;
-
-  var inputProps = (0,esm_extends/* default */.A)({}, inputPropsProp, {
-    ref: handleInputRef
-  });
-
-  if (typeof InputComponent !== 'string') {
-    inputProps = (0,esm_extends/* default */.A)({
-      // Rename ref to inputRef as we don't know the
-      // provided `inputComponent` structure.
-      inputRef: handleInputRef,
-      type: type
-    }, inputProps, {
-      ref: null
-    });
-  } else if (multiline) {
-    if (rows && !maxRows && !minRows && !rowsMax && !rowsMin) {
-      InputComponent = 'textarea';
-    } else {
-      inputProps = (0,esm_extends/* default */.A)({
-        minRows: rows || minRows,
-        rowsMax: rowsMax,
-        maxRows: maxRows
-      }, inputProps);
-      InputComponent = TextareaAutosize_TextareaAutosize;
-    }
-  } else {
-    inputProps = (0,esm_extends/* default */.A)({
-      type: type
-    }, inputProps);
-  }
-
-  var handleAutoFill = function handleAutoFill(event) {
-    // Provide a fake value as Chrome might not let you access it for security reasons.
-    checkDirty(event.animationName === 'mui-auto-fill-cancel' ? inputRef.current : {
-      value: 'x'
-    });
-  };
-
-  react.useEffect(function () {
-    if (muiFormControl) {
-      muiFormControl.setAdornedStart(Boolean(startAdornment));
-    }
-  }, [muiFormControl, startAdornment]);
-  return /*#__PURE__*/react.createElement("div", (0,esm_extends/* default */.A)({
-    className: (0,clsx_m/* default */.A)(classes.root, classes["color".concat((0,esm_utils_capitalize/* default */.A)(fcs.color || 'primary'))], className, fcs.disabled && classes.disabled, fcs.error && classes.error, fullWidth && classes.fullWidth, fcs.focused && classes.focused, muiFormControl && classes.formControl, multiline && classes.multiline, startAdornment && classes.adornedStart, endAdornment && classes.adornedEnd, fcs.margin === 'dense' && classes.marginDense),
-    onClick: handleClick,
-    ref: ref
-  }, other), startAdornment, /*#__PURE__*/react.createElement(FormControl_FormControlContext.Provider, {
-    value: null
-  }, /*#__PURE__*/react.createElement(InputComponent, (0,esm_extends/* default */.A)({
-    "aria-invalid": fcs.error,
-    "aria-describedby": ariaDescribedby,
-    autoComplete: autoComplete,
-    autoFocus: autoFocus,
-    defaultValue: defaultValue,
-    disabled: fcs.disabled,
-    id: id,
-    onAnimationStart: handleAutoFill,
-    name: name,
-    placeholder: placeholder,
-    readOnly: readOnly,
-    required: fcs.required,
-    rows: rows,
-    value: value,
-    onKeyDown: onKeyDown,
-    onKeyUp: onKeyUp
-  }, inputProps, {
-    className: (0,clsx_m/* default */.A)(classes.input, inputPropsProp.className, fcs.disabled && classes.disabled, multiline && classes.inputMultiline, fcs.hiddenLabel && classes.inputHiddenLabel, startAdornment && classes.inputAdornedStart, endAdornment && classes.inputAdornedEnd, type === 'search' && classes.inputTypeSearch, fcs.margin === 'dense' && classes.inputMarginDense),
-    onBlur: handleBlur,
-    onChange: handleChange,
-    onFocus: handleFocus
-  }))), endAdornment, renderSuffix ? renderSuffix((0,esm_extends/* default */.A)({}, fcs, {
-    startAdornment: startAdornment
-  })) : null);
-});
- false ? 0 : void 0;
-/* harmony default export */ const InputBase_InputBase = ((0,withStyles/* default */.A)(InputBase_styles, {
-  name: 'MuiInputBase'
-})(InputBase));
-;// ./node_modules/@material-ui/core/esm/Input/Input.js
-
-
-
-
-
-
-
-
-var Input_styles = function styles(theme) {
-  var light = theme.palette.type === 'light';
-  var bottomLineColor = light ? 'rgba(0, 0, 0, 0.42)' : 'rgba(255, 255, 255, 0.7)';
-  return {
-    /* Styles applied to the root element. */
-    root: {
-      position: 'relative'
-    },
-
-    /* Styles applied to the root element if the component is a descendant of `FormControl`. */
-    formControl: {
-      'label + &': {
-        marginTop: 16
-      }
-    },
-
-    /* Styles applied to the root element if the component is focused. */
-    focused: {},
-
-    /* Styles applied to the root element if `disabled={true}`. */
-    disabled: {},
-
-    /* Styles applied to the root element if color secondary. */
-    colorSecondary: {
-      '&$underline:after': {
-        borderBottomColor: theme.palette.secondary.main
-      }
-    },
-
-    /* Styles applied to the root element if `disableUnderline={false}`. */
-    underline: {
-      '&:after': {
-        borderBottom: "2px solid ".concat(theme.palette.primary.main),
-        left: 0,
-        bottom: 0,
-        // Doing the other way around crash on IE 11 "''" https://github.com/cssinjs/jss/issues/242
-        content: '""',
-        position: 'absolute',
-        right: 0,
-        transform: 'scaleX(0)',
-        transition: theme.transitions.create('transform', {
-          duration: theme.transitions.duration.shorter,
-          easing: theme.transitions.easing.easeOut
-        }),
-        pointerEvents: 'none' // Transparent to the hover style.
-
-      },
-      '&$focused:after': {
-        transform: 'scaleX(1)'
-      },
-      '&$error:after': {
-        borderBottomColor: theme.palette.error.main,
-        transform: 'scaleX(1)' // error is always underlined in red
-
-      },
-      '&:before': {
-        borderBottom: "1px solid ".concat(bottomLineColor),
-        left: 0,
-        bottom: 0,
-        // Doing the other way around crash on IE 11 "''" https://github.com/cssinjs/jss/issues/242
-        content: '"\\00a0"',
-        position: 'absolute',
-        right: 0,
-        transition: theme.transitions.create('border-bottom-color', {
-          duration: theme.transitions.duration.shorter
-        }),
-        pointerEvents: 'none' // Transparent to the hover style.
-
-      },
-      '&:hover:not($disabled):before': {
-        borderBottom: "2px solid ".concat(theme.palette.text.primary),
-        // Reset on touch devices, it doesn't add specificity
-        '@media (hover: none)': {
-          borderBottom: "1px solid ".concat(bottomLineColor)
-        }
-      },
-      '&$disabled:before': {
-        borderBottomStyle: 'dotted'
-      }
-    },
-
-    /* Pseudo-class applied to the root element if `error={true}`. */
-    error: {},
-
-    /* Styles applied to the `input` element if `margin="dense"`. */
-    marginDense: {},
-
-    /* Styles applied to the root element if `multiline={true}`. */
-    multiline: {},
-
-    /* Styles applied to the root element if `fullWidth={true}`. */
-    fullWidth: {},
-
-    /* Styles applied to the `input` element. */
-    input: {},
-
-    /* Styles applied to the `input` element if `margin="dense"`. */
-    inputMarginDense: {},
-
-    /* Styles applied to the `input` element if `multiline={true}`. */
-    inputMultiline: {},
-
-    /* Styles applied to the `input` element if `type="search"`. */
-    inputTypeSearch: {}
-  };
-};
-var Input = /*#__PURE__*/react.forwardRef(function Input(props, ref) {
-  var disableUnderline = props.disableUnderline,
-      classes = props.classes,
-      _props$fullWidth = props.fullWidth,
-      fullWidth = _props$fullWidth === void 0 ? false : _props$fullWidth,
-      _props$inputComponent = props.inputComponent,
-      inputComponent = _props$inputComponent === void 0 ? 'input' : _props$inputComponent,
-      _props$multiline = props.multiline,
-      multiline = _props$multiline === void 0 ? false : _props$multiline,
-      _props$type = props.type,
-      type = _props$type === void 0 ? 'text' : _props$type,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["disableUnderline", "classes", "fullWidth", "inputComponent", "multiline", "type"]);
-
-  return /*#__PURE__*/react.createElement(InputBase_InputBase, (0,esm_extends/* default */.A)({
-    classes: (0,esm_extends/* default */.A)({}, classes, {
-      root: (0,clsx_m/* default */.A)(classes.root, !disableUnderline && classes.underline),
-      underline: null
-    }),
-    fullWidth: fullWidth,
-    inputComponent: inputComponent,
-    multiline: multiline,
-    ref: ref,
-    type: type
-  }, other));
-});
- false ? 0 : void 0;
-Input.muiName = 'Input';
-/* harmony default export */ const Input_Input = ((0,withStyles/* default */.A)(Input_styles, {
-  name: 'MuiInput'
-})(Input));
-;// ./node_modules/@material-ui/core/esm/NativeSelect/NativeSelectInput.js
-
-
-
-
-
-
-
-/**
- * @ignore - internal component.
- */
-
-var NativeSelectInput = /*#__PURE__*/react.forwardRef(function NativeSelectInput(props, ref) {
-  var classes = props.classes,
-      className = props.className,
-      disabled = props.disabled,
-      IconComponent = props.IconComponent,
-      inputRef = props.inputRef,
-      _props$variant = props.variant,
-      variant = _props$variant === void 0 ? 'standard' : _props$variant,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["classes", "className", "disabled", "IconComponent", "inputRef", "variant"]);
-
-  return /*#__PURE__*/react.createElement(react.Fragment, null, /*#__PURE__*/react.createElement("select", (0,esm_extends/* default */.A)({
-    className: (0,clsx_m/* default */.A)(classes.root, // TODO v5: merge root and select
-    classes.select, classes[variant], className, disabled && classes.disabled),
-    disabled: disabled,
-    ref: inputRef || ref
-  }, other)), props.multiple ? null : /*#__PURE__*/react.createElement(IconComponent, {
-    className: (0,clsx_m/* default */.A)(classes.icon, classes["icon".concat((0,esm_utils_capitalize/* default */.A)(variant))], disabled && classes.disabled)
-  }));
-});
- false ? 0 : void 0;
-/* harmony default export */ const NativeSelect_NativeSelectInput = (NativeSelectInput);
-;// ./node_modules/@material-ui/core/esm/NativeSelect/NativeSelect.js
-
-
-
-
-
-
-
-
-
-
-var NativeSelect_styles = function styles(theme) {
-  return {
-    /* Styles applied to the select component `root` class. */
-    root: {},
-
-    /* Styles applied to the select component `select` class. */
-    select: {
-      '-moz-appearance': 'none',
-      // Reset
-      '-webkit-appearance': 'none',
-      // Reset
-      // When interacting quickly, the text can end up selected.
-      // Native select can't be selected either.
-      userSelect: 'none',
-      borderRadius: 0,
-      // Reset
-      minWidth: 16,
-      // So it doesn't collapse.
-      cursor: 'pointer',
-      '&:focus': {
-        // Show that it's not an text input
-        backgroundColor: theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.05)' : 'rgba(255, 255, 255, 0.05)',
-        borderRadius: 0 // Reset Chrome style
-
-      },
-      // Remove IE 11 arrow
-      '&::-ms-expand': {
-        display: 'none'
-      },
-      '&$disabled': {
-        cursor: 'default'
-      },
-      '&[multiple]': {
-        height: 'auto'
-      },
-      '&:not([multiple]) option, &:not([multiple]) optgroup': {
-        backgroundColor: theme.palette.background.paper
-      },
-      '&&': {
-        paddingRight: 24
-      }
-    },
-
-    /* Styles applied to the select component if `variant="filled"`. */
-    filled: {
-      '&&': {
-        paddingRight: 32
-      }
-    },
-
-    /* Styles applied to the select component if `variant="outlined"`. */
-    outlined: {
-      borderRadius: theme.shape.borderRadius,
-      '&&': {
-        paddingRight: 32
-      }
-    },
-
-    /* Styles applied to the select component `selectMenu` class. */
-    selectMenu: {
-      height: 'auto',
-      // Resets for multpile select with chips
-      minHeight: '1.1876em',
-      // Required for select\text-field height consistency
-      textOverflow: 'ellipsis',
-      whiteSpace: 'nowrap',
-      overflow: 'hidden'
-    },
-
-    /* Pseudo-class applied to the select component `disabled` class. */
-    disabled: {},
-
-    /* Styles applied to the icon component. */
-    icon: {
-      // We use a position absolute over a flexbox in order to forward the pointer events
-      // to the input and to support wrapping tags..
-      position: 'absolute',
-      right: 0,
-      top: 'calc(50% - 12px)',
-      // Center vertically
-      pointerEvents: 'none',
-      // Don't block pointer events on the select under the icon.
-      color: theme.palette.action.active,
-      '&$disabled': {
-        color: theme.palette.action.disabled
-      }
-    },
-
-    /* Styles applied to the icon component if the popup is open. */
-    iconOpen: {
-      transform: 'rotate(180deg)'
-    },
-
-    /* Styles applied to the icon component if `variant="filled"`. */
-    iconFilled: {
-      right: 7
-    },
-
-    /* Styles applied to the icon component if `variant="outlined"`. */
-    iconOutlined: {
-      right: 7
-    },
-
-    /* Styles applied to the underlying native input component. */
-    nativeInput: {
-      bottom: 0,
-      left: 0,
-      position: 'absolute',
-      opacity: 0,
-      pointerEvents: 'none',
-      width: '100%'
-    }
-  };
-};
-var defaultInput = /*#__PURE__*/react.createElement(Input_Input, null);
-/**
- * An alternative to `<Select native />` with a much smaller bundle size footprint.
- */
-
-var NativeSelect = /*#__PURE__*/react.forwardRef(function NativeSelect(props, ref) {
-  var children = props.children,
-      classes = props.classes,
-      _props$IconComponent = props.IconComponent,
-      IconComponent = _props$IconComponent === void 0 ? ArrowDropDown : _props$IconComponent,
-      _props$input = props.input,
-      input = _props$input === void 0 ? defaultInput : _props$input,
-      inputProps = props.inputProps,
-      variant = props.variant,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["children", "classes", "IconComponent", "input", "inputProps", "variant"]);
-
-  var muiFormControl = useFormControl_useFormControl();
-  var fcs = formControlState({
-    props: props,
-    muiFormControl: muiFormControl,
-    states: ['variant']
-  });
-  return /*#__PURE__*/react.cloneElement(input, (0,esm_extends/* default */.A)({
-    // Most of the logic is implemented in `NativeSelectInput`.
-    // The `Select` component is a simple API wrapper to expose something better to play with.
-    inputComponent: NativeSelect_NativeSelectInput,
-    inputProps: (0,esm_extends/* default */.A)({
-      children: children,
-      classes: classes,
-      IconComponent: IconComponent,
-      variant: fcs.variant,
-      type: undefined
-    }, inputProps, input ? input.props.inputProps : {}),
-    ref: ref
-  }, other));
-});
- false ? 0 : void 0;
-NativeSelect.muiName = 'Select';
-/* harmony default export */ const NativeSelect_NativeSelect = ((0,withStyles/* default */.A)(NativeSelect_styles, {
-  name: 'MuiNativeSelect'
-})(NativeSelect));
-;// ./node_modules/@material-ui/core/esm/FilledInput/FilledInput.js
-
-
-
-
-
-
-
-
-var FilledInput_styles = function styles(theme) {
-  var light = theme.palette.type === 'light';
-  var bottomLineColor = light ? 'rgba(0, 0, 0, 0.42)' : 'rgba(255, 255, 255, 0.7)';
-  var backgroundColor = light ? 'rgba(0, 0, 0, 0.09)' : 'rgba(255, 255, 255, 0.09)';
-  return {
-    /* Styles applied to the root element. */
-    root: {
-      position: 'relative',
-      backgroundColor: backgroundColor,
-      borderTopLeftRadius: theme.shape.borderRadius,
-      borderTopRightRadius: theme.shape.borderRadius,
-      transition: theme.transitions.create('background-color', {
-        duration: theme.transitions.duration.shorter,
-        easing: theme.transitions.easing.easeOut
-      }),
-      '&:hover': {
-        backgroundColor: light ? 'rgba(0, 0, 0, 0.13)' : 'rgba(255, 255, 255, 0.13)',
-        // Reset on touch devices, it doesn't add specificity
-        '@media (hover: none)': {
-          backgroundColor: backgroundColor
-        }
-      },
-      '&$focused': {
-        backgroundColor: light ? 'rgba(0, 0, 0, 0.09)' : 'rgba(255, 255, 255, 0.09)'
-      },
-      '&$disabled': {
-        backgroundColor: light ? 'rgba(0, 0, 0, 0.12)' : 'rgba(255, 255, 255, 0.12)'
-      }
-    },
-
-    /* Styles applied to the root element if color secondary. */
-    colorSecondary: {
-      '&$underline:after': {
-        borderBottomColor: theme.palette.secondary.main
-      }
-    },
-
-    /* Styles applied to the root element if `disableUnderline={false}`. */
-    underline: {
-      '&:after': {
-        borderBottom: "2px solid ".concat(theme.palette.primary.main),
-        left: 0,
-        bottom: 0,
-        // Doing the other way around crash on IE 11 "''" https://github.com/cssinjs/jss/issues/242
-        content: '""',
-        position: 'absolute',
-        right: 0,
-        transform: 'scaleX(0)',
-        transition: theme.transitions.create('transform', {
-          duration: theme.transitions.duration.shorter,
-          easing: theme.transitions.easing.easeOut
-        }),
-        pointerEvents: 'none' // Transparent to the hover style.
-
-      },
-      '&$focused:after': {
-        transform: 'scaleX(1)'
-      },
-      '&$error:after': {
-        borderBottomColor: theme.palette.error.main,
-        transform: 'scaleX(1)' // error is always underlined in red
-
-      },
-      '&:before': {
-        borderBottom: "1px solid ".concat(bottomLineColor),
-        left: 0,
-        bottom: 0,
-        // Doing the other way around crash on IE 11 "''" https://github.com/cssinjs/jss/issues/242
-        content: '"\\00a0"',
-        position: 'absolute',
-        right: 0,
-        transition: theme.transitions.create('border-bottom-color', {
-          duration: theme.transitions.duration.shorter
-        }),
-        pointerEvents: 'none' // Transparent to the hover style.
-
-      },
-      '&:hover:before': {
-        borderBottom: "1px solid ".concat(theme.palette.text.primary)
-      },
-      '&$disabled:before': {
-        borderBottomStyle: 'dotted'
-      }
-    },
-
-    /* Pseudo-class applied to the root element if the component is focused. */
-    focused: {},
-
-    /* Pseudo-class applied to the root element if `disabled={true}`. */
-    disabled: {},
-
-    /* Styles applied to the root element if `startAdornment` is provided. */
-    adornedStart: {
-      paddingLeft: 12
-    },
-
-    /* Styles applied to the root element if `endAdornment` is provided. */
-    adornedEnd: {
-      paddingRight: 12
-    },
-
-    /* Pseudo-class applied to the root element if `error={true}`. */
-    error: {},
-
-    /* Styles applied to the `input` element if `margin="dense"`. */
-    marginDense: {},
-
-    /* Styles applied to the root element if `multiline={true}`. */
-    multiline: {
-      padding: '27px 12px 10px',
-      '&$marginDense': {
-        paddingTop: 23,
-        paddingBottom: 6
-      }
-    },
-
-    /* Styles applied to the `input` element. */
-    input: {
-      padding: '27px 12px 10px',
-      '&:-webkit-autofill': {
-        WebkitBoxShadow: theme.palette.type === 'light' ? null : '0 0 0 100px #266798 inset',
-        WebkitTextFillColor: theme.palette.type === 'light' ? null : '#fff',
-        caretColor: theme.palette.type === 'light' ? null : '#fff',
-        borderTopLeftRadius: 'inherit',
-        borderTopRightRadius: 'inherit'
-      }
-    },
-
-    /* Styles applied to the `input` element if `margin="dense"`. */
-    inputMarginDense: {
-      paddingTop: 23,
-      paddingBottom: 6
-    },
-
-    /* Styles applied to the `input` if in `<FormControl hiddenLabel />`. */
-    inputHiddenLabel: {
-      paddingTop: 18,
-      paddingBottom: 19,
-      '&$inputMarginDense': {
-        paddingTop: 10,
-        paddingBottom: 11
-      }
-    },
-
-    /* Styles applied to the `input` element if `multiline={true}`. */
-    inputMultiline: {
-      padding: 0
-    },
-
-    /* Styles applied to the `input` element if `startAdornment` is provided. */
-    inputAdornedStart: {
-      paddingLeft: 0
-    },
-
-    /* Styles applied to the `input` element if `endAdornment` is provided. */
-    inputAdornedEnd: {
-      paddingRight: 0
-    }
-  };
-};
-var FilledInput = /*#__PURE__*/react.forwardRef(function FilledInput(props, ref) {
-  var disableUnderline = props.disableUnderline,
-      classes = props.classes,
-      _props$fullWidth = props.fullWidth,
-      fullWidth = _props$fullWidth === void 0 ? false : _props$fullWidth,
-      _props$inputComponent = props.inputComponent,
-      inputComponent = _props$inputComponent === void 0 ? 'input' : _props$inputComponent,
-      _props$multiline = props.multiline,
-      multiline = _props$multiline === void 0 ? false : _props$multiline,
-      _props$type = props.type,
-      type = _props$type === void 0 ? 'text' : _props$type,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["disableUnderline", "classes", "fullWidth", "inputComponent", "multiline", "type"]);
-
-  return /*#__PURE__*/react.createElement(InputBase_InputBase, (0,esm_extends/* default */.A)({
-    classes: (0,esm_extends/* default */.A)({}, classes, {
-      root: (0,clsx_m/* default */.A)(classes.root, !disableUnderline && classes.underline),
-      underline: null
-    }),
-    fullWidth: fullWidth,
-    inputComponent: inputComponent,
-    multiline: multiline,
-    ref: ref,
-    type: type
-  }, other));
-});
- false ? 0 : void 0;
-FilledInput.muiName = 'Input';
-/* harmony default export */ const FilledInput_FilledInput = ((0,withStyles/* default */.A)(FilledInput_styles, {
-  name: 'MuiFilledInput'
-})(FilledInput));
-;// ./node_modules/@material-ui/core/esm/OutlinedInput/NotchedOutline.js
-
-
-
-
-
-
-
-
-
-var NotchedOutline_styles = function styles(theme) {
-  return {
-    /* Styles applied to the root element. */
-    root: {
-      position: 'absolute',
-      bottom: 0,
-      right: 0,
-      top: -5,
-      left: 0,
-      margin: 0,
-      padding: '0 8px',
-      pointerEvents: 'none',
-      borderRadius: 'inherit',
-      borderStyle: 'solid',
-      borderWidth: 1,
-      overflow: 'hidden'
-    },
-
-    /* Styles applied to the legend element when `labelWidth` is provided. */
-    legend: {
-      textAlign: 'left',
-      padding: 0,
-      lineHeight: '11px',
-      // sync with `height` in `legend` styles
-      transition: theme.transitions.create('width', {
-        duration: 150,
-        easing: theme.transitions.easing.easeOut
-      })
-    },
-
-    /* Styles applied to the legend element. */
-    legendLabelled: {
-      display: 'block',
-      width: 'auto',
-      textAlign: 'left',
-      padding: 0,
-      height: 11,
-      // sync with `lineHeight` in `legend` styles
-      fontSize: '0.75em',
-      visibility: 'hidden',
-      maxWidth: 0.01,
-      transition: theme.transitions.create('max-width', {
-        duration: 50,
-        easing: theme.transitions.easing.easeOut
-      }),
-      '& > span': {
-        paddingLeft: 5,
-        paddingRight: 5,
-        display: 'inline-block'
-      }
-    },
-
-    /* Styles applied to the legend element is notched. */
-    legendNotched: {
-      maxWidth: 1000,
-      transition: theme.transitions.create('max-width', {
-        duration: 100,
-        easing: theme.transitions.easing.easeOut,
-        delay: 50
-      })
-    }
-  };
-};
-/**
- * @ignore - internal component.
- */
-
-var NotchedOutline = /*#__PURE__*/react.forwardRef(function NotchedOutline(props, ref) {
-  var children = props.children,
-      classes = props.classes,
-      className = props.className,
-      label = props.label,
-      labelWidthProp = props.labelWidth,
-      notched = props.notched,
-      style = props.style,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["children", "classes", "className", "label", "labelWidth", "notched", "style"]);
-
-  var theme = useTheme_useTheme();
-  var align = theme.direction === 'rtl' ? 'right' : 'left';
-
-  if (label !== undefined) {
-    return /*#__PURE__*/react.createElement("fieldset", (0,esm_extends/* default */.A)({
-      "aria-hidden": true,
-      className: (0,clsx_m/* default */.A)(classes.root, className),
-      ref: ref,
-      style: style
-    }, other), /*#__PURE__*/react.createElement("legend", {
-      className: (0,clsx_m/* default */.A)(classes.legendLabelled, notched && classes.legendNotched)
-    }, label ? /*#__PURE__*/react.createElement("span", null, label) : /*#__PURE__*/react.createElement("span", {
-      dangerouslySetInnerHTML: {
-        __html: '&#8203;'
-      }
-    })));
-  }
-
-  var labelWidth = labelWidthProp > 0 ? labelWidthProp * 0.75 + 8 : 0.01;
-  return /*#__PURE__*/react.createElement("fieldset", (0,esm_extends/* default */.A)({
-    "aria-hidden": true,
-    style: (0,esm_extends/* default */.A)((0,defineProperty/* default */.A)({}, "padding".concat((0,esm_utils_capitalize/* default */.A)(align)), 8), style),
-    className: (0,clsx_m/* default */.A)(classes.root, className),
-    ref: ref
-  }, other), /*#__PURE__*/react.createElement("legend", {
-    className: classes.legend,
-    style: {
-      // IE 11: fieldset with legend does not render
-      // a border radius. This maintains consistency
-      // by always having a legend rendered
-      width: notched ? labelWidth : 0.01
-    }
-  }, /*#__PURE__*/react.createElement("span", {
-    dangerouslySetInnerHTML: {
-      __html: '&#8203;'
-    }
-  })));
-});
- false ? 0 : void 0;
-/* harmony default export */ const OutlinedInput_NotchedOutline = ((0,withStyles/* default */.A)(NotchedOutline_styles, {
-  name: 'PrivateNotchedOutline'
-})(NotchedOutline));
-;// ./node_modules/@material-ui/core/esm/OutlinedInput/OutlinedInput.js
-
-
-
-
-
-
-
-
-
-var OutlinedInput_styles = function styles(theme) {
-  var borderColor = theme.palette.type === 'light' ? 'rgba(0, 0, 0, 0.23)' : 'rgba(255, 255, 255, 0.23)';
-  return {
-    /* Styles applied to the root element. */
-    root: {
-      position: 'relative',
-      borderRadius: theme.shape.borderRadius,
-      '&:hover $notchedOutline': {
-        borderColor: theme.palette.text.primary
-      },
-      // Reset on touch devices, it doesn't add specificity
-      '@media (hover: none)': {
-        '&:hover $notchedOutline': {
-          borderColor: borderColor
-        }
-      },
-      '&$focused $notchedOutline': {
-        borderColor: theme.palette.primary.main,
-        borderWidth: 2
-      },
-      '&$error $notchedOutline': {
-        borderColor: theme.palette.error.main
-      },
-      '&$disabled $notchedOutline': {
-        borderColor: theme.palette.action.disabled
-      }
-    },
-
-    /* Styles applied to the root element if the color is secondary. */
-    colorSecondary: {
-      '&$focused $notchedOutline': {
-        borderColor: theme.palette.secondary.main
-      }
-    },
-
-    /* Styles applied to the root element if the component is focused. */
-    focused: {},
-
-    /* Styles applied to the root element if `disabled={true}`. */
-    disabled: {},
-
-    /* Styles applied to the root element if `startAdornment` is provided. */
-    adornedStart: {
-      paddingLeft: 14
-    },
-
-    /* Styles applied to the root element if `endAdornment` is provided. */
-    adornedEnd: {
-      paddingRight: 14
-    },
-
-    /* Pseudo-class applied to the root element if `error={true}`. */
-    error: {},
-
-    /* Styles applied to the `input` element if `margin="dense"`. */
-    marginDense: {},
-
-    /* Styles applied to the root element if `multiline={true}`. */
-    multiline: {
-      padding: '18.5px 14px',
-      '&$marginDense': {
-        paddingTop: 10.5,
-        paddingBottom: 10.5
-      }
-    },
-
-    /* Styles applied to the `NotchedOutline` element. */
-    notchedOutline: {
-      borderColor: borderColor
-    },
-
-    /* Styles applied to the `input` element. */
-    input: {
-      padding: '18.5px 14px',
-      '&:-webkit-autofill': {
-        WebkitBoxShadow: theme.palette.type === 'light' ? null : '0 0 0 100px #266798 inset',
-        WebkitTextFillColor: theme.palette.type === 'light' ? null : '#fff',
-        caretColor: theme.palette.type === 'light' ? null : '#fff',
-        borderRadius: 'inherit'
-      }
-    },
-
-    /* Styles applied to the `input` element if `margin="dense"`. */
-    inputMarginDense: {
-      paddingTop: 10.5,
-      paddingBottom: 10.5
-    },
-
-    /* Styles applied to the `input` element if `multiline={true}`. */
-    inputMultiline: {
-      padding: 0
-    },
-
-    /* Styles applied to the `input` element if `startAdornment` is provided. */
-    inputAdornedStart: {
-      paddingLeft: 0
-    },
-
-    /* Styles applied to the `input` element if `endAdornment` is provided. */
-    inputAdornedEnd: {
-      paddingRight: 0
-    }
-  };
-};
-var OutlinedInput = /*#__PURE__*/react.forwardRef(function OutlinedInput(props, ref) {
-  var classes = props.classes,
-      _props$fullWidth = props.fullWidth,
-      fullWidth = _props$fullWidth === void 0 ? false : _props$fullWidth,
-      _props$inputComponent = props.inputComponent,
-      inputComponent = _props$inputComponent === void 0 ? 'input' : _props$inputComponent,
-      label = props.label,
-      _props$labelWidth = props.labelWidth,
-      labelWidth = _props$labelWidth === void 0 ? 0 : _props$labelWidth,
-      _props$multiline = props.multiline,
-      multiline = _props$multiline === void 0 ? false : _props$multiline,
-      notched = props.notched,
-      _props$type = props.type,
-      type = _props$type === void 0 ? 'text' : _props$type,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["classes", "fullWidth", "inputComponent", "label", "labelWidth", "multiline", "notched", "type"]);
-
-  return /*#__PURE__*/react.createElement(InputBase_InputBase, (0,esm_extends/* default */.A)({
-    renderSuffix: function renderSuffix(state) {
-      return /*#__PURE__*/react.createElement(OutlinedInput_NotchedOutline, {
-        className: classes.notchedOutline,
-        label: label,
-        labelWidth: labelWidth,
-        notched: typeof notched !== 'undefined' ? notched : Boolean(state.startAdornment || state.filled || state.focused)
-      });
-    },
-    classes: (0,esm_extends/* default */.A)({}, classes, {
-      root: (0,clsx_m/* default */.A)(classes.root, classes.underline),
-      notchedOutline: null
-    }),
-    fullWidth: fullWidth,
-    inputComponent: inputComponent,
-    multiline: multiline,
-    ref: ref,
-    type: type
-  }, other));
-});
- false ? 0 : void 0;
-OutlinedInput.muiName = 'Input';
-/* harmony default export */ const OutlinedInput_OutlinedInput = ((0,withStyles/* default */.A)(OutlinedInput_styles, {
-  name: 'MuiOutlinedInput'
-})(OutlinedInput));
-;// ./node_modules/@material-ui/core/esm/Select/Select.js
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-var Select_styles = NativeSelect_styles;
-
-var _ref = /*#__PURE__*/react.createElement(Input_Input, null);
-
-var _ref2 = /*#__PURE__*/react.createElement(FilledInput_FilledInput, null);
-
-var Select = /*#__PURE__*/react.forwardRef(function Select(props, ref) {
-  var _props$autoWidth = props.autoWidth,
-      autoWidth = _props$autoWidth === void 0 ? false : _props$autoWidth,
-      children = props.children,
-      classes = props.classes,
-      _props$displayEmpty = props.displayEmpty,
-      displayEmpty = _props$displayEmpty === void 0 ? false : _props$displayEmpty,
-      _props$IconComponent = props.IconComponent,
-      IconComponent = _props$IconComponent === void 0 ? ArrowDropDown : _props$IconComponent,
-      id = props.id,
-      input = props.input,
-      inputProps = props.inputProps,
-      label = props.label,
-      labelId = props.labelId,
-      _props$labelWidth = props.labelWidth,
-      labelWidth = _props$labelWidth === void 0 ? 0 : _props$labelWidth,
-      MenuProps = props.MenuProps,
-      _props$multiple = props.multiple,
-      multiple = _props$multiple === void 0 ? false : _props$multiple,
-      _props$native = props.native,
-      native = _props$native === void 0 ? false : _props$native,
-      onClose = props.onClose,
-      onOpen = props.onOpen,
-      open = props.open,
-      renderValue = props.renderValue,
-      SelectDisplayProps = props.SelectDisplayProps,
-      _props$variant = props.variant,
-      variantProps = _props$variant === void 0 ? 'standard' : _props$variant,
-      other = (0,objectWithoutProperties/* default */.A)(props, ["autoWidth", "children", "classes", "displayEmpty", "IconComponent", "id", "input", "inputProps", "label", "labelId", "labelWidth", "MenuProps", "multiple", "native", "onClose", "onOpen", "open", "renderValue", "SelectDisplayProps", "variant"]);
-
-  var inputComponent = native ? NativeSelect_NativeSelectInput : Select_SelectInput;
-  var muiFormControl = useFormControl_useFormControl();
-  var fcs = formControlState({
-    props: props,
-    muiFormControl: muiFormControl,
-    states: ['variant']
-  });
-  var variant = fcs.variant || variantProps;
-  var InputComponent = input || {
-    standard: _ref,
-    outlined: /*#__PURE__*/react.createElement(OutlinedInput_OutlinedInput, {
-      label: label,
-      labelWidth: labelWidth
-    }),
-    filled: _ref2
-  }[variant];
-  return /*#__PURE__*/react.cloneElement(InputComponent, (0,esm_extends/* default */.A)({
-    // Most of the logic is implemented in `SelectInput`.
-    // The `Select` component is a simple API wrapper to expose something better to play with.
-    inputComponent: inputComponent,
-    inputProps: (0,esm_extends/* default */.A)({
-      children: children,
-      IconComponent: IconComponent,
-      variant: variant,
-      type: undefined,
-      // We render a select. We can ignore the type provided by the `Input`.
-      multiple: multiple
-    }, native ? {
-      id: id
-    } : {
-      autoWidth: autoWidth,
-      displayEmpty: displayEmpty,
-      labelId: labelId,
-      MenuProps: MenuProps,
-      onClose: onClose,
-      onOpen: onOpen,
-      open: open,
-      renderValue: renderValue,
-      SelectDisplayProps: (0,esm_extends/* default */.A)({
-        id: id
-      }, SelectDisplayProps)
-    }, inputProps, {
-      classes: inputProps ? (0,mergeClasses/* default */.A)({
-        baseClasses: classes,
-        newClasses: inputProps.classes,
-        Component: Select
-      }) : classes
-    }, input ? input.props.inputProps : {}),
-    ref: ref
-  }, other));
-});
- false ? 0 : void 0;
-Select.muiName = 'Select';
-/* harmony default export */ const Select_Select = ((0,withStyles/* default */.A)(Select_styles, {
-  name: 'MuiSelect'
-})(Select));
 ;// ./node_modules/@material-ui/core/esm/ListItem/ListItem.js
 
 
@@ -34858,12 +37153,6 @@ var MenuItem = /*#__PURE__*/react.forwardRef(function MenuItem(props, ref) {
 /* harmony default export */ const MenuItem_MenuItem = ((0,withStyles/* default */.A)(MenuItem_styles, {
   name: 'MuiMenuItem'
 })(MenuItem));
-;// ./node_modules/@material-ui/icons/esm/AddCircleOutline.js
-
-
-/* harmony default export */ const AddCircleOutline = ((0,createSvgIcon/* default */.A)( /*#__PURE__*/react.createElement("path", {
-  d: "M13 7h-2v4H7v2h4v4h2v-4h4v-2h-4V7zm-1-5C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-4.41 0-8-3.59-8-8s3.59-8 8-8 8 3.59 8 8-3.59 8-8 8z"
-}), 'AddCircleOutline'));
 ;// ./src/components/CatSprite.js
 
 
@@ -35238,14 +37527,13 @@ function MidArea() {
   const blocksList = useSelector(state => state.spriteUseCase.midAreaBlocks);
   const waitList = useSelector(state => state.spriteUseCase.wait);
   const repeatList = useSelector(state => state.spriteUseCase.repeat);
-  const addANewRunnableBlockContainer = () => {
-    dispatch(addANewBlock({
-      pos: {
-        top: "0",
-        left: "-100"
-      }
-    }));
-  };
+  const [running, setRunning] = (0,react.useState)([]);
+  const [openDialog, setOpenDialog] = (0,react.useState)(false);
+  const [newBlockName, setNewBlockName] = (0,react.useState)('');
+  const [runWithoutRefresh, setRunWithoutRefresh] = (0,react.useState)(false);
+  const [errorSnackbar, setErrorSnackbar] = (0,react.useState)(false);
+
+  // Existing functions (keep these as they are)
   const fireEvent = (element, eventType) => {
     if (element && element.fireEvent) {
       element.fireEvent('on' + eventType);
@@ -35255,8 +37543,6 @@ function MidArea() {
       element.dispatchEvent(evObj);
     }
   };
-
-  // Handle Running the list
   const handleBlockRun = (arr, id) => {
     if (arr.length === 0) return;
     let i = 0;
@@ -35315,7 +37601,6 @@ function MidArea() {
     }, 2000);
     // }
   };
-  const [running, setRunning] = (0,react.useState)([]);
   const handleCollisionChecker = spriteId => {
     setRunning(prev => [...prev, spriteId]);
     setInterval(() => {
@@ -35341,6 +37626,44 @@ function MidArea() {
       handleMoveClick("sprite1", 100);
     }, 3000);
   };
+
+  // Dialog functions
+  const handleOpenDialog = () => {
+    setOpenDialog(true);
+    setNewBlockName('');
+    setRunWithoutRefresh(false);
+  };
+  const handleCloseDialog = () => {
+    setOpenDialog(false);
+  };
+  const handleNewBlockNameChange = e => {
+    setNewBlockName(e.target.value);
+  };
+  const handleAddNewBlock = () => {
+    if (!newBlockName.trim()) {
+      setErrorSnackbar(true);
+      return;
+    }
+    const nextSpriteNumber = blocksList.length;
+    dispatch(addANewBlock({
+      spriteName: newBlockName,
+      spriteId: `sprite${nextSpriteNumber}`,
+      runWithoutRefresh,
+      isCustomBlock: true
+    }));
+    handleCloseDialog();
+  };
+  const handleCloseErrorSnackbar = (event, reason) => {
+    if (reason === 'clickaway') {
+      return;
+    }
+    setErrorSnackbar(false);
+  };
+  (0,react.useEffect)(() => {
+    // Load custom blocks from localStorage
+    const customBlocks = JSON.parse(localStorage.getItem('customBlocks') || '[]');
+    customBlocks.forEach(block => dispatch(addANewBlock(block)));
+  }, [dispatch]);
   return /*#__PURE__*/react.createElement("div", {
     className: "flex-1 h-full overflow-auto p-5"
   }, /*#__PURE__*/react.createElement(CollisionHandler, {
@@ -35354,49 +37677,159 @@ function MidArea() {
     variant: "outlined",
     color: "primary",
     onClick: simulateCollision,
-    className: "bg-red-600 text-white py-2 px-4 rounded-lg shadow-md hover:bg-blue-500 transition duration-300 ease-in-out"
-  }, "Collide"))), /*#__PURE__*/react.createElement("div", {
+    className: "mr-2"
+  }, "COLLIDE"), /*#__PURE__*/react.createElement(Button_Button, {
+    variant: "outlined",
+    color: "secondary",
+    startIcon: /*#__PURE__*/react.createElement(AddCircleOutline, null),
+    onClick: handleOpenDialog
+  }, "MAKE A BLOCK"))), /*#__PURE__*/react.createElement("div", {
     className: "flex flex-wrap gap-2.5"
-  }, blocksList?.map((block, index) => {
-    return /*#__PURE__*/react.createElement("div", {
-      className: "w-60",
-      key: block.id
-    }, /*#__PURE__*/react.createElement(esm_Paper_Paper, {
-      elevation: 3,
-      className: "p-4"
-    }, /*#__PURE__*/react.createElement("div", {
-      className: "w-52 border border-2 border-gray-300 p-2"
-    }, /*#__PURE__*/react.createElement("h2", {
-      className: "text-center"
-    }, index === 0 ? 'Sprite 0' : block.spriteName), /*#__PURE__*/react.createElement(ConnectedDroppable, {
-      droppableId: block.id,
-      type: "COMPONENTS"
-    }, provided => {
-      return /*#__PURE__*/react.createElement("ul", MidArea_extends({
-        className: `${block.id} w-48 h-full`
-      }, provided.droppableProps, {
-        ref: provided.innerRef
-      }), /*#__PURE__*/react.createElement("div", {
-        className: "text-center mx-auto my-2 mb-4"
-      }, /*#__PURE__*/react.createElement(Button_Button, {
-        variant: "contained",
-        startIcon: /*#__PURE__*/react.createElement(PlayArrowOutlined, null),
-        onClick: () => {
-          handleBlockRun(block.elements, block.id);
-          handleCollisionChecker(block.spriteId);
-        }
-      }, "Run")), block.elements && block.elements.map((x, i) => {
-        let str = `${x}`;
-        let componentId = `element${str}-${block.id}-${i}`;
-        return /*#__PURE__*/react.createElement(PublicDraggable, {
-          key: `${str}-${block.id}-${i}`,
-          draggableId: `${str}-${block.id}-${i}`,
-          index: i
-        }, provided => /*#__PURE__*/react.createElement("li", MidArea_extends({
-          ref: provided.innerRef
-        }, provided.draggableProps, provided.dragHandleProps), renderSideBarComponentBasedOnType(str, componentId, block.spriteId), provided.placeholder));
-      }), provided.placeholder);
-    }))));
+  }, blocksList?.map((block, index) => /*#__PURE__*/react.createElement("div", {
+    className: "w-60",
+    key: block.id
+  }, /*#__PURE__*/react.createElement(esm_Paper_Paper, {
+    elevation: 3,
+    className: "p-4"
+  }, /*#__PURE__*/react.createElement("div", {
+    className: "w-52 border border-2 border-gray-300 p-2"
+  }, /*#__PURE__*/react.createElement("h2", {
+    className: "text-center"
+  }, block.isCustomBlock ? block.spriteName : `Sprite ${index}`), /*#__PURE__*/react.createElement(ConnectedDroppable, {
+    droppableId: block.id,
+    type: "COMPONENTS"
+  }, provided => /*#__PURE__*/react.createElement("ul", MidArea_extends({
+    className: `${block.id} w-48 h-full`
+  }, provided.droppableProps, {
+    ref: provided.innerRef
+  }), /*#__PURE__*/react.createElement("div", {
+    className: "text-center mx-auto my-2 mb-4"
+  }, /*#__PURE__*/react.createElement(Button_Button, {
+    variant: "contained",
+    startIcon: /*#__PURE__*/react.createElement(PlayArrowOutlined, null),
+    onClick: () => {
+      handleBlockRun(block.elements, block.id);
+      handleCollisionChecker(block.spriteId);
+    }
+  }, "Run")), block.elements && block.elements.map((x, i) => {
+    let str = `${x}`;
+    let componentId = `element${str}-${block.id}-${i}`;
+    return /*#__PURE__*/react.createElement(PublicDraggable, {
+      key: `${str}-${block.id}-${i}`,
+      draggableId: `${str}-${block.id}-${i}`,
+      index: i
+    }, provided => /*#__PURE__*/react.createElement("li", MidArea_extends({
+      ref: provided.innerRef
+    }, provided.draggableProps, provided.dragHandleProps), renderSideBarComponentBasedOnType(str, componentId, block.spriteId), provided.placeholder));
+  }), provided.placeholder))))))), /*#__PURE__*/react.createElement(Dialog_Dialog, {
+    open: openDialog,
+    onClose: handleCloseDialog,
+    maxWidth: "sm",
+    fullWidth: true
+  }, /*#__PURE__*/react.createElement(DialogTitle_DialogTitle, {
+    style: {
+      backgroundColor: '#9c27b0',
+      color: 'white',
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center'
+    }
+  }, "Make a Block", /*#__PURE__*/react.createElement(IconButton_IconButton, {
+    edge: "end",
+    color: "inherit",
+    onClick: handleCloseDialog,
+    "aria-label": "close"
+  }, /*#__PURE__*/react.createElement(Close, null))), /*#__PURE__*/react.createElement(DialogContent_DialogContent, {
+    style: {
+      backgroundColor: '#e3f2fd',
+      paddingTop: '20px'
+    }
+  }, /*#__PURE__*/react.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'center',
+      marginBottom: '20px'
+    }
+  }, /*#__PURE__*/react.createElement(esm_Paper_Paper, {
+    style: {
+      padding: '5px 15px',
+      backgroundColor: 'white',
+      borderRadius: '20px',
+      border: '2px solid #ff4081'
+    }
+  }, /*#__PURE__*/react.createElement(TextField_TextField, {
+    value: newBlockName,
+    onChange: handleNewBlockNameChange,
+    placeholder: "my Block",
+    InputProps: {
+      disableUnderline: true,
+      style: {
+        color: 'black'
+      }
+    }
+  }))), /*#__PURE__*/react.createElement("div", {
+    style: {
+      display: 'flex',
+      justifyContent: 'center',
+      gap: '10px',
+      marginBottom: '20px'
+    }
+  }, /*#__PURE__*/react.createElement(Button_Button, {
+    variant: "contained",
+    style: {
+      backgroundColor: '#ff4081',
+      color: 'white'
+    }
+  }, "Add an input", /*#__PURE__*/react.createElement("br", null), "number or text"), /*#__PURE__*/react.createElement(Button_Button, {
+    variant: "contained",
+    style: {
+      backgroundColor: '#ff4081',
+      color: 'white'
+    }
+  }, "Add an input", /*#__PURE__*/react.createElement("br", null), "boolean"), /*#__PURE__*/react.createElement(Button_Button, {
+    variant: "contained",
+    style: {
+      backgroundColor: '#ff4081',
+      color: 'white'
+    }
+  }, "Add a label")), /*#__PURE__*/react.createElement(FormControlLabel_FormControlLabel, {
+    control: /*#__PURE__*/react.createElement(Checkbox_Checkbox, {
+      checked: runWithoutRefresh,
+      onChange: e => setRunWithoutRefresh(e.target.checked),
+      color: "primary"
+    }),
+    label: "Run without screen refresh"
+  })), /*#__PURE__*/react.createElement(DialogActions_DialogActions, {
+    style: {
+      backgroundColor: '#e3f2fd',
+      justifyContent: 'flex-end',
+      padding: '16px'
+    }
+  }, /*#__PURE__*/react.createElement(Button_Button, {
+    onClick: handleCloseDialog,
+    style: {
+      color: '#9c27b0'
+    }
+  }, "Cancel"), /*#__PURE__*/react.createElement(Button_Button, {
+    onClick: handleAddNewBlock,
+    style: {
+      backgroundColor: '#9c27b0',
+      color: 'white'
+    },
+    disabled: !newBlockName.trim()
+  }, "OK"))), /*#__PURE__*/react.createElement(Snackbar_Snackbar, {
+    anchorOrigin: {
+      vertical: 'bottom',
+      horizontal: 'left'
+    },
+    open: errorSnackbar,
+    autoHideDuration: 6000,
+    onClose: handleCloseErrorSnackbar
+  }, /*#__PURE__*/react.createElement(SnackbarContent_SnackbarContent, {
+    style: {
+      backgroundColor: '#d32f2f'
+    },
+    message: "Please enter a name for the block."
   })));
 }
 ;// ./src/constants/constant.js

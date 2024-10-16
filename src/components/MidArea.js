@@ -1,11 +1,12 @@
-import { Button, Paper, Snackbar, SnackbarContent, Dialog, DialogTitle, DialogContent, DialogActions, TextField, FormControlLabel, Checkbox, IconButton } from '@material-ui/core';
-import { AddCircleOutline, PlayArrowOutlined, Close } from '@material-ui/icons';
+import { Button, Paper, Snackbar, SnackbarContent, Dialog, DialogTitle, DialogContent, DialogActions, TextField, FormControlLabel, Checkbox, IconButton, Select, MenuItem , Tooltip, ColorLens, Chip } from '@material-ui/core';
+import { AddCircleOutline, PlayArrowOutlined, Close, DragIndicator, Delete, TextFields, CheckBox, Label } from '@material-ui/icons';
 import React, { useState, useEffect } from 'react';
-import { Draggable, Droppable } from 'react-beautiful-dnd';
+import {DragDropContext,Draggable, Droppable } from 'react-beautiful-dnd';
 import { useDispatch, useSelector } from 'react-redux';
 import { renderSideBarComponentBasedOnType } from '../helpers/index.helper';
 import { addANewBlock, updateBlockList } from '../redux/sprites.slice';
 import { CollisionHandler } from '../helpers/collision-handler';
+import { ChromePicker } from 'react-color';
 
 export default function MidArea() {
   const dispatch = useDispatch();
@@ -19,6 +20,9 @@ export default function MidArea() {
   const [newBlockName, setNewBlockName] = useState('');
   const [runWithoutRefresh, setRunWithoutRefresh] = useState(false);
   const [errorSnackbar, setErrorSnackbar] = useState(false);
+  const [inputType, setInputType] = useState('');
+  const [inputLabel, setInputLabel] = useState('');
+  const [customBlockInputs, setCustomBlockInputs] = useState([]);
 
   // Existing functions (keep these as they are)
   const fireEvent = (element, eventType) => {
@@ -140,19 +144,48 @@ export default function MidArea() {
     setNewBlockName(e.target.value);
   };
 
+  const handleAddInput = (type) => {
+    setCustomBlockInputs([...customBlockInputs, { type, value: '' }]);
+  };
+
+  const handleInputChange = (index, value) => {
+    const newInputs = [...customBlockInputs];
+    newInputs[index].value = value;
+    setCustomBlockInputs(newInputs);
+  };
+
+  const handleAddLabel = () => {
+    if (inputLabel.trim()) {
+      dispatch(addANewBlock({
+        spriteName: newBlockName,
+        spriteId: `sprite${blocksList.length}`,
+        runWithoutRefresh,
+        isCustomBlock: true,
+        inputType: 'label',
+        inputLabel: inputLabel
+      }));
+      setInputLabel('');
+    }
+  };
+
+  const handleInputLabelChange = (e) => {
+    setInputLabel(e.target.value);
+  };
+
   const handleAddNewBlock = () => {
     if (!newBlockName.trim()) {
       setErrorSnackbar(true);
       return;
     }
-    const nextSpriteNumber = blocksList.length;
     dispatch(addANewBlock({
       spriteName: newBlockName,
-      spriteId: `sprite${nextSpriteNumber}`,
+      spriteId: `sprite${blocksList.length}`,
       runWithoutRefresh,
-      isCustomBlock: true
+      isCustomBlock: true,
+      inputs: customBlockInputs
     }));
     handleCloseDialog();
+    setCustomBlockInputs([]);
   };
 
   const handleCloseErrorSnackbar = (event, reason) => {
@@ -167,6 +200,19 @@ export default function MidArea() {
     const customBlocks = JSON.parse(localStorage.getItem('customBlocks') || '[]');
     customBlocks.forEach(block => dispatch(addANewBlock(block)));
   }, [dispatch]);
+
+  const handleDragEnd = (result) => {
+    if (!result.destination) return;
+    const items = Array.from(customBlockInputs);
+    const [reorderedItem] = items.splice(result.source.index, 1);
+    items.splice(result.destination.index, 0, reorderedItem);
+    setCustomBlockInputs(items);
+  };
+
+  const removeInput = (index) => {
+    const newInputs = customBlockInputs.filter((_, i) => i !== index);
+    setCustomBlockInputs(newInputs);
+  };
 
   return (
     <div className='flex-1 h-full overflow-auto p-5'>
@@ -259,69 +305,112 @@ export default function MidArea() {
       </div>
 
       {/* Make A Block Dialog */}
-      <Dialog open={openDialog} onClose={handleCloseDialog} maxWidth="sm" fullWidth>
-        <DialogTitle style={{ backgroundColor: '#9c27b0', color: 'white', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-          Make a Block
-          <IconButton edge="end" color="inherit" onClick={handleCloseDialog} aria-label="close">
-            <Close />
-          </IconButton>
-        </DialogTitle>
-        <DialogContent style={{ backgroundColor: '#e3f2fd', paddingTop: '20px' }}>
-          <div style={{ display: 'flex', justifyContent: 'center', marginBottom: '20px' }}>
-            <Paper 
-              style={{ 
-                padding: '5px 15px', 
-                backgroundColor: 'white', 
-                borderRadius: '20px',
-                border: '2px solid #ff4081'
-              }}
+      <React.Fragment>
+        <Dialog open={openDialog} onClose={handleCloseDialog} maxWidth="sm" fullWidth>
+          <DialogTitle style={{ backgroundColor: '#ff9800', color: 'white', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            Make a Block
+            <IconButton edge="end" color="inherit" onClick={handleCloseDialog} aria-label="close">
+              <Close />
+            </IconButton>
+          </DialogTitle>
+          <DialogContent style={{ backgroundColor: '#f5f5f5', paddingTop: '20px' }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '20px' }}>
+              <Paper style={{ padding: '5px 15px', flex: 1, marginRight: '10px' }}>
+                <TextField
+                  fullWidth
+                  value={newBlockName}
+                  onChange={handleNewBlockNameChange}
+                  placeholder="Enter block name"
+                  variant="outlined"
+                />
+              </Paper>
+            </div>
+            
+            <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '20px' }}>
+              <Tooltip title="Add number or text input">
+                <Button 
+                  variant="contained" 
+                  style={{ backgroundColor: '#2196f3', color: 'white' }}
+                  onClick={() => handleAddInput('number/text')}
+                  startIcon={<TextFields />}
+                >
+                  Add Input
+                </Button>
+              </Tooltip>
+              <Tooltip title="Add boolean input">
+                <Button 
+                  variant="contained" 
+                  style={{ backgroundColor: '#4caf50', color: 'white' }}
+                  onClick={() => handleAddInput('boolean')}
+                  startIcon={<CheckBox />}
+                >
+                  Add Boolean
+                </Button>
+              </Tooltip>
+              <Tooltip title="Add label">
+                <Button 
+                  variant="contained" 
+                  style={{ backgroundColor: '#ff9800', color: 'white' }}
+                  onClick={() => handleAddInput('label')}
+                  startIcon={<Label />}
+                >
+                  Add Label
+                </Button>
+              </Tooltip>
+            </div>
+
+            <DragDropContext onDragEnd={handleDragEnd}>
+              <Droppable droppableId="inputs">
+                {(provided) => (
+                  <div {...provided.droppableProps} ref={provided.innerRef}>
+                    {customBlockInputs.map((input, index) => (
+                      <Draggable key={index} draggableId={`input-${index}`} index={index}>
+                        {(provided) => (
+                          <div
+                            ref={provided.innerRef}
+                            {...provided.draggableProps}
+                            {...provided.dragHandleProps}
+                          >
+                            <Chip
+                              label={input.value || input.type}
+                              onDelete={() => removeInput(index)}
+                              style={{ marginRight: 8, marginBottom: 8 }}
+                            />
+                          </div>
+                        )}
+                      </Draggable>
+                    ))}
+                    {provided.placeholder}
+                  </div>
+                )}
+              </Droppable>
+            </DragDropContext>
+
+            <FormControlLabel
+              control={
+                <Checkbox
+                  checked={runWithoutRefresh}
+                  onChange={(e) => setRunWithoutRefresh(e.target.checked)}
+                  color="primary"
+                />
+              }
+              label="Run without screen refresh"
+            />
+          </DialogContent>
+          <DialogActions style={{ backgroundColor: '#f5f5f5', justifyContent: 'flex-end', padding: '16px' }}>
+            <Button onClick={handleCloseDialog} style={{ color: '#9e9e9e' }}>
+              Cancel
+            </Button>
+            <Button 
+              onClick={handleAddNewBlock} 
+              style={{ backgroundColor: '#ff4081', color: 'white' }}  // Use a default color or remove the backgroundColor property
+              disabled={!newBlockName.trim() || customBlockInputs.length === 0}
             >
-              <TextField
-                value={newBlockName}
-                onChange={handleNewBlockNameChange}
-                placeholder="my Block"
-                InputProps={{
-                  disableUnderline: true,
-                  style: { color: 'black' }
-                }}
-              />
-            </Paper>
-          </div>
-          <div style={{ display: 'flex', justifyContent: 'center', gap: '10px', marginBottom: '20px' }}>
-            <Button variant="contained" style={{ backgroundColor: '#ff4081', color: 'white' }}>
-              Add an input<br />number or text
+              Create Block
             </Button>
-            <Button variant="contained" style={{ backgroundColor: '#ff4081', color: 'white' }}>
-              Add an input<br />boolean
-            </Button>
-            <Button variant="contained" style={{ backgroundColor: '#ff4081', color: 'white' }}>
-              Add a label
-            </Button>
-          </div>
-          <FormControlLabel
-            control={
-              <Checkbox
-                checked={runWithoutRefresh}
-                onChange={(e) => setRunWithoutRefresh(e.target.checked)}
-                color="primary"
-              />
-            }
-            label="Run without screen refresh"
-          />
-        </DialogContent>
-        <DialogActions style={{ backgroundColor: '#e3f2fd', justifyContent: 'flex-end', padding: '16px' }}>
-          <Button onClick={handleCloseDialog} style={{ color: '#9c27b0' }}>
-            Cancel
-          </Button>
-          <Button 
-            onClick={handleAddNewBlock} 
-            style={{ backgroundColor: '#9c27b0', color: 'white' }}
-            disabled={!newBlockName.trim()}
-          >
-            OK
-          </Button>
-        </DialogActions>
-      </Dialog>
+          </DialogActions>
+        </Dialog>
+      </React.Fragment>
 
       {/* Error Snackbar */}
       <Snackbar
@@ -342,4 +431,42 @@ export default function MidArea() {
       </Snackbar>
     </div>
   );
+}
+
+function renderInputField(input, index) {
+  switch (input.type) {
+    case 'label':
+      return (
+        <TextField
+          fullWidth
+          value={input.value}
+          onChange={(e) => handleInputChange(index, e.target.value)}
+          placeholder="Enter label text"
+          variant="outlined"
+        />
+      );
+    case 'boolean':
+      return (
+        <Select
+          fullWidth
+          value={input.value}
+          onChange={(e) => handleInputChange(index, e.target.value)}
+          variant="outlined"
+        >
+          <MenuItem value="true">True</MenuItem>
+          <MenuItem value="false">False</MenuItem>
+        </Select>
+      );
+    default:
+      return (
+        <TextField
+          fullWidth
+          type="text"
+          value={input.value}
+          onChange={(e) => handleInputChange(index, e.target.value)}
+          placeholder="Enter number or text"
+          variant="outlined"
+        />
+      );
+  }
 }
